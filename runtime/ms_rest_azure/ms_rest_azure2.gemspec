@@ -14,7 +14,7 @@ Gem::Specification.new do |spec|
 
   spec.summary       = %q{Azure Client Library for Ruby.}
   spec.description   = %q{Azure Client Library for Ruby.}
-  spec.homepage      = 'https://github.com/chef/azure-sdk-for-ruby'
+  spec.homepage      = 'https://github.com/chef/azure-sdk-for-ruby/tree/master/runtime/ms_rest_azure'
   spec.license       = 'MIT'
   spec.metadata      = {
     'bug_tracker_uri' => 'https://github.com/chef/azure-sdk-for-ruby/issues',
