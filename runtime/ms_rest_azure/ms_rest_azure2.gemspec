@@ -7,21 +7,21 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require 'ms_rest_azure/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = 'ms_rest_azure'
+  spec.name          = 'ms_rest_azure2'
   spec.version       = MsRestAzure::VERSION
   spec.authors       = 'Microsoft Corporation'
   spec.email         = 'azsdkteam@microsoft.com'
 
   spec.summary       = %q{Azure Client Library for Ruby.}
   spec.description   = %q{Azure Client Library for Ruby.}
-  spec.homepage      = 'https://aka.ms/ms_rest_azure'
+  spec.homepage      = 'https://github.com/chef/azure-sdk-for-ruby'
   spec.license       = 'MIT'
   spec.metadata      = {
-    'bug_tracker_uri' => 'https://github.com/Azure/azure-sdk-for-ruby/issues',
-    'changelog_uri' => 'https://github.com/Azure/azure-sdk-for-ruby/blob/master/runtime/ms_rest_azure/CHANGELOG.md',
+    'bug_tracker_uri' => 'https://github.com/chef/azure-sdk-for-ruby/issues',
+    'changelog_uri' => 'https://github.com/chef/azure-sdk-for-ruby/blob/master/runtime/ms_rest_azure/CHANGELOG.md',
     'documentation_uri' => 'https://azure.microsoft.com/en-us/develop/ruby/',
-    'homepage_uri' => 'https://aka.ms/azure-sdk-for-ruby',
-    'source_code_uri' => "https://github.com/Azure/azure-sdk-for-ruby/tree/ms_rest_azure-v#{MsRestAzure::VERSION}"
+    'homepage_uri' => 'https://github.com/chef/azure-sdk-for-ruby',
+    'source_code_uri' => "https://github.com/chef/azure-sdk-for-ruby/tree/ms_rest_azure-v#{MsRestAzure::VERSION}"
   }
 
   spec.files         = Dir["CHANGELOG.md", "README.md", "LICENSE.txt", "lib/**/*"]

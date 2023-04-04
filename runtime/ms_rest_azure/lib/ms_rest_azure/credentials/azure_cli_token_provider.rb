@@ -84,7 +84,7 @@ module MsRestAzure
     #
     # @return [String] The access token to the desired resource
     def acquire_token()
-      response_body = JSON.load(`#{cli_path} account get-access-token -o json --resource #{@settings.token_audience}`)
+      response_body = JSON.load(`'#{cli_path}' account get-access-token -o json --resource #{@settings.token_audience}`)
       
       @token_expires_on = Time.parse(response_body['expiresOn'])
       @token_type = response_body['tokenType']

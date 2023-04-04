@@ -6,6 +6,8 @@ Microsoft no longer provides official support for the Azure Resource Management 
 In order to maintain support for the [test-kitchen/kitchen-azurerm](https://github.com/test-kitchen/kitchen-azurerm) plugin, we have forked this project and released version 2 of the following gems:
 * azure_mgmt_network
 * azure_mgmt_resources
+* ms_rest
+* ms_rest_azure
 
 ## Overview
 
