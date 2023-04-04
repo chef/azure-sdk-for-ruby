@@ -15,14 +15,14 @@ Gem::Specification.new do |spec|
   spec.email         = 'azrubyteam@microsoft.com'
   spec.description   = 'Microsoft Azure Network Management Client Library for Ruby'
   spec.summary       = 'Official Ruby client library to consume Microsoft Azure Network Management services.'
-  spec.homepage      = 'https://github.com/test-kitchen/azure-sdk-for-ruby'
+  spec.homepage      = 'https://github.com/chef/azure-sdk-for-ruby'
   spec.license       = 'MIT'
   spec.metadata      = {
-    'bug_tracker_uri' => 'https://github.com/test-kitchen/azure-sdk-for-ruby/issues',
-    'changelog_uri' => 'https://github.com/test-kitchen/azure-sdk-for-ruby/blob/master/ChangeLog.md',
+    'bug_tracker_uri' => 'https://github.com/chef/azure-sdk-for-ruby/issues',
+    'changelog_uri' => 'https://github.com/chef/azure-sdk-for-ruby/blob/master/ChangeLog.md',
     'documentation_uri' => 'https://azure.microsoft.com/en-us/develop/ruby/',
-    'homepage_uri' => 'https://github.com/test-kitchen/azure-sdk-for-ruby',
-    'source_code_uri' => 'https://github.com/test-kitchen/azure-sdk-for-ruby/tree/master/management/azure_mgmt_network'
+    'homepage_uri' => 'https://github.com/chef/azure-sdk-for-ruby',
+    'source_code_uri' => 'https://github.com/chef/azure-sdk-for-ruby/tree/master/management/azure_mgmt_network'
   }
 
   spec.files         = Dir["LICENSE.txt", "lib/**/*"]
