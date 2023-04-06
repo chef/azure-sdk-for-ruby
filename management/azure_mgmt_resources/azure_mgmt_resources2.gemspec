@@ -9,20 +9,20 @@ require '../azure_mgmt_resources/lib/module_definition'
 require '../azure_mgmt_resources/lib/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = 'azure_mgmt_resources'
+  spec.name          = 'azure_mgmt_resources2'
   spec.version       =  Azure::Resources::Mgmt::VERSION
   spec.authors       = 'Microsoft Corporation'
   spec.email         = 'azrubyteam@microsoft.com'
   spec.description   = 'Microsoft Azure Resource Management Client Library for Ruby'
   spec.summary       = 'Official ruby client library to consume Microsoft Azure Resource Management services.'
-  spec.homepage      = 'https://aka.ms/azure-sdk-for-ruby'
+  spec.homepage      = 'https://github.com/chef/azure-sdk-for-ruby'
   spec.license       = 'MIT'
   spec.metadata      = {
-    'bug_tracker_uri' => 'https://github.com/Azure/azure-sdk-for-ruby/issues',
-    'changelog_uri' => 'https://github.com/Azure/azure-sdk-for-ruby/blob/master/ChangeLog.md',
+    'bug_tracker_uri' => 'https://github.com/chef/azure-sdk-for-ruby/issues',
+    'changelog_uri' => 'https://github.com/chef/azure-sdk-for-ruby/blob/master/ChangeLog.md',
     'documentation_uri' => 'https://azure.microsoft.com/en-us/develop/ruby/',
-    'homepage_uri' => 'https://aka.ms/azure-sdk-for-ruby',
-    'source_code_uri' => 'https://github.com/Azure/azure-sdk-for-ruby/tree/master/management/azure_mgmt_resources'
+    'homepage_uri' => 'https://github.com/chef/azure-sdk-for-ruby',
+    'source_code_uri' => 'https://github.com/chef/azure-sdk-for-ruby/tree/master/management/azure_mgmt_resources'
   }
 
   spec.files         = Dir["README.md", "LICENSE.txt", "lib/**/*"]
@@ -38,5 +38,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'rspec', '~> 3'
   spec.add_development_dependency 'dotenv', '~> 2'
 
-  spec.add_runtime_dependency 'ms_rest_azure', '~> 0.12.0'
+  spec.add_runtime_dependency 'ms_rest_azure2', '~> 0.12.0', '>= 0.12.1'
 end

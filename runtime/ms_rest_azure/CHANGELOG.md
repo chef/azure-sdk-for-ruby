@@ -1,3 +1,6 @@
+##2023.04.04 ms_rest_azure version 0.12.1
+* Fixed the issue with cli_path on windows platform.
+
 ##2020.05.21 ms_rest_azure version 0.12.0
 * Unpin unf_ext dependency version.
 * Update active_directory_endpoint_url in US Cloud.

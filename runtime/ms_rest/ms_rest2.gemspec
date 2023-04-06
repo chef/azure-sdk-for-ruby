@@ -4,29 +4,29 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'ms_rest_azure/version'
+require 'ms_rest/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = 'ms_rest_azure'
-  spec.version       = MsRestAzure::VERSION
+  spec.name          = 'ms_rest2'
+  spec.version       = MsRest::VERSION
   spec.authors       = 'Microsoft Corporation'
   spec.email         = 'azsdkteam@microsoft.com'
 
   spec.summary       = %q{Azure Client Library for Ruby.}
   spec.description   = %q{Azure Client Library for Ruby.}
-  spec.homepage      = 'https://aka.ms/ms_rest_azure'
+  spec.homepage      = 'https://github.com/chef/azure-sdk-for-ruby/tree/master/runtime/ms_rest'
   spec.license       = 'MIT'
   spec.metadata      = {
-    'bug_tracker_uri' => 'https://github.com/Azure/azure-sdk-for-ruby/issues',
-    'changelog_uri' => 'https://github.com/Azure/azure-sdk-for-ruby/blob/master/runtime/ms_rest_azure/CHANGELOG.md',
+    'bug_tracker_uri' => 'https://github.com/chef/azure-sdk-for-ruby/issues',
+    'changelog_uri' => 'https://github.com/chef/azure-sdk-for-ruby/blob/master/runtime/ms_rest/CHANGELOG.md',
     'documentation_uri' => 'https://azure.microsoft.com/en-us/develop/ruby/',
-    'homepage_uri' => 'https://aka.ms/azure-sdk-for-ruby',
-    'source_code_uri' => "https://github.com/Azure/azure-sdk-for-ruby/tree/ms_rest_azure-v#{MsRestAzure::VERSION}"
+    'homepage_uri' => 'https://github.com/chef/azure-sdk-for-ruby',
+    'source_code_uri' => "https://github.com/chef/azure-sdk-for-ruby/tree/ms_rest-v#{MsRest::VERSION}"
   }
 
-  spec.files         = Dir["CHANGELOG.md", "README.md", "LICENSE.txt", "lib/**/*"]
+  spec.files         = Dir["ca-cert.pem", "CHANGELOG.md", "README.md", "LICENSE.txt", "lib/**/*"]
   spec.bindir        = 'bin'
-  spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
+  spec.executables   = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
   spec.require_paths = ['lib']
 
   spec.required_ruby_version = '>= 2.0.0'
@@ -35,8 +35,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'rake', '~> 10.0'
   spec.add_development_dependency 'rspec', '~> 3.3'
 
+  spec.add_runtime_dependency 'timeliness', '~> 0.3.10'
   spec.add_runtime_dependency 'concurrent-ruby', '~> 1.0'
   spec.add_runtime_dependency 'faraday', '>= 0.9', '< 2.0.0'
-  spec.add_runtime_dependency 'faraday-cookie_jar', '~> 0.0.6'
-  spec.add_runtime_dependency 'ms_rest', '~> 0.7.6'
 end

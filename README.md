@@ -1,71 +1,20 @@
-# [RETIRED] Microsoft Azure SDK for Ruby - Resource Management (preview)
-[![Build Status](https://api.travis-ci.org/Azure/azure-sdk-for-ruby.svg?branch=master)](https://travis-ci.org/Azure/azure-sdk-for-ruby) [![Code Climate](https://codeclimate.com/github/Azure/azure-sdk-for-ruby/badges/gpa.svg)](https://codeclimate.com/github/Azure/azure-sdk-for-ruby)
+# Microsoft Azure SDK for Ruby - Resource Management (preview)
+
+This is a forked repository originating from [Azure/azure-sdk-for-ruby](https://github.com/Azure/azure-sdk-for-ruby).
+Microsoft no longer provides official support for the Azure Resource Management SDK for Ruby, as it has entered a retirement phase. 
+
+In order to maintain support for the [test-kitchen/kitchen-azurerm](https://github.com/test-kitchen/kitchen-azurerm) plugin, we have forked this project and released version 2 of the following gems:
+* azure_mgmt_network
+* azure_mgmt_resources
+* ms_rest
+* ms_rest_azure
+
+## Overview
 
 This project provides a Ruby package for Azure Resource Management (ARM).
 If you're looking for Azure Service Management (ASM) please refer to this [repo](https://github.com/Azure/azure-sdk-for-ruby/tree/asm)
 
 Additional info on Azure deployment models [https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-model](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-model)
-
-## Important Announcement
-
-As of February 2021, Azure Resource Management SDK for Ruby **has entered a retirement phase and is no longer officially supported by Microsoft**. Here is the complete list of packages that are affected by this. We are committed to making critical security and bug fixes for libraries in this repo until **December 31, 2021**. After that date, this repo will no longer be maintained.  
-
-For current users of the Azure Resource Management SDK for Ruby, we have prepared a **migration guide** that points outlines different alternative approaches you can take moving forward. Please [check the guide here](docs/README.md). 
-
-Thank you for your support so far. Should you have any question, please feel free to open an issue on GitHub. 
-
-### Packages that are no longer supported
-
-All resource management Azure Resource Management packages that contains “azure-mgmt” will be retired as well as a few client libraries.  
-
-Note that the **Azure Storage SDK for Ruby is excluded from this retirement and continues to be maintained**. The Azure Storage SDK for Ruby is [available in its own preview gem and GitHub repository](https://github.com/Azure/azure-storage-ruby), which is still being maintained
-
-Below is the list of the packages that are being retired
-* [Authorization](https://rubygems.org/gems/azure_mgmt_authorization) Azure Resource Manager role based authorization
-* [Batch](https://rubygems.org/gems/azure_mgmt_batch) Azure Batch Management Account & Application operations management
-* [CDN](https://rubygems.org/gems/azure_mgmt_cdn) Azure Content Delivery Network
-* [Cognitive Services](https://rubygems.org/gems/azure_mgmt_cognitive_services) Azure Cognitive Services Account management
-* [Commerce](https://rubygems.org/gems/azure_mgmt_commerce) Azure Commerce Usage aggregates & Rate card management
-* [Compute](https://rubygems.org/gems/azure_mgmt_compute) Virtual Machines, Images, Extensions, Availability Sets, etc...
-* [Consumption](https://rubygems.org/gems/azure_mgmt_consumption) Usage details, Operations, etc...
-* [Data Lake Analytics](https://rubygems.org/gems/azure_mgmt_datalake_analytics) Azure Data Lake Analytics Account, Catalog and Job management
-* [Data Lake Store](https://rubygems.org/gems/azure_mgmt_datalake_store) Azure Data Lake Store Account and FileSystem management
-* [DevTest Labs](https://rubygems.org/gems/azure_mgmt_devtestlabs) Azure DevTest Labs LabOperations, ArtifactSourceOperations, ArtifactOperations, CostOperations etc...
-* [DNS](https://rubygems.org/gems/azure_mgmt_dns) Azure DNS Record Set and Zone management
-* [Features](https://rubygems.org/gems/azure_mgmt_features) Feature Exposure Controls
-* [Graph](https://rubygems.org/gems/azure_mgmt_graph) Azure Active Directory Applications, Users, etc...
-* [Monitor](https://rubygems.org/gems/azure_mgmt_monitor) Azure Monitor management
-* [IoTCentral](https://rubygems.org/gems/azure_mgmt_iot_central) Azure IoTCentral's Resource Management
-* [IoTHub](https://rubygems.org/gems/azure_mgmt_iot_hub) Azure IoTHub's Resource Management
-* [Key Vault](https://rubygems.org/gems/azure_mgmt_key_vault) Azure Key Vault's vault management
-* [Locks](https://rubygems.org/gems/azure_mgmt_locks) Management locks for Azure Resources
-* [Logic](https://rubygems.org/gems/azure_mgmt_logic) Integration Accounts, AccountSchemas, AccountMaps, AccountPartners etc... 
-* [Machine Learning](https://rubygems.org/gems/azure_mgmt_machine_learning) Azure Machine Learning web services management
-* [Media Services](https://rubygems.org/gems/azure_mgmt_media_services) Media Services resource management APIs
-* [Mobile Engagement](https://rubygems.org/gems/azure_mgmt_mobile_engagement) Azure Mobile Engagement's Apps, App Collections, Devices management APIs  
-* [Managed Service Identity](https://rubygems.org/gems/azure_mgmt_msi) Create, update, list user assigned identities.
-* [Network](https://rubygems.org/gems/azure_mgmt_network) Load Balancers, Network Gateways, Security Groups, etc...
-* [Notification Hubs](https://rubygems.org/gems/azure_mgmt_notification_hubs) Notification Hubs management
-* [Policy](https://rubygems.org/gems/azure_mgmt_policy) Policy Assignment & Policy definition operations
-* [Power BI Embedded](https://rubygems.org/gems/azure_mgmt_powerbi_embedded) Azure Power BI Embedded Workspace & WorkspaceCollection management
-* [Redis](https://rubygems.org/gems/azure_mgmt_redis) Redis resource management
-* [Resources](https://rubygems.org/gems/azure_mgmt_resources) Resource Groups, Resource Providers, Template Deployments, Operations, etc...
-* [Resource Graph](https://rubygems.org/gems/azure_mgmt_resourcegraph) Query Azure Resource Manager resources at scale
-* [Scheduler](https://rubygems.org/gems/azure_mgmt_scheduler) Manage scheduled jobs in Azure
-* [Search](https://rubygems.org/gems/azure_mgmt_search) Manage Search resources
-* [Server Management](https://rubygems.org/gems/azure_mgmt_server_management) Azure Server Management Service like node, gateway, powershell etc..
-* [SQL](https://rubygems.org/gems/azure_mgmt_sql) Manage Azure SQL resources
-* [Storage](https://rubygems.org/gems/azure_mgmt_storage) Account Creation, Usage Operations, etc...
-* [Stream Analytics](https://rubygems.org/gems/azure_mgmt_stream_analytics) Create, update, start, stop streaming jobs etc...
-* [Subscriptions](https://rubygems.org/gems/azure_mgmt_subscriptions) Manage Azure subscriptions
-* [Traffic Manager](https://rubygems.org/gems/azure_mgmt_traffic_manager) Azure Traffic Manager's profile & endpoint management
-* [WebApps](https://rubygems.org/gems/azure_mgmt_web) Manage WebApps, formally known as WebSites
-
-## Azure Services
-* [Service Bus](https://github.com/Azure/azure-sdk-for-ruby/tree/asm#usage)
-    * [Relays](https://github.com/Azure/azure-sdk-for-ruby/tree/asm#relays)
-    * [Topics](https://github.com/Azure/azure-sdk-for-ruby/tree/asm#topics)
-    * Queues
 
 ## Supported Ruby Versions
 
@@ -81,8 +30,8 @@ You can install the azure rubygem packages directly.
 ```bash
 gem install azure_mgmt_compute
 gem install azure_mgmt_storage
-gem install azure_mgmt_resources
-gem install azure_mgmt_network
+gem install azure_mgmt_resources2
+gem install azure_mgmt_network2
 ```
 
 Or use them in your Gemfile.
@@ -90,8 +39,8 @@ Or use them in your Gemfile.
 ```Ruby
 gem 'azure_mgmt_storage'
 gem 'azure_mgmt_compute'
-gem 'azure_mgmt_resources'
-gem 'azure_mgmt_network'
+gem 'azure_mgmt_resources2'
+gem 'azure_mgmt_network2'
 ```
 
 Be aware the Azure Resource Manager Ruby SDK is in preview and will likely have breaking interface changes in upcoming
