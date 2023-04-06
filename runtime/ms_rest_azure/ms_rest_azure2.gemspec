@@ -38,5 +38,5 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency 'concurrent-ruby', '~> 1.0'
   spec.add_runtime_dependency 'faraday', '>= 0.9', '< 2.0.0'
   spec.add_runtime_dependency 'faraday-cookie_jar', '~> 0.0.6'
-  spec.add_runtime_dependency 'ms_rest', '~> 0.7.6'
+  spec.add_runtime_dependency 'ms_rest2', '~> 0.7.6'
 end
