@@ -13,7 +13,7 @@ module Azure::Hdinsight::Mgmt::V2018_06_01_preview
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<Operation>] The list of HDInsight operations supported
       # by the HDInsight resource provider.
       attr_accessor :value

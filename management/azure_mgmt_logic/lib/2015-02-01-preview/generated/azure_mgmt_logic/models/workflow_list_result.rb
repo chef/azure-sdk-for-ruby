@@ -12,7 +12,7 @@ module Azure::Logic::Mgmt::V2015_02_01_preview
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<Workflow>] Gets or sets the list of workflows.
       attr_accessor :value
 

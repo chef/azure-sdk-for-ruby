@@ -4,7 +4,7 @@
 
 ## 2021.03.22 - Azure Ruby SDK Release
   - azure_key_vault - v0.19.0
-  - azure_mgmt_resources - v0.18.2
+  - azure_mgmt_resources2 - v0.18.2
   - azure_mgmt_bot_service - v0.17.2
   - azure_mgmt_cognitive_services - v0.19.4
   - azure_mgmt_cosmosdb - v0.24.1
@@ -15,7 +15,7 @@
   - azure_mgmt_cdn - v0.18.2
   - azure_mgmt_features - v0.17.5
   - azure_mgmt_logic - v0.18.3
-  - azure_mgmt_network - v0.26.1
+  - azure_mgmt_network2 - v0.26.1
   - azure_mgmt_web - v0.18.1
   - azure_sdk - v0.71.0
 
@@ -43,7 +43,7 @@
 
 ## 2021.02.02 - Azure Ruby SDK Release
 * Released the following SDKs
-  - azure_mgmt_network - v0.26.0
+  - azure_mgmt_network2 - v0.26.0
   - azure_mgmt_compute - v0.21.0
   - azure_mgmt_operational_insights - v0.20.0
   - azure_mgmt_hdinsight - v0.18.5
@@ -60,7 +60,7 @@
   - azure_mgmt_synapse - v0.17.3
   - azure_mgmt_recovery_services - v0.18.2
   - azure_mgmt_cdn - v0.18.0
-  - azure_mgmt_network - v0.25.0
+  - azure_mgmt_network2 - v0.25.0
   - azure_sdk - v0.68.0
 
 ## 2020.11.30 - Azure Ruby SDK Release
@@ -74,7 +74,7 @@
     - azure_mgmt_container_registry - v0.18.5
     - azure_mgmt_iot_hub - v0.17.5
     - azure_mgmt_key_vault - v0.17.7
-    - azure_mgmt_resources - v0.18.1
+    - azure_mgmt_resources2 - v0.18.1
     - azure_sdk - v0.67.0
 
 ## 2020.10.28 - Azure Ruby SDK Release
@@ -110,7 +110,7 @@
     - azure_mgmt_migrate - v0.17.0
     - azure_mgmt_operations_management - v0.17.0	      
     - azure_mgmt_powerbi_dedicated - v0.17.0 
-    - azure_mgmt_network - v0.19.0   
+    - azure_mgmt_network2 - v0.19.0   
     - azure_mgmt_policy - v0.17.5   
     - azure_sdk - v0.30.0
 
@@ -121,8 +121,8 @@
     
 ## 2019.05.20 - Azure Ruby SDK Release
 * Released the following SDKs
-    - azure_mgmt_resources - v0.17.5
-    - azure_mgmt_network - v0.18.8
+    - azure_mgmt_resources2 - v0.17.5
+    - azure_mgmt_network2 - v0.18.8
     - azure_mgmt_storage - v0.17.10
     - azure_mgmt_compute - v0.18.7
     
@@ -160,9 +160,9 @@
     - azure_mgmt_key_vault - v0.17.4
     - azure_mgmt_locks - v0.17.3
     - azure_mgmt_monitor - v0.17.4
-    - azure_mgmt_network - v0.18.7
+    - azure_mgmt_network2 - v0.18.7
     - azure_mgmt_policy - v0.17.4
-    - azure_mgmt_resources - v0.17.4
+    - azure_mgmt_resources2 - v0.17.4
     - azure_mgmt_storage - v0.17.8
     - azure_mgmt_subscriptions - v0.17.3
     - azure_mgmt_web - v0.17.4
@@ -180,7 +180,7 @@ The changes include V2019_03_01 version of Azure Stack Profile.
 ## 2019.03.31 - Azure Ruby SDK Release
 * Released the following SDKs
     - azure_mgmt_media_services -v0.19.0
-    - azure_mgmt_network -v0.18.6
+    - azure_mgmt_network2 -v0.18.6
     - azure_mgmt_container_service -v0.18.3
     - azure_mgmt_marketplace_ordering -v0.17.4
     - azure_mgmt_edgegateway -v0.18.0
@@ -228,7 +228,7 @@ The changes include V2019_03_01 version of Azure Stack Profile.
 * Released the following SDKs
     - azure_cognitiveservices_luisruntime - v0.17.0
     - azure_cognitiveservices_luisauthoring - v0.17.0
-    - azure_mgmt_network - v0.18.4
+    - azure_mgmt_network2 - v0.18.4
     - azure_sdk - v0.22.2
     
 ## 2019.01.31 - Azure Ruby SDK Release
@@ -241,7 +241,7 @@ The changes include V2019_03_01 version of Azure Stack Profile.
 
 ## 2019.01.15 - Azure Ruby SDK Release
 * Released the following SDKs
-    - azure_mgmt_network - v0.18.3
+    - azure_mgmt_network2 - v0.18.3
     - azure_sdk - v0.21.1
 
 ## 2019.01.14 - Azure Ruby SDK Release
@@ -265,7 +265,7 @@ The changes include V2019_03_01 version of Azure Stack Profile.
    
 ## 2018.12.04 - Azure Ruby SDK Release
 * Released the following SDKs
-   - azure_mgmt_network - v0.18.2 - Fixed a bug in the configuration files.
+   - azure_mgmt_network2 - v0.18.2 - Fixed a bug in the configuration files.
    - azure_sdk -v0.19.7 - Fixed a bug in the network configuration files. Refer [Issue #1968](https://github.com/Azure/azure-sdk-for-ruby/issues/1968) for further details. 
    
 ## 2018.12.09 - Azure Ruby SDK Release
@@ -310,7 +310,7 @@ The changes include V2019_03_01 version of Azure Stack Profile.
    - azure_mgmt_kusto - v0.17.0
    - azure_mgmt_storage - v0.17.4
    - azure_mgmt_container_instance - v0.17.3
-   - azure_mgmt_network - v0.18.1
+   - azure_mgmt_network2 - v0.18.1
    - azure_sdk - v0.19.2
 
 ## 2018.11.06(2) - Azure Ruby SDK Release
@@ -318,7 +318,7 @@ The changes include V2019_03_01 version of Azure Stack Profile.
 * Released 0.19.1 version of azure_sdk to include changes to the azure_mgmt_authorization gem.
 
 ## 2018.11.06 - Azure Ruby SDK Release
-* Released new versions for azure_mgmt_network, azure_cognitiveservices_textanalytics, azure_mgmt_container_instance, 
+* Released new versions for azure_mgmt_network2, azure_cognitiveservices_textanalytics, azure_mgmt_container_instance, 
   azure_cognitiveservices_visualsearch, azure_cognitiveservices_websearch.
 * Released 0.19.0 version of azure_sdk to include changes to the above gems. 
 
@@ -338,7 +338,7 @@ The changes include V2019_03_01 version of Azure Stack Profile.
 * Released 0.18.7 of azure_sdk. Updated azure_sdk to include new profile V2018_03_01 & updated the existing profile 
   V2017_03_09 to include Authorization & KeyVault. Also, updated new versions included in azure_mgmt_media_services.
 * Released azure_mgmt_authorization, azure_mgmt_locks, azure_mgmt_policy, azure_mgmt_compute, azure_mgmt_key_vault, 
-  azure_mgmt_network, azure_mgmt_dns, azure_mgmt_resources, azure_mgmt_subscriptions, azure_mgmt_storage, azure_mgmt_web,
+  azure_mgmt_network2, azure_mgmt_dns, azure_mgmt_resources2, azure_mgmt_subscriptions, azure_mgmt_storage, azure_mgmt_web,
   azure_mgmt_links, azure_mgmt_features & azure_key_vault gems with minor version updates to include latest changes.
 * Released 0.17.2 version of azure_mgmt_media_services to include new version 2018-07-01.
 
@@ -351,8 +351,8 @@ The changes include V2019_03_01 version of Azure Stack Profile.
 * Released 0.18.5 version of azure_sdk to include the latest changes in azure_mgmt_signalr. 
 
 ## 2018.09.18 - Azure Ruby SDK Release
-* Released 0.17.3 version of azure_mgmt_network to include the latest version of 2018-08-01.
-* Released 0.18.4 version of azure_sdk to include the latest version changes in azure_mgmt_network.
+* Released 0.17.3 version of azure_mgmt_network2 to include the latest version of 2018-08-01.
+* Released 0.18.4 version of azure_sdk to include the latest version changes in azure_mgmt_network2.
 
 ## 2018.09.17 - Azure Ruby SDK Release
 * Released 0.18.2 version of azure_mgmt_compute & 0.18.3 version of azure_sdk to include the latest changes to gallery.json.
@@ -362,7 +362,7 @@ The changes include V2019_03_01 version of Azure Stack Profile.
   Refer [Issue #1615](https://github.com/Azure/azure-sdk-for-ruby/issues/1615) for further details.
 
 ## 2018.08.29 - Azure Ruby SDK Release
-* Released 0.17.1 version of azure_mgmt_network to include new version 2018-07-01.
+* Released 0.17.1 version of azure_mgmt_network2 to include new version 2018-07-01.
 * Released Rollup gem 0.18.2 to include latest version of Management Network.
 
 ## 2018.08.18 - Azure Ruby SDK Release
@@ -543,7 +543,7 @@ The changes include V2019_03_01 version of Azure Stack Profile.
   * ServiceDiagnosticSettingsOperations has been changed to DiagnosticSettingsOperations
   * ServiceDiagnosticSettingsResource has been changed to DiagnosticSettingsResource
   * ServiceDiagnosticSettingsResourcePatch has been removed. Refer [PR #979](https://github.com/Azure/azure-sdk-for-ruby/pull/979) and latest [specification](https://github.com/Azure/azure-rest-api-specs/blob/97e69db426af23a0cdfde5e5df748565ff1070b8/specification/monitor/resource-manager/readme.md) for further details.
-* Updated [azure_mgmt_network](https://rubygems.org/gems/azure_mgmt_network) to latest API version 2017-09-01 and includes Availability zone feature. Refer latest [specification](https://github.com/Azure/azure-rest-api-specs/blob/1a88e3f49b78c6ec74f9174115e5233cb6fe20c4/specification/network/resource-manager/readme.md) for further details.
+* Updated [azure_mgmt_network2](https://rubygems.org/gems/azure_mgmt_network2) to latest API version 2017-09-01 and includes Availability zone feature. Refer latest [specification](https://github.com/Azure/azure-rest-api-specs/blob/1a88e3f49b78c6ec74f9174115e5233cb6fe20c4/specification/network/resource-manager/readme.md) for further details.
 * Updated [azure_mgmt_service_bus](https://rubygems.org/gems/azure_mgmt_service_bus) with new APIs related to disaster recovery. Refer [PR #1001](https://github.com/Azure/azure-sdk-for-ruby/pull/1001) and latest [specification](https://github.com/Azure/azure-rest-api-specs/blob/072a4331fe088b4ca0d72534ba89078c87ce1000/specification/servicebus/resource-manager/readme.md) for further details.
 * Updated [azure_mgmt_storage](https://rubygems.org/gems/azure_mgmt_storage) operation SKU to Sku. Refer [PR #965](https://github.com/Azure/azure-sdk-for-ruby/pull/965) and latest [specification](https://github.com/Azure/azure-rest-api-specs/blob/87c3a2d9559462a39543c7d630b936c521fafbca/specification/storage/resource-manager/readme.md) for further details.
 * Updated [azure_mgmt_traffic_manager](https://rubygems.org/gems/azure_mgmt_traffic_manager) with new features related to RealUserMetricsKey and HeatMap.Refer latest [specification](https://github.com/Azure/azure-rest-api-specs/blob/4e092c07e412fb2007ef5cfe4daaaf8a75d95729/specification/trafficmanager/resource-manager/readme.md) for further details.
@@ -573,11 +573,11 @@ The changes include V2019_03_01 version of Azure Stack Profile.
 * Updated [azure_mgmt_key_vault](https://rubygems.org/gems/azure_mgmt_key_vault) to latest API version 2016-10-01. Refer latest [specification](https://github.com/Azure/azure-rest-api-specs/blob/current/specification/keyvault/resource-manager/readme.md) for further details.
 * Updated [azure_mgmt_logic](https://rubygems.org/gems/azure_mgmt_logic) that several model names have been modified. Refer latest [specification](https://github.com/Azure/azure-rest-api-specs/blob/current/specification/logic/resource-manager/readme.md) for further details.
 * Updated [azure_mgmt_machine_learning](https://rubygems.org/gems/azure_mgmt_machine_learning) to latest API version 2017-01-01. Refer latest [specification](https://github.com/Azure/azure-rest-api-specs/blob/current/specification/machinelearning/resource-manager/readme.md) for further details.
-* Updated [azure_mgmt_network](https://rubygems.org/gems/azure_mgmt_network) to latest API version 2017-06-01. Refer latest [specification](https://github.com/Azure/azure-rest-api-specs/blob/current/specification/network/resource-manager/readme.md) for further details.
+* Updated [azure_mgmt_network2](https://rubygems.org/gems/azure_mgmt_network2) to latest API version 2017-06-01. Refer latest [specification](https://github.com/Azure/azure-rest-api-specs/blob/current/specification/network/resource-manager/readme.md) for further details.
 * Updated [azure_mgmt_notification_hubs](https://rubygems.org/gems/azure_mgmt_notification_hubs) to latest API version 2017-04-01. Refer latest [specification](https://github.com/Azure/azure-rest-api-specs/blob/current/specification/notificationhubs/resource-manager/readme.md) for further details.
 * Updated [azure_mgmt_recovery_services](https://rubygems.org/gems/azure_mgmt_recovery_services) to latest API version 2016-12-01. Refer latest [specification](https://github.com/Azure/azure-rest-api-specs/blob/current/specification/recoveryservices/resource-manager/readme.md) for further details.
 * Updated [azure_mgmt_redis](https://rubygems.org/gems/azure_mgmt_redis) to latest API version 2017-02-01. Refer latest [specification](https://github.com/Azure/azure-rest-api-specs/blob/current/specification/redis/resource-manager/readme.md) for further details.
-* Updated [azure_mgmt_resources](https://rubygems.org/gems/azure_mgmt_resources) to latest API version 2017-05-10. Refer latest [specification](https://github.com/Azure/azure-rest-api-specs/blob/current/specification/resources/resource-manager/readme.md) for further details.
+* Updated [azure_mgmt_resources2](https://rubygems.org/gems/azure_mgmt_resources2) to latest API version 2017-05-10. Refer latest [specification](https://github.com/Azure/azure-rest-api-specs/blob/current/specification/resources/resource-manager/readme.md) for further details.
 * Updated [azure_mgmt_service_bus](https://rubygems.org/gems/azure_mgmt_service_bus) to latest API version 2017-04-01. Refer latest [specification](https://github.com/Azure/azure-rest-api-specs/blob/current/specification/servicebus/resource-manager/readme.md) for further details.
 * Updated [azure_mgmt_sql](https://rubygems.org/gems/azure_mgmt_sql). Removed blob auditing policies, threat detection policies, etc. Refer latest [specification](https://github.com/Azure/azure-rest-api-specs/blob/current/specification/sql/resource-manager/readme.md) for full list of changes.
 * Updated [azure_mgmt_storage](https://rubygems.org/gems/azure_mgmt_storage) to latest API version 2017-06-01. Refer latest [specification](https://github.com/Azure/azure-rest-api-specs/blob/current/specification/storage/resource-manager/readme.md) for further details.
@@ -592,7 +592,7 @@ The changes include V2019_03_01 version of Azure Stack Profile.
 All issues associated with this milestone can be found using this [filter](https://github.com/Azure/azure-sdk-for-ruby/issues?utf8=%E2%9C%93&q=milestone%3Av0.10.0-arm%20).
 
 * Regened all azure_mgmt_* sdks using AutoRest.1.0.1-20170301-2300-nightly for release of ARM version 0.10.0
-* Updated [azure_mgmt_network](https://rubygems.org/gems/azure_mgmt_network) with (Network Watchers API)(https://github.com/Azure/azure-rest-api-specs/blob/master/arm-network/2016-09-01/swagger/networkWatcher.json)
+* Updated [azure_mgmt_network2](https://rubygems.org/gems/azure_mgmt_network2) with (Network Watchers API)(https://github.com/Azure/azure-rest-api-specs/blob/master/arm-network/2016-09-01/swagger/networkWatcher.json)
 * Updated [azure_mgmt_batch](https://rubygems.org/gems/azure_mgmt_batch) to latest API version [2017-01-01](https://github.com/Azure/azure-rest-api-specs/blob/master/arm-batch/2017-01-01/swagger/BatchManagement.json) and changed error object from ErrorBody to CloudError.
 * Updated [azure_mgmt_cdn](https://rubygems.org/gems/azure_mgmt_cdn) by adding pageable to [CDN Edgenode List](https://github.com/Azure/azure-rest-api-specs/blob/master/arm-cdn/2016-10-02/swagger/cdn.json) and added new release of enable/disable CDN.
 * Updated [azure_mgmt_commerce](https://rubygems.org/gems/azure_mgmt_commerce). Updated [MeterInfo and Offerterms](https://github.com/Azure/azure-rest-api-specs/blob/master/arm-commerce/2015-06-01-preview/swagger/commerce.json)
@@ -668,8 +668,8 @@ All issues associated with this milestone can be found using this [filter](https
 * Regenerated ARM sdk for newest published swagger specs from azure-rest-api-specs
     * azure_mgmt_cdn 2015-06-01 -> 2016-04-02
     * azure_mgmt_compute 2015-06-15 -> 2016-03-30
-    * azure_mgmt_network 2015-06-15 -> 2016-03-30
-    * azure_mgmt_resources 2015-11-01 -> 2016-02-01
+    * azure_mgmt_network2 2015-06-15 -> 2016-03-30
+    * azure_mgmt_resources2 2015-11-01 -> 2016-02-01
     * azure_mgmt_scheduler 2016-01-01 -> 2016-03-01
     * azure_mgtm_storage 2015-06-15 -> 2016-01-01
 * Updated tests to match new sdk

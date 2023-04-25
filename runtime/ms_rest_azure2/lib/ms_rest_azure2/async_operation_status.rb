@@ -2,7 +2,7 @@
 # Copyright (c) Microsoft Corporation. All rights reserved.
 # Licensed under the MIT License. See License.txt in the project root for license information.
 
-module MsRestAzure
+module MsRestAzure2
   #
   # Defines values for AsyncOperationStatus enum.
   #
@@ -23,7 +23,7 @@ module MsRestAzure
     # @return [Integer] delay in seconds which should be used for polling for result of async operation.
     attr_accessor :retry_after
 
-    # @return [MsRestAzure::CloudErrorData] error information about async operation.
+    # @return [MsRestAzure2::CloudErrorData] error information about async operation.
     attr_accessor :error
 
     # @return [Stirng] status of polling.

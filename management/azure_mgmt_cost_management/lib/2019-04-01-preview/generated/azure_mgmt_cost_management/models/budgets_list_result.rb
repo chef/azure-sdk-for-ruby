@@ -13,7 +13,7 @@ module Azure::CostManagement::Mgmt::V2019_04_01_preview
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<BudgetModel>] The list of budgets.
       attr_accessor :value
 

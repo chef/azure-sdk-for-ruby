@@ -12,7 +12,7 @@ module Azure::Appconfiguration::Mgmt::V2020_06_01
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<PrivateEndpointConnection>] The collection value.
       attr_accessor :value
 

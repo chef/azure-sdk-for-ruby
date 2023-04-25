@@ -12,7 +12,7 @@ module Azure::MachineLearningServices::Mgmt::V2018_03_01_preview
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<Workspace>] The list of machine learning workspaces.
       # Since this list may be incomplete, the nextLink field should be used to
       # request the next list of machine learning workspaces.

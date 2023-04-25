@@ -3,14 +3,14 @@
 # Changes may cause incorrect behavior and will be lost if the code is
 # regenerated.
 
-module Azure::Network::Mgmt::V2015_05_01_preview
+module Azure::Network2::Mgmt::V2015_05_01_preview
   module Models
     #
     # Contains FQDN of the DNS record associated with the public IP address
     #
     class PublicIpAddressDnsSettings
 
-      include MsRestAzure
+      include MsRestAzure2
 
       # @return [String] Gets or sets the Domain name label.The concatenation
       # of the domain name label and the regionalized DNS zone make up the

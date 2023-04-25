@@ -12,7 +12,7 @@ module Azure::Monitor::Mgmt::V2015_05_01
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<WebTest>] Set of Application Insights web test
       # definitions.
       attr_accessor :value

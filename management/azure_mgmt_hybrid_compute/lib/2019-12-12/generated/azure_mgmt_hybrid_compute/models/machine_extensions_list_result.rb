@@ -12,7 +12,7 @@ module Azure::HybridCompute::Mgmt::V2019_12_12
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<MachineExtension>] The list of extensions
       attr_accessor :value
 

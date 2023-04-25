@@ -3,14 +3,14 @@
 # Changes may cause incorrect behavior and will be lost if the code is
 # regenerated.
 
-module Azure::Network::Mgmt::V2015_05_01_preview
+module Azure::Network2::Mgmt::V2015_05_01_preview
   module Models
     #
     # Dns Settings of a network interface
     #
     class NetworkInterfaceDnsSettings
 
-      include MsRestAzure
+      include MsRestAzure2
 
       # @return [Array<String>] Gets or sets list of DNS servers IP addresses
       attr_accessor :dns_servers

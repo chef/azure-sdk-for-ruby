@@ -12,7 +12,7 @@ module Azure::ResourcesManagement::Mgmt::V2017_08_31_preview
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<ManagementGroupInfo>] The list of management groups.
       attr_accessor :value
 

@@ -3,12 +3,12 @@
 # Changes may cause incorrect behavior and will be lost if the code is
 # regenerated.
 
-module Azure::Network::Mgmt::V2015_05_01_preview
+module Azure::Network2::Mgmt::V2015_05_01_preview
   #
   # Network Client
   #
   class ExpressRouteCircuitPeerings
-    include MsRestAzure
+    include MsRestAzure2
 
     #
     # Creates and initializes a new instance of the ExpressRouteCircuitPeerings class.
@@ -89,7 +89,7 @@ module Azure::Network::Mgmt::V2015_05_01_preview
     # @param custom_headers [Hash{String => String}] A hash of custom headers that
     # will be added to the HTTP request.
     #
-    # @return [MsRestAzure::AzureOperationResponse] HTTP response information.
+    # @return [MsRestAzure2::AzureOperationResponse] HTTP response information.
     #
     def get_with_http_info(resource_group_name, circuit_name, peering_name, custom_headers:nil)
       get_async(resource_group_name, circuit_name, peering_name, custom_headers:custom_headers).value!
@@ -126,7 +126,7 @@ module Azure::Network::Mgmt::V2015_05_01_preview
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'resourceGroupName' => resource_group_name,'circuitName' => circuit_name,'peeringName' => peering_name,'subscriptionId' => @client.subscription_id},
           query_params: {'api-version' => @client.api_version},
           headers: request_headers.merge(custom_headers || {}),
@@ -140,7 +140,7 @@ module Azure::Network::Mgmt::V2015_05_01_preview
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRestAzure::AzureOperationError.new(result.request, http_response, error_model)
+          fail MsRestAzure2::AzureOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -150,10 +150,10 @@ module Azure::Network::Mgmt::V2015_05_01_preview
         if status_code == 200
           begin
             parsed_response = response_content.to_s.empty? ? nil : JSON.load(response_content)
-            result_mapper = Azure::Network::Mgmt::V2015_05_01_preview::Models::ExpressRouteCircuitPeering.mapper()
+            result_mapper = Azure::Network2::Mgmt::V2015_05_01_preview::Models::ExpressRouteCircuitPeering.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -201,7 +201,7 @@ module Azure::Network::Mgmt::V2015_05_01_preview
       promise = promise.then do |response|
         # Defining deserialization method.
         deserialize_method = lambda do |parsed_response|
-          result_mapper = Azure::Network::Mgmt::V2015_05_01_preview::Models::ExpressRouteCircuitPeering.mapper()
+          result_mapper = Azure::Network2::Mgmt::V2015_05_01_preview::Models::ExpressRouteCircuitPeering.mapper()
           parsed_response = @client.deserialize(result_mapper, parsed_response)
         end
 
@@ -237,7 +237,7 @@ module Azure::Network::Mgmt::V2015_05_01_preview
     # @param custom_headers [Hash{String => String}] A hash of custom headers that
     # will be added to the HTTP request.
     #
-    # @return [MsRestAzure::AzureOperationResponse] HTTP response information.
+    # @return [MsRestAzure2::AzureOperationResponse] HTTP response information.
     #
     def list_with_http_info(resource_group_name, circuit_name, custom_headers:nil)
       list_async(resource_group_name, circuit_name, custom_headers:custom_headers).value!
@@ -272,7 +272,7 @@ module Azure::Network::Mgmt::V2015_05_01_preview
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'resourceGroupName' => resource_group_name,'circuitName' => circuit_name,'subscriptionId' => @client.subscription_id},
           query_params: {'api-version' => @client.api_version},
           headers: request_headers.merge(custom_headers || {}),
@@ -286,7 +286,7 @@ module Azure::Network::Mgmt::V2015_05_01_preview
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRestAzure::AzureOperationError.new(result.request, http_response, error_model)
+          fail MsRestAzure2::AzureOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -296,10 +296,10 @@ module Azure::Network::Mgmt::V2015_05_01_preview
         if status_code == 200
           begin
             parsed_response = response_content.to_s.empty? ? nil : JSON.load(response_content)
-            result_mapper = Azure::Network::Mgmt::V2015_05_01_preview::Models::ExpressRouteCircuitPeeringListResult.mapper()
+            result_mapper = Azure::Network2::Mgmt::V2015_05_01_preview::Models::ExpressRouteCircuitPeeringListResult.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -335,7 +335,7 @@ module Azure::Network::Mgmt::V2015_05_01_preview
     # @param custom_headers [Hash{String => String}] A hash of custom headers that
     # will be added to the HTTP request.
     #
-    # @return [MsRestAzure::AzureOperationResponse] HTTP response information.
+    # @return [MsRestAzure2::AzureOperationResponse] HTTP response information.
     #
     def begin_delete_with_http_info(resource_group_name, circuit_name, peering_name, custom_headers:nil)
       begin_delete_async(resource_group_name, circuit_name, peering_name, custom_headers:custom_headers).value!
@@ -372,7 +372,7 @@ module Azure::Network::Mgmt::V2015_05_01_preview
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'resourceGroupName' => resource_group_name,'circuitName' => circuit_name,'peeringName' => peering_name,'subscriptionId' => @client.subscription_id},
           query_params: {'api-version' => @client.api_version},
           headers: request_headers.merge(custom_headers || {}),
@@ -386,7 +386,7 @@ module Azure::Network::Mgmt::V2015_05_01_preview
         response_content = http_response.body
         unless status_code == 204 || status_code == 202 || status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRestAzure::AzureOperationError.new(result.request, http_response, error_model)
+          fail MsRestAzure2::AzureOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -430,7 +430,7 @@ module Azure::Network::Mgmt::V2015_05_01_preview
     # @param custom_headers [Hash{String => String}] A hash of custom headers that
     # will be added to the HTTP request.
     #
-    # @return [MsRestAzure::AzureOperationResponse] HTTP response information.
+    # @return [MsRestAzure2::AzureOperationResponse] HTTP response information.
     #
     def begin_create_or_update_with_http_info(resource_group_name, circuit_name, peering_name, peering_parameters, custom_headers:nil)
       begin_create_or_update_async(resource_group_name, circuit_name, peering_name, peering_parameters, custom_headers:custom_headers).value!
@@ -467,7 +467,7 @@ module Azure::Network::Mgmt::V2015_05_01_preview
       request_headers['accept-language'] = @client.accept_language unless @client.accept_language.nil?
 
       # Serialize Request
-      request_mapper = Azure::Network::Mgmt::V2015_05_01_preview::Models::ExpressRouteCircuitPeering.mapper()
+      request_mapper = Azure::Network2::Mgmt::V2015_05_01_preview::Models::ExpressRouteCircuitPeering.mapper()
       request_content = @client.serialize(request_mapper,  peering_parameters)
       request_content = request_content != nil ? JSON.generate(request_content, quirks_mode: true) : nil
 
@@ -476,7 +476,7 @@ module Azure::Network::Mgmt::V2015_05_01_preview
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'resourceGroupName' => resource_group_name,'circuitName' => circuit_name,'peeringName' => peering_name,'subscriptionId' => @client.subscription_id},
           query_params: {'api-version' => @client.api_version},
           body: request_content,
@@ -491,7 +491,7 @@ module Azure::Network::Mgmt::V2015_05_01_preview
         response_content = http_response.body
         unless status_code == 201 || status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRestAzure::AzureOperationError.new(result.request, http_response, error_model)
+          fail MsRestAzure2::AzureOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -501,20 +501,20 @@ module Azure::Network::Mgmt::V2015_05_01_preview
         if status_code == 201
           begin
             parsed_response = response_content.to_s.empty? ? nil : JSON.load(response_content)
-            result_mapper = Azure::Network::Mgmt::V2015_05_01_preview::Models::ExpressRouteCircuitPeering.mapper()
+            result_mapper = Azure::Network2::Mgmt::V2015_05_01_preview::Models::ExpressRouteCircuitPeering.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
         # Deserialize Response
         if status_code == 200
           begin
             parsed_response = response_content.to_s.empty? ? nil : JSON.load(response_content)
-            result_mapper = Azure::Network::Mgmt::V2015_05_01_preview::Models::ExpressRouteCircuitPeering.mapper()
+            result_mapper = Azure::Network2::Mgmt::V2015_05_01_preview::Models::ExpressRouteCircuitPeering.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -549,7 +549,7 @@ module Azure::Network::Mgmt::V2015_05_01_preview
     # @param custom_headers [Hash{String => String}] A hash of custom headers that
     # will be added to the HTTP request.
     #
-    # @return [MsRestAzure::AzureOperationResponse] HTTP response information.
+    # @return [MsRestAzure2::AzureOperationResponse] HTTP response information.
     #
     def list_next_with_http_info(next_page_link, custom_headers:nil)
       list_next_async(next_page_link, custom_headers:custom_headers).value!
@@ -581,7 +581,7 @@ module Azure::Network::Mgmt::V2015_05_01_preview
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           skip_encoding_path_params: {'nextLink' => next_page_link},
           headers: request_headers.merge(custom_headers || {}),
           base_url: request_url
@@ -594,7 +594,7 @@ module Azure::Network::Mgmt::V2015_05_01_preview
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRestAzure::AzureOperationError.new(result.request, http_response, error_model)
+          fail MsRestAzure2::AzureOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -604,10 +604,10 @@ module Azure::Network::Mgmt::V2015_05_01_preview
         if status_code == 200
           begin
             parsed_response = response_content.to_s.empty? ? nil : JSON.load(response_content)
-            result_mapper = Azure::Network::Mgmt::V2015_05_01_preview::Models::ExpressRouteCircuitPeeringListResult.mapper()
+            result_mapper = Azure::Network2::Mgmt::V2015_05_01_preview::Models::ExpressRouteCircuitPeeringListResult.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 

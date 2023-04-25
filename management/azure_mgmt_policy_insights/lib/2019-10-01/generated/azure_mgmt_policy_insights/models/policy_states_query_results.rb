@@ -12,7 +12,7 @@ module Azure::PolicyInsights::Mgmt::V2019_10_01
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [String] OData context string; used by OData clients to resolve
       # type information based on metadata.
       attr_accessor :odatacontext

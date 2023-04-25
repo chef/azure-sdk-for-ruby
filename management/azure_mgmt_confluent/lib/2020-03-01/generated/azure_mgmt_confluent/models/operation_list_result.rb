@@ -12,7 +12,7 @@ module Azure::Confluent::Mgmt::V2020_03_01
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<OperationResult>] List of Confluent operations supported
       # by the Microsoft.Confluent provider.
       attr_accessor :value

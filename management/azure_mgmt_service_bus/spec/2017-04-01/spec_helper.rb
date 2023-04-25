@@ -3,7 +3,7 @@
 # Licensed under the MIT License. See License.txt in the project root for license information.
 
 require File.join(File.dirname(__FILE__), '../../../../vcr_helper')
-require 'azure_mgmt_resources'
+require 'azure_mgmt_resources2'
 require 'azure_mgmt_service_bus'
 
 class ResourceHelper
@@ -16,7 +16,7 @@ class ResourceHelper
     @subscription_id = ENV['AZURE_SUBSCRIPTION_ID']
 
     token_provider = MsRestAzure::ApplicationTokenProvider.new(tenant_id, client_id, secret)
-    @credentials = MsRest::TokenCredentials.new(token_provider)
+    @credentials = MsRest2::TokenCredentials.new(token_provider)
 
     VCR.configure do |config|
       config.cassette_library_dir = "spec/2017-04-01/vcr_cassettes"
@@ -34,7 +34,7 @@ class ResourceHelper
 
   def resource_client
     if @resource_client.nil?
-      @resource_client = Azure::Resources::Mgmt::V2017_05_10::ResourceManagementClient.new(@credentials)
+      @resource_client = Azure::Resources2::Mgmt::V2017_05_10::ResourceManagementClient.new(@credentials)
       @resource_client.subscription_id = @subscription_id
       @resource_client.long_running_operation_retry_timeout = ENV.fetch('RETRY_TIMEOUT', 30).to_i
     end
@@ -43,7 +43,7 @@ class ResourceHelper
 
   def create_resource_group
     resource_group_name = 'RubySDKTest_azure_mgmt_service_bus'
-    params = Azure::Resources::Mgmt::V2017_05_10::Models::ResourceGroup.new()
+    params = Azure::Resources2::Mgmt::V2017_05_10::Models::ResourceGroup.new()
     params.location = 'westus'
 
     resource_client.resource_groups.create_or_update(resource_group_name, params)

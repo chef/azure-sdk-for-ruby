@@ -12,7 +12,7 @@ module Azure::AzureStack::Mgmt::V2017_06_01
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [String] URI to the next page.
       attr_accessor :next_link
 

@@ -12,7 +12,7 @@ module Azure::SecurityInsights::Mgmt::V2019_01_01_preview
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [String] URL to fetch the next set of entity queries.
       attr_accessor :next_link
 

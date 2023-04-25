@@ -16,7 +16,7 @@ module Azure::RecoveryServicesSiteRecovery::Mgmt::V2016_08_10
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<NetworkMapping>] The Network Mappings list.
       attr_accessor :value
 

@@ -12,7 +12,7 @@ module Azure::Locks::Mgmt::V2015_01_01
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<ManagementLockObject>] The list of locks.
       attr_accessor :value
 

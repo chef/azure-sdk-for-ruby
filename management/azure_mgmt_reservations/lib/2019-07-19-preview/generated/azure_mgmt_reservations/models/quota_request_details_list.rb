@@ -12,7 +12,7 @@ module Azure::Reservations::Mgmt::V2019_07_19_preview
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<QuotaRequestDetails>] The quota Requests.
       attr_accessor :value
 

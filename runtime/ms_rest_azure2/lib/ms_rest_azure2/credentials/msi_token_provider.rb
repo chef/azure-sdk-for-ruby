@@ -2,11 +2,11 @@
 # Copyright (c) Microsoft Corporation. All rights reserved.
 # Licensed under the MIT License. See License.txt in the project root for license information.
 
-module MsRestAzure
+module MsRestAzure2
   #
   # Class that provides access to authentication token via Managed Service Identity.
   #
-  class MSITokenProvider < MsRest::TokenProvider
+  class MSITokenProvider < MsRest2::TokenProvider
 
     private
 
@@ -105,7 +105,7 @@ module MsRestAzure
       token_acquire_url = (token_acquire_url + '&' + append_header('msi_res_id', ERB::Util.url_encode(@msi_res_id))) unless @msi_res_id.nil?
       url = URI.parse(token_acquire_url)
 
-      connection = Faraday.new(:url => url, :ssl => MsRest.ssl_options) do |builder|
+      connection = Faraday.new(:url => url, :ssl => MsRest2.ssl_options) do |builder|
         builder.adapter Faraday.default_adapter
       end
 
@@ -123,7 +123,7 @@ module MsRestAzure
       while retry_value <= max_retry && total_wait < user_defined_time_limit
         response = connection.get do |request|
           request.headers['Metadata'] = 'true'
-          request.headers['User-Agent'] = "Azure-SDK-For-Ruby/ms_rest_azure/#{MsRestAzure::VERSION}"
+          request.headers['User-Agent'] = "Azure-SDK-For-Ruby/ms_rest_azure2/#{MsRestAzure2::VERSION}"
         end
 
         if response.status == 410 || response.status == 429 || response.status == 404 || (response.status > 499 && response.status < 600)
@@ -173,7 +173,7 @@ module MsRestAzure
 
       url = URI.parse(token_acquire_url)
 
-      connection = Faraday.new(:url => url, :ssl => MsRest.ssl_options) do |builder|
+      connection = Faraday.new(:url => url, :ssl => MsRest2.ssl_options) do |builder|
         builder.adapter Faraday.default_adapter
       end
 

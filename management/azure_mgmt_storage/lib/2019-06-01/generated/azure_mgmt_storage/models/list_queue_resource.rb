@@ -12,7 +12,7 @@ module Azure::Storage::Mgmt::V2019_06_01
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<ListQueue>] List of queues returned.
       attr_accessor :value
 

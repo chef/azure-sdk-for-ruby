@@ -12,7 +12,7 @@ module Azure::Relay::Mgmt::V2016_07_01
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<WcfRelay>] Result of the List WcfRelays .
       attr_accessor :value
 

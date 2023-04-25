@@ -3,14 +3,14 @@
 # Changes may cause incorrect behavior and will be lost if the code is
 # regenerated.
 
-module Azure::Network::Mgmt::V2015_05_01_preview
+module Azure::Network2::Mgmt::V2015_05_01_preview
   module Models
     #
     # The routes table associated with the ExpressRouteCircuit
     #
     class ExpressRouteCircuitRoutesTable
 
-      include MsRestAzure
+      include MsRestAzure2
 
       # @return [String] Gets AddressPrefix.
       attr_accessor :address_prefix

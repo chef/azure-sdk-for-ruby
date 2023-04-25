@@ -12,7 +12,7 @@ module Azure::Labservices::Mgmt::V2018_10_15
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<EnvironmentSetting>] Results of the list operation.
       attr_accessor :value
 

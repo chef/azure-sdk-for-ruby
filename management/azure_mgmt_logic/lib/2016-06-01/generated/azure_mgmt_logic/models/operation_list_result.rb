@@ -13,7 +13,7 @@ module Azure::Logic::Mgmt::V2016_06_01
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<Operation>] List of Logic operations supported by the
       # Logic resource provider.
       attr_accessor :value

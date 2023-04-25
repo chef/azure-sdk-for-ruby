@@ -13,7 +13,7 @@ module Azure::Consumption::Mgmt::V2017_04_24_preview
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<Operation>] List of consumption operations supported by
       # the Microsoft.Consumption resource provider.
       attr_accessor :value

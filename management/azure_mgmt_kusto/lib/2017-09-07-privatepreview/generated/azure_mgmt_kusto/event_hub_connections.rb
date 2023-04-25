@@ -87,7 +87,7 @@ module Azure::Kusto::Mgmt::V2018_09_07_privatepreview
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'resourceGroupName' => resource_group_name,'clusterName' => cluster_name,'databaseName' => database_name,'subscriptionId' => @client.subscription_id},
           query_params: {'api-version' => @client.api_version},
           headers: request_headers.merge(custom_headers || {}),
@@ -114,7 +114,7 @@ module Azure::Kusto::Mgmt::V2018_09_07_privatepreview
             result_mapper = Azure::Kusto::Mgmt::V2018_09_07_privatepreview::Models::EventHubConnectionListResult.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -201,7 +201,7 @@ module Azure::Kusto::Mgmt::V2018_09_07_privatepreview
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'resourceGroupName' => resource_group_name,'clusterName' => cluster_name,'databaseName' => database_name,'subscriptionId' => @client.subscription_id},
           query_params: {'api-version' => @client.api_version},
           body: request_content,
@@ -229,7 +229,7 @@ module Azure::Kusto::Mgmt::V2018_09_07_privatepreview
             result_mapper = Azure::Kusto::Mgmt::V2018_09_07_privatepreview::Models::EventHubConnectionValidationListResult.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -310,7 +310,7 @@ module Azure::Kusto::Mgmt::V2018_09_07_privatepreview
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'resourceGroupName' => resource_group_name,'clusterName' => cluster_name,'databaseName' => database_name,'eventHubConnectionName' => event_hub_connection_name,'subscriptionId' => @client.subscription_id},
           query_params: {'api-version' => @client.api_version},
           headers: request_headers.merge(custom_headers || {}),
@@ -337,7 +337,7 @@ module Azure::Kusto::Mgmt::V2018_09_07_privatepreview
             result_mapper = Azure::Kusto::Mgmt::V2018_09_07_privatepreview::Models::EventHubConnection.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -585,7 +585,7 @@ module Azure::Kusto::Mgmt::V2018_09_07_privatepreview
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'resourceGroupName' => resource_group_name,'clusterName' => cluster_name,'databaseName' => database_name,'eventHubConnectionName' => event_hub_connection_name,'subscriptionId' => @client.subscription_id},
           query_params: {'api-version' => @client.api_version},
           body: request_content,
@@ -613,7 +613,7 @@ module Azure::Kusto::Mgmt::V2018_09_07_privatepreview
             result_mapper = Azure::Kusto::Mgmt::V2018_09_07_privatepreview::Models::EventHubConnection.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
         # Deserialize Response
@@ -623,7 +623,7 @@ module Azure::Kusto::Mgmt::V2018_09_07_privatepreview
             result_mapper = Azure::Kusto::Mgmt::V2018_09_07_privatepreview::Models::EventHubConnection.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -717,7 +717,7 @@ module Azure::Kusto::Mgmt::V2018_09_07_privatepreview
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'resourceGroupName' => resource_group_name,'clusterName' => cluster_name,'databaseName' => database_name,'eventHubConnectionName' => event_hub_connection_name,'subscriptionId' => @client.subscription_id},
           query_params: {'api-version' => @client.api_version},
           body: request_content,
@@ -745,7 +745,7 @@ module Azure::Kusto::Mgmt::V2018_09_07_privatepreview
             result_mapper = Azure::Kusto::Mgmt::V2018_09_07_privatepreview::Models::EventHubConnection.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
         # Deserialize Response
@@ -755,7 +755,7 @@ module Azure::Kusto::Mgmt::V2018_09_07_privatepreview
             result_mapper = Azure::Kusto::Mgmt::V2018_09_07_privatepreview::Models::EventHubConnection.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -835,7 +835,7 @@ module Azure::Kusto::Mgmt::V2018_09_07_privatepreview
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'resourceGroupName' => resource_group_name,'clusterName' => cluster_name,'databaseName' => database_name,'eventHubConnectionName' => event_hub_connection_name,'subscriptionId' => @client.subscription_id},
           query_params: {'api-version' => @client.api_version},
           headers: request_headers.merge(custom_headers || {}),

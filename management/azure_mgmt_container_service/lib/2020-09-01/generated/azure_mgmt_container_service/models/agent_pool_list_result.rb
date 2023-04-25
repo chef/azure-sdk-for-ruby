@@ -12,7 +12,7 @@ module Azure::ContainerService::Mgmt::V2020_09_01
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<AgentPool>] The list of agent pools.
       attr_accessor :value
 

@@ -19,13 +19,13 @@ First of all to start interacting with the ARM network you will need to setup a 
 install the appropriate gem:
 
 ```
-gem install azure_mgmt_network
+gem install azure_mgmt_network2
 ```
 
 and reference it in your code:
 
 ```Ruby
-require 'azure_mgmt_network'
+require 'azure_mgmt_network2'
 ```
 
 After that you should be ready to start using SDK!
@@ -36,14 +36,14 @@ You can create a new Virtual Network using the Network profile.
 
 ```ruby
 # Include SDK modules to ease access to network classes.
-include Azure::Network::Profiles::Latest::Mgmt
-include Azure::Network::Profiles::Latest::Mgmt::Models
+include Azure::Network2::Profiles::Latest::Mgmt
+include Azure::Network2::Profiles::Latest::Mgmt::Models
 
-provider = MsRestAzure::ApplicationTokenProvider.new(
+provider = MsRestAzure2::ApplicationTokenProvider.new(
        'YOUR TENANT ID',
        'YOUR CLIENT ID',
        'YOUR CLIENT SECRET')
-credentials = MsRest::TokenCredentials.new(provider)
+credentials = MsRest2::TokenCredentials.new(provider)
 
 options = {
   tenant_id: 'YOUR TENANT ID',
@@ -61,17 +61,17 @@ You can create a new Virtual network using a specific version of Network, say 20
 
 ```ruby
 # Include SDK modules to ease access to compute classes.
-include Azure::Network::Mgmt::V2017_09_01
-include Azure::Network::Mgmt::V2017_09_01::Models
+include Azure::Network2::Mgmt::V2017_09_01
+include Azure::Network2::Mgmt::V2017_09_01::Models
 
 # Note: The tenant_id, client_id, client_secret and subscription_id
 # must be set using the env variables.
 
-provider = MsRestAzure::ApplicationTokenProvider.new(
+provider = MsRestAzure2::ApplicationTokenProvider.new(
        ENV['AZURE_TENANT_ID'],
        ENV['AZURE_CLIENT_ID'],
        ENV['AZURE_CLIENT_SECRET'])
-credentials = MsRest::TokenCredentials.new(provider)
+credentials = MsRest2::TokenCredentials.new(provider)
 
 client = NetworkManagementClient.new(credentials)
 client.subscription_id = ENV['AZURE_SUBSCRIPTION_ID']
@@ -117,7 +117,7 @@ promise = promise.then do |result|
 end
 ```
 
-In both cases you're returned an instance of MsRestAzure::AzureOperationResponse which contains HTTP requests/response objects and response body. Response body is a deserialized object representing the received information. In case of code above - newly created virtual network. To get data from it:
+In both cases you're returned an instance of MsRestAzure2::AzureOperationResponse which contains HTTP requests/response objects and response body. Response body is a deserialized object representing the received information. In case of code above - newly created virtual network. To get data from it:
 
 ```Ruby
 virtual_network = result.body

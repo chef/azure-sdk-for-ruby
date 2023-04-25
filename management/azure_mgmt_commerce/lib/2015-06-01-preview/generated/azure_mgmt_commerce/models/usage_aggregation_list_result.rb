@@ -12,7 +12,7 @@ module Azure::Commerce::Mgmt::V2015_06_01_preview
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<UsageAggregation>] Gets or sets details for the
       # requested aggregation.
       attr_accessor :value

@@ -12,7 +12,7 @@ module Azure::Labservices::Mgmt::V2018_10_15
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<OperationMetadata>] List of operations supported by the
       # resource provider.
       attr_accessor :value

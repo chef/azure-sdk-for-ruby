@@ -12,7 +12,7 @@ module Azure::MachineLearning::Mgmt::V2017_01_01
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<WebService>] An array of web service objects.
       attr_accessor :value
 

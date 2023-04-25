@@ -12,7 +12,7 @@ module Azure::DataBox::Mgmt::V2018_01_01
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<JobResource>] List of job resources.
       attr_accessor :value
 

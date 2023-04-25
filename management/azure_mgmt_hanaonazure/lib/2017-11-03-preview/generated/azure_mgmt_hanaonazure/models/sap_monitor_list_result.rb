@@ -12,7 +12,7 @@ module Azure::Hanaonazure::Mgmt::V2017_11_03_preview
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<SapMonitor>] The list of SAP monitors.
       attr_accessor :value
 

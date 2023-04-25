@@ -2,11 +2,11 @@
 # Copyright (c) Microsoft Corporation. All rights reserved.
 # Licensed under the MIT License. See License.txt in the project root for license information.
 
-module MsRestAzure
+module MsRestAzure2
   #
   # Class which represents an Azure error.
   #
-  class AzureOperationError < MsRest::HttpOperationError
+  class AzureOperationError < MsRest2::HttpOperationError
 
     # @return [String] the error message.
     attr_accessor :error_message

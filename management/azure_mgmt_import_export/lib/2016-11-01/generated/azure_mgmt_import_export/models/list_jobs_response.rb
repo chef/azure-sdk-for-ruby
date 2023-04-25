@@ -12,7 +12,7 @@ module Azure::ImportExport::Mgmt::V2016_11_01
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [String] link to next batch of jobs
       attr_accessor :next_link
 

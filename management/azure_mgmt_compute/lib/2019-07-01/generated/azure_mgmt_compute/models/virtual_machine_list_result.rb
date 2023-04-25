@@ -12,7 +12,7 @@ module Azure::Compute::Mgmt::V2019_07_01
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<VirtualMachine>] The list of virtual machines.
       attr_accessor :value
 

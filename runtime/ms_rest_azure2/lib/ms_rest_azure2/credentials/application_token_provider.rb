@@ -2,11 +2,11 @@
 # Copyright (c) Microsoft Corporation. All rights reserved.
 # Licensed under the MIT License. See License.txt in the project root for license information.
 
-module MsRestAzure
+module MsRestAzure2
   #
   # Class that provides access to authentication token.
   #
-  class ApplicationTokenProvider < MsRest::TokenProvider
+  class ApplicationTokenProvider < MsRest2::TokenProvider
 
     private
 
@@ -97,7 +97,7 @@ module MsRestAzure
 
       url = URI.parse(token_acquire_url)
 
-      connection = Faraday.new(:url => url, :ssl => MsRest.ssl_options) do |builder|
+      connection = Faraday.new(:url => url, :ssl => MsRest2.ssl_options) do |builder|
         builder.adapter Faraday.default_adapter
       end
 

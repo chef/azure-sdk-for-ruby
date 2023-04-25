@@ -14,7 +14,7 @@ module Azure::Locks::Mgmt::V2016_09_01
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<Operation>] List of Microsoft.Authorization operations.
       attr_accessor :value
 

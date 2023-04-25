@@ -12,7 +12,7 @@ module Azure::ResourceHealth::Mgmt::V2018_08_01_preview
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<Event>] The list of event.
       attr_accessor :value
 

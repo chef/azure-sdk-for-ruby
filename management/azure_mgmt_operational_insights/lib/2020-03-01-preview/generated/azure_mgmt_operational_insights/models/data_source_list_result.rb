@@ -12,7 +12,7 @@ module Azure::OperationalInsights::Mgmt::V2020_03_01_preview
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<DataSource>] A list of datasources.
       attr_accessor :value
 

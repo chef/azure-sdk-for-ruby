@@ -13,7 +13,7 @@ module Azure::IotHub::Mgmt::V2019_07_01_preview
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<EventHubConsumerGroupInfo>] List of consumer groups
       # objects
       attr_accessor :value

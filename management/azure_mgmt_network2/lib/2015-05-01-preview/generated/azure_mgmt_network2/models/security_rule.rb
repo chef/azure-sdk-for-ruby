@@ -3,14 +3,14 @@
 # Changes may cause incorrect behavior and will be lost if the code is
 # regenerated.
 
-module Azure::Network::Mgmt::V2015_05_01_preview
+module Azure::Network2::Mgmt::V2015_05_01_preview
   module Models
     #
     # Network security rule
     #
     class SecurityRule < SubResource
 
-      include MsRestAzure
+      include MsRestAzure2
 
       # @return [String] Gets or sets a description for this rule. Restricted
       # to 140 chars.

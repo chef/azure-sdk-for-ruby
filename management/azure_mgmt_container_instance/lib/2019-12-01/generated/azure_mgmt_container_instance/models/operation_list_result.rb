@@ -13,7 +13,7 @@ module Azure::ContainerInstance::Mgmt::V2019_12_01
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<Operation>] The list of operations.
       attr_accessor :value
 

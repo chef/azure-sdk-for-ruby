@@ -12,7 +12,7 @@ module Azure::Peering::Mgmt::V2019_08_01_preview
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<PeeringServicePrefix>] The list of [T].
       attr_accessor :value
 

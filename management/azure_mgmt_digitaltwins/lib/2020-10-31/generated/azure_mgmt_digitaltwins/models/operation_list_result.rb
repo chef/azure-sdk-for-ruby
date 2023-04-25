@@ -13,7 +13,7 @@ module Azure::DigitalTwins::Mgmt::V2020_10_31
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [String] The link used to get the next page of DigitalTwins
       # description objects.
       attr_accessor :next_link

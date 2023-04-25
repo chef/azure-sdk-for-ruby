@@ -3,7 +3,7 @@
 # Changes may cause incorrect behavior and will be lost if the code is
 # regenerated.
 
-module Azure::Network::Mgmt::V2015_05_01_preview
+module Azure::Network2::Mgmt::V2015_05_01_preview
   module Models
     #
     # Model object.
@@ -11,7 +11,7 @@ module Azure::Network::Mgmt::V2015_05_01_preview
     #
     class ConnectionResetSharedKey
 
-      include MsRestAzure
+      include MsRestAzure2
 
       # @return [Integer] The virtual network connection reset shared key
       # length

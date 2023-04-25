@@ -39,14 +39,14 @@ module Azure::CognitiveServices::FormRecognizer::V1_0_preview
 
     #
     # Creates initializes a new instance of the FormRecognizerClient class.
-    # @param credentials [MsRest::ServiceClientCredentials] credentials to authorize HTTP requests made by the service client.
+    # @param credentials [MsRest2::ServiceClientCredentials] credentials to authorize HTTP requests made by the service client.
     # @param options [Array] filters to be applied to the HTTP requests.
     #
     def initialize(credentials = nil, options = nil)
       super(credentials, options)
       @base_url = '{Endpoint}/formrecognizer/v1.0-preview'
 
-      fail ArgumentError, 'invalid type of credentials input parameter' unless credentials.is_a?(MsRest::ServiceClientCredentials) unless credentials.nil?
+      fail ArgumentError, 'invalid type of credentials input parameter' unless credentials.is_a?(MsRest2::ServiceClientCredentials) unless credentials.nil?
       @credentials = credentials
 
       @accept_language = 'en-US'
@@ -211,7 +211,7 @@ module Azure::CognitiveServices::FormRecognizer::V1_0_preview
     request_url = request_url.gsub('{Endpoint}', endpoint)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           body: request_content,
           headers: request_headers.merge(custom_headers || {}),
           base_url: request_url
@@ -224,7 +224,7 @@ module Azure::CognitiveServices::FormRecognizer::V1_0_preview
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -237,7 +237,7 @@ module Azure::CognitiveServices::FormRecognizer::V1_0_preview
             result_mapper = Azure::CognitiveServices::FormRecognizer::V1_0_preview::Models::TrainResult.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -309,7 +309,7 @@ module Azure::CognitiveServices::FormRecognizer::V1_0_preview
     request_url = request_url.gsub('{Endpoint}', endpoint)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'id' => id},
           headers: request_headers.merge(custom_headers || {}),
           base_url: request_url
@@ -322,7 +322,7 @@ module Azure::CognitiveServices::FormRecognizer::V1_0_preview
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -335,7 +335,7 @@ module Azure::CognitiveServices::FormRecognizer::V1_0_preview
             result_mapper = Azure::CognitiveServices::FormRecognizer::V1_0_preview::Models::KeysResult.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -400,7 +400,7 @@ module Azure::CognitiveServices::FormRecognizer::V1_0_preview
     request_url = request_url.gsub('{Endpoint}', endpoint)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           headers: request_headers.merge(custom_headers || {}),
           base_url: request_url
       }
@@ -412,7 +412,7 @@ module Azure::CognitiveServices::FormRecognizer::V1_0_preview
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -425,7 +425,7 @@ module Azure::CognitiveServices::FormRecognizer::V1_0_preview
             result_mapper = Azure::CognitiveServices::FormRecognizer::V1_0_preview::Models::ModelsResult.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -494,7 +494,7 @@ module Azure::CognitiveServices::FormRecognizer::V1_0_preview
     request_url = request_url.gsub('{Endpoint}', endpoint)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'id' => id},
           headers: request_headers.merge(custom_headers || {}),
           base_url: request_url
@@ -507,7 +507,7 @@ module Azure::CognitiveServices::FormRecognizer::V1_0_preview
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -520,7 +520,7 @@ module Azure::CognitiveServices::FormRecognizer::V1_0_preview
             result_mapper = Azure::CognitiveServices::FormRecognizer::V1_0_preview::Models::ModelResult.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -588,7 +588,7 @@ module Azure::CognitiveServices::FormRecognizer::V1_0_preview
     request_url = request_url.gsub('{Endpoint}', endpoint)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'id' => id},
           headers: request_headers.merge(custom_headers || {}),
           base_url: request_url
@@ -601,7 +601,7 @@ module Azure::CognitiveServices::FormRecognizer::V1_0_preview
         response_content = http_response.body
         unless status_code == 204
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -694,7 +694,7 @@ module Azure::CognitiveServices::FormRecognizer::V1_0_preview
     request_url = request_url.gsub('{Endpoint}', endpoint)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'id' => id},
           query_params: {'keys' => keys.nil? ? nil : keys.join(',')},
           headers: request_headers.merge(custom_headers || {}),
@@ -709,7 +709,7 @@ module Azure::CognitiveServices::FormRecognizer::V1_0_preview
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -722,7 +722,7 @@ module Azure::CognitiveServices::FormRecognizer::V1_0_preview
             result_mapper = Azure::CognitiveServices::FormRecognizer::V1_0_preview::Models::AnalyzeResult.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -800,7 +800,7 @@ module Azure::CognitiveServices::FormRecognizer::V1_0_preview
     request_url = request_url.gsub('{Endpoint}', endpoint)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           body: request_content,
           headers: request_headers.merge(custom_headers || {}),
           base_url: request_url
@@ -813,7 +813,7 @@ module Azure::CognitiveServices::FormRecognizer::V1_0_preview
         response_content = http_response.body
         unless status_code == 202
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -888,7 +888,7 @@ module Azure::CognitiveServices::FormRecognizer::V1_0_preview
     request_url = request_url.gsub('{Endpoint}', endpoint)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'operationId' => operation_id},
           headers: request_headers.merge(custom_headers || {}),
           base_url: request_url
@@ -901,7 +901,7 @@ module Azure::CognitiveServices::FormRecognizer::V1_0_preview
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -914,7 +914,7 @@ module Azure::CognitiveServices::FormRecognizer::V1_0_preview
             result_mapper = Azure::CognitiveServices::FormRecognizer::V1_0_preview::Models::ReadReceiptResult.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -997,7 +997,7 @@ module Azure::CognitiveServices::FormRecognizer::V1_0_preview
     request_url = request_url.gsub('{Endpoint}', endpoint)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           body: request_content,
           headers: request_headers.merge(custom_headers || {}),
           base_url: request_url
@@ -1010,7 +1010,7 @@ module Azure::CognitiveServices::FormRecognizer::V1_0_preview
         response_content = http_response.body
         unless status_code == 202
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?

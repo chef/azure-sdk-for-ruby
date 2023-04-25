@@ -3,14 +3,14 @@
 # Changes may cause incorrect behavior and will be lost if the code is
 # regenerated.
 
-module Azure::Network::Mgmt::V2015_05_01_preview
+module Azure::Network2::Mgmt::V2015_05_01_preview
   module Models
     #
     # Contains ServiceProviderProperties in an ExpressRouteCircuit
     #
     class ExpressRouteCircuitServiceProviderProperties
 
-      include MsRestAzure
+      include MsRestAzure2
 
       # @return [String] Gets or sets serviceProviderName.
       attr_accessor :service_provider_name

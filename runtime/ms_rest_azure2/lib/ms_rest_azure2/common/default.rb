@@ -2,7 +2,7 @@
 # Copyright (c) Microsoft Corporation. All rights reserved.
 # Licensed under the MIT License. See License.txt in the project root for license information.
 
-module MsRestAzure::Common
+module MsRestAzure2::Common
   module Default
     class << self
       #
@@ -39,10 +39,10 @@ module MsRestAzure::Common
 
       #
       # Default Azure Active Directory Service Settings.
-      # @return [MsRestAzure::ActiveDirectoryServiceSettings] Azure Active Directory Service Settings.
+      # @return [MsRestAzure2::ActiveDirectoryServiceSettings] Azure Active Directory Service Settings.
       #
       def active_directory_settings
-        MsRestAzure::ActiveDirectoryServiceSettings.get_azure_settings
+        MsRestAzure2::ActiveDirectoryServiceSettings.get_azure_settings
       end
 
       #
@@ -50,7 +50,7 @@ module MsRestAzure::Common
       # @return [Hash] Configuration options.
       #
       def options
-        Hash[MsRestAzure::Common::Configurable.keys.map { |key| [key, send(key)]}]
+        Hash[MsRestAzure2::Common::Configurable.keys.map { |key| [key, send(key)]}]
       end
     end
   end

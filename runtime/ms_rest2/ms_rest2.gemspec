@@ -4,11 +4,11 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'ms_rest/version'
+require 'ms_rest2/version'
 
 Gem::Specification.new do |spec|
   spec.name          = 'ms_rest2'
-  spec.version       = MsRest::VERSION
+  spec.version       = MsRest2::VERSION
   spec.authors       = 'Microsoft Corporation'
   spec.email         = 'azsdkteam@microsoft.com'
 
@@ -21,7 +21,7 @@ Gem::Specification.new do |spec|
     'changelog_uri' => 'https://github.com/chef/azure-sdk-for-ruby/blob/master/runtime/ms_rest/CHANGELOG.md',
     'documentation_uri' => 'https://azure.microsoft.com/en-us/develop/ruby/',
     'homepage_uri' => 'https://github.com/chef/azure-sdk-for-ruby',
-    'source_code_uri' => "https://github.com/chef/azure-sdk-for-ruby/tree/ms_rest-v#{MsRest::VERSION}"
+    'source_code_uri' => "https://github.com/chef/azure-sdk-for-ruby/tree/ms_rest-v#{MsRest2::VERSION}"
   }
 
   spec.files         = Dir["ca-cert.pem", "CHANGELOG.md", "README.md", "LICENSE.txt", "lib/**/*"]

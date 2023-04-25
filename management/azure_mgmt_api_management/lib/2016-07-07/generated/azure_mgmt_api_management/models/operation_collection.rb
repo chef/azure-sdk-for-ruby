@@ -12,7 +12,7 @@ module Azure::ApiManagement::Mgmt::V2016_07_07
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<OperationContract>] Page values.
       attr_accessor :value
 

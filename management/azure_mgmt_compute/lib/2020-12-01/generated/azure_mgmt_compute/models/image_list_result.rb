@@ -12,7 +12,7 @@ module Azure::Compute::Mgmt::V2020_12_01
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<Image>] The list of Images.
       attr_accessor :value
 

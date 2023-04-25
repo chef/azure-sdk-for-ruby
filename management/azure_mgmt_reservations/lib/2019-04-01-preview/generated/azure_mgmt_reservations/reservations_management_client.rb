@@ -43,7 +43,7 @@ module Azure::Reservations::Mgmt::V2019_04_01_preview
 
     #
     # Creates initializes a new instance of the ReservationsManagementClient class.
-    # @param credentials [MsRest::ServiceClientCredentials] credentials to authorize HTTP requests made by the service client.
+    # @param credentials [MsRest2::ServiceClientCredentials] credentials to authorize HTTP requests made by the service client.
     # @param base_url [String] the base URI of the service.
     # @param options [Array] filters to be applied to the HTTP requests.
     #
@@ -51,7 +51,7 @@ module Azure::Reservations::Mgmt::V2019_04_01_preview
       super(credentials, options)
       @base_url = base_url || 'https://management.azure.com'
 
-      fail ArgumentError, 'invalid type of credentials input parameter' unless credentials.is_a?(MsRest::ServiceClientCredentials) unless credentials.nil?
+      fail ArgumentError, 'invalid type of credentials input parameter' unless credentials.is_a?(MsRest2::ServiceClientCredentials) unless credentials.nil?
       @credentials = credentials
 
       @reservation = Reservation.new(self)
@@ -190,7 +190,7 @@ module Azure::Reservations::Mgmt::V2019_04_01_preview
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'subscriptionId' => subscription_id},
           query_params: {'api-version' => api_version,'reservedResourceType' => reserved_resource_type,'location' => location},
           headers: request_headers.merge(custom_headers || {}),
@@ -204,7 +204,7 @@ module Azure::Reservations::Mgmt::V2019_04_01_preview
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -233,7 +233,7 @@ module Azure::Reservations::Mgmt::V2019_04_01_preview
             }
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -304,7 +304,7 @@ module Azure::Reservations::Mgmt::V2019_04_01_preview
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'subscriptionId' => subscription_id},
           query_params: {'api-version' => api_version},
           headers: request_headers.merge(custom_headers || {}),
@@ -318,7 +318,7 @@ module Azure::Reservations::Mgmt::V2019_04_01_preview
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -331,7 +331,7 @@ module Azure::Reservations::Mgmt::V2019_04_01_preview
             result_mapper = Azure::Reservations::Mgmt::V2019_04_01_preview::Models::AppliedReservations.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 

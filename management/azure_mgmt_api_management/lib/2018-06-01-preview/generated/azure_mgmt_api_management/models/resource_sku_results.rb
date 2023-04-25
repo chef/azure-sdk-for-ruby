@@ -12,7 +12,7 @@ module Azure::ApiManagement::Mgmt::V2018_06_01_preview
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<ResourceSkuResult>] The list of skus available for the
       # service.
       attr_accessor :value

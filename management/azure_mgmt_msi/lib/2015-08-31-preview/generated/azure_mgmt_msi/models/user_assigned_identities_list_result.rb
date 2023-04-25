@@ -12,7 +12,7 @@ module Azure::ManagedServiceIdentity::Mgmt::V2015_08_31_preview
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<Identity>] The collection of userAssignedIdentities
       # returned by the listing operation.
       attr_accessor :value

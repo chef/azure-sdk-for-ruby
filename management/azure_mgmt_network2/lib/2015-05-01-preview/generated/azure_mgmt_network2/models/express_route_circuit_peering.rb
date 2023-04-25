@@ -3,14 +3,14 @@
 # Changes may cause incorrect behavior and will be lost if the code is
 # regenerated.
 
-module Azure::Network::Mgmt::V2015_05_01_preview
+module Azure::Network2::Mgmt::V2015_05_01_preview
   module Models
     #
     # Peering in a ExpressRouteCircuit resource
     #
     class ExpressRouteCircuitPeering < SubResource
 
-      include MsRestAzure
+      include MsRestAzure2
 
       # @return [ExpressRouteCircuitPeeringType] Gets or sets PeeringType.
       # Possible values include: 'AzurePublicPeering', 'AzurePrivatePeering',

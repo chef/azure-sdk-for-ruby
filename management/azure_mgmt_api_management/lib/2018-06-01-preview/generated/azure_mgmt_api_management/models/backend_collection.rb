@@ -12,7 +12,7 @@ module Azure::ApiManagement::Mgmt::V2018_06_01_preview
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<BackendContract>] Backend values.
       attr_accessor :value
 

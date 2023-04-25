@@ -57,7 +57,7 @@ module Azure::NetApp::Mgmt::V2019_05_01
 
     #
     # Creates initializes a new instance of the AzureNetAppFilesManagementClient class.
-    # @param credentials [MsRest::ServiceClientCredentials] credentials to authorize HTTP requests made by the service client.
+    # @param credentials [MsRest2::ServiceClientCredentials] credentials to authorize HTTP requests made by the service client.
     # @param base_url [String] the base URI of the service.
     # @param options [Array] filters to be applied to the HTTP requests.
     #
@@ -65,7 +65,7 @@ module Azure::NetApp::Mgmt::V2019_05_01
       super(credentials, options)
       @base_url = base_url || 'https://management.azure.com'
 
-      fail ArgumentError, 'invalid type of credentials input parameter' unless credentials.is_a?(MsRest::ServiceClientCredentials) unless credentials.nil?
+      fail ArgumentError, 'invalid type of credentials input parameter' unless credentials.is_a?(MsRest2::ServiceClientCredentials) unless credentials.nil?
       @credentials = credentials
 
       @operations = Operations.new(self)
@@ -234,7 +234,7 @@ module Azure::NetApp::Mgmt::V2019_05_01
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'subscriptionId' => subscription_id,'location' => location},
           query_params: {'api-version' => api_version},
           body: request_content,
@@ -262,7 +262,7 @@ module Azure::NetApp::Mgmt::V2019_05_01
             result_mapper = Azure::NetApp::Mgmt::V2019_05_01::Models::ResourceNameAvailability.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -367,7 +367,7 @@ module Azure::NetApp::Mgmt::V2019_05_01
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'subscriptionId' => subscription_id,'location' => location},
           query_params: {'api-version' => api_version},
           body: request_content,
@@ -395,7 +395,7 @@ module Azure::NetApp::Mgmt::V2019_05_01
             result_mapper = Azure::NetApp::Mgmt::V2019_05_01::Models::ResourceNameAvailability.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 

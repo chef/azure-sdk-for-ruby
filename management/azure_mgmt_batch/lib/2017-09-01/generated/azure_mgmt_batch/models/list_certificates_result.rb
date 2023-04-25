@@ -12,7 +12,7 @@ module Azure::Batch::Mgmt::V2017_09_01
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<Certificate>] The collection of returned certificates.
       attr_accessor :value
 

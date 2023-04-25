@@ -12,7 +12,7 @@ module Azure::BatchAI::Mgmt::V2018_05_01
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<Workspace>] The collection of workspaces.
       attr_accessor :value
 

@@ -12,7 +12,7 @@ module Azure::AlertsManagement::Mgmt::V2019_03_01
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<AlertRule>] List of Smart Detector alert rules.
       attr_accessor :value
 

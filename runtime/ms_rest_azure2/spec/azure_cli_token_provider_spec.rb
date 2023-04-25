@@ -3,11 +3,11 @@
 # Licensed under the MIT License. See License.txt in the project root for license information.
 
 require 'rspec'
-require 'ms_rest_azure'
+require 'ms_rest_azure2'
 require 'ostruct'
 require 'securerandom'
 
-module MsRestAzure
+module MsRestAzure2
 
   describe AzureCliTokenProvider do
     let(:cli_path) { '/az.exe' }

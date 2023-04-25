@@ -12,7 +12,7 @@ module Azure::Redis::Mgmt::V2015_08_01
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<RedisResource>] Results of the list operation.
       attr_accessor :value
 

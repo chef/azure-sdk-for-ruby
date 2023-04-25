@@ -106,7 +106,7 @@ module Azure::PolicyInsights::Mgmt::V2018_04_04
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'policyEventsResource' => policy_events_resource,'managementGroupsNamespace' => management_groups_namespace,'managementGroupName' => management_group_name},
           query_params: {'api-version' => @client.api_version,'$top' => top,'$orderby' => order_by,'$select' => select,'$from' => from,'$to' => to,'$filter' => filter,'$apply' => apply},
           headers: request_headers.merge(custom_headers || {}),
@@ -120,7 +120,7 @@ module Azure::PolicyInsights::Mgmt::V2018_04_04
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -133,7 +133,7 @@ module Azure::PolicyInsights::Mgmt::V2018_04_04
             result_mapper = Azure::PolicyInsights::Mgmt::V2018_04_04::Models::PolicyEventsQueryResults.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -227,7 +227,7 @@ module Azure::PolicyInsights::Mgmt::V2018_04_04
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'policyEventsResource' => policy_events_resource,'subscriptionId' => subscription_id},
           query_params: {'api-version' => @client.api_version,'$top' => top,'$orderby' => order_by,'$select' => select,'$from' => from,'$to' => to,'$filter' => filter,'$apply' => apply},
           headers: request_headers.merge(custom_headers || {}),
@@ -241,7 +241,7 @@ module Azure::PolicyInsights::Mgmt::V2018_04_04
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -254,7 +254,7 @@ module Azure::PolicyInsights::Mgmt::V2018_04_04
             result_mapper = Azure::PolicyInsights::Mgmt::V2018_04_04::Models::PolicyEventsQueryResults.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -352,7 +352,7 @@ module Azure::PolicyInsights::Mgmt::V2018_04_04
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'policyEventsResource' => policy_events_resource,'subscriptionId' => subscription_id,'resourceGroupName' => resource_group_name},
           query_params: {'api-version' => @client.api_version,'$top' => top,'$orderby' => order_by,'$select' => select,'$from' => from,'$to' => to,'$filter' => filter,'$apply' => apply},
           headers: request_headers.merge(custom_headers || {}),
@@ -366,7 +366,7 @@ module Azure::PolicyInsights::Mgmt::V2018_04_04
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -379,7 +379,7 @@ module Azure::PolicyInsights::Mgmt::V2018_04_04
             result_mapper = Azure::PolicyInsights::Mgmt::V2018_04_04::Models::PolicyEventsQueryResults.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -473,7 +473,7 @@ module Azure::PolicyInsights::Mgmt::V2018_04_04
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'policyEventsResource' => policy_events_resource},
           skip_encoding_path_params: {'resourceId' => resource_id},
           query_params: {'api-version' => @client.api_version,'$top' => top,'$orderby' => order_by,'$select' => select,'$from' => from,'$to' => to,'$filter' => filter,'$apply' => apply},
@@ -488,7 +488,7 @@ module Azure::PolicyInsights::Mgmt::V2018_04_04
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -501,7 +501,7 @@ module Azure::PolicyInsights::Mgmt::V2018_04_04
             result_mapper = Azure::PolicyInsights::Mgmt::V2018_04_04::Models::PolicyEventsQueryResults.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -600,7 +600,7 @@ module Azure::PolicyInsights::Mgmt::V2018_04_04
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'policyEventsResource' => policy_events_resource,'subscriptionId' => subscription_id,'authorizationNamespace' => authorization_namespace,'policySetDefinitionName' => policy_set_definition_name},
           query_params: {'api-version' => @client.api_version,'$top' => top,'$orderby' => order_by,'$select' => select,'$from' => from,'$to' => to,'$filter' => filter,'$apply' => apply},
           headers: request_headers.merge(custom_headers || {}),
@@ -614,7 +614,7 @@ module Azure::PolicyInsights::Mgmt::V2018_04_04
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -627,7 +627,7 @@ module Azure::PolicyInsights::Mgmt::V2018_04_04
             result_mapper = Azure::PolicyInsights::Mgmt::V2018_04_04::Models::PolicyEventsQueryResults.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -726,7 +726,7 @@ module Azure::PolicyInsights::Mgmt::V2018_04_04
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'policyEventsResource' => policy_events_resource,'subscriptionId' => subscription_id,'authorizationNamespace' => authorization_namespace,'policyDefinitionName' => policy_definition_name},
           query_params: {'api-version' => @client.api_version,'$top' => top,'$orderby' => order_by,'$select' => select,'$from' => from,'$to' => to,'$filter' => filter,'$apply' => apply},
           headers: request_headers.merge(custom_headers || {}),
@@ -740,7 +740,7 @@ module Azure::PolicyInsights::Mgmt::V2018_04_04
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -753,7 +753,7 @@ module Azure::PolicyInsights::Mgmt::V2018_04_04
             result_mapper = Azure::PolicyInsights::Mgmt::V2018_04_04::Models::PolicyEventsQueryResults.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -852,7 +852,7 @@ module Azure::PolicyInsights::Mgmt::V2018_04_04
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'policyEventsResource' => policy_events_resource,'subscriptionId' => subscription_id,'authorizationNamespace' => authorization_namespace,'policyAssignmentName' => policy_assignment_name},
           query_params: {'api-version' => @client.api_version,'$top' => top,'$orderby' => order_by,'$select' => select,'$from' => from,'$to' => to,'$filter' => filter,'$apply' => apply},
           headers: request_headers.merge(custom_headers || {}),
@@ -866,7 +866,7 @@ module Azure::PolicyInsights::Mgmt::V2018_04_04
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -879,7 +879,7 @@ module Azure::PolicyInsights::Mgmt::V2018_04_04
             result_mapper = Azure::PolicyInsights::Mgmt::V2018_04_04::Models::PolicyEventsQueryResults.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -982,7 +982,7 @@ module Azure::PolicyInsights::Mgmt::V2018_04_04
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'policyEventsResource' => policy_events_resource,'subscriptionId' => subscription_id,'resourceGroupName' => resource_group_name,'authorizationNamespace' => authorization_namespace,'policyAssignmentName' => policy_assignment_name},
           query_params: {'api-version' => @client.api_version,'$top' => top,'$orderby' => order_by,'$select' => select,'$from' => from,'$to' => to,'$filter' => filter,'$apply' => apply},
           headers: request_headers.merge(custom_headers || {}),
@@ -996,7 +996,7 @@ module Azure::PolicyInsights::Mgmt::V2018_04_04
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -1009,7 +1009,7 @@ module Azure::PolicyInsights::Mgmt::V2018_04_04
             result_mapper = Azure::PolicyInsights::Mgmt::V2018_04_04::Models::PolicyEventsQueryResults.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -1077,7 +1077,7 @@ module Azure::PolicyInsights::Mgmt::V2018_04_04
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           skip_encoding_path_params: {'scope' => scope},
           query_params: {'api-version' => @client.api_version},
           headers: request_headers.merge(custom_headers || {}),
@@ -1091,7 +1091,7 @@ module Azure::PolicyInsights::Mgmt::V2018_04_04
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -1111,7 +1111,7 @@ module Azure::PolicyInsights::Mgmt::V2018_04_04
             }
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 

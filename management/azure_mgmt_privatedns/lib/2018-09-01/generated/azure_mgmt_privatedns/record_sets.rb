@@ -134,7 +134,7 @@ module Azure::PrivateDns::Mgmt::V2018_09_01
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'resourceGroupName' => resource_group_name,'privateZoneName' => private_zone_name,'recordType' => record_type,'subscriptionId' => @client.subscription_id},
           skip_encoding_path_params: {'relativeRecordSetName' => relative_record_set_name},
           query_params: {'api-version' => @client.api_version},
@@ -161,7 +161,7 @@ module Azure::PrivateDns::Mgmt::V2018_09_01
             result_mapper = Azure::PrivateDns::Mgmt::V2018_09_01::Models::RecordSet.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
         # Deserialize Response
@@ -171,7 +171,7 @@ module Azure::PrivateDns::Mgmt::V2018_09_01
             result_mapper = Azure::PrivateDns::Mgmt::V2018_09_01::Models::RecordSet.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -278,7 +278,7 @@ module Azure::PrivateDns::Mgmt::V2018_09_01
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'resourceGroupName' => resource_group_name,'privateZoneName' => private_zone_name,'recordType' => record_type,'subscriptionId' => @client.subscription_id},
           skip_encoding_path_params: {'relativeRecordSetName' => relative_record_set_name},
           query_params: {'api-version' => @client.api_version},
@@ -305,7 +305,7 @@ module Azure::PrivateDns::Mgmt::V2018_09_01
             result_mapper = Azure::PrivateDns::Mgmt::V2018_09_01::Models::RecordSet.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -407,7 +407,7 @@ module Azure::PrivateDns::Mgmt::V2018_09_01
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'resourceGroupName' => resource_group_name,'privateZoneName' => private_zone_name,'recordType' => record_type,'subscriptionId' => @client.subscription_id},
           skip_encoding_path_params: {'relativeRecordSetName' => relative_record_set_name},
           query_params: {'api-version' => @client.api_version},
@@ -510,7 +510,7 @@ module Azure::PrivateDns::Mgmt::V2018_09_01
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'resourceGroupName' => resource_group_name,'privateZoneName' => private_zone_name,'recordType' => record_type,'subscriptionId' => @client.subscription_id},
           skip_encoding_path_params: {'relativeRecordSetName' => relative_record_set_name},
           query_params: {'api-version' => @client.api_version},
@@ -536,7 +536,7 @@ module Azure::PrivateDns::Mgmt::V2018_09_01
             result_mapper = Azure::PrivateDns::Mgmt::V2018_09_01::Models::RecordSet.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -634,7 +634,7 @@ module Azure::PrivateDns::Mgmt::V2018_09_01
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'resourceGroupName' => resource_group_name,'privateZoneName' => private_zone_name,'recordType' => record_type,'subscriptionId' => @client.subscription_id},
           query_params: {'$top' => top,'$recordsetnamesuffix' => recordsetnamesuffix,'api-version' => @client.api_version},
           headers: request_headers.merge(custom_headers || {}),
@@ -659,7 +659,7 @@ module Azure::PrivateDns::Mgmt::V2018_09_01
             result_mapper = Azure::PrivateDns::Mgmt::V2018_09_01::Models::RecordSetListResult.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -747,7 +747,7 @@ module Azure::PrivateDns::Mgmt::V2018_09_01
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'resourceGroupName' => resource_group_name,'privateZoneName' => private_zone_name,'subscriptionId' => @client.subscription_id},
           query_params: {'$top' => top,'$recordsetnamesuffix' => recordsetnamesuffix,'api-version' => @client.api_version},
           headers: request_headers.merge(custom_headers || {}),
@@ -772,7 +772,7 @@ module Azure::PrivateDns::Mgmt::V2018_09_01
             result_mapper = Azure::PrivateDns::Mgmt::V2018_09_01::Models::RecordSetListResult.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -836,7 +836,7 @@ module Azure::PrivateDns::Mgmt::V2018_09_01
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           skip_encoding_path_params: {'nextLink' => next_page_link},
           headers: request_headers.merge(custom_headers || {}),
           base_url: request_url
@@ -860,7 +860,7 @@ module Azure::PrivateDns::Mgmt::V2018_09_01
             result_mapper = Azure::PrivateDns::Mgmt::V2018_09_01::Models::RecordSetListResult.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -924,7 +924,7 @@ module Azure::PrivateDns::Mgmt::V2018_09_01
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           skip_encoding_path_params: {'nextLink' => next_page_link},
           headers: request_headers.merge(custom_headers || {}),
           base_url: request_url
@@ -948,7 +948,7 @@ module Azure::PrivateDns::Mgmt::V2018_09_01
             result_mapper = Azure::PrivateDns::Mgmt::V2018_09_01::Models::RecordSetListResult.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 

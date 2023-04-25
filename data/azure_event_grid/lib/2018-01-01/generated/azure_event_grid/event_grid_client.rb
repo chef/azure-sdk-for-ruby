@@ -34,14 +34,14 @@ module Azure::EventGrid::V2018_01_01
 
     #
     # Creates initializes a new instance of the EventGridClient class.
-    # @param credentials [MsRest::ServiceClientCredentials] credentials to authorize HTTP requests made by the service client.
+    # @param credentials [MsRest2::ServiceClientCredentials] credentials to authorize HTTP requests made by the service client.
     # @param options [Array] filters to be applied to the HTTP requests.
     #
     def initialize(credentials = nil, options = nil)
       super(credentials, options)
       @base_url = 'https://{topicHostname}'
 
-      fail ArgumentError, 'invalid type of credentials input parameter' unless credentials.is_a?(MsRest::ServiceClientCredentials) unless credentials.nil?
+      fail ArgumentError, 'invalid type of credentials input parameter' unless credentials.is_a?(MsRest2::ServiceClientCredentials) unless credentials.nil?
       @credentials = credentials
 
       @api_version = '2018-01-01'
@@ -193,7 +193,7 @@ module Azure::EventGrid::V2018_01_01
     request_url = request_url.gsub('{topicHostname}', topic_hostname)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           query_params: {'api-version' => api_version},
           body: request_content,
           headers: request_headers.merge(custom_headers || {}),

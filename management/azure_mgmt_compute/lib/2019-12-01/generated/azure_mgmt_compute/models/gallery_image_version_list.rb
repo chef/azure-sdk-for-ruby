@@ -12,7 +12,7 @@ module Azure::Compute::Mgmt::V2019_12_01
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<GalleryImageVersion>] A list of gallery Image Versions.
       attr_accessor :value
 

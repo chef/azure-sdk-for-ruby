@@ -12,7 +12,7 @@ module Azure::MediaServices::Mgmt::V2018_03_30_preview
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<LiveEvent>] The result of the List Live Event operation.
       attr_accessor :value
 

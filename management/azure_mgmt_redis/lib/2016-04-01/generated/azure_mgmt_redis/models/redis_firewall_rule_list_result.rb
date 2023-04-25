@@ -12,7 +12,7 @@ module Azure::Redis::Mgmt::V2016_04_01
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<RedisFirewallRule>] Results of the list firewall rules
       # operation.
       attr_accessor :value

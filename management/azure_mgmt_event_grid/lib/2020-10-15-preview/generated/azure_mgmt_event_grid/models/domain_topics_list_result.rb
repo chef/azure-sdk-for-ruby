@@ -12,7 +12,7 @@ module Azure::EventGrid::Mgmt::V2020_10_15_preview
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<DomainTopic>] A collection of Domain Topics
       attr_accessor :value
 

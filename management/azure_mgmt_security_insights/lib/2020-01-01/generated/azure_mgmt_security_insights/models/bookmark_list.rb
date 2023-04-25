@@ -12,7 +12,7 @@ module Azure::SecurityInsights::Mgmt::V2020_01_01
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [String] URL to fetch the next set of cases.
       attr_accessor :next_link
 

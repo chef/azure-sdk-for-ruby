@@ -34,14 +34,14 @@ module Azure::KeyVault::V7_1
 
     #
     # Creates initializes a new instance of the KeyVaultClient class.
-    # @param credentials [MsRest::ServiceClientCredentials] credentials to authorize HTTP requests made by the service client.
+    # @param credentials [MsRest2::ServiceClientCredentials] credentials to authorize HTTP requests made by the service client.
     # @param options [Array] filters to be applied to the HTTP requests.
     #
     def initialize(credentials = nil, options = nil)
       super(credentials, options)
       @base_url = '{vaultBaseUrl}'
 
-      fail ArgumentError, 'invalid type of credentials input parameter' unless credentials.is_a?(MsRest::ServiceClientCredentials) unless credentials.nil?
+      fail ArgumentError, 'invalid type of credentials input parameter' unless credentials.is_a?(MsRest2::ServiceClientCredentials) unless credentials.nil?
       @credentials = credentials
 
       @api_version = '7.1'
@@ -191,7 +191,7 @@ module Azure::KeyVault::V7_1
     request_url = request_url.gsub('{vaultBaseUrl}', vault_base_url)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           query_params: {'maxresults' => maxresults,'includePending' => include_pending,'api-version' => api_version},
           headers: request_headers.merge(custom_headers || {}),
           base_url: request_url
@@ -204,7 +204,7 @@ module Azure::KeyVault::V7_1
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -217,7 +217,7 @@ module Azure::KeyVault::V7_1
             result_mapper = Azure::KeyVault::V7_1::Models::CertificateListResult.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -302,7 +302,7 @@ module Azure::KeyVault::V7_1
     request_url = request_url.gsub('{vaultBaseUrl}', vault_base_url)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'certificate-name' => certificate_name},
           query_params: {'api-version' => api_version},
           headers: request_headers.merge(custom_headers || {}),
@@ -316,7 +316,7 @@ module Azure::KeyVault::V7_1
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -329,7 +329,7 @@ module Azure::KeyVault::V7_1
             result_mapper = Azure::KeyVault::V7_1::Models::DeletedCertificateBundle.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -414,7 +414,7 @@ module Azure::KeyVault::V7_1
     request_url = request_url.gsub('{vaultBaseUrl}', vault_base_url)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           query_params: {'api-version' => api_version},
           body: request_content,
           headers: request_headers.merge(custom_headers || {}),
@@ -428,7 +428,7 @@ module Azure::KeyVault::V7_1
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -441,7 +441,7 @@ module Azure::KeyVault::V7_1
             result_mapper = Azure::KeyVault::V7_1::Models::Contacts.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -519,7 +519,7 @@ module Azure::KeyVault::V7_1
     request_url = request_url.gsub('{vaultBaseUrl}', vault_base_url)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           query_params: {'api-version' => api_version},
           headers: request_headers.merge(custom_headers || {}),
           base_url: request_url
@@ -532,7 +532,7 @@ module Azure::KeyVault::V7_1
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -545,7 +545,7 @@ module Azure::KeyVault::V7_1
             result_mapper = Azure::KeyVault::V7_1::Models::Contacts.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -620,7 +620,7 @@ module Azure::KeyVault::V7_1
     request_url = request_url.gsub('{vaultBaseUrl}', vault_base_url)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           query_params: {'api-version' => api_version},
           headers: request_headers.merge(custom_headers || {}),
           base_url: request_url
@@ -633,7 +633,7 @@ module Azure::KeyVault::V7_1
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -646,7 +646,7 @@ module Azure::KeyVault::V7_1
             result_mapper = Azure::KeyVault::V7_1::Models::Contacts.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -732,7 +732,7 @@ module Azure::KeyVault::V7_1
     request_url = request_url.gsub('{vaultBaseUrl}', vault_base_url)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           query_params: {'maxresults' => maxresults,'api-version' => api_version},
           headers: request_headers.merge(custom_headers || {}),
           base_url: request_url
@@ -745,7 +745,7 @@ module Azure::KeyVault::V7_1
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -758,7 +758,7 @@ module Azure::KeyVault::V7_1
             result_mapper = Azure::KeyVault::V7_1::Models::CertificateIssuerListResult.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -869,7 +869,7 @@ module Azure::KeyVault::V7_1
     request_url = request_url.gsub('{vaultBaseUrl}', vault_base_url)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'issuer-name' => issuer_name},
           query_params: {'api-version' => api_version},
           body: request_content,
@@ -884,7 +884,7 @@ module Azure::KeyVault::V7_1
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -897,7 +897,7 @@ module Azure::KeyVault::V7_1
             result_mapper = Azure::KeyVault::V7_1::Models::IssuerBundle.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -1010,7 +1010,7 @@ module Azure::KeyVault::V7_1
     request_url = request_url.gsub('{vaultBaseUrl}', vault_base_url)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'issuer-name' => issuer_name},
           query_params: {'api-version' => api_version},
           body: request_content,
@@ -1025,7 +1025,7 @@ module Azure::KeyVault::V7_1
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -1038,7 +1038,7 @@ module Azure::KeyVault::V7_1
             result_mapper = Azure::KeyVault::V7_1::Models::IssuerBundle.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -1120,7 +1120,7 @@ module Azure::KeyVault::V7_1
     request_url = request_url.gsub('{vaultBaseUrl}', vault_base_url)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'issuer-name' => issuer_name},
           query_params: {'api-version' => api_version},
           headers: request_headers.merge(custom_headers || {}),
@@ -1134,7 +1134,7 @@ module Azure::KeyVault::V7_1
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -1147,7 +1147,7 @@ module Azure::KeyVault::V7_1
             result_mapper = Azure::KeyVault::V7_1::Models::IssuerBundle.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -1229,7 +1229,7 @@ module Azure::KeyVault::V7_1
     request_url = request_url.gsub('{vaultBaseUrl}', vault_base_url)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'issuer-name' => issuer_name},
           query_params: {'api-version' => api_version},
           headers: request_headers.merge(custom_headers || {}),
@@ -1243,7 +1243,7 @@ module Azure::KeyVault::V7_1
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -1256,7 +1256,7 @@ module Azure::KeyVault::V7_1
             result_mapper = Azure::KeyVault::V7_1::Models::IssuerBundle.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -1366,7 +1366,7 @@ module Azure::KeyVault::V7_1
     request_url = request_url.gsub('{vaultBaseUrl}', vault_base_url)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'certificate-name' => certificate_name},
           query_params: {'api-version' => api_version},
           body: request_content,
@@ -1381,7 +1381,7 @@ module Azure::KeyVault::V7_1
         response_content = http_response.body
         unless status_code == 202
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -1394,7 +1394,7 @@ module Azure::KeyVault::V7_1
             result_mapper = Azure::KeyVault::V7_1::Models::CertificateOperation.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -1528,7 +1528,7 @@ module Azure::KeyVault::V7_1
     request_url = request_url.gsub('{vaultBaseUrl}', vault_base_url)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'certificate-name' => certificate_name},
           query_params: {'api-version' => api_version},
           body: request_content,
@@ -1543,7 +1543,7 @@ module Azure::KeyVault::V7_1
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -1556,7 +1556,7 @@ module Azure::KeyVault::V7_1
             result_mapper = Azure::KeyVault::V7_1::Models::CertificateBundle.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -1646,7 +1646,7 @@ module Azure::KeyVault::V7_1
     request_url = request_url.gsub('{vaultBaseUrl}', vault_base_url)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'certificate-name' => certificate_name},
           query_params: {'maxresults' => maxresults,'api-version' => api_version},
           headers: request_headers.merge(custom_headers || {}),
@@ -1660,7 +1660,7 @@ module Azure::KeyVault::V7_1
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -1673,7 +1673,7 @@ module Azure::KeyVault::V7_1
             result_mapper = Azure::KeyVault::V7_1::Models::CertificateListResult.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -1758,7 +1758,7 @@ module Azure::KeyVault::V7_1
     request_url = request_url.gsub('{vaultBaseUrl}', vault_base_url)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'certificate-name' => certificate_name},
           query_params: {'api-version' => api_version},
           headers: request_headers.merge(custom_headers || {}),
@@ -1772,7 +1772,7 @@ module Azure::KeyVault::V7_1
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -1785,7 +1785,7 @@ module Azure::KeyVault::V7_1
             result_mapper = Azure::KeyVault::V7_1::Models::CertificatePolicy.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -1877,7 +1877,7 @@ module Azure::KeyVault::V7_1
     request_url = request_url.gsub('{vaultBaseUrl}', vault_base_url)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'certificate-name' => certificate_name},
           query_params: {'api-version' => api_version},
           body: request_content,
@@ -1892,7 +1892,7 @@ module Azure::KeyVault::V7_1
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -1905,7 +1905,7 @@ module Azure::KeyVault::V7_1
             result_mapper = Azure::KeyVault::V7_1::Models::CertificatePolicy.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -2024,7 +2024,7 @@ module Azure::KeyVault::V7_1
     request_url = request_url.gsub('{vaultBaseUrl}', vault_base_url)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'certificate-name' => certificate_name,'certificate-version' => certificate_version},
           query_params: {'api-version' => api_version},
           body: request_content,
@@ -2039,7 +2039,7 @@ module Azure::KeyVault::V7_1
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -2052,7 +2052,7 @@ module Azure::KeyVault::V7_1
             result_mapper = Azure::KeyVault::V7_1::Models::CertificateBundle.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -2144,7 +2144,7 @@ module Azure::KeyVault::V7_1
     request_url = request_url.gsub('{vaultBaseUrl}', vault_base_url)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'certificate-name' => certificate_name,'certificate-version' => certificate_version},
           query_params: {'api-version' => api_version},
           headers: request_headers.merge(custom_headers || {}),
@@ -2158,7 +2158,7 @@ module Azure::KeyVault::V7_1
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -2171,7 +2171,7 @@ module Azure::KeyVault::V7_1
             result_mapper = Azure::KeyVault::V7_1::Models::CertificateBundle.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -2267,7 +2267,7 @@ module Azure::KeyVault::V7_1
     request_url = request_url.gsub('{vaultBaseUrl}', vault_base_url)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'certificate-name' => certificate_name},
           query_params: {'api-version' => api_version},
           body: request_content,
@@ -2282,7 +2282,7 @@ module Azure::KeyVault::V7_1
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -2295,7 +2295,7 @@ module Azure::KeyVault::V7_1
             result_mapper = Azure::KeyVault::V7_1::Models::CertificateOperation.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -2374,7 +2374,7 @@ module Azure::KeyVault::V7_1
     request_url = request_url.gsub('{vaultBaseUrl}', vault_base_url)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'certificate-name' => certificate_name},
           query_params: {'api-version' => api_version},
           headers: request_headers.merge(custom_headers || {}),
@@ -2388,7 +2388,7 @@ module Azure::KeyVault::V7_1
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -2401,7 +2401,7 @@ module Azure::KeyVault::V7_1
             result_mapper = Azure::KeyVault::V7_1::Models::CertificateOperation.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -2483,7 +2483,7 @@ module Azure::KeyVault::V7_1
     request_url = request_url.gsub('{vaultBaseUrl}', vault_base_url)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'certificate-name' => certificate_name},
           query_params: {'api-version' => api_version},
           headers: request_headers.merge(custom_headers || {}),
@@ -2497,7 +2497,7 @@ module Azure::KeyVault::V7_1
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -2510,7 +2510,7 @@ module Azure::KeyVault::V7_1
             result_mapper = Azure::KeyVault::V7_1::Models::CertificateOperation.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -2626,7 +2626,7 @@ module Azure::KeyVault::V7_1
     request_url = request_url.gsub('{vaultBaseUrl}', vault_base_url)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'certificate-name' => certificate_name},
           query_params: {'api-version' => api_version},
           body: request_content,
@@ -2641,7 +2641,7 @@ module Azure::KeyVault::V7_1
         response_content = http_response.body
         unless status_code == 201
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -2654,7 +2654,7 @@ module Azure::KeyVault::V7_1
             result_mapper = Azure::KeyVault::V7_1::Models::CertificateBundle.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -2736,7 +2736,7 @@ module Azure::KeyVault::V7_1
     request_url = request_url.gsub('{vaultBaseUrl}', vault_base_url)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'certificate-name' => certificate_name},
           query_params: {'api-version' => api_version},
           headers: request_headers.merge(custom_headers || {}),
@@ -2750,7 +2750,7 @@ module Azure::KeyVault::V7_1
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -2763,7 +2763,7 @@ module Azure::KeyVault::V7_1
             result_mapper = Azure::KeyVault::V7_1::Models::BackupCertificateResult.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -2855,7 +2855,7 @@ module Azure::KeyVault::V7_1
     request_url = request_url.gsub('{vaultBaseUrl}', vault_base_url)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           query_params: {'api-version' => api_version},
           body: request_content,
           headers: request_headers.merge(custom_headers || {}),
@@ -2869,7 +2869,7 @@ module Azure::KeyVault::V7_1
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -2882,7 +2882,7 @@ module Azure::KeyVault::V7_1
             result_mapper = Azure::KeyVault::V7_1::Models::CertificateBundle.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -2983,7 +2983,7 @@ module Azure::KeyVault::V7_1
     request_url = request_url.gsub('{vaultBaseUrl}', vault_base_url)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           query_params: {'maxresults' => maxresults,'includePending' => include_pending,'api-version' => api_version},
           headers: request_headers.merge(custom_headers || {}),
           base_url: request_url
@@ -2996,7 +2996,7 @@ module Azure::KeyVault::V7_1
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -3009,7 +3009,7 @@ module Azure::KeyVault::V7_1
             result_mapper = Azure::KeyVault::V7_1::Models::DeletedCertificateListResult.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -3094,7 +3094,7 @@ module Azure::KeyVault::V7_1
     request_url = request_url.gsub('{vaultBaseUrl}', vault_base_url)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'certificate-name' => certificate_name},
           query_params: {'api-version' => api_version},
           headers: request_headers.merge(custom_headers || {}),
@@ -3108,7 +3108,7 @@ module Azure::KeyVault::V7_1
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -3121,7 +3121,7 @@ module Azure::KeyVault::V7_1
             result_mapper = Azure::KeyVault::V7_1::Models::DeletedCertificateBundle.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -3205,7 +3205,7 @@ module Azure::KeyVault::V7_1
     request_url = request_url.gsub('{vaultBaseUrl}', vault_base_url)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'certificate-name' => certificate_name},
           query_params: {'api-version' => api_version},
           headers: request_headers.merge(custom_headers || {}),
@@ -3219,7 +3219,7 @@ module Azure::KeyVault::V7_1
         response_content = http_response.body
         unless status_code == 204
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -3313,7 +3313,7 @@ module Azure::KeyVault::V7_1
     request_url = request_url.gsub('{vaultBaseUrl}', vault_base_url)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'certificate-name' => certificate_name},
           query_params: {'api-version' => api_version},
           headers: request_headers.merge(custom_headers || {}),
@@ -3327,7 +3327,7 @@ module Azure::KeyVault::V7_1
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -3340,7 +3340,7 @@ module Azure::KeyVault::V7_1
             result_mapper = Azure::KeyVault::V7_1::Models::CertificateBundle.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -3482,7 +3482,7 @@ module Azure::KeyVault::V7_1
     request_url = request_url.gsub('{vaultBaseUrl}', vault_base_url)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'key-name' => key_name},
           query_params: {'api-version' => api_version},
           body: request_content,
@@ -3497,7 +3497,7 @@ module Azure::KeyVault::V7_1
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -3510,7 +3510,7 @@ module Azure::KeyVault::V7_1
             result_mapper = Azure::KeyVault::V7_1::Models::KeyBundle.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -3628,7 +3628,7 @@ module Azure::KeyVault::V7_1
     request_url = request_url.gsub('{vaultBaseUrl}', vault_base_url)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'key-name' => key_name},
           query_params: {'api-version' => api_version},
           body: request_content,
@@ -3643,7 +3643,7 @@ module Azure::KeyVault::V7_1
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -3656,7 +3656,7 @@ module Azure::KeyVault::V7_1
             result_mapper = Azure::KeyVault::V7_1::Models::KeyBundle.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -3744,7 +3744,7 @@ module Azure::KeyVault::V7_1
     request_url = request_url.gsub('{vaultBaseUrl}', vault_base_url)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'key-name' => key_name},
           query_params: {'api-version' => api_version},
           headers: request_headers.merge(custom_headers || {}),
@@ -3758,7 +3758,7 @@ module Azure::KeyVault::V7_1
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -3771,7 +3771,7 @@ module Azure::KeyVault::V7_1
             result_mapper = Azure::KeyVault::V7_1::Models::DeletedKeyBundle.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -3887,7 +3887,7 @@ module Azure::KeyVault::V7_1
     request_url = request_url.gsub('{vaultBaseUrl}', vault_base_url)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'key-name' => key_name,'key-version' => key_version},
           query_params: {'api-version' => api_version},
           body: request_content,
@@ -3902,7 +3902,7 @@ module Azure::KeyVault::V7_1
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -3915,7 +3915,7 @@ module Azure::KeyVault::V7_1
             result_mapper = Azure::KeyVault::V7_1::Models::KeyBundle.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -4007,7 +4007,7 @@ module Azure::KeyVault::V7_1
     request_url = request_url.gsub('{vaultBaseUrl}', vault_base_url)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'key-name' => key_name,'key-version' => key_version},
           query_params: {'api-version' => api_version},
           headers: request_headers.merge(custom_headers || {}),
@@ -4021,7 +4021,7 @@ module Azure::KeyVault::V7_1
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -4034,7 +4034,7 @@ module Azure::KeyVault::V7_1
             result_mapper = Azure::KeyVault::V7_1::Models::KeyBundle.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -4121,7 +4121,7 @@ module Azure::KeyVault::V7_1
     request_url = request_url.gsub('{vaultBaseUrl}', vault_base_url)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'key-name' => key_name},
           query_params: {'maxresults' => maxresults,'api-version' => api_version},
           headers: request_headers.merge(custom_headers || {}),
@@ -4135,7 +4135,7 @@ module Azure::KeyVault::V7_1
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -4148,7 +4148,7 @@ module Azure::KeyVault::V7_1
             result_mapper = Azure::KeyVault::V7_1::Models::KeyListResult.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -4240,7 +4240,7 @@ module Azure::KeyVault::V7_1
     request_url = request_url.gsub('{vaultBaseUrl}', vault_base_url)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           query_params: {'maxresults' => maxresults,'api-version' => api_version},
           headers: request_headers.merge(custom_headers || {}),
           base_url: request_url
@@ -4253,7 +4253,7 @@ module Azure::KeyVault::V7_1
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -4266,7 +4266,7 @@ module Azure::KeyVault::V7_1
             result_mapper = Azure::KeyVault::V7_1::Models::KeyListResult.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -4378,7 +4378,7 @@ module Azure::KeyVault::V7_1
     request_url = request_url.gsub('{vaultBaseUrl}', vault_base_url)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'key-name' => key_name},
           query_params: {'api-version' => api_version},
           headers: request_headers.merge(custom_headers || {}),
@@ -4392,7 +4392,7 @@ module Azure::KeyVault::V7_1
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -4405,7 +4405,7 @@ module Azure::KeyVault::V7_1
             result_mapper = Azure::KeyVault::V7_1::Models::BackupKeyResult.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -4527,7 +4527,7 @@ module Azure::KeyVault::V7_1
     request_url = request_url.gsub('{vaultBaseUrl}', vault_base_url)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           query_params: {'api-version' => api_version},
           body: request_content,
           headers: request_headers.merge(custom_headers || {}),
@@ -4541,7 +4541,7 @@ module Azure::KeyVault::V7_1
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -4554,7 +4554,7 @@ module Azure::KeyVault::V7_1
             result_mapper = Azure::KeyVault::V7_1::Models::KeyBundle.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -4687,7 +4687,7 @@ module Azure::KeyVault::V7_1
     request_url = request_url.gsub('{vaultBaseUrl}', vault_base_url)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'key-name' => key_name,'key-version' => key_version},
           query_params: {'api-version' => api_version},
           body: request_content,
@@ -4702,7 +4702,7 @@ module Azure::KeyVault::V7_1
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -4715,7 +4715,7 @@ module Azure::KeyVault::V7_1
             result_mapper = Azure::KeyVault::V7_1::Models::KeyOperationResult.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -4836,7 +4836,7 @@ module Azure::KeyVault::V7_1
     request_url = request_url.gsub('{vaultBaseUrl}', vault_base_url)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'key-name' => key_name,'key-version' => key_version},
           query_params: {'api-version' => api_version},
           body: request_content,
@@ -4851,7 +4851,7 @@ module Azure::KeyVault::V7_1
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -4864,7 +4864,7 @@ module Azure::KeyVault::V7_1
             result_mapper = Azure::KeyVault::V7_1::Models::KeyOperationResult.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -4982,7 +4982,7 @@ module Azure::KeyVault::V7_1
     request_url = request_url.gsub('{vaultBaseUrl}', vault_base_url)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'key-name' => key_name,'key-version' => key_version},
           query_params: {'api-version' => api_version},
           body: request_content,
@@ -4997,7 +4997,7 @@ module Azure::KeyVault::V7_1
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -5010,7 +5010,7 @@ module Azure::KeyVault::V7_1
             result_mapper = Azure::KeyVault::V7_1::Models::KeyOperationResult.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -5142,7 +5142,7 @@ module Azure::KeyVault::V7_1
     request_url = request_url.gsub('{vaultBaseUrl}', vault_base_url)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'key-name' => key_name,'key-version' => key_version},
           query_params: {'api-version' => api_version},
           body: request_content,
@@ -5157,7 +5157,7 @@ module Azure::KeyVault::V7_1
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -5170,7 +5170,7 @@ module Azure::KeyVault::V7_1
             result_mapper = Azure::KeyVault::V7_1::Models::KeyVerifyResult.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -5291,7 +5291,7 @@ module Azure::KeyVault::V7_1
     request_url = request_url.gsub('{vaultBaseUrl}', vault_base_url)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'key-name' => key_name,'key-version' => key_version},
           query_params: {'api-version' => api_version},
           body: request_content,
@@ -5306,7 +5306,7 @@ module Azure::KeyVault::V7_1
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -5319,7 +5319,7 @@ module Azure::KeyVault::V7_1
             result_mapper = Azure::KeyVault::V7_1::Models::KeyOperationResult.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -5437,7 +5437,7 @@ module Azure::KeyVault::V7_1
     request_url = request_url.gsub('{vaultBaseUrl}', vault_base_url)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'key-name' => key_name,'key-version' => key_version},
           query_params: {'api-version' => api_version},
           body: request_content,
@@ -5452,7 +5452,7 @@ module Azure::KeyVault::V7_1
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -5465,7 +5465,7 @@ module Azure::KeyVault::V7_1
             result_mapper = Azure::KeyVault::V7_1::Models::KeyOperationResult.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -5560,7 +5560,7 @@ module Azure::KeyVault::V7_1
     request_url = request_url.gsub('{vaultBaseUrl}', vault_base_url)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           query_params: {'maxresults' => maxresults,'api-version' => api_version},
           headers: request_headers.merge(custom_headers || {}),
           base_url: request_url
@@ -5573,7 +5573,7 @@ module Azure::KeyVault::V7_1
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -5586,7 +5586,7 @@ module Azure::KeyVault::V7_1
             result_mapper = Azure::KeyVault::V7_1::Models::DeletedKeyListResult.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -5671,7 +5671,7 @@ module Azure::KeyVault::V7_1
     request_url = request_url.gsub('{vaultBaseUrl}', vault_base_url)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'key-name' => key_name},
           query_params: {'api-version' => api_version},
           headers: request_headers.merge(custom_headers || {}),
@@ -5685,7 +5685,7 @@ module Azure::KeyVault::V7_1
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -5698,7 +5698,7 @@ module Azure::KeyVault::V7_1
             result_mapper = Azure::KeyVault::V7_1::Models::DeletedKeyBundle.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -5782,7 +5782,7 @@ module Azure::KeyVault::V7_1
     request_url = request_url.gsub('{vaultBaseUrl}', vault_base_url)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'key-name' => key_name},
           query_params: {'api-version' => api_version},
           headers: request_headers.merge(custom_headers || {}),
@@ -5796,7 +5796,7 @@ module Azure::KeyVault::V7_1
         response_content = http_response.body
         unless status_code == 204
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -5887,7 +5887,7 @@ module Azure::KeyVault::V7_1
     request_url = request_url.gsub('{vaultBaseUrl}', vault_base_url)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'key-name' => key_name},
           query_params: {'api-version' => api_version},
           headers: request_headers.merge(custom_headers || {}),
@@ -5901,7 +5901,7 @@ module Azure::KeyVault::V7_1
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -5914,7 +5914,7 @@ module Azure::KeyVault::V7_1
             result_mapper = Azure::KeyVault::V7_1::Models::KeyBundle.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -6026,7 +6026,7 @@ module Azure::KeyVault::V7_1
     request_url = request_url.gsub('{vaultBaseUrl}', vault_base_url)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'secret-name' => secret_name},
           query_params: {'api-version' => api_version},
           body: request_content,
@@ -6041,7 +6041,7 @@ module Azure::KeyVault::V7_1
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -6054,7 +6054,7 @@ module Azure::KeyVault::V7_1
             result_mapper = Azure::KeyVault::V7_1::Models::SecretBundle.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -6136,7 +6136,7 @@ module Azure::KeyVault::V7_1
     request_url = request_url.gsub('{vaultBaseUrl}', vault_base_url)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'secret-name' => secret_name},
           query_params: {'api-version' => api_version},
           headers: request_headers.merge(custom_headers || {}),
@@ -6150,7 +6150,7 @@ module Azure::KeyVault::V7_1
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -6163,7 +6163,7 @@ module Azure::KeyVault::V7_1
             result_mapper = Azure::KeyVault::V7_1::Models::DeletedSecretBundle.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -6279,7 +6279,7 @@ module Azure::KeyVault::V7_1
     request_url = request_url.gsub('{vaultBaseUrl}', vault_base_url)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'secret-name' => secret_name,'secret-version' => secret_version},
           query_params: {'api-version' => api_version},
           body: request_content,
@@ -6294,7 +6294,7 @@ module Azure::KeyVault::V7_1
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -6307,7 +6307,7 @@ module Azure::KeyVault::V7_1
             result_mapper = Azure::KeyVault::V7_1::Models::SecretBundle.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -6393,7 +6393,7 @@ module Azure::KeyVault::V7_1
     request_url = request_url.gsub('{vaultBaseUrl}', vault_base_url)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'secret-name' => secret_name,'secret-version' => secret_version},
           query_params: {'api-version' => api_version},
           headers: request_headers.merge(custom_headers || {}),
@@ -6407,7 +6407,7 @@ module Azure::KeyVault::V7_1
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -6420,7 +6420,7 @@ module Azure::KeyVault::V7_1
             result_mapper = Azure::KeyVault::V7_1::Models::SecretBundle.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -6509,7 +6509,7 @@ module Azure::KeyVault::V7_1
     request_url = request_url.gsub('{vaultBaseUrl}', vault_base_url)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           query_params: {'maxresults' => maxresults,'api-version' => api_version},
           headers: request_headers.merge(custom_headers || {}),
           base_url: request_url
@@ -6522,7 +6522,7 @@ module Azure::KeyVault::V7_1
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -6535,7 +6535,7 @@ module Azure::KeyVault::V7_1
             result_mapper = Azure::KeyVault::V7_1::Models::SecretListResult.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -6625,7 +6625,7 @@ module Azure::KeyVault::V7_1
     request_url = request_url.gsub('{vaultBaseUrl}', vault_base_url)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'secret-name' => secret_name},
           query_params: {'maxresults' => maxresults,'api-version' => api_version},
           headers: request_headers.merge(custom_headers || {}),
@@ -6639,7 +6639,7 @@ module Azure::KeyVault::V7_1
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -6652,7 +6652,7 @@ module Azure::KeyVault::V7_1
             result_mapper = Azure::KeyVault::V7_1::Models::SecretListResult.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -6738,7 +6738,7 @@ module Azure::KeyVault::V7_1
     request_url = request_url.gsub('{vaultBaseUrl}', vault_base_url)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           query_params: {'maxresults' => maxresults,'api-version' => api_version},
           headers: request_headers.merge(custom_headers || {}),
           base_url: request_url
@@ -6751,7 +6751,7 @@ module Azure::KeyVault::V7_1
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -6764,7 +6764,7 @@ module Azure::KeyVault::V7_1
             result_mapper = Azure::KeyVault::V7_1::Models::DeletedSecretListResult.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -6843,7 +6843,7 @@ module Azure::KeyVault::V7_1
     request_url = request_url.gsub('{vaultBaseUrl}', vault_base_url)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'secret-name' => secret_name},
           query_params: {'api-version' => api_version},
           headers: request_headers.merge(custom_headers || {}),
@@ -6857,7 +6857,7 @@ module Azure::KeyVault::V7_1
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -6870,7 +6870,7 @@ module Azure::KeyVault::V7_1
             result_mapper = Azure::KeyVault::V7_1::Models::DeletedSecretBundle.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -6954,7 +6954,7 @@ module Azure::KeyVault::V7_1
     request_url = request_url.gsub('{vaultBaseUrl}', vault_base_url)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'secret-name' => secret_name},
           query_params: {'api-version' => api_version},
           headers: request_headers.merge(custom_headers || {}),
@@ -6968,7 +6968,7 @@ module Azure::KeyVault::V7_1
         response_content = http_response.body
         unless status_code == 204
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -7053,7 +7053,7 @@ module Azure::KeyVault::V7_1
     request_url = request_url.gsub('{vaultBaseUrl}', vault_base_url)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'secret-name' => secret_name},
           query_params: {'api-version' => api_version},
           headers: request_headers.merge(custom_headers || {}),
@@ -7067,7 +7067,7 @@ module Azure::KeyVault::V7_1
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -7080,7 +7080,7 @@ module Azure::KeyVault::V7_1
             result_mapper = Azure::KeyVault::V7_1::Models::SecretBundle.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -7162,7 +7162,7 @@ module Azure::KeyVault::V7_1
     request_url = request_url.gsub('{vaultBaseUrl}', vault_base_url)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'secret-name' => secret_name},
           query_params: {'api-version' => api_version},
           headers: request_headers.merge(custom_headers || {}),
@@ -7176,7 +7176,7 @@ module Azure::KeyVault::V7_1
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -7189,7 +7189,7 @@ module Azure::KeyVault::V7_1
             result_mapper = Azure::KeyVault::V7_1::Models::BackupSecretResult.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -7278,7 +7278,7 @@ module Azure::KeyVault::V7_1
     request_url = request_url.gsub('{vaultBaseUrl}', vault_base_url)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           query_params: {'api-version' => api_version},
           body: request_content,
           headers: request_headers.merge(custom_headers || {}),
@@ -7292,7 +7292,7 @@ module Azure::KeyVault::V7_1
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -7305,7 +7305,7 @@ module Azure::KeyVault::V7_1
             result_mapper = Azure::KeyVault::V7_1::Models::SecretBundle.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -7382,7 +7382,7 @@ module Azure::KeyVault::V7_1
     request_url = request_url.gsub('{vaultBaseUrl}', vault_base_url)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           query_params: {'maxresults' => maxresults,'api-version' => api_version},
           headers: request_headers.merge(custom_headers || {}),
           base_url: request_url
@@ -7395,7 +7395,7 @@ module Azure::KeyVault::V7_1
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -7408,7 +7408,7 @@ module Azure::KeyVault::V7_1
             result_mapper = Azure::KeyVault::V7_1::Models::StorageListResult.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -7494,7 +7494,7 @@ module Azure::KeyVault::V7_1
     request_url = request_url.gsub('{vaultBaseUrl}', vault_base_url)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           query_params: {'maxresults' => maxresults,'api-version' => api_version},
           headers: request_headers.merge(custom_headers || {}),
           base_url: request_url
@@ -7507,7 +7507,7 @@ module Azure::KeyVault::V7_1
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -7520,7 +7520,7 @@ module Azure::KeyVault::V7_1
             result_mapper = Azure::KeyVault::V7_1::Models::DeletedStorageListResult.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -7603,7 +7603,7 @@ module Azure::KeyVault::V7_1
     request_url = request_url.gsub('{vaultBaseUrl}', vault_base_url)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'storage-account-name' => storage_account_name},
           query_params: {'api-version' => api_version},
           headers: request_headers.merge(custom_headers || {}),
@@ -7617,7 +7617,7 @@ module Azure::KeyVault::V7_1
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -7630,7 +7630,7 @@ module Azure::KeyVault::V7_1
             result_mapper = Azure::KeyVault::V7_1::Models::DeletedStorageBundle.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -7715,7 +7715,7 @@ module Azure::KeyVault::V7_1
     request_url = request_url.gsub('{vaultBaseUrl}', vault_base_url)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'storage-account-name' => storage_account_name},
           query_params: {'api-version' => api_version},
           headers: request_headers.merge(custom_headers || {}),
@@ -7729,7 +7729,7 @@ module Azure::KeyVault::V7_1
         response_content = http_response.body
         unless status_code == 204
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -7815,7 +7815,7 @@ module Azure::KeyVault::V7_1
     request_url = request_url.gsub('{vaultBaseUrl}', vault_base_url)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'storage-account-name' => storage_account_name},
           query_params: {'api-version' => api_version},
           headers: request_headers.merge(custom_headers || {}),
@@ -7829,7 +7829,7 @@ module Azure::KeyVault::V7_1
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -7842,7 +7842,7 @@ module Azure::KeyVault::V7_1
             result_mapper = Azure::KeyVault::V7_1::Models::StorageBundle.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -7921,7 +7921,7 @@ module Azure::KeyVault::V7_1
     request_url = request_url.gsub('{vaultBaseUrl}', vault_base_url)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'storage-account-name' => storage_account_name},
           query_params: {'api-version' => api_version},
           headers: request_headers.merge(custom_headers || {}),
@@ -7935,7 +7935,7 @@ module Azure::KeyVault::V7_1
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -7948,7 +7948,7 @@ module Azure::KeyVault::V7_1
             result_mapper = Azure::KeyVault::V7_1::Models::BackupStorageResult.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -8040,7 +8040,7 @@ module Azure::KeyVault::V7_1
     request_url = request_url.gsub('{vaultBaseUrl}', vault_base_url)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           query_params: {'api-version' => api_version},
           body: request_content,
           headers: request_headers.merge(custom_headers || {}),
@@ -8054,7 +8054,7 @@ module Azure::KeyVault::V7_1
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -8067,7 +8067,7 @@ module Azure::KeyVault::V7_1
             result_mapper = Azure::KeyVault::V7_1::Models::StorageBundle.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -8141,7 +8141,7 @@ module Azure::KeyVault::V7_1
     request_url = request_url.gsub('{vaultBaseUrl}', vault_base_url)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'storage-account-name' => storage_account_name},
           query_params: {'api-version' => api_version},
           headers: request_headers.merge(custom_headers || {}),
@@ -8155,7 +8155,7 @@ module Azure::KeyVault::V7_1
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -8168,7 +8168,7 @@ module Azure::KeyVault::V7_1
             result_mapper = Azure::KeyVault::V7_1::Models::DeletedStorageBundle.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -8242,7 +8242,7 @@ module Azure::KeyVault::V7_1
     request_url = request_url.gsub('{vaultBaseUrl}', vault_base_url)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'storage-account-name' => storage_account_name},
           query_params: {'api-version' => api_version},
           headers: request_headers.merge(custom_headers || {}),
@@ -8256,7 +8256,7 @@ module Azure::KeyVault::V7_1
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -8269,7 +8269,7 @@ module Azure::KeyVault::V7_1
             result_mapper = Azure::KeyVault::V7_1::Models::StorageBundle.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -8391,7 +8391,7 @@ module Azure::KeyVault::V7_1
     request_url = request_url.gsub('{vaultBaseUrl}', vault_base_url)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'storage-account-name' => storage_account_name},
           query_params: {'api-version' => api_version},
           body: request_content,
@@ -8406,7 +8406,7 @@ module Azure::KeyVault::V7_1
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -8419,7 +8419,7 @@ module Azure::KeyVault::V7_1
             result_mapper = Azure::KeyVault::V7_1::Models::StorageBundle.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -8534,7 +8534,7 @@ module Azure::KeyVault::V7_1
     request_url = request_url.gsub('{vaultBaseUrl}', vault_base_url)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'storage-account-name' => storage_account_name},
           query_params: {'api-version' => api_version},
           body: request_content,
@@ -8549,7 +8549,7 @@ module Azure::KeyVault::V7_1
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -8562,7 +8562,7 @@ module Azure::KeyVault::V7_1
             result_mapper = Azure::KeyVault::V7_1::Models::StorageBundle.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -8650,7 +8650,7 @@ module Azure::KeyVault::V7_1
     request_url = request_url.gsub('{vaultBaseUrl}', vault_base_url)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'storage-account-name' => storage_account_name},
           query_params: {'api-version' => api_version},
           body: request_content,
@@ -8665,7 +8665,7 @@ module Azure::KeyVault::V7_1
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -8678,7 +8678,7 @@ module Azure::KeyVault::V7_1
             result_mapper = Azure::KeyVault::V7_1::Models::StorageBundle.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -8760,7 +8760,7 @@ module Azure::KeyVault::V7_1
     request_url = request_url.gsub('{vaultBaseUrl}', vault_base_url)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'storage-account-name' => storage_account_name},
           query_params: {'maxresults' => maxresults,'api-version' => api_version},
           headers: request_headers.merge(custom_headers || {}),
@@ -8774,7 +8774,7 @@ module Azure::KeyVault::V7_1
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -8787,7 +8787,7 @@ module Azure::KeyVault::V7_1
             result_mapper = Azure::KeyVault::V7_1::Models::SasDefinitionListResult.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -8878,7 +8878,7 @@ module Azure::KeyVault::V7_1
     request_url = request_url.gsub('{vaultBaseUrl}', vault_base_url)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'storage-account-name' => storage_account_name},
           query_params: {'maxresults' => maxresults,'api-version' => api_version},
           headers: request_headers.merge(custom_headers || {}),
@@ -8892,7 +8892,7 @@ module Azure::KeyVault::V7_1
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -8905,7 +8905,7 @@ module Azure::KeyVault::V7_1
             result_mapper = Azure::KeyVault::V7_1::Models::DeletedSasDefinitionListResult.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -8993,7 +8993,7 @@ module Azure::KeyVault::V7_1
     request_url = request_url.gsub('{vaultBaseUrl}', vault_base_url)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'storage-account-name' => storage_account_name,'sas-definition-name' => sas_definition_name},
           query_params: {'api-version' => api_version},
           headers: request_headers.merge(custom_headers || {}),
@@ -9007,7 +9007,7 @@ module Azure::KeyVault::V7_1
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -9020,7 +9020,7 @@ module Azure::KeyVault::V7_1
             result_mapper = Azure::KeyVault::V7_1::Models::DeletedSasDefinitionBundle.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -9108,7 +9108,7 @@ module Azure::KeyVault::V7_1
     request_url = request_url.gsub('{vaultBaseUrl}', vault_base_url)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'storage-account-name' => storage_account_name,'sas-definition-name' => sas_definition_name},
           query_params: {'api-version' => api_version},
           headers: request_headers.merge(custom_headers || {}),
@@ -9122,7 +9122,7 @@ module Azure::KeyVault::V7_1
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -9135,7 +9135,7 @@ module Azure::KeyVault::V7_1
             result_mapper = Azure::KeyVault::V7_1::Models::SasDefinitionBundle.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -9214,7 +9214,7 @@ module Azure::KeyVault::V7_1
     request_url = request_url.gsub('{vaultBaseUrl}', vault_base_url)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'storage-account-name' => storage_account_name,'sas-definition-name' => sas_definition_name},
           query_params: {'api-version' => api_version},
           headers: request_headers.merge(custom_headers || {}),
@@ -9228,7 +9228,7 @@ module Azure::KeyVault::V7_1
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -9241,7 +9241,7 @@ module Azure::KeyVault::V7_1
             result_mapper = Azure::KeyVault::V7_1::Models::DeletedSasDefinitionBundle.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -9320,7 +9320,7 @@ module Azure::KeyVault::V7_1
     request_url = request_url.gsub('{vaultBaseUrl}', vault_base_url)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'storage-account-name' => storage_account_name,'sas-definition-name' => sas_definition_name},
           query_params: {'api-version' => api_version},
           headers: request_headers.merge(custom_headers || {}),
@@ -9334,7 +9334,7 @@ module Azure::KeyVault::V7_1
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -9347,7 +9347,7 @@ module Azure::KeyVault::V7_1
             result_mapper = Azure::KeyVault::V7_1::Models::SasDefinitionBundle.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -9476,7 +9476,7 @@ module Azure::KeyVault::V7_1
     request_url = request_url.gsub('{vaultBaseUrl}', vault_base_url)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'storage-account-name' => storage_account_name,'sas-definition-name' => sas_definition_name},
           query_params: {'api-version' => api_version},
           body: request_content,
@@ -9491,7 +9491,7 @@ module Azure::KeyVault::V7_1
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -9504,7 +9504,7 @@ module Azure::KeyVault::V7_1
             result_mapper = Azure::KeyVault::V7_1::Models::SasDefinitionBundle.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -9630,7 +9630,7 @@ module Azure::KeyVault::V7_1
     request_url = request_url.gsub('{vaultBaseUrl}', vault_base_url)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'storage-account-name' => storage_account_name,'sas-definition-name' => sas_definition_name},
           query_params: {'api-version' => api_version},
           body: request_content,
@@ -9645,7 +9645,7 @@ module Azure::KeyVault::V7_1
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -9658,7 +9658,7 @@ module Azure::KeyVault::V7_1
             result_mapper = Azure::KeyVault::V7_1::Models::SasDefinitionBundle.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -9734,7 +9734,7 @@ module Azure::KeyVault::V7_1
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           skip_encoding_path_params: {'nextLink' => next_page_link},
           headers: request_headers.merge(custom_headers || {}),
           base_url: request_url
@@ -9747,7 +9747,7 @@ module Azure::KeyVault::V7_1
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -9760,7 +9760,7 @@ module Azure::KeyVault::V7_1
             result_mapper = Azure::KeyVault::V7_1::Models::CertificateListResult.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -9836,7 +9836,7 @@ module Azure::KeyVault::V7_1
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           skip_encoding_path_params: {'nextLink' => next_page_link},
           headers: request_headers.merge(custom_headers || {}),
           base_url: request_url
@@ -9849,7 +9849,7 @@ module Azure::KeyVault::V7_1
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -9862,7 +9862,7 @@ module Azure::KeyVault::V7_1
             result_mapper = Azure::KeyVault::V7_1::Models::CertificateIssuerListResult.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -9938,7 +9938,7 @@ module Azure::KeyVault::V7_1
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           skip_encoding_path_params: {'nextLink' => next_page_link},
           headers: request_headers.merge(custom_headers || {}),
           base_url: request_url
@@ -9951,7 +9951,7 @@ module Azure::KeyVault::V7_1
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -9964,7 +9964,7 @@ module Azure::KeyVault::V7_1
             result_mapper = Azure::KeyVault::V7_1::Models::CertificateListResult.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -10049,7 +10049,7 @@ module Azure::KeyVault::V7_1
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           skip_encoding_path_params: {'nextLink' => next_page_link},
           headers: request_headers.merge(custom_headers || {}),
           base_url: request_url
@@ -10062,7 +10062,7 @@ module Azure::KeyVault::V7_1
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -10075,7 +10075,7 @@ module Azure::KeyVault::V7_1
             result_mapper = Azure::KeyVault::V7_1::Models::DeletedCertificateListResult.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -10148,7 +10148,7 @@ module Azure::KeyVault::V7_1
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           skip_encoding_path_params: {'nextLink' => next_page_link},
           headers: request_headers.merge(custom_headers || {}),
           base_url: request_url
@@ -10161,7 +10161,7 @@ module Azure::KeyVault::V7_1
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -10174,7 +10174,7 @@ module Azure::KeyVault::V7_1
             result_mapper = Azure::KeyVault::V7_1::Models::KeyListResult.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -10256,7 +10256,7 @@ module Azure::KeyVault::V7_1
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           skip_encoding_path_params: {'nextLink' => next_page_link},
           headers: request_headers.merge(custom_headers || {}),
           base_url: request_url
@@ -10269,7 +10269,7 @@ module Azure::KeyVault::V7_1
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -10282,7 +10282,7 @@ module Azure::KeyVault::V7_1
             result_mapper = Azure::KeyVault::V7_1::Models::KeyListResult.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -10367,7 +10367,7 @@ module Azure::KeyVault::V7_1
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           skip_encoding_path_params: {'nextLink' => next_page_link},
           headers: request_headers.merge(custom_headers || {}),
           base_url: request_url
@@ -10380,7 +10380,7 @@ module Azure::KeyVault::V7_1
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -10393,7 +10393,7 @@ module Azure::KeyVault::V7_1
             result_mapper = Azure::KeyVault::V7_1::Models::DeletedKeyListResult.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -10472,7 +10472,7 @@ module Azure::KeyVault::V7_1
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           skip_encoding_path_params: {'nextLink' => next_page_link},
           headers: request_headers.merge(custom_headers || {}),
           base_url: request_url
@@ -10485,7 +10485,7 @@ module Azure::KeyVault::V7_1
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -10498,7 +10498,7 @@ module Azure::KeyVault::V7_1
             result_mapper = Azure::KeyVault::V7_1::Models::SecretListResult.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -10574,7 +10574,7 @@ module Azure::KeyVault::V7_1
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           skip_encoding_path_params: {'nextLink' => next_page_link},
           headers: request_headers.merge(custom_headers || {}),
           base_url: request_url
@@ -10587,7 +10587,7 @@ module Azure::KeyVault::V7_1
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -10600,7 +10600,7 @@ module Azure::KeyVault::V7_1
             result_mapper = Azure::KeyVault::V7_1::Models::SecretListResult.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -10676,7 +10676,7 @@ module Azure::KeyVault::V7_1
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           skip_encoding_path_params: {'nextLink' => next_page_link},
           headers: request_headers.merge(custom_headers || {}),
           base_url: request_url
@@ -10689,7 +10689,7 @@ module Azure::KeyVault::V7_1
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -10702,7 +10702,7 @@ module Azure::KeyVault::V7_1
             result_mapper = Azure::KeyVault::V7_1::Models::DeletedSecretListResult.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -10769,7 +10769,7 @@ module Azure::KeyVault::V7_1
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           skip_encoding_path_params: {'nextLink' => next_page_link},
           headers: request_headers.merge(custom_headers || {}),
           base_url: request_url
@@ -10782,7 +10782,7 @@ module Azure::KeyVault::V7_1
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -10795,7 +10795,7 @@ module Azure::KeyVault::V7_1
             result_mapper = Azure::KeyVault::V7_1::Models::StorageListResult.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -10871,7 +10871,7 @@ module Azure::KeyVault::V7_1
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           skip_encoding_path_params: {'nextLink' => next_page_link},
           headers: request_headers.merge(custom_headers || {}),
           base_url: request_url
@@ -10884,7 +10884,7 @@ module Azure::KeyVault::V7_1
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -10897,7 +10897,7 @@ module Azure::KeyVault::V7_1
             result_mapper = Azure::KeyVault::V7_1::Models::DeletedStorageListResult.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -10964,7 +10964,7 @@ module Azure::KeyVault::V7_1
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           skip_encoding_path_params: {'nextLink' => next_page_link},
           headers: request_headers.merge(custom_headers || {}),
           base_url: request_url
@@ -10977,7 +10977,7 @@ module Azure::KeyVault::V7_1
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -10990,7 +10990,7 @@ module Azure::KeyVault::V7_1
             result_mapper = Azure::KeyVault::V7_1::Models::SasDefinitionListResult.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -11066,7 +11066,7 @@ module Azure::KeyVault::V7_1
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           skip_encoding_path_params: {'nextLink' => next_page_link},
           headers: request_headers.merge(custom_headers || {}),
           base_url: request_url
@@ -11079,7 +11079,7 @@ module Azure::KeyVault::V7_1
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -11092,7 +11092,7 @@ module Azure::KeyVault::V7_1
             result_mapper = Azure::KeyVault::V7_1::Models::DeletedSasDefinitionListResult.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -11179,7 +11179,7 @@ module Azure::KeyVault::V7_1
     request_url = request_url.gsub('{vaultBaseUrl}', vault_base_url)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           query_params: {'maxresults' => maxresults,'includePending' => include_pending},
           headers: request_headers.merge(custom_headers || {}),
           base_url: request_url
@@ -11192,7 +11192,7 @@ module Azure::KeyVault::V7_1
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -11205,7 +11205,7 @@ module Azure::KeyVault::V7_1
             result_mapper = Azure::KeyVault::V7_1::Models::CertificateListResult.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -11286,7 +11286,7 @@ module Azure::KeyVault::V7_1
     request_url = request_url.gsub('{vaultBaseUrl}', vault_base_url)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           query_params: {'maxresults' => maxresults},
           headers: request_headers.merge(custom_headers || {}),
           base_url: request_url
@@ -11299,7 +11299,7 @@ module Azure::KeyVault::V7_1
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -11312,7 +11312,7 @@ module Azure::KeyVault::V7_1
             result_mapper = Azure::KeyVault::V7_1::Models::CertificateIssuerListResult.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -11397,7 +11397,7 @@ module Azure::KeyVault::V7_1
     request_url = request_url.gsub('{vaultBaseUrl}', vault_base_url)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'certificate-name' => certificate_name},
           query_params: {'maxresults' => maxresults},
           headers: request_headers.merge(custom_headers || {}),
@@ -11411,7 +11411,7 @@ module Azure::KeyVault::V7_1
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -11424,7 +11424,7 @@ module Azure::KeyVault::V7_1
             result_mapper = Azure::KeyVault::V7_1::Models::CertificateListResult.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -11520,7 +11520,7 @@ module Azure::KeyVault::V7_1
     request_url = request_url.gsub('{vaultBaseUrl}', vault_base_url)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           query_params: {'maxresults' => maxresults,'includePending' => include_pending},
           headers: request_headers.merge(custom_headers || {}),
           base_url: request_url
@@ -11533,7 +11533,7 @@ module Azure::KeyVault::V7_1
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -11546,7 +11546,7 @@ module Azure::KeyVault::V7_1
             result_mapper = Azure::KeyVault::V7_1::Models::DeletedCertificateListResult.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -11628,7 +11628,7 @@ module Azure::KeyVault::V7_1
     request_url = request_url.gsub('{vaultBaseUrl}', vault_base_url)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'key-name' => key_name},
           query_params: {'maxresults' => maxresults},
           headers: request_headers.merge(custom_headers || {}),
@@ -11642,7 +11642,7 @@ module Azure::KeyVault::V7_1
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -11655,7 +11655,7 @@ module Azure::KeyVault::V7_1
             result_mapper = Azure::KeyVault::V7_1::Models::KeyListResult.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -11742,7 +11742,7 @@ module Azure::KeyVault::V7_1
     request_url = request_url.gsub('{vaultBaseUrl}', vault_base_url)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           query_params: {'maxresults' => maxresults},
           headers: request_headers.merge(custom_headers || {}),
           base_url: request_url
@@ -11755,7 +11755,7 @@ module Azure::KeyVault::V7_1
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -11768,7 +11768,7 @@ module Azure::KeyVault::V7_1
             result_mapper = Azure::KeyVault::V7_1::Models::KeyListResult.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -11858,7 +11858,7 @@ module Azure::KeyVault::V7_1
     request_url = request_url.gsub('{vaultBaseUrl}', vault_base_url)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           query_params: {'maxresults' => maxresults},
           headers: request_headers.merge(custom_headers || {}),
           base_url: request_url
@@ -11871,7 +11871,7 @@ module Azure::KeyVault::V7_1
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -11884,7 +11884,7 @@ module Azure::KeyVault::V7_1
             result_mapper = Azure::KeyVault::V7_1::Models::DeletedKeyListResult.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -11968,7 +11968,7 @@ module Azure::KeyVault::V7_1
     request_url = request_url.gsub('{vaultBaseUrl}', vault_base_url)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           query_params: {'maxresults' => maxresults},
           headers: request_headers.merge(custom_headers || {}),
           base_url: request_url
@@ -11981,7 +11981,7 @@ module Azure::KeyVault::V7_1
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -11994,7 +11994,7 @@ module Azure::KeyVault::V7_1
             result_mapper = Azure::KeyVault::V7_1::Models::SecretListResult.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -12079,7 +12079,7 @@ module Azure::KeyVault::V7_1
     request_url = request_url.gsub('{vaultBaseUrl}', vault_base_url)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'secret-name' => secret_name},
           query_params: {'maxresults' => maxresults},
           headers: request_headers.merge(custom_headers || {}),
@@ -12093,7 +12093,7 @@ module Azure::KeyVault::V7_1
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -12106,7 +12106,7 @@ module Azure::KeyVault::V7_1
             result_mapper = Azure::KeyVault::V7_1::Models::SecretListResult.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -12187,7 +12187,7 @@ module Azure::KeyVault::V7_1
     request_url = request_url.gsub('{vaultBaseUrl}', vault_base_url)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           query_params: {'maxresults' => maxresults},
           headers: request_headers.merge(custom_headers || {}),
           base_url: request_url
@@ -12200,7 +12200,7 @@ module Azure::KeyVault::V7_1
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -12213,7 +12213,7 @@ module Azure::KeyVault::V7_1
             result_mapper = Azure::KeyVault::V7_1::Models::DeletedSecretListResult.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -12285,7 +12285,7 @@ module Azure::KeyVault::V7_1
     request_url = request_url.gsub('{vaultBaseUrl}', vault_base_url)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           query_params: {'maxresults' => maxresults},
           headers: request_headers.merge(custom_headers || {}),
           base_url: request_url
@@ -12298,7 +12298,7 @@ module Azure::KeyVault::V7_1
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -12311,7 +12311,7 @@ module Azure::KeyVault::V7_1
             result_mapper = Azure::KeyVault::V7_1::Models::StorageListResult.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -12392,7 +12392,7 @@ module Azure::KeyVault::V7_1
     request_url = request_url.gsub('{vaultBaseUrl}', vault_base_url)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           query_params: {'maxresults' => maxresults},
           headers: request_headers.merge(custom_headers || {}),
           base_url: request_url
@@ -12405,7 +12405,7 @@ module Azure::KeyVault::V7_1
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -12418,7 +12418,7 @@ module Azure::KeyVault::V7_1
             result_mapper = Azure::KeyVault::V7_1::Models::DeletedStorageListResult.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -12495,7 +12495,7 @@ module Azure::KeyVault::V7_1
     request_url = request_url.gsub('{vaultBaseUrl}', vault_base_url)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'storage-account-name' => storage_account_name},
           query_params: {'maxresults' => maxresults},
           headers: request_headers.merge(custom_headers || {}),
@@ -12509,7 +12509,7 @@ module Azure::KeyVault::V7_1
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -12522,7 +12522,7 @@ module Azure::KeyVault::V7_1
             result_mapper = Azure::KeyVault::V7_1::Models::SasDefinitionListResult.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -12608,7 +12608,7 @@ module Azure::KeyVault::V7_1
     request_url = request_url.gsub('{vaultBaseUrl}', vault_base_url)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'storage-account-name' => storage_account_name},
           query_params: {'maxresults' => maxresults},
           headers: request_headers.merge(custom_headers || {}),
@@ -12622,7 +12622,7 @@ module Azure::KeyVault::V7_1
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -12635,7 +12635,7 @@ module Azure::KeyVault::V7_1
             result_mapper = Azure::KeyVault::V7_1::Models::DeletedSasDefinitionListResult.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 

@@ -13,7 +13,7 @@ module Azure::Consumption::Mgmt::V2019_04_01_preview
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<Marketplace>] The list of marketplaces.
       attr_accessor :value
 

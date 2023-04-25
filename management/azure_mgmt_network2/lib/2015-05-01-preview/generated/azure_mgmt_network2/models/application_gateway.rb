@@ -3,14 +3,14 @@
 # Changes may cause incorrect behavior and will be lost if the code is
 # regenerated.
 
-module Azure::Network::Mgmt::V2015_05_01_preview
+module Azure::Network2::Mgmt::V2015_05_01_preview
   module Models
     #
     # ApplicationGateways resource
     #
     class ApplicationGateway < Resource
 
-      include MsRestAzure
+      include MsRestAzure2
 
       # @return [ApplicationGatewaySku] Gets or sets sku of application gateway
       # resource

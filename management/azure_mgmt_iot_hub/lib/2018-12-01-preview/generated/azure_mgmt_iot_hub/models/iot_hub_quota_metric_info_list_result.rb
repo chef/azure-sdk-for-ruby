@@ -13,7 +13,7 @@ module Azure::IotHub::Mgmt::V2018_12_01_preview
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<IotHubQuotaMetricInfo>] The array of quota metrics
       # objects.
       attr_accessor :value

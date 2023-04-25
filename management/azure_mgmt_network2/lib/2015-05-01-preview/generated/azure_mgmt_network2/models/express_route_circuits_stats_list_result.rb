@@ -3,16 +3,16 @@
 # Changes may cause incorrect behavior and will be lost if the code is
 # regenerated.
 
-module Azure::Network::Mgmt::V2015_05_01_preview
+module Azure::Network2::Mgmt::V2015_05_01_preview
   module Models
     #
     # Response for ListStats from Express Route Circuits Api service call
     #
     class ExpressRouteCircuitsStatsListResult
 
-      include MsRestAzure
+      include MsRestAzure2
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<ExpressRouteCircuitStats>] Gets List of Stats
       attr_accessor :value
 

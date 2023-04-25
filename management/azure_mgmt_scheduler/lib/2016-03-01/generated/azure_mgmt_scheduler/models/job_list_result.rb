@@ -12,7 +12,7 @@ module Azure::Scheduler::Mgmt::V2016_03_01
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<JobDefinition>] Gets or sets all jobs under job
       # collection.
       attr_accessor :value

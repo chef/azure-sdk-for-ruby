@@ -1,6 +1,6 @@
 # Intro
 
-MsRest is a library which supports the clients (SDKs) generated with Autorest tool. It contains core logic and helper classes for error handling and authentication. Usually it is not supposed to be used as a standalone gem but only as a dependency for generated client gems.
+MsRest2 is a library which supports the clients (SDKs) generated with Autorest tool. It contains core logic and helper classes for error handling and authentication. Usually it is not supposed to be used as a standalone gem but only as a dependency for generated client gems.
 
 # Supported Ruby Versions
 
@@ -31,13 +31,13 @@ Faraday::SSLError:
 ```
 that implies that ruby's OpenSSL was unable to verify the peer certificate while establihsing an SSL connection. You can provide Faraday ssl options or opt-in to use already bundled certificate using
 ```Ruby
-MsRest.use_ssl_cert
+MsRest2.use_ssl_cert
 ```
 ---
 
 # Running tests
 
-MsRest has only unit tests which doesn't require any preparation, just run 'rspec' command from the gem directory.
+MsRest2 has only unit tests which doesn't require any preparation, just run 'rspec' command from the gem directory.
 
 # Contribution
 

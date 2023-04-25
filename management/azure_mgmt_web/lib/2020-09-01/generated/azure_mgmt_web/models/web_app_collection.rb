@@ -12,7 +12,7 @@ module Azure::Web::Mgmt::V2020_09_01
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<Site>] Collection of resources.
       attr_accessor :value
 

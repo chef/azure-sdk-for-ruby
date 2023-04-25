@@ -12,7 +12,7 @@ module Azure::ResourceHealth::Mgmt::V2018_08_01_preview
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<MetadataEntity>] The list of metadata entities.
       attr_accessor :value
 

@@ -12,7 +12,7 @@ module Azure::Storage::Mgmt::V2020_08_01_preview
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<DeletedAccount>] Gets the list of deleted accounts and
       # their properties.
       attr_accessor :value

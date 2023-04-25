@@ -12,7 +12,7 @@ module Azure::Monitor::Mgmt::V2015_04_01
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<EventData>] this list that includes the Azure audit
       # logs.
       attr_accessor :value

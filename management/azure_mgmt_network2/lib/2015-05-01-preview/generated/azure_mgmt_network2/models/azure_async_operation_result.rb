@@ -3,7 +3,7 @@
 # Changes may cause incorrect behavior and will be lost if the code is
 # regenerated.
 
-module Azure::Network::Mgmt::V2015_05_01_preview
+module Azure::Network2::Mgmt::V2015_05_01_preview
   module Models
     #
     # The response body contains the status of the specified asynchronous
@@ -17,7 +17,7 @@ module Azure::Network::Mgmt::V2015_05_01_preview
     #
     class AzureAsyncOperationResult
 
-      include MsRestAzure
+      include MsRestAzure2
 
       # @return [NetworkOperationStatus] Status of the AzureAsyncOperation.
       # Possible values include: 'InProgress', 'Succeeded', 'Failed'

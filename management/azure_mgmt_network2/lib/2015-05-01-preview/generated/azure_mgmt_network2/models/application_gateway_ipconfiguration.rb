@@ -3,14 +3,14 @@
 # Changes may cause incorrect behavior and will be lost if the code is
 # regenerated.
 
-module Azure::Network::Mgmt::V2015_05_01_preview
+module Azure::Network2::Mgmt::V2015_05_01_preview
   module Models
     #
     # IP configuration of application gateway
     #
     class ApplicationGatewayIPConfiguration < SubResource
 
-      include MsRestAzure
+      include MsRestAzure2
 
       # @return [SubResource] Gets or sets the reference of the subnet
       # resource.A subnet from where application gateway gets its private

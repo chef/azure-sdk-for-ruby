@@ -3,14 +3,14 @@
 # Changes may cause incorrect behavior and will be lost if the code is
 # regenerated.
 
-module Azure::Network::Mgmt::V2015_05_01_preview
+module Azure::Network2::Mgmt::V2015_05_01_preview
   module Models
     #
     # PublicIPAddress resource
     #
     class PublicIpAddress < Resource
 
-      include MsRestAzure
+      include MsRestAzure2
 
       # @return [IpAllocationMethod] Gets or sets PublicIP allocation method
       # (Static/Dynamic). Possible values include: 'Static', 'Dynamic'

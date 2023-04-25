@@ -12,7 +12,7 @@ module Azure::Monitor::Mgmt::V2019_10_17_preview
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<PrivateLinkResource>] Array of results.
       attr_accessor :value
 

@@ -12,7 +12,7 @@ module Azure::BatchAI::Mgmt::V2018_03_01
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<Job>] The collection of jobs.
       attr_accessor :value
 

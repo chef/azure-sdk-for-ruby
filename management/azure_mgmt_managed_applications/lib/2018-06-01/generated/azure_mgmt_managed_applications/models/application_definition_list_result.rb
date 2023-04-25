@@ -12,7 +12,7 @@ module Azure::ManagedApplications::Mgmt::V2018_06_01
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<ApplicationDefinition>] The array of managed application
       # definitions.
       attr_accessor :value

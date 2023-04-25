@@ -12,7 +12,7 @@ module Azure::ContainerRegistry::Mgmt::V2017_06_01_preview
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<Registry>] The list of container registries. Since this
       # list may be incomplete, the nextLink field should be used to request
       # the next list of container registries.

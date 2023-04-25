@@ -3,9 +3,9 @@
 # Licensed under the MIT License. See License.txt in the project root for license information.
 
 require 'rspec'
-require 'ms_rest_azure'
+require 'ms_rest_azure2'
 
-module MsRestAzure
+module MsRestAzure2
   describe 'Azure Environment' do
     before (:each) do
       @valid_min_options = {
@@ -56,10 +56,10 @@ module MsRestAzure
     end
 
     it 'should contain pre-defined environments' do
-      expect(MsRestAzure::AzureEnvironments::AzureCloud).to be_a(AzureEnvironments::AzureEnvironment)
-      expect(MsRestAzure::AzureEnvironments::AzureChinaCloud).to be_a(AzureEnvironments::AzureEnvironment)
-      expect(MsRestAzure::AzureEnvironments::AzureUSGovernment).to be_a(AzureEnvironments::AzureEnvironment)
-      expect(MsRestAzure::AzureEnvironments::AzureGermanCloud).to be_a(AzureEnvironments::AzureEnvironment)
+      expect(MsRestAzure2::AzureEnvironments::AzureCloud).to be_a(AzureEnvironments::AzureEnvironment)
+      expect(MsRestAzure2::AzureEnvironments::AzureChinaCloud).to be_a(AzureEnvironments::AzureEnvironment)
+      expect(MsRestAzure2::AzureEnvironments::AzureUSGovernment).to be_a(AzureEnvironments::AzureEnvironment)
+      expect(MsRestAzure2::AzureEnvironments::AzureGermanCloud).to be_a(AzureEnvironments::AzureEnvironment)
     end
   end
 end

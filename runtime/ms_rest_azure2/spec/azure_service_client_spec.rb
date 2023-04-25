@@ -4,9 +4,9 @@
 
 require 'rspec'
 require 'concurrent'
-require 'ms_rest_azure'
+require 'ms_rest_azure2'
 
-module MsRestAzure
+module MsRestAzure2
 
   describe AzureServiceClient do
     before(:all) do
@@ -15,7 +15,7 @@ module MsRestAzure
 
     it 'should throw error in case provided azure response is nil' do
       azure_service_client = AzureServiceClient.new nil
-      expect { azure_service_client.get_long_running_operation_result(nil, nil) }.to raise_error(MsRest::ValidationError)
+      expect { azure_service_client.get_long_running_operation_result(nil, nil) }.to raise_error(MsRest2::ValidationError)
     end
 
     it 'should throw error if unexpected polling state is passed' do
@@ -36,7 +36,7 @@ module MsRestAzure
       azure_service_client = AzureServiceClient.new nil
       azure_service_client.long_running_operation_retry_timeout = 0
 
-      allow_any_instance_of(MsRestAzure::PollingState).to receive(:create_connection).and_return(nil)
+      allow_any_instance_of(MsRestAzure2::PollingState).to receive(:create_connection).and_return(nil)
       allow(azure_service_client).to receive(:update_state_from_azure_async_operation_header) do |request, polling_state|
         polling_state.status = AsyncOperationStatus::SUCCESS_STATUS
         polling_state.resource = 'resource'
@@ -63,7 +63,7 @@ module MsRestAzure
       azure_service_client = AzureServiceClient.new nil
       azure_service_client.long_running_operation_retry_timeout = 0
 
-      allow_any_instance_of(MsRestAzure::PollingState).to receive(:create_connection).and_return(nil)
+      allow_any_instance_of(MsRestAzure2::PollingState).to receive(:create_connection).and_return(nil)
       allow(azure_service_client).to receive(:update_state_from_location_header) do |request, polling_state|
         polling_state.status = AsyncOperationStatus::SUCCESS_STATUS
         polling_state.resource = 'resource'
@@ -86,7 +86,7 @@ module MsRestAzure
       azure_service_client = AzureServiceClient.new nil
       azure_service_client.long_running_operation_retry_timeout = 0
 
-      allow_any_instance_of(MsRestAzure::PollingState).to receive(:create_connection).and_return(nil)
+      allow_any_instance_of(MsRestAzure2::PollingState).to receive(:create_connection).and_return(nil)
       allow(azure_service_client).to receive(:update_state_from_azure_async_operation_header) do |request, polling_state|
         polling_state.status = AsyncOperationStatus::FAILED_STATUS
       end

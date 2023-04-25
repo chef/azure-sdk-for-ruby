@@ -2,11 +2,11 @@
 # Copyright (c) Microsoft Corporation. All rights reserved.
 # Licensed under the MIT License. See License.txt in the project root for license information.
 
-module MsRestAzure
+module MsRestAzure2
   #
   # Class that provides access to authentication token.
   #
-  class CognitiveServicesCredentials < MsRest::ServiceClientCredentials
+  class CognitiveServicesCredentials < MsRest2::ServiceClientCredentials
 
     private
 

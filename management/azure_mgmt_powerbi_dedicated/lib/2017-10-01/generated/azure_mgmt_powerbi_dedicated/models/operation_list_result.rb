@@ -13,7 +13,7 @@ module Azure::PowerBiDedicated::Mgmt::V2017_10_01
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<Operation>] List of capacities supported by the
       # Microsoft.PowerBIDedicated resource provider.
       attr_accessor :value

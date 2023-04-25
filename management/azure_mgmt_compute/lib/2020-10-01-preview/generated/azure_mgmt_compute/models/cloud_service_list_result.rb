@@ -12,7 +12,7 @@ module Azure::Compute::Mgmt::V2020_10_01_preview
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<CloudService>]
       attr_accessor :value
 

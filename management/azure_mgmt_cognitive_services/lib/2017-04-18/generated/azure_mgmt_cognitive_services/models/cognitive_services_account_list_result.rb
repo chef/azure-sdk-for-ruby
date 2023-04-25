@@ -12,7 +12,7 @@ module Azure::CognitiveServices::Mgmt::V2017_04_18
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [String] The link used to get the next page of accounts.
       attr_accessor :next_link
 

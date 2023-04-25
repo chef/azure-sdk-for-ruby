@@ -12,7 +12,7 @@ module Azure::Redis::Mgmt::V2018_03_01
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<RedisPatchSchedule>] Results of the list patch schedules
       # operation.
       attr_accessor :value

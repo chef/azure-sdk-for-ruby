@@ -2303,7 +2303,7 @@
             "individual_gem_profile": true
         }
         ],
-        "azure_mgmt_network": [
+        "azure_mgmt_network2": [
         {
             "name": "V2019_03_01_Hybrid",
             "resourceTypes": {
@@ -2313,7 +2313,7 @@
                   }
                 }
             },
-            "output_dir": "management/azure_mgmt_network/lib/profiles",
+            "output_dir": "management/azure_mgmt_network2/lib/profiles",
             "individual_gem_profile": true
         },
         {
@@ -2326,7 +2326,7 @@
                     }
                 }
             },
-            "output_dir": "management/azure_mgmt_network/lib/profiles",
+            "output_dir": "management/azure_mgmt_network2/lib/profiles",
             "individual_gem_profile": true
         },
         {
@@ -2338,7 +2338,7 @@
                     }
                 }
             },
-            "output_dir": "management/azure_mgmt_network/lib/profiles",
+            "output_dir": "management/azure_mgmt_network2/lib/profiles",
             "individual_gem_profile": true
         },
         {
@@ -2352,7 +2352,7 @@
                     }
                 }
             },
-            "output_dir": "management/azure_mgmt_network/lib/profiles",
+            "output_dir": "management/azure_mgmt_network2/lib/profiles",
             "individual_gem_profile": true
         }
         ],
@@ -2681,7 +2681,7 @@
             "individual_gem_profile": true
         }
         ],
-        "azure_mgmt_resources": [
+        "azure_mgmt_resources2": [
         {
             "name": "V2019_03_01_Hybrid",
             "resourceTypes": {
@@ -2691,7 +2691,7 @@
                     }
                 }
             },
-            "output_dir": "management/azure_mgmt_resources/lib/profiles",
+            "output_dir": "management/azure_mgmt_resources2/lib/profiles",
             "individual_gem_profile": true
         },
         {
@@ -2703,7 +2703,7 @@
                     }
                 }
             },
-            "output_dir": "management/azure_mgmt_resources/lib/profiles",
+            "output_dir": "management/azure_mgmt_resources2/lib/profiles",
             "individual_gem_profile": true
         },
         {
@@ -2715,7 +2715,7 @@
                     }
                 }
             },
-            "output_dir": "management/azure_mgmt_resources/lib/profiles",
+            "output_dir": "management/azure_mgmt_resources2/lib/profiles",
             "individual_gem_profile": true
         },
         {
@@ -2727,7 +2727,7 @@
                     }
                 }
             },
-            "output_dir": "management/azure_mgmt_resources/lib/profiles",
+            "output_dir": "management/azure_mgmt_resources2/lib/profiles",
             "individual_gem_profile": true
         }
         ],

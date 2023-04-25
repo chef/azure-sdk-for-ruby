@@ -13,7 +13,7 @@ module Azure::NotificationHubs::Mgmt::V2017_04_01
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<Operation>] List of NotificationHubs operations
       # supported by the Microsoft.NotificationHubs resource provider.
       attr_accessor :value

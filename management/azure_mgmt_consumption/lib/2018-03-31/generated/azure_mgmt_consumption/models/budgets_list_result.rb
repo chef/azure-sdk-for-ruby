@@ -13,7 +13,7 @@ module Azure::Consumption::Mgmt::V2018_03_31
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<Budget>] The list of budgets.
       attr_accessor :value
 

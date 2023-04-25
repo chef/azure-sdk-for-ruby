@@ -3,13 +3,13 @@
 # Changes may cause incorrect behavior and will be lost if the code is
 # regenerated.
 
-module Azure::Network::Mgmt::V2015_05_01_preview
+module Azure::Network2::Mgmt::V2015_05_01_preview
   #
   # A service client - single point of access to the REST API.
   #
-  class NetworkManagementClient < MsRestAzure::AzureServiceClient
-    include MsRestAzure
-    include MsRestAzure::Serialization
+  class NetworkManagementClient < MsRestAzure2::AzureServiceClient
+    include MsRestAzure2
+    include MsRestAzure2::Serialization
 
     # @return [String] the base URI of the service.
     attr_accessor :base_url
@@ -95,7 +95,7 @@ module Azure::Network::Mgmt::V2015_05_01_preview
 
     #
     # Creates initializes a new instance of the NetworkManagementClient class.
-    # @param credentials [MsRest::ServiceClientCredentials] credentials to authorize HTTP requests made by the service client.
+    # @param credentials [MsRest2::ServiceClientCredentials] credentials to authorize HTTP requests made by the service client.
     # @param base_url [String] the base URI of the service.
     # @param options [Array] filters to be applied to the HTTP requests.
     #
@@ -103,7 +103,7 @@ module Azure::Network::Mgmt::V2015_05_01_preview
       super(credentials, options)
       @base_url = base_url || 'https://management.azure.com'
 
-      fail ArgumentError, 'invalid type of credentials input parameter' unless credentials.is_a?(MsRest::ServiceClientCredentials) unless credentials.nil?
+      fail ArgumentError, 'invalid type of credentials input parameter' unless credentials.is_a?(MsRest2::ServiceClientCredentials) unless credentials.nil?
       @credentials = credentials
 
       @application_gateways = ApplicationGateways.new(self)
@@ -157,7 +157,7 @@ module Azure::Network::Mgmt::V2015_05_01_preview
     # @param method [Symbol] with any of the following values :get, :put, :post, :patch, :delete.
     # @param path [String] the path, relative to {base_url}.
     # @param options [Hash{String=>String}] specifying any request options like :body.
-    # @return [MsRestAzure::AzureOperationResponse] Operation response containing the request, response and status.
+    # @return [MsRestAzure2::AzureOperationResponse] Operation response containing the request, response and status.
     #
     def make_request_with_http_info(method, path, options = {})
       result = make_request_async(method, path, options).value!
@@ -214,7 +214,7 @@ module Azure::Network::Mgmt::V2015_05_01_preview
     # @param custom_headers [Hash{String => String}] A hash of custom headers that
     # will be added to the HTTP request.
     #
-    # @return [MsRestAzure::AzureOperationResponse] HTTP response information.
+    # @return [MsRestAzure2::AzureOperationResponse] HTTP response information.
     #
     def check_dns_name_availability_with_http_info(location, domain_name_label:nil, custom_headers:nil)
       check_dns_name_availability_async(location, domain_name_label:domain_name_label, custom_headers:custom_headers).value!
@@ -248,7 +248,7 @@ module Azure::Network::Mgmt::V2015_05_01_preview
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'location' => location,'subscriptionId' => subscription_id},
           query_params: {'domainNameLabel' => domain_name_label,'api-version' => api_version},
           headers: request_headers.merge(custom_headers || {}),
@@ -262,7 +262,7 @@ module Azure::Network::Mgmt::V2015_05_01_preview
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRestAzure::AzureOperationError.new(result.request, http_response, error_model)
+          fail MsRestAzure2::AzureOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -272,10 +272,10 @@ module Azure::Network::Mgmt::V2015_05_01_preview
         if status_code == 200
           begin
             parsed_response = response_content.to_s.empty? ? nil : JSON.load(response_content)
-            result_mapper = Azure::Network::Mgmt::V2015_05_01_preview::Models::DnsNameAvailabilityResult.mapper()
+            result_mapper = Azure::Network2::Mgmt::V2015_05_01_preview::Models::DnsNameAvailabilityResult.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -291,7 +291,7 @@ module Azure::Network::Mgmt::V2015_05_01_preview
     # Adds telemetry information.
     #
     def add_telemetry
-        sdk_information = 'azure_mgmt_network'
+        sdk_information = 'azure_mgmt_network2'
         sdk_information = "#{sdk_information}/0.26.1"
         add_user_agent_information(sdk_information)
     end

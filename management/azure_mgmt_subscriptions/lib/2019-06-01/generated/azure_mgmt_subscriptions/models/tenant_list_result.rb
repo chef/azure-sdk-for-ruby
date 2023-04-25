@@ -12,7 +12,7 @@ module Azure::Subscriptions::Mgmt::V2019_06_01
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<TenantIdDescription>] An array of tenants.
       attr_accessor :value
 

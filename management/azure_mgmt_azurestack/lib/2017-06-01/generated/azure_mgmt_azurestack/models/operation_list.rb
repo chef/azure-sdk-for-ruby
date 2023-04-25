@@ -12,7 +12,7 @@ module Azure::AzureStack::Mgmt::V2017_06_01
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<Operation>] Array of operations
       attr_accessor :value
 

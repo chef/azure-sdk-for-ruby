@@ -13,7 +13,7 @@ module Azure::Security::Mgmt::V2020_01_01_preview
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<ConnectorSetting>] List of all the cloud account
       # connector settings
       attr_accessor :value

@@ -12,7 +12,7 @@ module Azure::Security::Mgmt::V2020_01_01
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<ExternalSecuritySolution>]
       attr_accessor :value
 

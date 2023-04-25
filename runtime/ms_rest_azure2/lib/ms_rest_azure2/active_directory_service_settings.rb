@@ -2,7 +2,7 @@
 # Copyright (c) Microsoft Corporation. All rights reserved.
 # Licensed under the MIT License. See License.txt in the project root for license information.
 
-module MsRestAzure
+module MsRestAzure2
   #
   # Class which represents an settings for Azure AD authentication.
   #
@@ -19,7 +19,7 @@ module MsRestAzure
     #
     # @return [ActiveDirectoryServiceSettings] settings required for authentication.
     def self.get_azure_settings
-      get_settings(MsRestAzure::AzureEnvironments::AzureCloud)
+      get_settings(MsRestAzure2::AzureEnvironments::AzureCloud)
     end
 
     #
@@ -27,7 +27,7 @@ module MsRestAzure
     #
     # @return [ActiveDirectoryServiceSettings] settings required for authentication.
     def self.get_azure_china_settings
-      get_settings(MsRestAzure::AzureEnvironments::AzureChinaCloud)
+      get_settings(MsRestAzure2::AzureEnvironments::AzureChinaCloud)
     end
 
     #
@@ -35,7 +35,7 @@ module MsRestAzure
     #
     # @return [ActiveDirectoryServiceSettings] settings required for authentication.
     def self.get_azure_german_settings
-      get_settings(MsRestAzure::AzureEnvironments::AzureGermanCloud)
+      get_settings(MsRestAzure2::AzureEnvironments::AzureGermanCloud)
     end
 
     #
@@ -43,7 +43,7 @@ module MsRestAzure
     #
     # @return [ActiveDirectoryServiceSettings] settings required for authentication.
     def self.get_azure_us_government_settings
-      get_settings(MsRestAzure::AzureEnvironments::AzureUSGovernment)
+      get_settings(MsRestAzure2::AzureEnvironments::AzureUSGovernment)
     end
 
     private
@@ -53,7 +53,7 @@ module MsRestAzure
     #
     # @param azure_environment [AzureEnvironment] An instance of AzureEnvironment.
     # @return [ActiveDirectoryServiceSettings] settings required for authentication.
-    def self.get_settings(azure_environment = MsRestAzure::AzureEnvironments::Azure)
+    def self.get_settings(azure_environment = MsRestAzure2::AzureEnvironments::Azure)
       settings = ActiveDirectoryServiceSettings.new
       settings.authentication_endpoint = azure_environment.active_directory_endpoint_url
       settings.token_audience = azure_environment.active_directory_resource_id

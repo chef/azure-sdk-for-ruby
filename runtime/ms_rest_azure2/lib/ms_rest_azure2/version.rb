@@ -2,6 +2,6 @@
 # Copyright (c) Microsoft Corporation. All rights reserved.
 # Licensed under the MIT License. See License.txt in the project root for license information.
 
-module MsRestAzure
-  VERSION = '0.12.1'
+module MsRestAzure2
+  VERSION = '1.0.0'
 end

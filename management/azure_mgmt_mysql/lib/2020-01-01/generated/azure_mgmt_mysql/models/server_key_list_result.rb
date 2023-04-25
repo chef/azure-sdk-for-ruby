@@ -12,7 +12,7 @@ module Azure::Mysql::Mgmt::V2020_01_01
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<ServerKey>] A list of MySQL Server keys.
       attr_accessor :value
 

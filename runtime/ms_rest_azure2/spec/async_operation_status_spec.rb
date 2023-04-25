@@ -3,9 +3,9 @@
 # Licensed under the MIT License. See License.txt in the project root for license information.
 
 require 'rspec'
-require 'ms_rest_azure'
+require 'ms_rest_azure2'
 
-module MsRestAzure
+module MsRestAzure2
 
   describe AsyncOperationStatus do
     it 'should deserialize AsyncOperationStatus correctly' do

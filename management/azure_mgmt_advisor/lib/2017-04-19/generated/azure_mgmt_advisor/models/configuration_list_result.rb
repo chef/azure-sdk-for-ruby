@@ -12,7 +12,7 @@ module Azure::Advisor::Mgmt::V2017_04_19
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<ConfigData>] The list of configurations.
       attr_accessor :value
 

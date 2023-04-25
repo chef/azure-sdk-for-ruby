@@ -12,7 +12,7 @@ module Azure::Compute::Mgmt::V2015_06_15
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<VirtualMachineScaleSetVM>] The list of virtual machine
       # scale sets VMs.
       attr_accessor :value

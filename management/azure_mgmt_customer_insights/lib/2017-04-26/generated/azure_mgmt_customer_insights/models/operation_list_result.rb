@@ -13,7 +13,7 @@ module Azure::CustomerInsights::Mgmt::V2017_04_26
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<Operation>] List of Customer Insights operations
       # supported by the Microsoft.CustomerInsights resource provider.
       attr_accessor :value

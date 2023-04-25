@@ -12,7 +12,7 @@ module Azure::DataFactory::Mgmt::V2018_06_01
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<ManagedPrivateEndpointResource>] List of managed private
       # endpoints.
       attr_accessor :value

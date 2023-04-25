@@ -12,7 +12,7 @@ module Azure::Security::Mgmt::V2020_01_01
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<AdaptiveNetworkHardening>] A list of Adaptive Network
       # Hardenings resources
       attr_accessor :value

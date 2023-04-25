@@ -24,7 +24,7 @@
 
 ##2017.02.06 ms_rest version 0.6.3
 * Adding JSONable mixin module to provide simple serialization / deserialization [PR #599](https://github.com/Azure/azure-sdk-for-ruby/pull/599)
-* Making credentials optional parameter for MsRest::ServiceClient [PR #626](https://github.com/Azure/azure-sdk-for-ruby/pull/626)
+* Making credentials optional parameter for MsRest2::ServiceClient [PR #626](https://github.com/Azure/azure-sdk-for-ruby/pull/626)
 * Bug fix while building path to handle double // [Issue #693](https://github.com/Azure/azure-sdk-for-ruby/issues/639) [PR #640](https://github.com/Azure/azure-sdk-for-ruby/pull/640)
 
 ##2016.11.14 ms_rest version 0.6.2

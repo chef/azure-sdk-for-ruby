@@ -118,7 +118,7 @@ module Azure::CDN::Mgmt::V2020_09_01
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'subscriptionId' => @client.subscription_id,'resourceGroupName' => resource_group_name,'profileName' => profile_name},
           query_params: {'api-version' => @client.api_version,'metrics' => metrics.nil? ? nil : metrics.join(','),'dateTimeBegin' => date_time_begin,'dateTimeEnd' => date_time_end,'granularity' => granularity,'groupBy' => group_by.nil? ? nil : group_by.join(','),'continents' => continents.nil? ? nil : continents.join(','),'countryOrRegions' => country_or_regions.nil? ? nil : country_or_regions.join(','),'customDomains' => custom_domains.nil? ? nil : custom_domains.join(','),'protocols' => protocols.nil? ? nil : protocols.join(',')},
           headers: request_headers.merge(custom_headers || {}),
@@ -132,7 +132,7 @@ module Azure::CDN::Mgmt::V2020_09_01
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -145,7 +145,7 @@ module Azure::CDN::Mgmt::V2020_09_01
             result_mapper = Azure::CDN::Mgmt::V2020_09_01::Models::MetricsResponse.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -244,7 +244,7 @@ module Azure::CDN::Mgmt::V2020_09_01
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'subscriptionId' => @client.subscription_id,'resourceGroupName' => resource_group_name,'profileName' => profile_name},
           query_params: {'api-version' => @client.api_version,'rankings' => rankings.nil? ? nil : rankings.join(','),'metrics' => metrics.nil? ? nil : metrics.join(','),'maxRanking' => max_ranking,'dateTimeBegin' => date_time_begin,'dateTimeEnd' => date_time_end,'customDomains' => custom_domains.nil? ? nil : custom_domains.join(',')},
           headers: request_headers.merge(custom_headers || {}),
@@ -258,7 +258,7 @@ module Azure::CDN::Mgmt::V2020_09_01
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -271,7 +271,7 @@ module Azure::CDN::Mgmt::V2020_09_01
             result_mapper = Azure::CDN::Mgmt::V2020_09_01::Models::RankingsResponse.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -347,7 +347,7 @@ module Azure::CDN::Mgmt::V2020_09_01
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'subscriptionId' => @client.subscription_id,'resourceGroupName' => resource_group_name,'profileName' => profile_name},
           query_params: {'api-version' => @client.api_version},
           headers: request_headers.merge(custom_headers || {}),
@@ -361,7 +361,7 @@ module Azure::CDN::Mgmt::V2020_09_01
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -374,7 +374,7 @@ module Azure::CDN::Mgmt::V2020_09_01
             result_mapper = Azure::CDN::Mgmt::V2020_09_01::Models::ContinentsResponse.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -450,7 +450,7 @@ module Azure::CDN::Mgmt::V2020_09_01
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'subscriptionId' => @client.subscription_id,'resourceGroupName' => resource_group_name,'profileName' => profile_name},
           query_params: {'api-version' => @client.api_version},
           headers: request_headers.merge(custom_headers || {}),
@@ -464,7 +464,7 @@ module Azure::CDN::Mgmt::V2020_09_01
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -477,7 +477,7 @@ module Azure::CDN::Mgmt::V2020_09_01
             result_mapper = Azure::CDN::Mgmt::V2020_09_01::Models::ResourcesResponse.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -578,7 +578,7 @@ module Azure::CDN::Mgmt::V2020_09_01
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'subscriptionId' => @client.subscription_id,'resourceGroupName' => resource_group_name,'profileName' => profile_name},
           query_params: {'api-version' => @client.api_version,'metrics' => metrics.nil? ? nil : metrics.join(','),'dateTimeBegin' => date_time_begin,'dateTimeEnd' => date_time_end,'granularity' => granularity,'actions' => actions.nil? ? nil : actions.join(','),'groupBy' => group_by.nil? ? nil : group_by.join(','),'ruleTypes' => rule_types.nil? ? nil : rule_types.join(',')},
           headers: request_headers.merge(custom_headers || {}),
@@ -592,7 +592,7 @@ module Azure::CDN::Mgmt::V2020_09_01
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -605,7 +605,7 @@ module Azure::CDN::Mgmt::V2020_09_01
             result_mapper = Azure::CDN::Mgmt::V2020_09_01::Models::WafMetricsResponse.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -707,7 +707,7 @@ module Azure::CDN::Mgmt::V2020_09_01
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'subscriptionId' => @client.subscription_id,'resourceGroupName' => resource_group_name,'profileName' => profile_name},
           query_params: {'api-version' => @client.api_version,'metrics' => metrics.nil? ? nil : metrics.join(','),'dateTimeBegin' => date_time_begin,'dateTimeEnd' => date_time_end,'maxRanking' => max_ranking,'rankings' => rankings.nil? ? nil : rankings.join(','),'actions' => actions.nil? ? nil : actions.join(','),'ruleTypes' => rule_types.nil? ? nil : rule_types.join(',')},
           headers: request_headers.merge(custom_headers || {}),
@@ -721,7 +721,7 @@ module Azure::CDN::Mgmt::V2020_09_01
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -734,7 +734,7 @@ module Azure::CDN::Mgmt::V2020_09_01
             result_mapper = Azure::CDN::Mgmt::V2020_09_01::Models::WafRankingsResponse.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 

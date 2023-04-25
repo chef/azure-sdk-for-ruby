@@ -104,7 +104,7 @@ module Azure::Maintenance::Mgmt::V2018_06_01_preview
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'subscriptionId' => @client.subscription_id,'resourceGroupName' => resource_group_name,'resourceParentType' => resource_parent_type,'resourceParentName' => resource_parent_name,'providerName' => provider_name,'resourceType' => resource_type,'resourceName' => resource_name,'applyUpdateName' => apply_update_name},
           query_params: {'api-version' => @client.api_version},
           headers: request_headers.merge(custom_headers || {}),
@@ -131,7 +131,7 @@ module Azure::Maintenance::Mgmt::V2018_06_01_preview
             result_mapper = Azure::Maintenance::Mgmt::V2018_06_01_preview::Models::ApplyUpdate.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -216,7 +216,7 @@ module Azure::Maintenance::Mgmt::V2018_06_01_preview
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'subscriptionId' => @client.subscription_id,'resourceGroupName' => resource_group_name,'providerName' => provider_name,'resourceType' => resource_type,'resourceName' => resource_name,'applyUpdateName' => apply_update_name},
           query_params: {'api-version' => @client.api_version},
           headers: request_headers.merge(custom_headers || {}),
@@ -243,7 +243,7 @@ module Azure::Maintenance::Mgmt::V2018_06_01_preview
             result_mapper = Azure::Maintenance::Mgmt::V2018_06_01_preview::Models::ApplyUpdate.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -332,7 +332,7 @@ module Azure::Maintenance::Mgmt::V2018_06_01_preview
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'subscriptionId' => @client.subscription_id,'resourceGroupName' => resource_group_name,'providerName' => provider_name,'resourceParentType' => resource_parent_type,'resourceParentName' => resource_parent_name,'resourceType' => resource_type,'resourceName' => resource_name},
           query_params: {'api-version' => @client.api_version},
           headers: request_headers.merge(custom_headers || {}),
@@ -359,7 +359,7 @@ module Azure::Maintenance::Mgmt::V2018_06_01_preview
             result_mapper = Azure::Maintenance::Mgmt::V2018_06_01_preview::Models::ApplyUpdate.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -440,7 +440,7 @@ module Azure::Maintenance::Mgmt::V2018_06_01_preview
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'subscriptionId' => @client.subscription_id,'resourceGroupName' => resource_group_name,'providerName' => provider_name,'resourceType' => resource_type,'resourceName' => resource_name},
           query_params: {'api-version' => @client.api_version},
           headers: request_headers.merge(custom_headers || {}),
@@ -467,7 +467,7 @@ module Azure::Maintenance::Mgmt::V2018_06_01_preview
             result_mapper = Azure::Maintenance::Mgmt::V2018_06_01_preview::Models::ApplyUpdate.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 

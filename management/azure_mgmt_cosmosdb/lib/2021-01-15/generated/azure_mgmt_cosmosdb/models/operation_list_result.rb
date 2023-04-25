@@ -13,7 +13,7 @@ module Azure::Cosmosdb::Mgmt::V2021_01_15
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<Operation>] List of operations supported by the Resource
       # Provider.
       attr_accessor :value

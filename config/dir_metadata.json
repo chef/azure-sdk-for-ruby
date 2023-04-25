@@ -529,9 +529,9 @@
   },
   "Microsoft.Network": {
     "management": {
-      "path": "management/azure_mgmt_network",
-      "namespace": "Azure::Network::Mgmt",
-      "module_require": "azure_mgmt_network"
+      "path": "management/azure_mgmt_network2",
+      "namespace": "Azure::Network2::Mgmt",
+      "module_require": "azure_mgmt_network2"
     }
   },
   "Microsoft.NotificationHubs": {
@@ -669,9 +669,9 @@
   },
   "Microsoft.Resources": {
     "management": {
-      "path": "management/azure_mgmt_resources",
-      "namespace": "Azure::Resources::Mgmt",
-      "module_require": "azure_mgmt_resources"
+      "path": "management/azure_mgmt_resources2",
+      "namespace": "Azure::Resources2::Mgmt",
+      "module_require": "azure_mgmt_resources2"
     }
   },
   "Microsoft.ResourcesManagement": {

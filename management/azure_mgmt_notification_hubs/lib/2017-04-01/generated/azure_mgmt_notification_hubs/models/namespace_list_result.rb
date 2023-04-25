@@ -12,7 +12,7 @@ module Azure::NotificationHubs::Mgmt::V2017_04_01
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<NamespaceResource>] Result of the List Namespace
       # operation.
       attr_accessor :value

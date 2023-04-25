@@ -12,7 +12,7 @@ module Azure::StorageCache::Mgmt::V2019_11_01
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [String] The URI to fetch the next page of Cache usage models.
       attr_accessor :next_link
 

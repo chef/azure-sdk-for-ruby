@@ -12,7 +12,7 @@ module Azure::EdgeGateway::Mgmt::V2019_03_01
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<Order>] The list of orders.
       attr_accessor :value
 

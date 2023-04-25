@@ -12,7 +12,7 @@ module Azure::Kusto::Mgmt::V2018_09_07_privatepreview
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<Operation>]
       attr_accessor :value
 

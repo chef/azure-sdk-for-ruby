@@ -3,14 +3,14 @@
 # Changes may cause incorrect behavior and will be lost if the code is
 # regenerated.
 
-module Azure::Network::Mgmt::V2015_05_01_preview
+module Azure::Network2::Mgmt::V2015_05_01_preview
   module Models
     #
     # ExpressRouteCircuit resource
     #
     class ExpressRouteCircuit < Resource
 
-      include MsRestAzure
+      include MsRestAzure2
 
       # @return [ExpressRouteCircuitSku] Gets or sets sku
       attr_accessor :sku

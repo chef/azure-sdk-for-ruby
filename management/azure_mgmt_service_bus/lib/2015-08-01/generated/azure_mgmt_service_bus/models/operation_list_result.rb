@@ -13,7 +13,7 @@ module Azure::ServiceBus::Mgmt::V2015_08_01
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<Operation>] List of ServiceBus operations supported by
       # the Microsoft.ServiceBus resource provider.
       attr_accessor :value

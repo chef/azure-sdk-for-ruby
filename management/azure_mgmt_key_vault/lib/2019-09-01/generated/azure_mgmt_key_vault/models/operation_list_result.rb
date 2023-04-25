@@ -13,7 +13,7 @@ module Azure::KeyVault::Mgmt::V2019_09_01
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<Operation>] List of Storage operations supported by the
       # Storage resource provider.
       attr_accessor :value

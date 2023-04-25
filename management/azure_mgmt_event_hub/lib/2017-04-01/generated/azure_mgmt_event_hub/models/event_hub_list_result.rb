@@ -12,7 +12,7 @@ module Azure::EventHub::Mgmt::V2017_04_01
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<Eventhub>] Result of the List EventHubs operation.
       attr_accessor :value
 

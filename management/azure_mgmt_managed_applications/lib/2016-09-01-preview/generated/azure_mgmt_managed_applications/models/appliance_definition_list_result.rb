@@ -12,7 +12,7 @@ module Azure::ManagedApplications::Mgmt::V2016_09_01_preview
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<ApplianceDefinition>] The array of appliance
       # definitions.
       attr_accessor :value

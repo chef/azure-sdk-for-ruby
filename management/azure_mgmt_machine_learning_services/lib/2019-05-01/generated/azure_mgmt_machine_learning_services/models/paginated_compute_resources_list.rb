@@ -13,7 +13,7 @@ module Azure::MachineLearningServices::Mgmt::V2019_05_01
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<ComputeResource>] An array of Machine Learning compute
       # objects wrapped in ARM resource envelope.
       attr_accessor :value

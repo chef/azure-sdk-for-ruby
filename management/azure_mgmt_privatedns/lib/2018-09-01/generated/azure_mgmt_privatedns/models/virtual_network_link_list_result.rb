@@ -13,7 +13,7 @@ module Azure::PrivateDns::Mgmt::V2018_09_01
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<VirtualNetworkLink>] Information about the virtual
       # network links to the Private DNS zones.
       attr_accessor :value

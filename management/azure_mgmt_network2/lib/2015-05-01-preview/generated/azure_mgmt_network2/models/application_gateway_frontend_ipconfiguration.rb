@@ -3,14 +3,14 @@
 # Changes may cause incorrect behavior and will be lost if the code is
 # regenerated.
 
-module Azure::Network::Mgmt::V2015_05_01_preview
+module Azure::Network2::Mgmt::V2015_05_01_preview
   module Models
     #
     # Frontend IP configuration of application gateway
     #
     class ApplicationGatewayFrontendIPConfiguration < SubResource
 
-      include MsRestAzure
+      include MsRestAzure2
 
       # @return [String] Gets or sets the privateIPAddress of the Network
       # Interface IP Configuration

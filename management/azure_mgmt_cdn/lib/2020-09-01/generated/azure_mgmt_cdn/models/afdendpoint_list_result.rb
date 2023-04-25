@@ -13,7 +13,7 @@ module Azure::CDN::Mgmt::V2020_09_01
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<AFDEndpoint>] List of AzureFrontDoor endpoints within a
       # profile
       attr_accessor :value

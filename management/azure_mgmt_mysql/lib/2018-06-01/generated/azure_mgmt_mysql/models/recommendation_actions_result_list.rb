@@ -12,7 +12,7 @@ module Azure::Mysql::Mgmt::V2018_06_01
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<RecommendationAction>] The list of recommendation action
       # advisors.
       attr_accessor :value

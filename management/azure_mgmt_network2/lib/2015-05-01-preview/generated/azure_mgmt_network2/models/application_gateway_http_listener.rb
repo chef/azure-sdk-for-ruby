@@ -3,14 +3,14 @@
 # Changes may cause incorrect behavior and will be lost if the code is
 # regenerated.
 
-module Azure::Network::Mgmt::V2015_05_01_preview
+module Azure::Network2::Mgmt::V2015_05_01_preview
   module Models
     #
     # Http listener of application gateway
     #
     class ApplicationGatewayHttpListener < SubResource
 
-      include MsRestAzure
+      include MsRestAzure2
 
       # @return [SubResource] Gets or sets frontend IP configuration resource
       # of application gateway

@@ -95,7 +95,7 @@ module Azure::Labservices::Mgmt::V2018_10_15
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'userName' => user_name},
           query_params: {'$expand' => expand,'api-version' => @client.api_version},
           body: request_content,
@@ -121,7 +121,7 @@ module Azure::Labservices::Mgmt::V2018_10_15
             result_mapper = Azure::Labservices::Mgmt::V2018_10_15::Models::GetEnvironmentResponse.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -196,7 +196,7 @@ module Azure::Labservices::Mgmt::V2018_10_15
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'userName' => user_name},
           query_params: {'api-version' => @client.api_version},
           body: request_content,
@@ -222,7 +222,7 @@ module Azure::Labservices::Mgmt::V2018_10_15
             result_mapper = Azure::Labservices::Mgmt::V2018_10_15::Models::OperationBatchStatusResponse.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -297,7 +297,7 @@ module Azure::Labservices::Mgmt::V2018_10_15
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'userName' => user_name},
           query_params: {'api-version' => @client.api_version},
           body: request_content,
@@ -323,7 +323,7 @@ module Azure::Labservices::Mgmt::V2018_10_15
             result_mapper = Azure::Labservices::Mgmt::V2018_10_15::Models::OperationStatusResponse.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -401,7 +401,7 @@ module Azure::Labservices::Mgmt::V2018_10_15
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'userName' => user_name},
           query_params: {'api-version' => @client.api_version},
           body: request_content,
@@ -427,7 +427,7 @@ module Azure::Labservices::Mgmt::V2018_10_15
             result_mapper = Azure::Labservices::Mgmt::V2018_10_15::Models::GetPersonalPreferencesResponse.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -502,7 +502,7 @@ module Azure::Labservices::Mgmt::V2018_10_15
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'userName' => user_name},
           query_params: {'api-version' => @client.api_version},
           body: request_content,
@@ -528,7 +528,7 @@ module Azure::Labservices::Mgmt::V2018_10_15
             result_mapper = Azure::Labservices::Mgmt::V2018_10_15::Models::ListEnvironmentsResponse.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -590,7 +590,7 @@ module Azure::Labservices::Mgmt::V2018_10_15
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'userName' => user_name},
           query_params: {'api-version' => @client.api_version},
           headers: request_headers.merge(custom_headers || {}),
@@ -615,7 +615,7 @@ module Azure::Labservices::Mgmt::V2018_10_15
             result_mapper = Azure::Labservices::Mgmt::V2018_10_15::Models::ListLabsResponse.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -689,7 +689,7 @@ module Azure::Labservices::Mgmt::V2018_10_15
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'userName' => user_name},
           query_params: {'api-version' => @client.api_version},
           body: request_content,
@@ -909,7 +909,7 @@ module Azure::Labservices::Mgmt::V2018_10_15
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'userName' => user_name},
           query_params: {'api-version' => @client.api_version},
           body: request_content,
@@ -1005,7 +1005,7 @@ module Azure::Labservices::Mgmt::V2018_10_15
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'userName' => user_name},
           query_params: {'api-version' => @client.api_version},
           body: request_content,
@@ -1101,7 +1101,7 @@ module Azure::Labservices::Mgmt::V2018_10_15
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'userName' => user_name},
           query_params: {'api-version' => @client.api_version},
           body: request_content,

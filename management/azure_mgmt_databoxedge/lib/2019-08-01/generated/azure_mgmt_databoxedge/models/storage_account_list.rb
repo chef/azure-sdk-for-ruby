@@ -13,7 +13,7 @@ module Azure::DataBoxEdge::Mgmt::V2019_08_01
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<StorageAccount>] The list of storageAccounts.
       attr_accessor :value
 

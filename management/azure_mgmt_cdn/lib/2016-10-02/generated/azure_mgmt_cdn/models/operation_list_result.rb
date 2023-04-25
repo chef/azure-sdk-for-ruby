@@ -13,7 +13,7 @@ module Azure::CDN::Mgmt::V2016_10_02
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<Operation>] List of CDN operations supported by the CDN
       # resource provider.
       attr_accessor :value

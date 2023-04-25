@@ -12,7 +12,7 @@ module Azure::Monitor::Mgmt::V2015_05_01
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<ApplicationInsightsComponent>] List of Application
       # Insights component definitions.
       attr_accessor :value

@@ -3,7 +3,7 @@
 # Changes may cause incorrect behavior and will be lost if the code is
 # regenerated.
 
-module Azure::Network::Mgmt::V2015_05_01_preview
+module Azure::Network2::Mgmt::V2015_05_01_preview
   module Models
     #
     # AddressSpace contains an array of IP address ranges that can be used by
@@ -11,7 +11,7 @@ module Azure::Network::Mgmt::V2015_05_01_preview
     #
     class AddressSpace
 
-      include MsRestAzure
+      include MsRestAzure2
 
       # @return [Array<String>] Gets or sets List of address blocks reserved
       # for this virtual network in CIDR notation

@@ -12,7 +12,7 @@ module Azure::EventHub::Mgmt::V2017_04_01
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<ConsumerGroup>] Result of the List Consumer Group
       # operation.
       attr_accessor :value

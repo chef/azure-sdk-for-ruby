@@ -12,7 +12,7 @@ module Azure::KubernetesConfiguration::Mgmt::V2021_03_01
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<ResourceProviderOperation>] List of operations supported
       # by this resource provider.
       attr_accessor :value

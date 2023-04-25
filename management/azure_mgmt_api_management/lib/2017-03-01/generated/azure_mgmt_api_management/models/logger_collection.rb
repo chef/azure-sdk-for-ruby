@@ -12,7 +12,7 @@ module Azure::ApiManagement::Mgmt::V2017_03_01
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<LoggerContract>] Logger values.
       attr_accessor :value
 

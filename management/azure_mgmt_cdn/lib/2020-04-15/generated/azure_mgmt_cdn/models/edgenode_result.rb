@@ -13,7 +13,7 @@ module Azure::CDN::Mgmt::V2020_04_15
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<EdgeNode>] Edge node of CDN service.
       attr_accessor :value
 

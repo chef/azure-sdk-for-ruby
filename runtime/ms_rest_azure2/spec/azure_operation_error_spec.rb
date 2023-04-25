@@ -3,9 +3,9 @@
 # Licensed under the MIT License. See License.txt in the project root for license information.
 
 require 'rspec'
-require 'ms_rest_azure'
+require 'ms_rest_azure2'
 
-module MsRestAzure
+module MsRestAzure2
   describe AzureOperationError do
     let(:http_response) { double('http_response', body: nil, headers: nil, status: 500) }
     let(:http_request) { double('http_request') }
@@ -24,7 +24,7 @@ module MsRestAzure
       expect(error.response).to eq(http_response)
       expect(error.body).to eq(nil)
       # message must not contain message from body but must contains class name
-      expect(error.message).to match('MsRestAzure::AzureOperationError') # Default one
+      expect(error.message).to match('MsRestAzure2::AzureOperationError') # Default one
     end
 
     it 'should create error with request, response and body' do

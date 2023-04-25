@@ -5,7 +5,7 @@
 require_relative 'spec_helper'
 
 include MsRestAzure
-include Azure::Resources::Mgmt::V2017_05_10
+include Azure::Resources2::Mgmt::V2017_05_10
 include Azure::Compute::Mgmt::V2017_03_30
 
 describe ComputeManagementClient do

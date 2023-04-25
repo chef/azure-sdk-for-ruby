@@ -12,7 +12,7 @@ module Azure::ContainerService::Mgmt::V2020_06_01
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<ManagedCluster>] The list of managed clusters.
       attr_accessor :value
 

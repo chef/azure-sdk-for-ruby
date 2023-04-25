@@ -12,7 +12,7 @@ module Azure::ResourceHealth::Mgmt::V2018_07_01
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<AvailabilityStatus>] The list of availabilityStatuses.
       attr_accessor :value
 

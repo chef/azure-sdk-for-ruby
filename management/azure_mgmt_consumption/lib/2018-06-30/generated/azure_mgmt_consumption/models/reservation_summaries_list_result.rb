@@ -12,7 +12,7 @@ module Azure::Consumption::Mgmt::V2018_06_30
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<ReservationSummary>] The list of reservation summaries.
       attr_accessor :value
 

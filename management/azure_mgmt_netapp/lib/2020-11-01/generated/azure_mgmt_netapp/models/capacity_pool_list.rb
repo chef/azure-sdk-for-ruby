@@ -12,7 +12,7 @@ module Azure::NetApp::Mgmt::V2020_11_01
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<CapacityPool>] List of Capacity pools
       attr_accessor :value
 

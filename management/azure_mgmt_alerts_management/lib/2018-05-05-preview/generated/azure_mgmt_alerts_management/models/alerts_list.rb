@@ -12,7 +12,7 @@ module Azure::AlertsManagement::Mgmt::V2018_05_05_preview
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [String] URL to fetch the next set of alerts.
       attr_accessor :next_link
 

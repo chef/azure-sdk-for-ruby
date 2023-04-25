@@ -12,7 +12,7 @@ module Azure::KeyVault::V7_0_preview
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<SasDefinitionItem>] A response message containing a list
       # of SAS definitions along with a link to the next page of SAS
       # definitions.

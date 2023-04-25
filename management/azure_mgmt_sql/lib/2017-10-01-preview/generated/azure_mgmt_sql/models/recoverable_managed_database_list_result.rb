@@ -12,7 +12,7 @@ module Azure::SQL::Mgmt::V2017_10_01_preview
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<RecoverableManagedDatabase>] Array of results.
       attr_accessor :value
 

@@ -12,7 +12,7 @@ module Azure::DataFactory::Mgmt::V2018_06_01
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<DataFlowResource>] List of data flows.
       attr_accessor :value
 

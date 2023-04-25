@@ -13,7 +13,7 @@ module Azure::CDN::Mgmt::V2020_09_01
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<Profile>] List of CDN profiles within a resource group.
       attr_accessor :value
 

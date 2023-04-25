@@ -91,7 +91,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
     request_url = request_url.gsub('{Endpoint}', @client.endpoint)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'appId' => app_id,'versionId' => version_id},
           body: request_content,
           headers: request_headers.merge(custom_headers || {}),
@@ -105,7 +105,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
         response_content = http_response.body
         unless status_code == 201
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -125,7 +125,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
             }
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -204,7 +204,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
     request_url = request_url.gsub('{Endpoint}', @client.endpoint)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'appId' => app_id,'versionId' => version_id},
           query_params: {'skip' => skip,'take' => take},
           headers: request_headers.merge(custom_headers || {}),
@@ -218,7 +218,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -247,7 +247,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
             }
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -327,7 +327,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
     request_url = request_url.gsub('{Endpoint}', @client.endpoint)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'appId' => app_id,'versionId' => version_id},
           body: request_content,
           headers: request_headers.merge(custom_headers || {}),
@@ -341,7 +341,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
         response_content = http_response.body
         unless status_code == 201
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -361,7 +361,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
             }
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -443,7 +443,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
     request_url = request_url.gsub('{Endpoint}', @client.endpoint)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'appId' => app_id,'versionId' => version_id},
           query_params: {'skip' => skip,'take' => take},
           headers: request_headers.merge(custom_headers || {}),
@@ -457,7 +457,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -486,7 +486,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
             }
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -568,7 +568,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
     request_url = request_url.gsub('{Endpoint}', @client.endpoint)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'appId' => app_id,'versionId' => version_id},
           query_params: {'skip' => skip,'take' => take},
           headers: request_headers.merge(custom_headers || {}),
@@ -582,7 +582,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -611,7 +611,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
             }
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -693,7 +693,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
     request_url = request_url.gsub('{Endpoint}', @client.endpoint)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'appId' => app_id,'versionId' => version_id},
           query_params: {'skip' => skip,'take' => take},
           headers: request_headers.merge(custom_headers || {}),
@@ -707,7 +707,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -736,7 +736,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
             }
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -818,7 +818,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
     request_url = request_url.gsub('{Endpoint}', @client.endpoint)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'appId' => app_id,'versionId' => version_id},
           query_params: {'skip' => skip,'take' => take},
           headers: request_headers.merge(custom_headers || {}),
@@ -832,7 +832,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -861,7 +861,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
             }
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -941,7 +941,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
     request_url = request_url.gsub('{Endpoint}', @client.endpoint)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'appId' => app_id,'versionId' => version_id},
           body: request_content,
           headers: request_headers.merge(custom_headers || {}),
@@ -955,7 +955,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
         response_content = http_response.body
         unless status_code == 201
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -975,7 +975,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
             }
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -1070,7 +1070,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
     request_url = request_url.gsub('{Endpoint}', @client.endpoint)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'appId' => app_id,'versionId' => version_id},
           body: request_content,
           headers: request_headers.merge(custom_headers || {}),
@@ -1084,7 +1084,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
         response_content = http_response.body
         unless status_code == 201
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -1113,7 +1113,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
             }
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -1195,7 +1195,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
     request_url = request_url.gsub('{Endpoint}', @client.endpoint)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'appId' => app_id,'versionId' => version_id},
           query_params: {'skip' => skip,'take' => take},
           headers: request_headers.merge(custom_headers || {}),
@@ -1209,7 +1209,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -1238,7 +1238,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
             }
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -1305,7 +1305,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
     request_url = request_url.gsub('{Endpoint}', @client.endpoint)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'appId' => app_id,'versionId' => version_id},
           headers: request_headers.merge(custom_headers || {}),
           base_url: request_url
@@ -1318,7 +1318,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -1347,7 +1347,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
             }
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -1429,7 +1429,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
     request_url = request_url.gsub('{Endpoint}', @client.endpoint)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'appId' => app_id,'versionId' => version_id},
           query_params: {'skip' => skip,'take' => take},
           headers: request_headers.merge(custom_headers || {}),
@@ -1443,7 +1443,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -1472,7 +1472,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
             }
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -1558,7 +1558,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
     request_url = request_url.gsub('{Endpoint}', @client.endpoint)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'appId' => app_id,'versionId' => version_id,'modelId' => model_id},
           query_params: {'skip' => skip,'take' => take},
           headers: request_headers.merge(custom_headers || {}),
@@ -1572,7 +1572,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -1601,7 +1601,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
             }
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -1672,7 +1672,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
     request_url = request_url.gsub('{Endpoint}', @client.endpoint)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'appId' => app_id,'versionId' => version_id,'intentId' => intent_id},
           headers: request_headers.merge(custom_headers || {}),
           base_url: request_url
@@ -1685,7 +1685,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -1698,7 +1698,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
             result_mapper = Azure::CognitiveServices::LuisAuthoring::V3_0_preview::Models::IntentClassifier.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -1782,7 +1782,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
     request_url = request_url.gsub('{Endpoint}', @client.endpoint)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'appId' => app_id,'versionId' => version_id,'intentId' => intent_id},
           body: request_content,
           headers: request_headers.merge(custom_headers || {}),
@@ -1796,7 +1796,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -1809,7 +1809,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
             result_mapper = Azure::CognitiveServices::LuisAuthoring::V3_0_preview::Models::OperationStatus.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -1889,7 +1889,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
     request_url = request_url.gsub('{Endpoint}', @client.endpoint)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'appId' => app_id,'versionId' => version_id,'intentId' => intent_id},
           query_params: {'deleteUtterances' => delete_utterances},
           headers: request_headers.merge(custom_headers || {}),
@@ -1903,7 +1903,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -1916,7 +1916,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
             result_mapper = Azure::CognitiveServices::LuisAuthoring::V3_0_preview::Models::OperationStatus.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -1987,7 +1987,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
     request_url = request_url.gsub('{Endpoint}', @client.endpoint)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'appId' => app_id,'versionId' => version_id,'entityId' => entity_id},
           headers: request_headers.merge(custom_headers || {}),
           base_url: request_url
@@ -2000,7 +2000,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -2013,7 +2013,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
             result_mapper = Azure::CognitiveServices::LuisAuthoring::V3_0_preview::Models::NDepthEntityExtractor.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -2084,7 +2084,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
     request_url = request_url.gsub('{Endpoint}', @client.endpoint)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'appId' => app_id,'versionId' => version_id,'entityId' => entity_id},
           headers: request_headers.merge(custom_headers || {}),
           base_url: request_url
@@ -2097,7 +2097,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -2110,7 +2110,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
             result_mapper = Azure::CognitiveServices::LuisAuthoring::V3_0_preview::Models::OperationStatus.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -2200,7 +2200,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
     request_url = request_url.gsub('{Endpoint}', @client.endpoint)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'appId' => app_id,'versionId' => version_id,'entityId' => entity_id},
           body: request_content,
           headers: request_headers.merge(custom_headers || {}),
@@ -2214,7 +2214,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -2227,7 +2227,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
             result_mapper = Azure::CognitiveServices::LuisAuthoring::V3_0_preview::Models::OperationStatus.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -2301,7 +2301,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
     request_url = request_url.gsub('{Endpoint}', @client.endpoint)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'appId' => app_id,'versionId' => version_id,'intentId' => intent_id},
           headers: request_headers.merge(custom_headers || {}),
           base_url: request_url
@@ -2314,7 +2314,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -2343,7 +2343,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
             }
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -2446,7 +2446,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
     request_url = request_url.gsub('{Endpoint}', @client.endpoint)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'appId' => app_id,'versionId' => version_id,'intentId' => intent_id},
           body: request_content,
           headers: request_headers.merge(custom_headers || {}),
@@ -2460,7 +2460,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -2473,7 +2473,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
             result_mapper = Azure::CognitiveServices::LuisAuthoring::V3_0_preview::Models::OperationStatus.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -2560,7 +2560,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
     request_url = request_url.gsub('{Endpoint}', @client.endpoint)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'appId' => app_id,'versionId' => version_id,'intentId' => intent_id},
           body: request_content,
           headers: request_headers.merge(custom_headers || {}),
@@ -2574,7 +2574,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -2587,7 +2587,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
             result_mapper = Azure::CognitiveServices::LuisAuthoring::V3_0_preview::Models::OperationStatus.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -2661,7 +2661,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
     request_url = request_url.gsub('{Endpoint}', @client.endpoint)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'appId' => app_id,'versionId' => version_id,'entityId' => entity_id},
           headers: request_headers.merge(custom_headers || {}),
           base_url: request_url
@@ -2674,7 +2674,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -2703,7 +2703,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
             }
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -2806,7 +2806,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
     request_url = request_url.gsub('{Endpoint}', @client.endpoint)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'appId' => app_id,'versionId' => version_id,'entityId' => entity_id},
           body: request_content,
           headers: request_headers.merge(custom_headers || {}),
@@ -2820,7 +2820,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -2833,7 +2833,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
             result_mapper = Azure::CognitiveServices::LuisAuthoring::V3_0_preview::Models::OperationStatus.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -2920,7 +2920,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
     request_url = request_url.gsub('{Endpoint}', @client.endpoint)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'appId' => app_id,'versionId' => version_id,'entityId' => entity_id},
           body: request_content,
           headers: request_headers.merge(custom_headers || {}),
@@ -2934,7 +2934,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -2947,7 +2947,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
             result_mapper = Azure::CognitiveServices::LuisAuthoring::V3_0_preview::Models::OperationStatus.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -3018,7 +3018,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
     request_url = request_url.gsub('{Endpoint}', @client.endpoint)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'appId' => app_id,'versionId' => version_id,'hEntityId' => h_entity_id},
           headers: request_headers.merge(custom_headers || {}),
           base_url: request_url
@@ -3031,7 +3031,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -3044,7 +3044,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
             result_mapper = Azure::CognitiveServices::LuisAuthoring::V3_0_preview::Models::HierarchicalEntityExtractor.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -3131,7 +3131,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
     request_url = request_url.gsub('{Endpoint}', @client.endpoint)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'appId' => app_id,'versionId' => version_id,'hEntityId' => h_entity_id},
           body: request_content,
           headers: request_headers.merge(custom_headers || {}),
@@ -3145,7 +3145,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -3158,7 +3158,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
             result_mapper = Azure::CognitiveServices::LuisAuthoring::V3_0_preview::Models::OperationStatus.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -3229,7 +3229,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
     request_url = request_url.gsub('{Endpoint}', @client.endpoint)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'appId' => app_id,'versionId' => version_id,'hEntityId' => h_entity_id},
           headers: request_headers.merge(custom_headers || {}),
           base_url: request_url
@@ -3242,7 +3242,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -3255,7 +3255,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
             result_mapper = Azure::CognitiveServices::LuisAuthoring::V3_0_preview::Models::OperationStatus.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -3326,7 +3326,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
     request_url = request_url.gsub('{Endpoint}', @client.endpoint)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'appId' => app_id,'versionId' => version_id,'cEntityId' => c_entity_id},
           headers: request_headers.merge(custom_headers || {}),
           base_url: request_url
@@ -3339,7 +3339,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -3352,7 +3352,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
             result_mapper = Azure::CognitiveServices::LuisAuthoring::V3_0_preview::Models::CompositeEntityExtractor.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -3436,7 +3436,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
     request_url = request_url.gsub('{Endpoint}', @client.endpoint)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'appId' => app_id,'versionId' => version_id,'cEntityId' => c_entity_id},
           body: request_content,
           headers: request_headers.merge(custom_headers || {}),
@@ -3450,7 +3450,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -3463,7 +3463,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
             result_mapper = Azure::CognitiveServices::LuisAuthoring::V3_0_preview::Models::OperationStatus.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -3534,7 +3534,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
     request_url = request_url.gsub('{Endpoint}', @client.endpoint)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'appId' => app_id,'versionId' => version_id,'cEntityId' => c_entity_id},
           headers: request_headers.merge(custom_headers || {}),
           base_url: request_url
@@ -3547,7 +3547,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -3560,7 +3560,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
             result_mapper = Azure::CognitiveServices::LuisAuthoring::V3_0_preview::Models::OperationStatus.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -3631,7 +3631,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
     request_url = request_url.gsub('{Endpoint}', @client.endpoint)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'appId' => app_id,'versionId' => version_id,'clEntityId' => cl_entity_id},
           headers: request_headers.merge(custom_headers || {}),
           base_url: request_url
@@ -3644,7 +3644,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -3657,7 +3657,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
             result_mapper = Azure::CognitiveServices::LuisAuthoring::V3_0_preview::Models::ClosedListEntityExtractor.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -3741,7 +3741,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
     request_url = request_url.gsub('{Endpoint}', @client.endpoint)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'appId' => app_id,'versionId' => version_id,'clEntityId' => cl_entity_id},
           body: request_content,
           headers: request_headers.merge(custom_headers || {}),
@@ -3755,7 +3755,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -3768,7 +3768,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
             result_mapper = Azure::CognitiveServices::LuisAuthoring::V3_0_preview::Models::OperationStatus.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -3855,7 +3855,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
     request_url = request_url.gsub('{Endpoint}', @client.endpoint)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'appId' => app_id,'versionId' => version_id,'clEntityId' => cl_entity_id},
           body: request_content,
           headers: request_headers.merge(custom_headers || {}),
@@ -3869,7 +3869,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -3882,7 +3882,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
             result_mapper = Azure::CognitiveServices::LuisAuthoring::V3_0_preview::Models::OperationStatus.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -3953,7 +3953,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
     request_url = request_url.gsub('{Endpoint}', @client.endpoint)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'appId' => app_id,'versionId' => version_id,'clEntityId' => cl_entity_id},
           headers: request_headers.merge(custom_headers || {}),
           base_url: request_url
@@ -3966,7 +3966,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -3979,7 +3979,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
             result_mapper = Azure::CognitiveServices::LuisAuthoring::V3_0_preview::Models::OperationStatus.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -4053,7 +4053,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
     request_url = request_url.gsub('{Endpoint}', @client.endpoint)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'appId' => app_id,'versionId' => version_id,'prebuiltId' => prebuilt_id},
           headers: request_headers.merge(custom_headers || {}),
           base_url: request_url
@@ -4066,7 +4066,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -4079,7 +4079,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
             result_mapper = Azure::CognitiveServices::LuisAuthoring::V3_0_preview::Models::PrebuiltEntityExtractor.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -4150,7 +4150,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
     request_url = request_url.gsub('{Endpoint}', @client.endpoint)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'appId' => app_id,'versionId' => version_id,'prebuiltId' => prebuilt_id},
           headers: request_headers.merge(custom_headers || {}),
           base_url: request_url
@@ -4163,7 +4163,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -4176,7 +4176,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
             result_mapper = Azure::CognitiveServices::LuisAuthoring::V3_0_preview::Models::OperationStatus.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -4254,7 +4254,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
     request_url = request_url.gsub('{Endpoint}', @client.endpoint)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'appId' => app_id,'versionId' => version_id,'clEntityId' => cl_entity_id,'subListId' => sub_list_id},
           headers: request_headers.merge(custom_headers || {}),
           base_url: request_url
@@ -4267,7 +4267,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -4280,7 +4280,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
             result_mapper = Azure::CognitiveServices::LuisAuthoring::V3_0_preview::Models::OperationStatus.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -4368,7 +4368,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
     request_url = request_url.gsub('{Endpoint}', @client.endpoint)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'appId' => app_id,'versionId' => version_id,'clEntityId' => cl_entity_id,'subListId' => sub_list_id},
           body: request_content,
           headers: request_headers.merge(custom_headers || {}),
@@ -4382,7 +4382,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -4395,7 +4395,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
             result_mapper = Azure::CognitiveServices::LuisAuthoring::V3_0_preview::Models::OperationStatus.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -4477,7 +4477,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
     request_url = request_url.gsub('{Endpoint}', @client.endpoint)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'appId' => app_id,'versionId' => version_id,'intentId' => intent_id},
           query_params: {'take' => take},
           headers: request_headers.merge(custom_headers || {}),
@@ -4491,7 +4491,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -4520,7 +4520,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
             }
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -4602,7 +4602,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
     request_url = request_url.gsub('{Endpoint}', @client.endpoint)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'appId' => app_id,'versionId' => version_id,'entityId' => entity_id},
           query_params: {'take' => take},
           headers: request_headers.merge(custom_headers || {}),
@@ -4616,7 +4616,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -4645,7 +4645,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
             }
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -4726,7 +4726,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
     request_url = request_url.gsub('{Endpoint}', @client.endpoint)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'appId' => app_id,'versionId' => version_id,'clEntityId' => cl_entity_id},
           body: request_content,
           headers: request_headers.merge(custom_headers || {}),
@@ -4740,7 +4740,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
         response_content = http_response.body
         unless status_code == 201
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -4760,7 +4760,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
             }
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -4843,7 +4843,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
     request_url = request_url.gsub('{Endpoint}', @client.endpoint)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'appId' => app_id,'versionId' => version_id},
           body: request_content,
           headers: request_headers.merge(custom_headers || {}),
@@ -4857,7 +4857,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
         response_content = http_response.body
         unless status_code == 201
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -4885,7 +4885,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
             }
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -4968,7 +4968,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
     request_url = request_url.gsub('{Endpoint}', @client.endpoint)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'appId' => app_id,'versionId' => version_id},
           body: request_content,
           headers: request_headers.merge(custom_headers || {}),
@@ -4982,7 +4982,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
         response_content = http_response.body
         unless status_code == 201
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -5002,7 +5002,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
             }
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -5072,7 +5072,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
     request_url = request_url.gsub('{Endpoint}', @client.endpoint)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'appId' => app_id,'versionId' => version_id},
           headers: request_headers.merge(custom_headers || {}),
           base_url: request_url
@@ -5085,7 +5085,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -5114,7 +5114,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
             }
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -5197,7 +5197,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
     request_url = request_url.gsub('{Endpoint}', @client.endpoint)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'appId' => app_id,'versionId' => version_id},
           body: request_content,
           headers: request_headers.merge(custom_headers || {}),
@@ -5211,7 +5211,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
         response_content = http_response.body
         unless status_code == 201
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -5231,7 +5231,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
             }
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -5298,7 +5298,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
     request_url = request_url.gsub('{Endpoint}', @client.endpoint)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'appId' => app_id,'versionId' => version_id},
           headers: request_headers.merge(custom_headers || {}),
           base_url: request_url
@@ -5311,7 +5311,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -5340,7 +5340,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
             }
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -5410,7 +5410,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
     request_url = request_url.gsub('{Endpoint}', @client.endpoint)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'appId' => app_id,'versionId' => version_id},
           headers: request_headers.merge(custom_headers || {}),
           base_url: request_url
@@ -5423,7 +5423,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -5452,7 +5452,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
             }
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -5523,7 +5523,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
     request_url = request_url.gsub('{Endpoint}', @client.endpoint)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'appId' => app_id,'versionId' => version_id,'domainName' => domain_name},
           headers: request_headers.merge(custom_headers || {}),
           base_url: request_url
@@ -5536,7 +5536,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -5549,7 +5549,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
             result_mapper = Azure::CognitiveServices::LuisAuthoring::V3_0_preview::Models::OperationStatus.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -5636,7 +5636,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
     request_url = request_url.gsub('{Endpoint}', @client.endpoint)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'appId' => app_id,'versionId' => version_id,'entityId' => entity_id},
           body: request_content,
           headers: request_headers.merge(custom_headers || {}),
@@ -5650,7 +5650,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
         response_content = http_response.body
         unless status_code == 201
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -5670,7 +5670,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
             }
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -5748,7 +5748,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
     request_url = request_url.gsub('{Endpoint}', @client.endpoint)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'appId' => app_id,'versionId' => version_id,'hEntityId' => h_entity_id,'hChildId' => h_child_id},
           headers: request_headers.merge(custom_headers || {}),
           base_url: request_url
@@ -5761,7 +5761,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -5774,7 +5774,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
             result_mapper = Azure::CognitiveServices::LuisAuthoring::V3_0_preview::Models::HierarchicalChildEntity.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -5868,7 +5868,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
     request_url = request_url.gsub('{Endpoint}', @client.endpoint)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'appId' => app_id,'versionId' => version_id,'hEntityId' => h_entity_id,'hChildId' => h_child_id},
           body: request_content,
           headers: request_headers.merge(custom_headers || {}),
@@ -5882,7 +5882,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -5895,7 +5895,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
             result_mapper = Azure::CognitiveServices::LuisAuthoring::V3_0_preview::Models::OperationStatus.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -5973,7 +5973,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
     request_url = request_url.gsub('{Endpoint}', @client.endpoint)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'appId' => app_id,'versionId' => version_id,'hEntityId' => h_entity_id,'hChildId' => h_child_id},
           headers: request_headers.merge(custom_headers || {}),
           base_url: request_url
@@ -5986,7 +5986,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -5999,7 +5999,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
             result_mapper = Azure::CognitiveServices::LuisAuthoring::V3_0_preview::Models::OperationStatus.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -6086,7 +6086,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
     request_url = request_url.gsub('{Endpoint}', @client.endpoint)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'appId' => app_id,'versionId' => version_id,'cEntityId' => c_entity_id},
           body: request_content,
           headers: request_headers.merge(custom_headers || {}),
@@ -6100,7 +6100,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
         response_content = http_response.body
         unless status_code == 201
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -6120,7 +6120,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
             }
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -6195,7 +6195,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
     request_url = request_url.gsub('{Endpoint}', @client.endpoint)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'appId' => app_id,'versionId' => version_id,'cEntityId' => c_entity_id,'cChildId' => c_child_id},
           headers: request_headers.merge(custom_headers || {}),
           base_url: request_url
@@ -6208,7 +6208,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -6221,7 +6221,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
             result_mapper = Azure::CognitiveServices::LuisAuthoring::V3_0_preview::Models::OperationStatus.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -6303,7 +6303,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
     request_url = request_url.gsub('{Endpoint}', @client.endpoint)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'appId' => app_id,'versionId' => version_id},
           query_params: {'skip' => skip,'take' => take},
           headers: request_headers.merge(custom_headers || {}),
@@ -6317,7 +6317,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -6346,7 +6346,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
             }
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -6429,7 +6429,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
     request_url = request_url.gsub('{Endpoint}', @client.endpoint)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'appId' => app_id,'versionId' => version_id},
           body: request_content,
           headers: request_headers.merge(custom_headers || {}),
@@ -6443,7 +6443,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
         response_content = http_response.body
         unless status_code == 201
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -6463,7 +6463,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
             }
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -6545,7 +6545,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
     request_url = request_url.gsub('{Endpoint}', @client.endpoint)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'appId' => app_id,'versionId' => version_id},
           query_params: {'skip' => skip,'take' => take},
           headers: request_headers.merge(custom_headers || {}),
@@ -6559,7 +6559,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -6588,7 +6588,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
             }
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -6671,7 +6671,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
     request_url = request_url.gsub('{Endpoint}', @client.endpoint)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'appId' => app_id,'versionId' => version_id},
           body: request_content,
           headers: request_headers.merge(custom_headers || {}),
@@ -6685,7 +6685,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
         response_content = http_response.body
         unless status_code == 201
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -6705,7 +6705,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
             }
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -6776,7 +6776,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
     request_url = request_url.gsub('{Endpoint}', @client.endpoint)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'appId' => app_id,'versionId' => version_id,'entityId' => entity_id},
           headers: request_headers.merge(custom_headers || {}),
           base_url: request_url
@@ -6789,7 +6789,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -6818,7 +6818,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
             }
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -6902,7 +6902,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
     request_url = request_url.gsub('{Endpoint}', @client.endpoint)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'appId' => app_id,'versionId' => version_id,'entityId' => entity_id},
           body: request_content,
           headers: request_headers.merge(custom_headers || {}),
@@ -6916,7 +6916,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
         response_content = http_response.body
         unless status_code == 201
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -6936,7 +6936,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
             }
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -7007,7 +7007,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
     request_url = request_url.gsub('{Endpoint}', @client.endpoint)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'appId' => app_id,'versionId' => version_id,'entityId' => entity_id},
           headers: request_headers.merge(custom_headers || {}),
           base_url: request_url
@@ -7020,7 +7020,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -7049,7 +7049,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
             }
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -7133,7 +7133,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
     request_url = request_url.gsub('{Endpoint}', @client.endpoint)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'appId' => app_id,'versionId' => version_id,'entityId' => entity_id},
           body: request_content,
           headers: request_headers.merge(custom_headers || {}),
@@ -7147,7 +7147,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
         response_content = http_response.body
         unless status_code == 201
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -7167,7 +7167,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
             }
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -7238,7 +7238,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
     request_url = request_url.gsub('{Endpoint}', @client.endpoint)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'appId' => app_id,'versionId' => version_id,'entityId' => entity_id},
           headers: request_headers.merge(custom_headers || {}),
           base_url: request_url
@@ -7251,7 +7251,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -7280,7 +7280,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
             }
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -7364,7 +7364,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
     request_url = request_url.gsub('{Endpoint}', @client.endpoint)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'appId' => app_id,'versionId' => version_id,'entityId' => entity_id},
           body: request_content,
           headers: request_headers.merge(custom_headers || {}),
@@ -7378,7 +7378,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
         response_content = http_response.body
         unless status_code == 201
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -7398,7 +7398,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
             }
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -7472,7 +7472,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
     request_url = request_url.gsub('{Endpoint}', @client.endpoint)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'appId' => app_id,'versionId' => version_id,'entityId' => entity_id},
           headers: request_headers.merge(custom_headers || {}),
           base_url: request_url
@@ -7485,7 +7485,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -7514,7 +7514,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
             }
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -7601,7 +7601,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
     request_url = request_url.gsub('{Endpoint}', @client.endpoint)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'appId' => app_id,'versionId' => version_id,'entityId' => entity_id},
           body: request_content,
           headers: request_headers.merge(custom_headers || {}),
@@ -7615,7 +7615,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
         response_content = http_response.body
         unless status_code == 201
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -7635,7 +7635,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
             }
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -7706,7 +7706,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
     request_url = request_url.gsub('{Endpoint}', @client.endpoint)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'appId' => app_id,'versionId' => version_id,'cEntityId' => c_entity_id},
           headers: request_headers.merge(custom_headers || {}),
           base_url: request_url
@@ -7719,7 +7719,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -7748,7 +7748,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
             }
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -7832,7 +7832,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
     request_url = request_url.gsub('{Endpoint}', @client.endpoint)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'appId' => app_id,'versionId' => version_id,'cEntityId' => c_entity_id},
           body: request_content,
           headers: request_headers.merge(custom_headers || {}),
@@ -7846,7 +7846,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
         response_content = http_response.body
         unless status_code == 201
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -7866,7 +7866,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
             }
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -7937,7 +7937,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
     request_url = request_url.gsub('{Endpoint}', @client.endpoint)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'appId' => app_id,'versionId' => version_id,'entityId' => entity_id},
           headers: request_headers.merge(custom_headers || {}),
           base_url: request_url
@@ -7950,7 +7950,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -7979,7 +7979,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
             }
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -8063,7 +8063,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
     request_url = request_url.gsub('{Endpoint}', @client.endpoint)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'appId' => app_id,'versionId' => version_id,'entityId' => entity_id},
           body: request_content,
           headers: request_headers.merge(custom_headers || {}),
@@ -8077,7 +8077,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
         response_content = http_response.body
         unless status_code == 201
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -8097,7 +8097,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
             }
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -8168,7 +8168,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
     request_url = request_url.gsub('{Endpoint}', @client.endpoint)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'appId' => app_id,'versionId' => version_id,'hEntityId' => h_entity_id},
           headers: request_headers.merge(custom_headers || {}),
           base_url: request_url
@@ -8181,7 +8181,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -8210,7 +8210,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
             }
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -8294,7 +8294,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
     request_url = request_url.gsub('{Endpoint}', @client.endpoint)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'appId' => app_id,'versionId' => version_id,'hEntityId' => h_entity_id},
           body: request_content,
           headers: request_headers.merge(custom_headers || {}),
@@ -8308,7 +8308,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
         response_content = http_response.body
         unless status_code == 201
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -8328,7 +8328,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
             }
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -8399,7 +8399,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
     request_url = request_url.gsub('{Endpoint}', @client.endpoint)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'appId' => app_id,'versionId' => version_id,'entityId' => entity_id},
           headers: request_headers.merge(custom_headers || {}),
           base_url: request_url
@@ -8412,7 +8412,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -8441,7 +8441,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
             }
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -8525,7 +8525,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
     request_url = request_url.gsub('{Endpoint}', @client.endpoint)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'appId' => app_id,'versionId' => version_id,'entityId' => entity_id},
           body: request_content,
           headers: request_headers.merge(custom_headers || {}),
@@ -8539,7 +8539,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
         response_content = http_response.body
         unless status_code == 201
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -8559,7 +8559,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
             }
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -8633,7 +8633,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
     request_url = request_url.gsub('{Endpoint}', @client.endpoint)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'appId' => app_id,'versionId' => version_id,'entityId' => entity_id},
           headers: request_headers.merge(custom_headers || {}),
           base_url: request_url
@@ -8646,7 +8646,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -8675,7 +8675,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
             }
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -8759,7 +8759,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
     request_url = request_url.gsub('{Endpoint}', @client.endpoint)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'appId' => app_id,'versionId' => version_id,'entityId' => entity_id},
           body: request_content,
           headers: request_headers.merge(custom_headers || {}),
@@ -8773,7 +8773,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
         response_content = http_response.body
         unless status_code == 201
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -8793,7 +8793,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
             }
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -8867,7 +8867,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
     request_url = request_url.gsub('{Endpoint}', @client.endpoint)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'appId' => app_id,'versionId' => version_id,'regexEntityId' => regex_entity_id},
           headers: request_headers.merge(custom_headers || {}),
           base_url: request_url
@@ -8880,7 +8880,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -8893,7 +8893,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
             result_mapper = Azure::CognitiveServices::LuisAuthoring::V3_0_preview::Models::RegexEntityExtractor.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -8977,7 +8977,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
     request_url = request_url.gsub('{Endpoint}', @client.endpoint)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'appId' => app_id,'versionId' => version_id,'regexEntityId' => regex_entity_id},
           body: request_content,
           headers: request_headers.merge(custom_headers || {}),
@@ -8991,7 +8991,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -9004,7 +9004,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
             result_mapper = Azure::CognitiveServices::LuisAuthoring::V3_0_preview::Models::OperationStatus.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -9075,7 +9075,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
     request_url = request_url.gsub('{Endpoint}', @client.endpoint)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'appId' => app_id,'versionId' => version_id,'regexEntityId' => regex_entity_id},
           headers: request_headers.merge(custom_headers || {}),
           base_url: request_url
@@ -9088,7 +9088,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -9101,7 +9101,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
             result_mapper = Azure::CognitiveServices::LuisAuthoring::V3_0_preview::Models::OperationStatus.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -9172,7 +9172,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
     request_url = request_url.gsub('{Endpoint}', @client.endpoint)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'appId' => app_id,'versionId' => version_id,'entityId' => entity_id},
           headers: request_headers.merge(custom_headers || {}),
           base_url: request_url
@@ -9185,7 +9185,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -9198,7 +9198,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
             result_mapper = Azure::CognitiveServices::LuisAuthoring::V3_0_preview::Models::PatternAnyEntityExtractor.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -9285,7 +9285,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
     request_url = request_url.gsub('{Endpoint}', @client.endpoint)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'appId' => app_id,'versionId' => version_id,'entityId' => entity_id},
           body: request_content,
           headers: request_headers.merge(custom_headers || {}),
@@ -9299,7 +9299,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -9312,7 +9312,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
             result_mapper = Azure::CognitiveServices::LuisAuthoring::V3_0_preview::Models::OperationStatus.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -9383,7 +9383,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
     request_url = request_url.gsub('{Endpoint}', @client.endpoint)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'appId' => app_id,'versionId' => version_id,'entityId' => entity_id},
           headers: request_headers.merge(custom_headers || {}),
           base_url: request_url
@@ -9396,7 +9396,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -9409,7 +9409,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
             result_mapper = Azure::CognitiveServices::LuisAuthoring::V3_0_preview::Models::OperationStatus.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -9484,7 +9484,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
     request_url = request_url.gsub('{Endpoint}', @client.endpoint)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'appId' => app_id,'versionId' => version_id,'entityId' => entity_id,'roleId' => role_id},
           headers: request_headers.merge(custom_headers || {}),
           base_url: request_url
@@ -9497,7 +9497,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -9510,7 +9510,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
             result_mapper = Azure::CognitiveServices::LuisAuthoring::V3_0_preview::Models::EntityRole.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -9598,7 +9598,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
     request_url = request_url.gsub('{Endpoint}', @client.endpoint)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'appId' => app_id,'versionId' => version_id,'entityId' => entity_id,'roleId' => role_id},
           body: request_content,
           headers: request_headers.merge(custom_headers || {}),
@@ -9612,7 +9612,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -9625,7 +9625,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
             result_mapper = Azure::CognitiveServices::LuisAuthoring::V3_0_preview::Models::OperationStatus.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -9700,7 +9700,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
     request_url = request_url.gsub('{Endpoint}', @client.endpoint)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'appId' => app_id,'versionId' => version_id,'entityId' => entity_id,'roleId' => role_id},
           headers: request_headers.merge(custom_headers || {}),
           base_url: request_url
@@ -9713,7 +9713,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -9726,7 +9726,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
             result_mapper = Azure::CognitiveServices::LuisAuthoring::V3_0_preview::Models::OperationStatus.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -9801,7 +9801,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
     request_url = request_url.gsub('{Endpoint}', @client.endpoint)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'appId' => app_id,'versionId' => version_id,'entityId' => entity_id,'roleId' => role_id},
           headers: request_headers.merge(custom_headers || {}),
           base_url: request_url
@@ -9814,7 +9814,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -9827,7 +9827,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
             result_mapper = Azure::CognitiveServices::LuisAuthoring::V3_0_preview::Models::EntityRole.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -9915,7 +9915,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
     request_url = request_url.gsub('{Endpoint}', @client.endpoint)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'appId' => app_id,'versionId' => version_id,'entityId' => entity_id,'roleId' => role_id},
           body: request_content,
           headers: request_headers.merge(custom_headers || {}),
@@ -9929,7 +9929,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -9942,7 +9942,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
             result_mapper = Azure::CognitiveServices::LuisAuthoring::V3_0_preview::Models::OperationStatus.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -10017,7 +10017,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
     request_url = request_url.gsub('{Endpoint}', @client.endpoint)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'appId' => app_id,'versionId' => version_id,'entityId' => entity_id,'roleId' => role_id},
           headers: request_headers.merge(custom_headers || {}),
           base_url: request_url
@@ -10030,7 +10030,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -10043,7 +10043,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
             result_mapper = Azure::CognitiveServices::LuisAuthoring::V3_0_preview::Models::OperationStatus.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -10118,7 +10118,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
     request_url = request_url.gsub('{Endpoint}', @client.endpoint)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'appId' => app_id,'versionId' => version_id,'entityId' => entity_id,'roleId' => role_id},
           headers: request_headers.merge(custom_headers || {}),
           base_url: request_url
@@ -10131,7 +10131,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -10144,7 +10144,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
             result_mapper = Azure::CognitiveServices::LuisAuthoring::V3_0_preview::Models::EntityRole.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -10232,7 +10232,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
     request_url = request_url.gsub('{Endpoint}', @client.endpoint)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'appId' => app_id,'versionId' => version_id,'entityId' => entity_id,'roleId' => role_id},
           body: request_content,
           headers: request_headers.merge(custom_headers || {}),
@@ -10246,7 +10246,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -10259,7 +10259,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
             result_mapper = Azure::CognitiveServices::LuisAuthoring::V3_0_preview::Models::OperationStatus.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -10334,7 +10334,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
     request_url = request_url.gsub('{Endpoint}', @client.endpoint)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'appId' => app_id,'versionId' => version_id,'entityId' => entity_id,'roleId' => role_id},
           headers: request_headers.merge(custom_headers || {}),
           base_url: request_url
@@ -10347,7 +10347,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -10360,7 +10360,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
             result_mapper = Azure::CognitiveServices::LuisAuthoring::V3_0_preview::Models::OperationStatus.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -10438,7 +10438,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
     request_url = request_url.gsub('{Endpoint}', @client.endpoint)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'appId' => app_id,'versionId' => version_id,'entityId' => entity_id,'roleId' => role_id},
           headers: request_headers.merge(custom_headers || {}),
           base_url: request_url
@@ -10451,7 +10451,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -10464,7 +10464,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
             result_mapper = Azure::CognitiveServices::LuisAuthoring::V3_0_preview::Models::EntityRole.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -10555,7 +10555,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
     request_url = request_url.gsub('{Endpoint}', @client.endpoint)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'appId' => app_id,'versionId' => version_id,'entityId' => entity_id,'roleId' => role_id},
           body: request_content,
           headers: request_headers.merge(custom_headers || {}),
@@ -10569,7 +10569,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -10582,7 +10582,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
             result_mapper = Azure::CognitiveServices::LuisAuthoring::V3_0_preview::Models::OperationStatus.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -10657,7 +10657,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
     request_url = request_url.gsub('{Endpoint}', @client.endpoint)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'appId' => app_id,'versionId' => version_id,'entityId' => entity_id,'roleId' => role_id},
           headers: request_headers.merge(custom_headers || {}),
           base_url: request_url
@@ -10670,7 +10670,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -10683,7 +10683,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
             result_mapper = Azure::CognitiveServices::LuisAuthoring::V3_0_preview::Models::OperationStatus.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -10758,7 +10758,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
     request_url = request_url.gsub('{Endpoint}', @client.endpoint)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'appId' => app_id,'versionId' => version_id,'cEntityId' => c_entity_id,'roleId' => role_id},
           headers: request_headers.merge(custom_headers || {}),
           base_url: request_url
@@ -10771,7 +10771,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -10784,7 +10784,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
             result_mapper = Azure::CognitiveServices::LuisAuthoring::V3_0_preview::Models::EntityRole.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -10872,7 +10872,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
     request_url = request_url.gsub('{Endpoint}', @client.endpoint)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'appId' => app_id,'versionId' => version_id,'cEntityId' => c_entity_id,'roleId' => role_id},
           body: request_content,
           headers: request_headers.merge(custom_headers || {}),
@@ -10886,7 +10886,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -10899,7 +10899,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
             result_mapper = Azure::CognitiveServices::LuisAuthoring::V3_0_preview::Models::OperationStatus.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -10974,7 +10974,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
     request_url = request_url.gsub('{Endpoint}', @client.endpoint)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'appId' => app_id,'versionId' => version_id,'cEntityId' => c_entity_id,'roleId' => role_id},
           headers: request_headers.merge(custom_headers || {}),
           base_url: request_url
@@ -10987,7 +10987,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -11000,7 +11000,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
             result_mapper = Azure::CognitiveServices::LuisAuthoring::V3_0_preview::Models::OperationStatus.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -11075,7 +11075,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
     request_url = request_url.gsub('{Endpoint}', @client.endpoint)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'appId' => app_id,'versionId' => version_id,'entityId' => entity_id,'roleId' => role_id},
           headers: request_headers.merge(custom_headers || {}),
           base_url: request_url
@@ -11088,7 +11088,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -11101,7 +11101,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
             result_mapper = Azure::CognitiveServices::LuisAuthoring::V3_0_preview::Models::EntityRole.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -11189,7 +11189,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
     request_url = request_url.gsub('{Endpoint}', @client.endpoint)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'appId' => app_id,'versionId' => version_id,'entityId' => entity_id,'roleId' => role_id},
           body: request_content,
           headers: request_headers.merge(custom_headers || {}),
@@ -11203,7 +11203,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -11216,7 +11216,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
             result_mapper = Azure::CognitiveServices::LuisAuthoring::V3_0_preview::Models::OperationStatus.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -11291,7 +11291,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
     request_url = request_url.gsub('{Endpoint}', @client.endpoint)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'appId' => app_id,'versionId' => version_id,'entityId' => entity_id,'roleId' => role_id},
           headers: request_headers.merge(custom_headers || {}),
           base_url: request_url
@@ -11304,7 +11304,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -11317,7 +11317,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
             result_mapper = Azure::CognitiveServices::LuisAuthoring::V3_0_preview::Models::OperationStatus.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -11392,7 +11392,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
     request_url = request_url.gsub('{Endpoint}', @client.endpoint)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'appId' => app_id,'versionId' => version_id,'hEntityId' => h_entity_id,'roleId' => role_id},
           headers: request_headers.merge(custom_headers || {}),
           base_url: request_url
@@ -11405,7 +11405,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -11418,7 +11418,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
             result_mapper = Azure::CognitiveServices::LuisAuthoring::V3_0_preview::Models::EntityRole.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -11509,7 +11509,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
     request_url = request_url.gsub('{Endpoint}', @client.endpoint)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'appId' => app_id,'versionId' => version_id,'hEntityId' => h_entity_id,'roleId' => role_id},
           body: request_content,
           headers: request_headers.merge(custom_headers || {}),
@@ -11523,7 +11523,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -11536,7 +11536,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
             result_mapper = Azure::CognitiveServices::LuisAuthoring::V3_0_preview::Models::OperationStatus.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -11611,7 +11611,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
     request_url = request_url.gsub('{Endpoint}', @client.endpoint)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'appId' => app_id,'versionId' => version_id,'hEntityId' => h_entity_id,'roleId' => role_id},
           headers: request_headers.merge(custom_headers || {}),
           base_url: request_url
@@ -11624,7 +11624,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -11637,7 +11637,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
             result_mapper = Azure::CognitiveServices::LuisAuthoring::V3_0_preview::Models::OperationStatus.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -11712,7 +11712,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
     request_url = request_url.gsub('{Endpoint}', @client.endpoint)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'appId' => app_id,'versionId' => version_id,'entityId' => entity_id,'roleId' => role_id},
           headers: request_headers.merge(custom_headers || {}),
           base_url: request_url
@@ -11725,7 +11725,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -11738,7 +11738,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
             result_mapper = Azure::CognitiveServices::LuisAuthoring::V3_0_preview::Models::EntityRole.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -11826,7 +11826,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
     request_url = request_url.gsub('{Endpoint}', @client.endpoint)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'appId' => app_id,'versionId' => version_id,'entityId' => entity_id,'roleId' => role_id},
           body: request_content,
           headers: request_headers.merge(custom_headers || {}),
@@ -11840,7 +11840,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -11853,7 +11853,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
             result_mapper = Azure::CognitiveServices::LuisAuthoring::V3_0_preview::Models::OperationStatus.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -11928,7 +11928,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
     request_url = request_url.gsub('{Endpoint}', @client.endpoint)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'appId' => app_id,'versionId' => version_id,'entityId' => entity_id,'roleId' => role_id},
           headers: request_headers.merge(custom_headers || {}),
           base_url: request_url
@@ -11941,7 +11941,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -11954,7 +11954,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
             result_mapper = Azure::CognitiveServices::LuisAuthoring::V3_0_preview::Models::OperationStatus.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -12032,7 +12032,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
     request_url = request_url.gsub('{Endpoint}', @client.endpoint)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'appId' => app_id,'versionId' => version_id,'entityId' => entity_id,'itemId' => item_id},
           headers: request_headers.merge(custom_headers || {}),
           base_url: request_url
@@ -12045,7 +12045,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -12058,7 +12058,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
             result_mapper = Azure::CognitiveServices::LuisAuthoring::V3_0_preview::Models::ExplicitListItem.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -12146,7 +12146,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
     request_url = request_url.gsub('{Endpoint}', @client.endpoint)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'appId' => app_id,'versionId' => version_id,'entityId' => entity_id,'itemId' => item_id},
           body: request_content,
           headers: request_headers.merge(custom_headers || {}),
@@ -12160,7 +12160,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -12173,7 +12173,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
             result_mapper = Azure::CognitiveServices::LuisAuthoring::V3_0_preview::Models::OperationStatus.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -12251,7 +12251,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
     request_url = request_url.gsub('{Endpoint}', @client.endpoint)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'appId' => app_id,'versionId' => version_id,'entityId' => entity_id,'itemId' => item_id},
           headers: request_headers.merge(custom_headers || {}),
           base_url: request_url
@@ -12264,7 +12264,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -12277,7 +12277,7 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
             result_mapper = Azure::CognitiveServices::LuisAuthoring::V3_0_preview::Models::OperationStatus.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 

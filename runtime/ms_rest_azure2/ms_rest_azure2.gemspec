@@ -4,11 +4,11 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'ms_rest_azure/version'
+require 'ms_rest_azure2/version'
 
 Gem::Specification.new do |spec|
   spec.name          = 'ms_rest_azure2'
-  spec.version       = MsRestAzure::VERSION
+  spec.version       = MsRestAzure2::VERSION
   spec.authors       = 'Microsoft Corporation'
   spec.email         = 'azsdkteam@microsoft.com'
 
@@ -21,7 +21,7 @@ Gem::Specification.new do |spec|
     'changelog_uri' => 'https://github.com/chef/azure-sdk-for-ruby/blob/master/runtime/ms_rest_azure/CHANGELOG.md',
     'documentation_uri' => 'https://azure.microsoft.com/en-us/develop/ruby/',
     'homepage_uri' => 'https://github.com/chef/azure-sdk-for-ruby',
-    'source_code_uri' => "https://github.com/chef/azure-sdk-for-ruby/tree/ms_rest_azure-v#{MsRestAzure::VERSION}"
+    'source_code_uri' => "https://github.com/chef/azure-sdk-for-ruby/tree/ms_rest_azure-v#{MsRestAzure2::VERSION}"
   }
 
   spec.files         = Dir["CHANGELOG.md", "README.md", "LICENSE.txt", "lib/**/*"]
@@ -38,5 +38,5 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency 'concurrent-ruby', '~> 1.0'
   spec.add_runtime_dependency 'faraday', '>= 0.9', '< 2.0.0'
   spec.add_runtime_dependency 'faraday-cookie_jar', '~> 0.0.6'
-  spec.add_runtime_dependency 'ms_rest2', '~> 0.7.6'
+  spec.add_runtime_dependency 'ms_rest2', '~> 1.0'
 end

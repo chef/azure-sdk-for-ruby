@@ -14,7 +14,7 @@ module Azure::CDN::Mgmt::V2020_04_15
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<CdnWebApplicationFirewallPolicy>] List of Azure CDN
       # WebApplicationFirewallPolicies within a resource group.
       attr_accessor :value

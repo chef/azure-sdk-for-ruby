@@ -12,7 +12,7 @@ module Azure::Compute::Mgmt::V2019_12_01
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<Gallery>] A list of galleries.
       attr_accessor :value
 

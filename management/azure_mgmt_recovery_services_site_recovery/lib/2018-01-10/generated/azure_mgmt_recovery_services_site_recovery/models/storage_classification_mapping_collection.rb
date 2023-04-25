@@ -12,7 +12,7 @@ module Azure::RecoveryServicesSiteRecovery::Mgmt::V2018_01_10
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<StorageClassificationMapping>] The storage details.
       attr_accessor :value
 

@@ -2,7 +2,7 @@
 # Copyright (c) Microsoft Corporation. All rights reserved.
 # Licensed under the MIT License. See License.txt in the project root for license information.
 
-module MsRestAzure
+module MsRestAzure2
   #
   # Class which represents a state of Azure long running operation.
   #
@@ -96,7 +96,7 @@ module MsRestAzure
     #
     # returns the Azure's response.
     #
-    # @return [MsRestAzure::AzureOperationResponse] Azure's response.
+    # @return [MsRestAzure2::AzureOperationResponse] Azure's response.
     def get_operation_response
       azure_response = AzureOperationResponse.new(@request, @response, @resource)
       azure_response
@@ -113,7 +113,7 @@ module MsRestAzure
     def get_request(options = {})
       link = @azure_async_operation_header_link || @location_header_link
       options[:connection] = create_connection(options[:base_uri])
-      MsRest::HttpOperationRequest.new(nil, link, :get, options)
+      MsRest2::HttpOperationRequest.new(nil, link, :get, options)
     end
 
     private
@@ -124,8 +124,8 @@ module MsRestAzure
     attr_accessor :connection
 
     def create_connection(base_url)
-      @connection ||= Faraday.new(:url => base_url, :ssl => MsRest.ssl_options) do |faraday|
-        [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]].each{ |args| faraday.use(*args) }
+      @connection ||= Faraday.new(:url => base_url, :ssl => MsRest2.ssl_options) do |faraday|
+        [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]].each{ |args| faraday.use(*args) }
         faraday.adapter Faraday.default_adapter
         faraday.headers = request.headers
         logging = ENV['AZURE_HTTP_LOGGING'] || request.log

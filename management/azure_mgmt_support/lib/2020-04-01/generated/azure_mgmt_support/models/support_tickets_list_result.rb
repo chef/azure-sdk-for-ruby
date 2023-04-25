@@ -12,7 +12,7 @@ module Azure::Support::Mgmt::V2020_04_01
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<SupportTicketDetails>] List of SupportTicket resources.
       attr_accessor :value
 

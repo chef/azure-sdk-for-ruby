@@ -2,7 +2,7 @@
 # Copyright (c) Microsoft Corporation. All rights reserved.
 # Licensed under the MIT License. See License.txt in the project root for license information.
 
-module MsRestAzure::Common
+module MsRestAzure2::Common
   # The Azure::Common::Configurable module provides basic configuration for Azure activities.
   module Configurable
     # @return [String] Azure tenant id (also known as domain).
@@ -17,10 +17,10 @@ module MsRestAzure::Common
     # @return [String] Azure subscription id.
     attr_accessor :subscription_id
 
-    # @return [MsRestAzure::ActiveDirectoryServiceSettings] Azure active directory service settings.
+    # @return [MsRestAzure2::ActiveDirectoryServiceSettings] Azure active directory service settings.
     attr_accessor :active_directory_settings
 
-    # @return [MsRest::ServiceClientCredentials] credentials to authorize HTTP requests made by the service client.
+    # @return [MsRest2::ServiceClientCredentials] credentials to authorize HTTP requests made by the service client.
     attr_accessor :credentials
 
     class << self
@@ -42,11 +42,11 @@ module MsRestAzure::Common
 
     #
     # Resets the configurable options to provided options or defaults.
-    # This will also creates MsRest::TokenCredentials to be used for subsequent Azure Resource Manager clients.
+    # This will also creates MsRest2::TokenCredentials to be used for subsequent Azure Resource Manager clients.
     #
     def reset!(options = {})
-      MsRestAzure::Common::Configurable.keys.each do |key|
-        default_value = MsRestAzure::Common::Default.options[key]
+      MsRestAzure2::Common::Configurable.keys.each do |key|
+        default_value = MsRestAzure2::Common::Default.options[key]
         instance_variable_set(:"@#{key}", options.fetch(key, default_value))
       end
 
@@ -58,8 +58,8 @@ module MsRestAzure::Common
         fail ArgumentError, 'client_secret is nil' if self.client_secret.nil?
         fail ArgumentError, 'active_directory_settings is nil' if self.active_directory_settings.nil?
 
-        self.credentials = MsRest::TokenCredentials.new(
-            MsRestAzure::ApplicationTokenProvider.new(
+        self.credentials = MsRest2::TokenCredentials.new(
+            MsRestAzure2::ApplicationTokenProvider.new(
                 self.tenant_id, self.client_id, self.client_secret, self.active_directory_settings))
       else
         self.credentials = options[:credentials]
@@ -79,8 +79,8 @@ module MsRestAzure::Common
     #
     def setup_default_options
       opts = {}
-      MsRestAzure::Common::Configurable.keys.map do |key|
-        opts[key] = MsRestAzure::Common::Default.options[key]
+      MsRestAzure2::Common::Configurable.keys.map do |key|
+        opts[key] = MsRestAzure2::Common::Default.options[key]
       end
 
       opts

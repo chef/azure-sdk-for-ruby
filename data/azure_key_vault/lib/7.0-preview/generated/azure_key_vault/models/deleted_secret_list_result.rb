@@ -12,7 +12,7 @@ module Azure::KeyVault::V7_0_preview
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<DeletedSecretItem>] A response message containing a list
       # of the deleted secrets in the vault along with a link to the next page
       # of deleted secrets

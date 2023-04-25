@@ -12,7 +12,7 @@ module Azure::MediaServices::Mgmt::V2018_06_01_preview
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<MediaService>] A collection of MediaService items.
       attr_accessor :value
 

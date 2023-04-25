@@ -12,7 +12,7 @@ module Azure::DataLakeStore::Mgmt::V2016_11_01
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<DataLakeStoreAccountBasic>] The results of the list
       # operation.
       attr_accessor :value

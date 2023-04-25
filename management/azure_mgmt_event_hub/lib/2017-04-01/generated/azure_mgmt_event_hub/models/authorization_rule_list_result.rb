@@ -12,7 +12,7 @@ module Azure::EventHub::Mgmt::V2017_04_01
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<AuthorizationRule>] Result of the List Authorization
       # Rules operation.
       attr_accessor :value

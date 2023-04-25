@@ -13,7 +13,7 @@ module Azure::Subscriptions::Mgmt::V2017_11_01_preview
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<Operation>] List of operations.
       attr_accessor :value
 

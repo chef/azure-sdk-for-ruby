@@ -3,14 +3,14 @@
 # Changes may cause incorrect behavior and will be lost if the code is
 # regenerated.
 
-module Azure::Network::Mgmt::V2015_05_01_preview
+module Azure::Network2::Mgmt::V2015_05_01_preview
   module Models
     #
     # Rules of the load balancer
     #
     class LoadBalancingRule < SubResource
 
-      include MsRestAzure
+      include MsRestAzure2
 
       # @return [SubResource] Gets or sets a reference to frontend IP Addresses
       attr_accessor :frontend_ipconfiguration

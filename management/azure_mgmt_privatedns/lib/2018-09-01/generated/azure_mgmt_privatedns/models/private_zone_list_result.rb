@@ -12,7 +12,7 @@ module Azure::PrivateDns::Mgmt::V2018_09_01
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<PrivateZone>] Information about the Private DNS zones.
       attr_accessor :value
 

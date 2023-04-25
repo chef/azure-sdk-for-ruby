@@ -12,7 +12,7 @@ module Azure::ADHybridHealthService::Mgmt::V2014_01_01
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<Alert>] The value returned by the operation.
       attr_accessor :value
 

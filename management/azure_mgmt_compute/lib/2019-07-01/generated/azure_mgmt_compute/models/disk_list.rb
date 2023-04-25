@@ -12,7 +12,7 @@ module Azure::Compute::Mgmt::V2019_07_01
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<Disk>] A list of disks.
       attr_accessor :value
 

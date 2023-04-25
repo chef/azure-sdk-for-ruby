@@ -12,7 +12,7 @@ module Azure::ServiceBus::Mgmt::V2017_04_01
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<SBTopic>] Result of the List Topics operation.
       attr_accessor :value
 

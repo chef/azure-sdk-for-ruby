@@ -3,16 +3,16 @@
 # Changes may cause incorrect behavior and will be lost if the code is
 # regenerated.
 
-module Azure::Network::Mgmt::V2015_05_01_preview
+module Azure::Network2::Mgmt::V2015_05_01_preview
   module Models
     #
     # Response for ListNetworkSecurityGroups Api service call
     #
     class NetworkSecurityGroupListResult
 
-      include MsRestAzure
+      include MsRestAzure2
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<NetworkSecurityGroup>] Gets List of
       # NetworkSecurityGroups in a resource group
       attr_accessor :value

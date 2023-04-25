@@ -3,16 +3,16 @@
 # Changes may cause incorrect behavior and will be lost if the code is
 # regenerated.
 
-module Azure::Network::Mgmt::V2015_05_01_preview
+module Azure::Network2::Mgmt::V2015_05_01_preview
   module Models
     #
     # Response for ListLocalNetworkGateways Api service call
     #
     class LocalNetworkGatewayListResult
 
-      include MsRestAzure
+      include MsRestAzure2
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<LocalNetworkGateway>] Gets List of LocalNetworkGateways
       # that exists in a resource group
       attr_accessor :value

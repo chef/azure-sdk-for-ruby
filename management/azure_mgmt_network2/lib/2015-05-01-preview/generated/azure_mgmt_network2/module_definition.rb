@@ -4,6 +4,6 @@
 # regenerated.
 
 module Azure end
-module Azure::Network end
-module Azure::Network::Mgmt end
-module Azure::Network::Mgmt::V2015_05_01_preview end
+module Azure::Network2 end
+module Azure::Network2::Mgmt end
+module Azure::Network2::Mgmt::V2015_05_01_preview end

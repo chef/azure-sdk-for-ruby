@@ -12,7 +12,7 @@ module Azure::Dns::Mgmt::V2016_04_01
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<RecordSet>] Information about the record sets in the
       # response.
       attr_accessor :value

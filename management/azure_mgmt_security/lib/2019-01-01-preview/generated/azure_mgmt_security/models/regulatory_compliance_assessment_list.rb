@@ -12,7 +12,7 @@ module Azure::Security::Mgmt::V2019_01_01_preview
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<RegulatoryComplianceAssessment>]
       attr_accessor :value
 

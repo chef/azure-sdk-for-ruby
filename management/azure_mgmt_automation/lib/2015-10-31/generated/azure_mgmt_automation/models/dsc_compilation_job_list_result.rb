@@ -12,7 +12,7 @@ module Azure::Automation::Mgmt::V2015_10_31
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<DscCompilationJob>] Gets or sets a list of Dsc
       # Compilation jobs.
       attr_accessor :value

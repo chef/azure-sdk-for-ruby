@@ -13,7 +13,7 @@ module Azure::IotHub::Mgmt::V2017_01_19
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<String>] The array of Event Hub-compatible consumer
       # group names.
       attr_accessor :value

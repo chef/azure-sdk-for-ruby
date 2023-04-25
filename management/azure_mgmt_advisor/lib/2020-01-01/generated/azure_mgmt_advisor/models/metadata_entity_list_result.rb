@@ -12,7 +12,7 @@ module Azure::Advisor::Mgmt::V2020_01_01
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<MetadataEntity>] The list of metadata entities.
       attr_accessor :value
 

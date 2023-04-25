@@ -3,5 +3,5 @@
 # Licensed under the MIT License. See License.txt in the project root for license information.
 
 module Azure end
-module Azure::Network end
-module Azure::Network::Mgmt end
+module Azure::Network2 end
+module Azure::Network2::Mgmt end

@@ -2,7 +2,7 @@
 # Copyright (c) Microsoft Corporation. All rights reserved.
 # Licensed under the MIT License. See License.txt in the project root for license information.
 
-module MsRestAzure
+module MsRestAzure2
   #
   # Class which represents keeps aux data about Azure invalid response.
   #
@@ -38,7 +38,7 @@ module MsRestAzure
       unless object['additionalInfo'].nil?
         output_object.additionalInfo = []
         object['additionalInfo'].each do |info|
-          output_object.additionalInfo << MsRestAzure::TypedErrorInfo.deserialize_object(info)
+          output_object.additionalInfo << MsRestAzure2::TypedErrorInfo.deserialize_object(info)
         end
       end
 

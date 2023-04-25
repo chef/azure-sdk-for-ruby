@@ -12,7 +12,7 @@ module Azure::GraphRbac::V1_6
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<User>] the list of users.
       attr_accessor :value
 

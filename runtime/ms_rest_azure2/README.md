@@ -47,7 +47,7 @@ MSI support has been enabled in `ms_rest_azure` version `0.9.0`. Below code snip
 
 ```ruby
 provider = MsRestAzure::MSITokenProvider.new()
-credentials = MsRest::TokenCredentials.new(provider)
+credentials = MsRest2::TokenCredentials.new(provider)
 ```
 
 **Note**:  As of 04/04/2018, there are 2 supported ways to get MSI Token. 

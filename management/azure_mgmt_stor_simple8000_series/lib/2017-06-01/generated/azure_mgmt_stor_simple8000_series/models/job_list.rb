@@ -12,7 +12,7 @@ module Azure::StorSimple8000Series::Mgmt::V2017_06_01
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<Job>] The value.
       attr_accessor :value
 

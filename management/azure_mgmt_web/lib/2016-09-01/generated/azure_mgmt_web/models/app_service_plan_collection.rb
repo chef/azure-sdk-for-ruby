@@ -12,7 +12,7 @@ module Azure::Web::Mgmt::V2016_09_01
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<AppServicePlan>] Collection of resources.
       attr_accessor :value
 

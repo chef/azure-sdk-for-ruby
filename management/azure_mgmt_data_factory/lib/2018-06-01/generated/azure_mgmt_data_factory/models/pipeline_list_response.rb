@@ -12,7 +12,7 @@ module Azure::DataFactory::Mgmt::V2018_06_01
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<PipelineResource>] List of pipelines.
       attr_accessor :value
 

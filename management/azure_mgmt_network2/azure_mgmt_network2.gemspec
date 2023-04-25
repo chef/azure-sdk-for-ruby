@@ -5,12 +5,12 @@
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
-require '../azure_mgmt_network/lib/module_definition'
-require '../azure_mgmt_network/lib/version'
+require '../azure_mgmt_network2/lib/module_definition'
+require '../azure_mgmt_network2/lib/version'
 
 Gem::Specification.new do |spec|
   spec.name          = 'azure_mgmt_network2'
-  spec.version       = Azure::Network::Mgmt::VERSION
+  spec.version       = Azure::Network2::Mgmt::VERSION
   spec.authors       = 'Microsoft Corporation'
   spec.email         = 'azrubyteam@microsoft.com'
   spec.description   = 'Microsoft Azure Network Management Client Library for Ruby'
@@ -22,7 +22,7 @@ Gem::Specification.new do |spec|
     'changelog_uri' => 'https://github.com/chef/azure-sdk-for-ruby/blob/master/ChangeLog.md',
     'documentation_uri' => 'https://azure.microsoft.com/en-us/develop/ruby/',
     'homepage_uri' => 'https://github.com/chef/azure-sdk-for-ruby',
-    'source_code_uri' => 'https://github.com/chef/azure-sdk-for-ruby/tree/master/management/azure_mgmt_network'
+    'source_code_uri' => 'https://github.com/chef/azure-sdk-for-ruby/tree/master/management/azure_mgmt_network2'
   }
 
   spec.files         = Dir["LICENSE.txt", "lib/**/*"]

@@ -12,7 +12,7 @@ module Azure::ContainerRegistry::Mgmt::V2017_10_01
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<OperationDefinition>] The list of container registry
       # operations. Since this list may be incomplete, the nextLink field
       # should be used to request the next list of operations.

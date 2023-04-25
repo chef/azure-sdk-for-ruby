@@ -13,7 +13,7 @@ module Azure::MixedReality::Mgmt::V2019_02_28_preview
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<Operation>] List of operations supported by the Resource
       # Provider.
       attr_accessor :value

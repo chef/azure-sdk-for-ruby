@@ -14,7 +14,7 @@ module Azure::KubernetesConfiguration::Mgmt::V2021_03_01
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<SourceControlConfiguration>] List of Source Control
       # Configurations within a Kubernetes cluster.
       attr_accessor :value

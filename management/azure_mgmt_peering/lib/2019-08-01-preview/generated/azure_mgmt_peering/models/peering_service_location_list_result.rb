@@ -12,7 +12,7 @@ module Azure::Peering::Mgmt::V2019_08_01_preview
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<PeeringServiceLocation>] The list of peering service
       # locations.
       attr_accessor :value

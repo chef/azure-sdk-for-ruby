@@ -12,7 +12,7 @@ module Azure::Support::Mgmt::V2020_04_01
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<CommunicationDetails>] List of Communication resources.
       attr_accessor :value
 

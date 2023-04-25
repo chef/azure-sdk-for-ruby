@@ -31,7 +31,7 @@ module Azure::ServiceFabric::V6_2_0_9
 
     #
     # Creates initializes a new instance of the ServiceFabricClientAPIs class.
-    # @param credentials [MsRest::ServiceClientCredentials] credentials to authorize HTTP requests made by the service client.
+    # @param credentials [MsRest2::ServiceClientCredentials] credentials to authorize HTTP requests made by the service client.
     # @param base_url [String] the base URI of the service.
     # @param options [Array] filters to be applied to the HTTP requests.
     #
@@ -39,7 +39,7 @@ module Azure::ServiceFabric::V6_2_0_9
       super(credentials, options)
       @base_url = base_url || 'http://localhost:19080'
 
-      fail ArgumentError, 'invalid type of credentials input parameter' unless credentials.is_a?(MsRest::ServiceClientCredentials) unless credentials.nil?
+      fail ArgumentError, 'invalid type of credentials input parameter' unless credentials.is_a?(MsRest2::ServiceClientCredentials) unless credentials.nil?
       @credentials = credentials
 
       @accept_language = 'en-US'
@@ -210,7 +210,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           query_params: {'api-version' => api_version,'timeout' => timeout},
           headers: request_headers.merge(custom_headers || {}),
           base_url: request_url
@@ -223,7 +223,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -236,7 +236,7 @@ module Azure::ServiceFabric::V6_2_0_9
             result_mapper = Azure::ServiceFabric::V6_2_0_9::Models::ClusterManifest.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -572,7 +572,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           query_params: {'api-version' => api_version,'NodesHealthStateFilter' => nodes_health_state_filter,'ApplicationsHealthStateFilter' => applications_health_state_filter,'EventsHealthStateFilter' => events_health_state_filter,'ExcludeHealthStatistics' => exclude_health_statistics,'IncludeSystemApplicationHealthStatistics' => include_system_application_health_statistics,'timeout' => timeout},
           headers: request_headers.merge(custom_headers || {}),
           base_url: request_url
@@ -585,7 +585,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -598,7 +598,7 @@ module Azure::ServiceFabric::V6_2_0_9
             result_mapper = Azure::ServiceFabric::V6_2_0_9::Models::ClusterHealth.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -976,7 +976,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           query_params: {'api-version' => api_version,'NodesHealthStateFilter' => nodes_health_state_filter,'ApplicationsHealthStateFilter' => applications_health_state_filter,'EventsHealthStateFilter' => events_health_state_filter,'ExcludeHealthStatistics' => exclude_health_statistics,'IncludeSystemApplicationHealthStatistics' => include_system_application_health_statistics,'timeout' => timeout},
           body: request_content,
           headers: request_headers.merge(custom_headers || {}),
@@ -990,7 +990,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -1003,7 +1003,7 @@ module Azure::ServiceFabric::V6_2_0_9
             result_mapper = Azure::ServiceFabric::V6_2_0_9::Models::ClusterHealth.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -1093,7 +1093,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           query_params: {'api-version' => api_version,'timeout' => timeout},
           headers: request_headers.merge(custom_headers || {}),
           base_url: request_url
@@ -1106,7 +1106,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -1119,7 +1119,7 @@ module Azure::ServiceFabric::V6_2_0_9
             result_mapper = Azure::ServiceFabric::V6_2_0_9::Models::ClusterHealthChunk.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -1302,7 +1302,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           query_params: {'api-version' => api_version,'timeout' => timeout},
           body: request_content,
           headers: request_headers.merge(custom_headers || {}),
@@ -1316,7 +1316,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -1329,7 +1329,7 @@ module Azure::ServiceFabric::V6_2_0_9
             result_mapper = Azure::ServiceFabric::V6_2_0_9::Models::ClusterHealthChunk.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -1509,7 +1509,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           query_params: {'api-version' => api_version,'Immediate' => immediate,'timeout' => timeout},
           body: request_content,
           headers: request_headers.merge(custom_headers || {}),
@@ -1523,7 +1523,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -1616,7 +1616,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           query_params: {'api-version' => api_version,'CodeVersion' => code_version,'timeout' => timeout},
           headers: request_headers.merge(custom_headers || {}),
           base_url: request_url
@@ -1629,7 +1629,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -1658,7 +1658,7 @@ module Azure::ServiceFabric::V6_2_0_9
             }
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -1748,7 +1748,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           query_params: {'api-version' => api_version,'ConfigVersion' => config_version,'timeout' => timeout},
           headers: request_headers.merge(custom_headers || {}),
           base_url: request_url
@@ -1761,7 +1761,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -1790,7 +1790,7 @@ module Azure::ServiceFabric::V6_2_0_9
             }
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -1871,7 +1871,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           query_params: {'api-version' => api_version,'timeout' => timeout},
           headers: request_headers.merge(custom_headers || {}),
           base_url: request_url
@@ -1884,7 +1884,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -1897,7 +1897,7 @@ module Azure::ServiceFabric::V6_2_0_9
             result_mapper = Azure::ServiceFabric::V6_2_0_9::Models::ClusterUpgradeProgressObject.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -1991,7 +1991,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           query_params: {'api-version' => api_version,'ConfigurationApiVersion' => configuration_api_version,'timeout' => timeout},
           headers: request_headers.merge(custom_headers || {}),
           base_url: request_url
@@ -2004,7 +2004,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -2017,7 +2017,7 @@ module Azure::ServiceFabric::V6_2_0_9
             result_mapper = Azure::ServiceFabric::V6_2_0_9::Models::ClusterConfiguration.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -2101,7 +2101,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           query_params: {'api-version' => api_version,'timeout' => timeout},
           headers: request_headers.merge(custom_headers || {}),
           base_url: request_url
@@ -2114,7 +2114,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -2127,7 +2127,7 @@ module Azure::ServiceFabric::V6_2_0_9
             result_mapper = Azure::ServiceFabric::V6_2_0_9::Models::ClusterConfigurationUpgradeStatusInfo.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -2208,7 +2208,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           query_params: {'api-version' => api_version,'timeout' => timeout},
           headers: request_headers.merge(custom_headers || {}),
           base_url: request_url
@@ -2221,7 +2221,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -2234,7 +2234,7 @@ module Azure::ServiceFabric::V6_2_0_9
             result_mapper = Azure::ServiceFabric::V6_2_0_9::Models::UpgradeOrchestrationServiceState.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -2328,7 +2328,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           query_params: {'api-version' => api_version,'timeout' => timeout},
           body: request_content,
           headers: request_headers.merge(custom_headers || {}),
@@ -2342,7 +2342,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -2355,7 +2355,7 @@ module Azure::ServiceFabric::V6_2_0_9
             result_mapper = Azure::ServiceFabric::V6_2_0_9::Models::UpgradeOrchestrationServiceStateSummary.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -2448,7 +2448,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           query_params: {'api-version' => api_version,'timeout' => timeout},
           body: request_content,
           headers: request_headers.merge(custom_headers || {}),
@@ -2462,7 +2462,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -2558,7 +2558,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           query_params: {'api-version' => api_version,'timeout' => timeout},
           body: request_content,
           headers: request_headers.merge(custom_headers || {}),
@@ -2572,7 +2572,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -2652,7 +2652,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           query_params: {'api-version' => api_version,'timeout' => timeout},
           headers: request_headers.merge(custom_headers || {}),
           base_url: request_url
@@ -2665,7 +2665,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 202
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -2761,7 +2761,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           query_params: {'api-version' => api_version,'timeout' => timeout},
           body: request_content,
           headers: request_headers.merge(custom_headers || {}),
@@ -2775,7 +2775,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -2877,7 +2877,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           query_params: {'api-version' => api_version,'timeout' => timeout},
           body: request_content,
           headers: request_headers.merge(custom_headers || {}),
@@ -2891,7 +2891,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 202
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -2990,7 +2990,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           query_params: {'api-version' => api_version,'timeout' => timeout},
           body: request_content,
           headers: request_headers.merge(custom_headers || {}),
@@ -3004,7 +3004,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 202
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -3097,7 +3097,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           query_params: {'api-version' => api_version,'timeout' => timeout},
           body: request_content,
           headers: request_headers.merge(custom_headers || {}),
@@ -3111,7 +3111,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -3207,7 +3207,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           query_params: {'api-version' => api_version,'timeout' => timeout},
           headers: request_headers.merge(custom_headers || {}),
           base_url: request_url
@@ -3220,7 +3220,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -3233,7 +3233,7 @@ module Azure::ServiceFabric::V6_2_0_9
             result_mapper = Azure::ServiceFabric::V6_2_0_9::Models::AadMetadataObject.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -3350,7 +3350,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           query_params: {'api-version' => api_version,'NodeStatusFilter' => node_status_filter,'timeout' => timeout},
           skip_encoding_query_params: {'ContinuationToken' => continuation_token},
           headers: request_headers.merge(custom_headers || {}),
@@ -3364,7 +3364,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -3377,7 +3377,7 @@ module Azure::ServiceFabric::V6_2_0_9
             result_mapper = Azure::ServiceFabric::V6_2_0_9::Models::PagedNodeInfoList.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -3465,7 +3465,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'nodeName' => node_name},
           query_params: {'api-version' => api_version,'timeout' => timeout},
           headers: request_headers.merge(custom_headers || {}),
@@ -3479,7 +3479,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 200 || status_code == 204
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -3492,7 +3492,7 @@ module Azure::ServiceFabric::V6_2_0_9
             result_mapper = Azure::ServiceFabric::V6_2_0_9::Models::NodeInfo.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -3646,7 +3646,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'nodeName' => node_name},
           query_params: {'api-version' => api_version,'EventsHealthStateFilter' => events_health_state_filter,'timeout' => timeout},
           headers: request_headers.merge(custom_headers || {}),
@@ -3660,7 +3660,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -3673,7 +3673,7 @@ module Azure::ServiceFabric::V6_2_0_9
             result_mapper = Azure::ServiceFabric::V6_2_0_9::Models::NodeHealth.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -3851,7 +3851,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'nodeName' => node_name},
           query_params: {'api-version' => api_version,'EventsHealthStateFilter' => events_health_state_filter,'timeout' => timeout},
           body: request_content,
@@ -3866,7 +3866,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -3879,7 +3879,7 @@ module Azure::ServiceFabric::V6_2_0_9
             result_mapper = Azure::ServiceFabric::V6_2_0_9::Models::NodeHealth.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -4060,7 +4060,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'nodeName' => node_name},
           query_params: {'api-version' => api_version,'Immediate' => immediate,'timeout' => timeout},
           body: request_content,
@@ -4075,7 +4075,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -4163,7 +4163,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'nodeName' => node_name},
           query_params: {'api-version' => api_version,'timeout' => timeout},
           headers: request_headers.merge(custom_headers || {}),
@@ -4177,7 +4177,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -4190,7 +4190,7 @@ module Azure::ServiceFabric::V6_2_0_9
             result_mapper = Azure::ServiceFabric::V6_2_0_9::Models::NodeLoadInfo.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -4311,7 +4311,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'nodeName' => node_name},
           query_params: {'api-version' => api_version,'timeout' => timeout},
           body: request_content,
@@ -4326,7 +4326,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -4419,7 +4419,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'nodeName' => node_name},
           query_params: {'api-version' => api_version,'timeout' => timeout},
           headers: request_headers.merge(custom_headers || {}),
@@ -4433,7 +4433,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -4544,7 +4544,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'nodeName' => node_name},
           query_params: {'api-version' => api_version,'timeout' => timeout},
           headers: request_headers.merge(custom_headers || {}),
@@ -4558,7 +4558,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -4658,7 +4658,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'nodeName' => node_name},
           query_params: {'api-version' => api_version,'timeout' => timeout},
           body: request_content,
@@ -4673,7 +4673,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -4872,7 +4872,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           query_params: {'api-version' => api_version,'ApplicationTypeDefinitionKindFilter' => application_type_definition_kind_filter,'ExcludeApplicationParameters' => exclude_application_parameters,'MaxResults' => max_results,'timeout' => timeout},
           skip_encoding_query_params: {'ContinuationToken' => continuation_token},
           headers: request_headers.merge(custom_headers || {}),
@@ -4886,7 +4886,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -4899,7 +4899,7 @@ module Azure::ServiceFabric::V6_2_0_9
             result_mapper = Azure::ServiceFabric::V6_2_0_9::Models::PagedApplicationTypeInfoList.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -5078,7 +5078,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'applicationTypeName' => application_type_name},
           query_params: {'api-version' => api_version,'ApplicationTypeVersion' => application_type_version,'ExcludeApplicationParameters' => exclude_application_parameters,'MaxResults' => max_results,'timeout' => timeout},
           skip_encoding_query_params: {'ContinuationToken' => continuation_token},
@@ -5093,7 +5093,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -5106,7 +5106,7 @@ module Azure::ServiceFabric::V6_2_0_9
             result_mapper = Azure::ServiceFabric::V6_2_0_9::Models::PagedApplicationTypeInfoList.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -5220,7 +5220,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           query_params: {'api-version' => api_version,'timeout' => timeout},
           body: request_content,
           headers: request_headers.merge(custom_headers || {}),
@@ -5234,7 +5234,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 200 || status_code == 202
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -5349,7 +5349,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'applicationTypeName' => application_type_name},
           query_params: {'api-version' => api_version,'timeout' => timeout},
           body: request_content,
@@ -5364,7 +5364,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 200 || status_code == 202
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -5462,7 +5462,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'applicationTypeName' => application_type_name},
           query_params: {'api-version' => api_version,'ApplicationTypeVersion' => application_type_version,'timeout' => timeout},
           headers: request_headers.merge(custom_headers || {}),
@@ -5476,7 +5476,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -5505,7 +5505,7 @@ module Azure::ServiceFabric::V6_2_0_9
             }
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -5613,7 +5613,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'applicationTypeName' => application_type_name},
           skip_encoding_path_params: {'serviceTypeName' => service_type_name},
           query_params: {'api-version' => api_version,'ApplicationTypeVersion' => application_type_version,'timeout' => timeout},
@@ -5628,7 +5628,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 200 || status_code == 204
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -5641,7 +5641,7 @@ module Azure::ServiceFabric::V6_2_0_9
             result_mapper = Azure::ServiceFabric::V6_2_0_9::Models::ServiceTypeInfo.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -5737,7 +5737,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'applicationTypeName' => application_type_name},
           query_params: {'api-version' => api_version,'ApplicationTypeVersion' => application_type_version,'ServiceManifestName' => service_manifest_name,'timeout' => timeout},
           headers: request_headers.merge(custom_headers || {}),
@@ -5751,7 +5751,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -5764,7 +5764,7 @@ module Azure::ServiceFabric::V6_2_0_9
             result_mapper = Azure::ServiceFabric::V6_2_0_9::Models::ServiceTypeManifest.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -5889,7 +5889,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'nodeName' => node_name},
           skip_encoding_path_params: {'applicationId' => application_id},
           query_params: {'api-version' => api_version,'ServiceManifestName' => service_manifest_name,'timeout' => timeout},
@@ -5904,7 +5904,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -5933,7 +5933,7 @@ module Azure::ServiceFabric::V6_2_0_9
             }
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -6071,7 +6071,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'nodeName' => node_name},
           skip_encoding_path_params: {'applicationId' => application_id,'serviceTypeName' => service_type_name},
           query_params: {'api-version' => api_version,'ServiceManifestName' => service_manifest_name,'timeout' => timeout},
@@ -6086,7 +6086,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 200 || status_code == 204
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -6115,7 +6115,7 @@ module Azure::ServiceFabric::V6_2_0_9
             }
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -6205,7 +6205,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           query_params: {'api-version' => api_version,'timeout' => timeout},
           body: request_content,
           headers: request_headers.merge(custom_headers || {}),
@@ -6219,7 +6219,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 201
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -6354,7 +6354,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           skip_encoding_path_params: {'applicationId' => application_id},
           query_params: {'api-version' => api_version,'ForceRemove' => force_remove,'timeout' => timeout},
           headers: request_headers.merge(custom_headers || {}),
@@ -6368,7 +6368,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -6480,7 +6480,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           skip_encoding_path_params: {'applicationId' => application_id},
           query_params: {'api-version' => api_version,'timeout' => timeout},
           headers: request_headers.merge(custom_headers || {}),
@@ -6494,7 +6494,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 200 || status_code == 204
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -6507,7 +6507,7 @@ module Azure::ServiceFabric::V6_2_0_9
             result_mapper = Azure::ServiceFabric::V6_2_0_9::Models::ApplicationLoadInfo.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -6700,7 +6700,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           query_params: {'api-version' => api_version,'ApplicationDefinitionKindFilter' => application_definition_kind_filter,'ApplicationTypeName' => application_type_name,'ExcludeApplicationParameters' => exclude_application_parameters,'MaxResults' => max_results,'timeout' => timeout},
           skip_encoding_query_params: {'ContinuationToken' => continuation_token},
           headers: request_headers.merge(custom_headers || {}),
@@ -6714,7 +6714,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -6727,7 +6727,7 @@ module Azure::ServiceFabric::V6_2_0_9
             result_mapper = Azure::ServiceFabric::V6_2_0_9::Models::PagedApplicationInfoList.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -6839,7 +6839,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           skip_encoding_path_params: {'applicationId' => application_id},
           query_params: {'api-version' => api_version,'ExcludeApplicationParameters' => exclude_application_parameters,'timeout' => timeout},
           headers: request_headers.merge(custom_headers || {}),
@@ -6853,7 +6853,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 200 || status_code == 204
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -6866,7 +6866,7 @@ module Azure::ServiceFabric::V6_2_0_9
             result_mapper = Azure::ServiceFabric::V6_2_0_9::Models::ApplicationInfo.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -7182,7 +7182,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           skip_encoding_path_params: {'applicationId' => application_id},
           query_params: {'api-version' => api_version,'EventsHealthStateFilter' => events_health_state_filter,'DeployedApplicationsHealthStateFilter' => deployed_applications_health_state_filter,'ServicesHealthStateFilter' => services_health_state_filter,'ExcludeHealthStatistics' => exclude_health_statistics,'timeout' => timeout},
           headers: request_headers.merge(custom_headers || {}),
@@ -7196,7 +7196,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -7209,7 +7209,7 @@ module Azure::ServiceFabric::V6_2_0_9
             result_mapper = Azure::ServiceFabric::V6_2_0_9::Models::ApplicationHealth.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -7549,7 +7549,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           skip_encoding_path_params: {'applicationId' => application_id},
           query_params: {'api-version' => api_version,'EventsHealthStateFilter' => events_health_state_filter,'DeployedApplicationsHealthStateFilter' => deployed_applications_health_state_filter,'ServicesHealthStateFilter' => services_health_state_filter,'ExcludeHealthStatistics' => exclude_health_statistics,'timeout' => timeout},
           body: request_content,
@@ -7564,7 +7564,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -7577,7 +7577,7 @@ module Azure::ServiceFabric::V6_2_0_9
             result_mapper = Azure::ServiceFabric::V6_2_0_9::Models::ApplicationHealth.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -7773,7 +7773,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           skip_encoding_path_params: {'applicationId' => application_id},
           query_params: {'api-version' => api_version,'Immediate' => immediate,'timeout' => timeout},
           body: request_content,
@@ -7788,7 +7788,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -7903,7 +7903,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           skip_encoding_path_params: {'applicationId' => application_id},
           query_params: {'api-version' => api_version,'timeout' => timeout},
           body: request_content,
@@ -7918,7 +7918,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -8021,7 +8021,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           skip_encoding_path_params: {'applicationId' => application_id},
           query_params: {'api-version' => api_version,'timeout' => timeout},
           headers: request_headers.merge(custom_headers || {}),
@@ -8035,7 +8035,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -8048,7 +8048,7 @@ module Azure::ServiceFabric::V6_2_0_9
             result_mapper = Azure::ServiceFabric::V6_2_0_9::Models::ApplicationUpgradeProgressInfo.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -8169,7 +8169,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           skip_encoding_path_params: {'applicationId' => application_id},
           query_params: {'api-version' => api_version,'timeout' => timeout},
           body: request_content,
@@ -8184,7 +8184,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -8308,7 +8308,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           skip_encoding_path_params: {'applicationId' => application_id},
           query_params: {'api-version' => api_version,'timeout' => timeout},
           body: request_content,
@@ -8323,7 +8323,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -8437,7 +8437,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           skip_encoding_path_params: {'applicationId' => application_id},
           query_params: {'api-version' => api_version,'timeout' => timeout},
           headers: request_headers.merge(custom_headers || {}),
@@ -8451,7 +8451,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -8612,7 +8612,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'nodeName' => node_name},
           query_params: {'api-version' => api_version,'timeout' => timeout,'IncludeHealthState' => include_health_state,'MaxResults' => max_results},
           skip_encoding_query_params: {'ContinuationToken' => continuation_token},
@@ -8627,7 +8627,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -8640,7 +8640,7 @@ module Azure::ServiceFabric::V6_2_0_9
             result_mapper = Azure::ServiceFabric::V6_2_0_9::Models::PagedDeployedApplicationInfoList.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -8777,7 +8777,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'nodeName' => node_name},
           skip_encoding_path_params: {'applicationId' => application_id},
           query_params: {'api-version' => api_version,'timeout' => timeout,'IncludeHealthState' => include_health_state},
@@ -8792,7 +8792,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 200 || status_code == 204
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -8805,7 +8805,7 @@ module Azure::ServiceFabric::V6_2_0_9
             result_mapper = Azure::ServiceFabric::V6_2_0_9::Models::DeployedApplicationInfo.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -9068,7 +9068,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'nodeName' => node_name},
           skip_encoding_path_params: {'applicationId' => application_id},
           query_params: {'api-version' => api_version,'EventsHealthStateFilter' => events_health_state_filter,'DeployedServicePackagesHealthStateFilter' => deployed_service_packages_health_state_filter,'ExcludeHealthStatistics' => exclude_health_statistics,'timeout' => timeout},
@@ -9083,7 +9083,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -9096,7 +9096,7 @@ module Azure::ServiceFabric::V6_2_0_9
             result_mapper = Azure::ServiceFabric::V6_2_0_9::Models::DeployedApplicationHealth.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -9395,7 +9395,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'nodeName' => node_name},
           skip_encoding_path_params: {'applicationId' => application_id},
           query_params: {'api-version' => api_version,'EventsHealthStateFilter' => events_health_state_filter,'DeployedServicePackagesHealthStateFilter' => deployed_service_packages_health_state_filter,'ExcludeHealthStatistics' => exclude_health_statistics,'timeout' => timeout},
@@ -9411,7 +9411,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -9424,7 +9424,7 @@ module Azure::ServiceFabric::V6_2_0_9
             result_mapper = Azure::ServiceFabric::V6_2_0_9::Models::DeployedApplicationHealth.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -9630,7 +9630,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'nodeName' => node_name},
           skip_encoding_path_params: {'applicationId' => application_id},
           query_params: {'api-version' => api_version,'Immediate' => immediate,'timeout' => timeout},
@@ -9646,7 +9646,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -9738,7 +9738,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'applicationTypeName' => application_type_name},
           query_params: {'api-version' => api_version,'ApplicationTypeVersion' => application_type_version,'timeout' => timeout},
           headers: request_headers.merge(custom_headers || {}),
@@ -9752,7 +9752,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -9765,7 +9765,7 @@ module Azure::ServiceFabric::V6_2_0_9
             result_mapper = Azure::ServiceFabric::V6_2_0_9::Models::ApplicationTypeManifest.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -9895,7 +9895,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           skip_encoding_path_params: {'applicationId' => application_id},
           query_params: {'ServiceTypeName' => service_type_name,'api-version' => api_version,'timeout' => timeout},
           skip_encoding_query_params: {'ContinuationToken' => continuation_token},
@@ -9910,7 +9910,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -9923,7 +9923,7 @@ module Azure::ServiceFabric::V6_2_0_9
             result_mapper = Azure::ServiceFabric::V6_2_0_9::Models::PagedServiceInfoList.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -10048,7 +10048,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           skip_encoding_path_params: {'applicationId' => application_id,'serviceId' => service_id},
           query_params: {'api-version' => api_version,'timeout' => timeout},
           headers: request_headers.merge(custom_headers || {}),
@@ -10062,7 +10062,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 200 || status_code == 204
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -10075,7 +10075,7 @@ module Azure::ServiceFabric::V6_2_0_9
             result_mapper = Azure::ServiceFabric::V6_2_0_9::Models::ServiceInfo.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -10181,7 +10181,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           skip_encoding_path_params: {'serviceId' => service_id},
           query_params: {'api-version' => api_version,'timeout' => timeout},
           headers: request_headers.merge(custom_headers || {}),
@@ -10195,7 +10195,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -10208,7 +10208,7 @@ module Azure::ServiceFabric::V6_2_0_9
             result_mapper = Azure::ServiceFabric::V6_2_0_9::Models::ApplicationNameInfo.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -10329,7 +10329,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           skip_encoding_path_params: {'applicationId' => application_id},
           query_params: {'api-version' => api_version,'timeout' => timeout},
           body: request_content,
@@ -10344,7 +10344,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 202
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -10471,7 +10471,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           skip_encoding_path_params: {'applicationId' => application_id},
           query_params: {'api-version' => api_version,'timeout' => timeout},
           body: request_content,
@@ -10486,7 +10486,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 202
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -10618,7 +10618,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           skip_encoding_path_params: {'serviceId' => service_id},
           query_params: {'api-version' => api_version,'ForceRemove' => force_remove,'timeout' => timeout},
           headers: request_headers.merge(custom_headers || {}),
@@ -10632,7 +10632,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -10771,7 +10771,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           skip_encoding_path_params: {'serviceId' => service_id},
           query_params: {'api-version' => api_version,'timeout' => timeout},
           body: request_content,
@@ -10786,7 +10786,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -10892,7 +10892,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           skip_encoding_path_params: {'serviceId' => service_id},
           query_params: {'api-version' => api_version,'timeout' => timeout},
           headers: request_headers.merge(custom_headers || {}),
@@ -10906,7 +10906,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -10919,7 +10919,7 @@ module Azure::ServiceFabric::V6_2_0_9
             result_mapper = Azure::ServiceFabric::V6_2_0_9::Models::ServiceDescription.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -11181,7 +11181,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           skip_encoding_path_params: {'serviceId' => service_id},
           query_params: {'api-version' => api_version,'EventsHealthStateFilter' => events_health_state_filter,'PartitionsHealthStateFilter' => partitions_health_state_filter,'ExcludeHealthStatistics' => exclude_health_statistics,'timeout' => timeout},
           headers: request_headers.merge(custom_headers || {}),
@@ -11195,7 +11195,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -11208,7 +11208,7 @@ module Azure::ServiceFabric::V6_2_0_9
             result_mapper = Azure::ServiceFabric::V6_2_0_9::Models::ServiceHealth.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -11509,7 +11509,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           skip_encoding_path_params: {'serviceId' => service_id},
           query_params: {'api-version' => api_version,'EventsHealthStateFilter' => events_health_state_filter,'PartitionsHealthStateFilter' => partitions_health_state_filter,'ExcludeHealthStatistics' => exclude_health_statistics,'timeout' => timeout},
           body: request_content,
@@ -11524,7 +11524,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -11537,7 +11537,7 @@ module Azure::ServiceFabric::V6_2_0_9
             result_mapper = Azure::ServiceFabric::V6_2_0_9::Models::ServiceHealth.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -11739,7 +11739,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           skip_encoding_path_params: {'serviceId' => service_id},
           query_params: {'api-version' => api_version,'Immediate' => immediate,'timeout' => timeout},
           body: request_content,
@@ -11754,7 +11754,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -11911,7 +11911,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           skip_encoding_path_params: {'serviceId' => service_id},
           query_params: {'api-version' => api_version,'PartitionKeyType' => partition_key_type,'timeout' => timeout},
           skip_encoding_query_params: {'PartitionKeyValue' => partition_key_value,'PreviousRspVersion' => previous_rsp_version},
@@ -11926,7 +11926,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -11939,7 +11939,7 @@ module Azure::ServiceFabric::V6_2_0_9
             result_mapper = Azure::ServiceFabric::V6_2_0_9::Models::ResolvedServicePartition.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -12066,7 +12066,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           skip_encoding_path_params: {'serviceId' => service_id},
           query_params: {'api-version' => api_version,'timeout' => timeout},
           skip_encoding_query_params: {'ContinuationToken' => continuation_token},
@@ -12081,7 +12081,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -12094,7 +12094,7 @@ module Azure::ServiceFabric::V6_2_0_9
             result_mapper = Azure::ServiceFabric::V6_2_0_9::Models::PagedServicePartitionInfoList.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -12182,7 +12182,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           skip_encoding_path_params: {'partitionId' => partition_id},
           query_params: {'api-version' => api_version,'timeout' => timeout},
           headers: request_headers.merge(custom_headers || {}),
@@ -12196,7 +12196,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 200 || status_code == 204
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -12209,7 +12209,7 @@ module Azure::ServiceFabric::V6_2_0_9
             result_mapper = Azure::ServiceFabric::V6_2_0_9::Models::ServicePartitionInfo.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -12294,7 +12294,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           skip_encoding_path_params: {'partitionId' => partition_id},
           query_params: {'api-version' => api_version,'timeout' => timeout},
           headers: request_headers.merge(custom_headers || {}),
@@ -12308,7 +12308,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -12321,7 +12321,7 @@ module Azure::ServiceFabric::V6_2_0_9
             result_mapper = Azure::ServiceFabric::V6_2_0_9::Models::ServiceNameInfo.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -12559,7 +12559,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           skip_encoding_path_params: {'partitionId' => partition_id},
           query_params: {'api-version' => api_version,'EventsHealthStateFilter' => events_health_state_filter,'ReplicasHealthStateFilter' => replicas_health_state_filter,'ExcludeHealthStatistics' => exclude_health_statistics,'timeout' => timeout},
           headers: request_headers.merge(custom_headers || {}),
@@ -12573,7 +12573,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -12586,7 +12586,7 @@ module Azure::ServiceFabric::V6_2_0_9
             result_mapper = Azure::ServiceFabric::V6_2_0_9::Models::PartitionHealth.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -12866,7 +12866,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           skip_encoding_path_params: {'partitionId' => partition_id},
           query_params: {'api-version' => api_version,'EventsHealthStateFilter' => events_health_state_filter,'ReplicasHealthStateFilter' => replicas_health_state_filter,'ExcludeHealthStatistics' => exclude_health_statistics,'timeout' => timeout},
           body: request_content,
@@ -12881,7 +12881,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -12894,7 +12894,7 @@ module Azure::ServiceFabric::V6_2_0_9
             result_mapper = Azure::ServiceFabric::V6_2_0_9::Models::PartitionHealth.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -13078,7 +13078,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           skip_encoding_path_params: {'partitionId' => partition_id},
           query_params: {'api-version' => api_version,'Immediate' => immediate,'timeout' => timeout},
           body: request_content,
@@ -13093,7 +13093,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -13187,7 +13187,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           skip_encoding_path_params: {'partitionId' => partition_id},
           query_params: {'api-version' => api_version,'timeout' => timeout},
           headers: request_headers.merge(custom_headers || {}),
@@ -13201,7 +13201,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -13214,7 +13214,7 @@ module Azure::ServiceFabric::V6_2_0_9
             result_mapper = Azure::ServiceFabric::V6_2_0_9::Models::PartitionLoadInformation.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -13298,7 +13298,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           skip_encoding_path_params: {'partitionId' => partition_id},
           query_params: {'api-version' => api_version,'timeout' => timeout},
           headers: request_headers.merge(custom_headers || {}),
@@ -13312,7 +13312,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -13408,7 +13408,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           skip_encoding_path_params: {'partitionId' => partition_id},
           query_params: {'api-version' => api_version,'timeout' => timeout},
           headers: request_headers.merge(custom_headers || {}),
@@ -13422,7 +13422,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -13536,7 +13536,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           skip_encoding_path_params: {'serviceId' => service_id},
           query_params: {'api-version' => api_version,'timeout' => timeout},
           headers: request_headers.merge(custom_headers || {}),
@@ -13550,7 +13550,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -13642,7 +13642,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           query_params: {'api-version' => api_version,'timeout' => timeout},
           headers: request_headers.merge(custom_headers || {}),
           base_url: request_url
@@ -13655,7 +13655,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -13753,7 +13753,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           query_params: {'api-version' => api_version,'timeout' => timeout},
           headers: request_headers.merge(custom_headers || {}),
           base_url: request_url
@@ -13766,7 +13766,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -13891,7 +13891,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           query_params: {'api-version' => api_version},
           body: request_content,
           headers: request_headers.merge(custom_headers || {}),
@@ -13905,7 +13905,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -13918,7 +13918,7 @@ module Azure::ServiceFabric::V6_2_0_9
             result_mapper = Azure::ServiceFabric::V6_2_0_9::Models::RepairTaskUpdateInfo.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -13998,7 +13998,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           query_params: {'api-version' => api_version},
           body: request_content,
           headers: request_headers.merge(custom_headers || {}),
@@ -14012,7 +14012,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -14025,7 +14025,7 @@ module Azure::ServiceFabric::V6_2_0_9
             result_mapper = Azure::ServiceFabric::V6_2_0_9::Models::RepairTaskUpdateInfo.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -14104,7 +14104,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           query_params: {'api-version' => api_version},
           body: request_content,
           headers: request_headers.merge(custom_headers || {}),
@@ -14118,7 +14118,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -14224,7 +14224,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           query_params: {'api-version' => api_version,'TaskIdFilter' => task_id_filter,'StateFilter' => state_filter,'ExecutorFilter' => executor_filter},
           headers: request_headers.merge(custom_headers || {}),
           base_url: request_url
@@ -14237,7 +14237,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -14266,7 +14266,7 @@ module Azure::ServiceFabric::V6_2_0_9
             }
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -14346,7 +14346,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           query_params: {'api-version' => api_version},
           body: request_content,
           headers: request_headers.merge(custom_headers || {}),
@@ -14360,7 +14360,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -14373,7 +14373,7 @@ module Azure::ServiceFabric::V6_2_0_9
             result_mapper = Azure::ServiceFabric::V6_2_0_9::Models::RepairTaskUpdateInfo.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -14456,7 +14456,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           query_params: {'api-version' => api_version},
           body: request_content,
           headers: request_headers.merge(custom_headers || {}),
@@ -14470,7 +14470,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -14483,7 +14483,7 @@ module Azure::ServiceFabric::V6_2_0_9
             result_mapper = Azure::ServiceFabric::V6_2_0_9::Models::RepairTaskUpdateInfo.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -14563,7 +14563,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           query_params: {'api-version' => api_version},
           body: request_content,
           headers: request_headers.merge(custom_headers || {}),
@@ -14577,7 +14577,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -14590,7 +14590,7 @@ module Azure::ServiceFabric::V6_2_0_9
             result_mapper = Azure::ServiceFabric::V6_2_0_9::Models::RepairTaskUpdateInfo.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -14699,7 +14699,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           skip_encoding_path_params: {'partitionId' => partition_id},
           query_params: {'api-version' => api_version,'timeout' => timeout},
           skip_encoding_query_params: {'ContinuationToken' => continuation_token},
@@ -14714,7 +14714,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -14727,7 +14727,7 @@ module Azure::ServiceFabric::V6_2_0_9
             result_mapper = Azure::ServiceFabric::V6_2_0_9::Models::PagedReplicaInfoList.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -14816,7 +14816,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           skip_encoding_path_params: {'partitionId' => partition_id,'replicaId' => replica_id},
           query_params: {'api-version' => api_version,'timeout' => timeout},
           headers: request_headers.merge(custom_headers || {}),
@@ -14830,7 +14830,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 200 || status_code == 204
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -14843,7 +14843,7 @@ module Azure::ServiceFabric::V6_2_0_9
             result_mapper = Azure::ServiceFabric::V6_2_0_9::Models::ReplicaInfo.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -15001,7 +15001,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           skip_encoding_path_params: {'partitionId' => partition_id,'replicaId' => replica_id},
           query_params: {'api-version' => api_version,'EventsHealthStateFilter' => events_health_state_filter,'timeout' => timeout},
           headers: request_headers.merge(custom_headers || {}),
@@ -15015,7 +15015,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -15028,7 +15028,7 @@ module Azure::ServiceFabric::V6_2_0_9
             result_mapper = Azure::ServiceFabric::V6_2_0_9::Models::ReplicaHealth.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -15222,7 +15222,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           skip_encoding_path_params: {'partitionId' => partition_id,'replicaId' => replica_id},
           query_params: {'api-version' => api_version,'EventsHealthStateFilter' => events_health_state_filter,'timeout' => timeout},
           body: request_content,
@@ -15237,7 +15237,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -15250,7 +15250,7 @@ module Azure::ServiceFabric::V6_2_0_9
             result_mapper = Azure::ServiceFabric::V6_2_0_9::Models::ReplicaHealth.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -15451,7 +15451,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           skip_encoding_path_params: {'partitionId' => partition_id,'replicaId' => replica_id},
           query_params: {'api-version' => api_version,'ReplicaHealthReportServiceKind' => replica_health_report_service_kind,'Immediate' => immediate,'timeout' => timeout},
           body: request_content,
@@ -15466,7 +15466,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -15594,7 +15594,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'nodeName' => node_name},
           skip_encoding_path_params: {'applicationId' => application_id},
           query_params: {'api-version' => api_version,'PartitionId' => partition_id,'ServiceManifestName' => service_manifest_name,'timeout' => timeout},
@@ -15609,7 +15609,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 200 || status_code == 204
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -15640,7 +15640,7 @@ module Azure::ServiceFabric::V6_2_0_9
             }
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -15739,7 +15739,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'nodeName' => node_name},
           skip_encoding_path_params: {'partitionId' => partition_id,'replicaId' => replica_id},
           query_params: {'api-version' => api_version,'timeout' => timeout},
@@ -15754,7 +15754,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -15767,7 +15767,7 @@ module Azure::ServiceFabric::V6_2_0_9
             result_mapper = Azure::ServiceFabric::V6_2_0_9::Models::DeployedServiceReplicaDetailInfo.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -15862,7 +15862,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'nodeName' => node_name},
           skip_encoding_path_params: {'partitionId' => partition_id},
           query_params: {'api-version' => api_version,'timeout' => timeout},
@@ -15877,7 +15877,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -15890,7 +15890,7 @@ module Azure::ServiceFabric::V6_2_0_9
             result_mapper = Azure::ServiceFabric::V6_2_0_9::Models::DeployedServiceReplicaDetailInfo.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -15985,7 +15985,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'nodeName' => node_name},
           skip_encoding_path_params: {'partitionId' => partition_id,'replicaId' => replica_id},
           query_params: {'api-version' => api_version,'timeout' => timeout},
@@ -16000,7 +16000,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -16131,7 +16131,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'nodeName' => node_name},
           skip_encoding_path_params: {'partitionId' => partition_id,'replicaId' => replica_id},
           query_params: {'api-version' => api_version,'ForceRemove' => force_remove,'timeout' => timeout},
@@ -16146,7 +16146,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -16253,7 +16253,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'nodeName' => node_name},
           skip_encoding_path_params: {'applicationId' => application_id},
           query_params: {'api-version' => api_version,'timeout' => timeout},
@@ -16268,7 +16268,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -16297,7 +16297,7 @@ module Azure::ServiceFabric::V6_2_0_9
             }
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -16411,7 +16411,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'nodeName' => node_name},
           skip_encoding_path_params: {'applicationId' => application_id,'servicePackageName' => service_package_name},
           query_params: {'api-version' => api_version,'timeout' => timeout},
@@ -16426,7 +16426,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 200 || status_code == 204
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -16455,7 +16455,7 @@ module Azure::ServiceFabric::V6_2_0_9
             }
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -16635,7 +16635,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'nodeName' => node_name},
           skip_encoding_path_params: {'applicationId' => application_id,'servicePackageName' => service_package_name},
           query_params: {'api-version' => api_version,'EventsHealthStateFilter' => events_health_state_filter,'timeout' => timeout},
@@ -16650,7 +16650,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -16663,7 +16663,7 @@ module Azure::ServiceFabric::V6_2_0_9
             result_mapper = Azure::ServiceFabric::V6_2_0_9::Models::DeployedServicePackageHealth.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -16876,7 +16876,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'nodeName' => node_name},
           skip_encoding_path_params: {'applicationId' => application_id,'servicePackageName' => service_package_name},
           query_params: {'api-version' => api_version,'EventsHealthStateFilter' => events_health_state_filter,'timeout' => timeout},
@@ -16892,7 +16892,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -16905,7 +16905,7 @@ module Azure::ServiceFabric::V6_2_0_9
             result_mapper = Azure::ServiceFabric::V6_2_0_9::Models::DeployedServicePackageHealth.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -17112,7 +17112,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'nodeName' => node_name},
           skip_encoding_path_params: {'applicationId' => application_id,'servicePackageName' => service_package_name},
           query_params: {'api-version' => api_version,'Immediate' => immediate,'timeout' => timeout},
@@ -17128,7 +17128,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -17246,7 +17246,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'nodeName' => node_name},
           query_params: {'api-version' => api_version,'timeout' => timeout},
           body: request_content,
@@ -17261,7 +17261,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -17383,7 +17383,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'nodeName' => node_name},
           skip_encoding_path_params: {'applicationId' => application_id},
           query_params: {'api-version' => api_version,'ServiceManifestName' => service_manifest_name,'CodePackageName' => code_package_name,'timeout' => timeout},
@@ -17398,7 +17398,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -17427,7 +17427,7 @@ module Azure::ServiceFabric::V6_2_0_9
             }
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -17549,7 +17549,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'nodeName' => node_name},
           skip_encoding_path_params: {'applicationId' => application_id},
           query_params: {'api-version' => api_version,'timeout' => timeout},
@@ -17565,7 +17565,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -17701,7 +17701,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'nodeName' => node_name},
           skip_encoding_path_params: {'applicationId' => application_id},
           query_params: {'api-version' => api_version,'ServiceManifestName' => service_manifest_name,'CodePackageName' => code_package_name,'Tail' => tail,'Previous' => previous,'timeout' => timeout},
@@ -17716,7 +17716,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -17729,7 +17729,7 @@ module Azure::ServiceFabric::V6_2_0_9
             result_mapper = Azure::ServiceFabric::V6_2_0_9::Models::ContainerLogs.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -17870,7 +17870,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'nodeName' => node_name},
           skip_encoding_path_params: {'applicationId' => application_id},
           query_params: {'api-version' => api_version,'ServiceManifestName' => service_manifest_name,'CodePackageName' => code_package_name,'CodePackageInstanceId' => code_package_instance_id,'timeout' => timeout},
@@ -17886,7 +17886,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -17899,7 +17899,7 @@ module Azure::ServiceFabric::V6_2_0_9
             result_mapper = Azure::ServiceFabric::V6_2_0_9::Models::ContainerApiResponse.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -18001,7 +18001,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           query_params: {'api-version' => api_version,'timeout' => timeout},
           body: request_content,
           headers: request_headers.merge(custom_headers || {}),
@@ -18015,7 +18015,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 202
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -18109,7 +18109,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           skip_encoding_path_params: {'deploymentName' => deployment_name},
           query_params: {'api-version' => api_version,'timeout' => timeout},
           headers: request_headers.merge(custom_headers || {}),
@@ -18123,7 +18123,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -18136,7 +18136,7 @@ module Azure::ServiceFabric::V6_2_0_9
             result_mapper = Azure::ServiceFabric::V6_2_0_9::Models::ComposeDeploymentStatusInfo.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -18269,7 +18269,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           query_params: {'api-version' => api_version,'MaxResults' => max_results,'timeout' => timeout},
           skip_encoding_query_params: {'ContinuationToken' => continuation_token},
           headers: request_headers.merge(custom_headers || {}),
@@ -18283,7 +18283,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -18296,7 +18296,7 @@ module Azure::ServiceFabric::V6_2_0_9
             result_mapper = Azure::ServiceFabric::V6_2_0_9::Models::PagedComposeDeploymentStatusInfoList.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -18384,7 +18384,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           skip_encoding_path_params: {'deploymentName' => deployment_name},
           query_params: {'api-version' => api_version,'timeout' => timeout},
           headers: request_headers.merge(custom_headers || {}),
@@ -18398,7 +18398,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -18411,7 +18411,7 @@ module Azure::ServiceFabric::V6_2_0_9
             result_mapper = Azure::ServiceFabric::V6_2_0_9::Models::ComposeDeploymentUpgradeProgressInfo.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -18492,7 +18492,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           skip_encoding_path_params: {'deploymentName' => deployment_name},
           query_params: {'api-version' => api_version,'timeout' => timeout},
           headers: request_headers.merge(custom_headers || {}),
@@ -18506,7 +18506,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 202
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -18609,7 +18609,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           skip_encoding_path_params: {'deploymentName' => deployment_name},
           query_params: {'api-version' => api_version,'timeout' => timeout},
           body: request_content,
@@ -18624,7 +18624,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 202
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -18708,7 +18708,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           query_params: {'api-version' => api_version,'timeout' => timeout},
           headers: request_headers.merge(custom_headers || {}),
           base_url: request_url
@@ -18721,7 +18721,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -18734,7 +18734,7 @@ module Azure::ServiceFabric::V6_2_0_9
             result_mapper = Azure::ServiceFabric::V6_2_0_9::Models::Chaos.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -18842,7 +18842,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           query_params: {'api-version' => api_version,'timeout' => timeout},
           body: request_content,
           headers: request_headers.merge(custom_headers || {}),
@@ -18856,7 +18856,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -18954,7 +18954,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           query_params: {'api-version' => api_version,'timeout' => timeout},
           headers: request_headers.merge(custom_headers || {}),
           base_url: request_url
@@ -18967,7 +18967,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -19148,7 +19148,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           query_params: {'api-version' => api_version,'StartTimeUtc' => start_time_utc,'EndTimeUtc' => end_time_utc,'MaxResults' => max_results,'timeout' => timeout},
           skip_encoding_query_params: {'ContinuationToken' => continuation_token},
           headers: request_headers.merge(custom_headers || {}),
@@ -19162,7 +19162,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -19175,7 +19175,7 @@ module Azure::ServiceFabric::V6_2_0_9
             result_mapper = Azure::ServiceFabric::V6_2_0_9::Models::ChaosEventsSegment.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -19242,7 +19242,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           query_params: {'api-version' => api_version},
           headers: request_headers.merge(custom_headers || {}),
           base_url: request_url
@@ -19255,7 +19255,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -19268,7 +19268,7 @@ module Azure::ServiceFabric::V6_2_0_9
             result_mapper = Azure::ServiceFabric::V6_2_0_9::Models::ChaosScheduleDescription.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -19371,7 +19371,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           query_params: {'api-version' => api_version},
           body: request_content,
           headers: request_headers.merge(custom_headers || {}),
@@ -19385,7 +19385,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -19499,7 +19499,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'contentPath' => content_path},
           query_params: {'api-version' => api_version,'timeout' => timeout},
           headers: request_headers.merge(custom_headers || {}),
@@ -19513,7 +19513,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -19604,7 +19604,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'contentPath' => content_path},
           query_params: {'api-version' => api_version,'timeout' => timeout},
           headers: request_headers.merge(custom_headers || {}),
@@ -19618,7 +19618,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -19631,7 +19631,7 @@ module Azure::ServiceFabric::V6_2_0_9
             result_mapper = Azure::ServiceFabric::V6_2_0_9::Models::ImageStoreContent.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -19721,7 +19721,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'contentPath' => content_path},
           query_params: {'api-version' => api_version,'timeout' => timeout},
           headers: request_headers.merge(custom_headers || {}),
@@ -19735,7 +19735,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -19819,7 +19819,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           query_params: {'api-version' => api_version,'timeout' => timeout},
           headers: request_headers.merge(custom_headers || {}),
           base_url: request_url
@@ -19832,7 +19832,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -19845,7 +19845,7 @@ module Azure::ServiceFabric::V6_2_0_9
             result_mapper = Azure::ServiceFabric::V6_2_0_9::Models::ImageStoreContent.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -19938,7 +19938,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           query_params: {'api-version' => api_version,'timeout' => timeout},
           body: request_content,
           headers: request_headers.merge(custom_headers || {}),
@@ -19952,7 +19952,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -20045,7 +20045,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           query_params: {'api-version' => api_version,'session-id' => session_id,'timeout' => timeout},
           headers: request_headers.merge(custom_headers || {}),
           base_url: request_url
@@ -20058,7 +20058,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -20157,7 +20157,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           query_params: {'api-version' => api_version,'session-id' => session_id,'timeout' => timeout},
           headers: request_headers.merge(custom_headers || {}),
           base_url: request_url
@@ -20170,7 +20170,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -20264,7 +20264,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           query_params: {'api-version' => api_version,'session-id' => session_id,'timeout' => timeout},
           headers: request_headers.merge(custom_headers || {}),
           base_url: request_url
@@ -20277,7 +20277,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -20290,7 +20290,7 @@ module Azure::ServiceFabric::V6_2_0_9
             result_mapper = Azure::ServiceFabric::V6_2_0_9::Models::UploadSession.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -20381,7 +20381,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'contentPath' => content_path},
           query_params: {'api-version' => api_version,'timeout' => timeout},
           headers: request_headers.merge(custom_headers || {}),
@@ -20395,7 +20395,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -20408,7 +20408,7 @@ module Azure::ServiceFabric::V6_2_0_9
             result_mapper = Azure::ServiceFabric::V6_2_0_9::Models::UploadSession.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -20549,7 +20549,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'contentPath' => content_path},
           query_params: {'api-version' => api_version,'session-id' => session_id,'timeout' => timeout},
           headers: request_headers.merge(custom_headers || {}),
@@ -20563,7 +20563,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -20699,7 +20699,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           query_params: {'api-version' => api_version,'Command' => command,'ServiceId' => service_id,'timeout' => timeout},
           headers: request_headers.merge(custom_headers || {}),
           base_url: request_url
@@ -20712,7 +20712,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -20732,7 +20732,7 @@ module Azure::ServiceFabric::V6_2_0_9
             }
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -20862,7 +20862,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           query_params: {'api-version' => api_version,'Command' => command,'ServiceId' => service_id,'timeout' => timeout},
           headers: request_headers.merge(custom_headers || {}),
           base_url: request_url
@@ -20875,7 +20875,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -20895,7 +20895,7 @@ module Azure::ServiceFabric::V6_2_0_9
             }
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -21075,7 +21075,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           skip_encoding_path_params: {'serviceId' => service_id,'partitionId' => partition_id},
           query_params: {'api-version' => api_version,'OperationId' => operation_id,'DataLossMode' => data_loss_mode,'timeout' => timeout},
           headers: request_headers.merge(custom_headers || {}),
@@ -21089,7 +21089,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 202
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -21209,7 +21209,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           skip_encoding_path_params: {'serviceId' => service_id,'partitionId' => partition_id},
           query_params: {'api-version' => api_version,'OperationId' => operation_id,'timeout' => timeout},
           headers: request_headers.merge(custom_headers || {}),
@@ -21223,7 +21223,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -21236,7 +21236,7 @@ module Azure::ServiceFabric::V6_2_0_9
             result_mapper = Azure::ServiceFabric::V6_2_0_9::Models::PartitionDataLossProgress.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -21387,7 +21387,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           skip_encoding_path_params: {'serviceId' => service_id,'partitionId' => partition_id},
           query_params: {'api-version' => api_version,'OperationId' => operation_id,'QuorumLossMode' => quorum_loss_mode,'QuorumLossDuration' => quorum_loss_duration,'timeout' => timeout},
           headers: request_headers.merge(custom_headers || {}),
@@ -21401,7 +21401,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 202
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -21521,7 +21521,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           skip_encoding_path_params: {'serviceId' => service_id,'partitionId' => partition_id},
           query_params: {'api-version' => api_version,'OperationId' => operation_id,'timeout' => timeout},
           headers: request_headers.merge(custom_headers || {}),
@@ -21535,7 +21535,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -21548,7 +21548,7 @@ module Azure::ServiceFabric::V6_2_0_9
             result_mapper = Azure::ServiceFabric::V6_2_0_9::Models::PartitionQuorumLossProgress.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -21689,7 +21689,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           skip_encoding_path_params: {'serviceId' => service_id,'partitionId' => partition_id},
           query_params: {'api-version' => api_version,'OperationId' => operation_id,'RestartPartitionMode' => restart_partition_mode,'timeout' => timeout},
           headers: request_headers.merge(custom_headers || {}),
@@ -21703,7 +21703,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 202
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -21823,7 +21823,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           skip_encoding_path_params: {'serviceId' => service_id,'partitionId' => partition_id},
           query_params: {'api-version' => api_version,'OperationId' => operation_id,'timeout' => timeout},
           headers: request_headers.merge(custom_headers || {}),
@@ -21837,7 +21837,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -21850,7 +21850,7 @@ module Azure::ServiceFabric::V6_2_0_9
             result_mapper = Azure::ServiceFabric::V6_2_0_9::Models::PartitionRestartProgress.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -21990,7 +21990,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'nodeName' => node_name},
           query_params: {'api-version' => api_version,'OperationId' => operation_id,'NodeTransitionType' => node_transition_type,'NodeInstanceId' => node_instance_id,'StopDurationInSeconds' => stop_duration_in_seconds,'timeout' => timeout},
           headers: request_headers.merge(custom_headers || {}),
@@ -22004,7 +22004,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 202
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -22099,7 +22099,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'nodeName' => node_name},
           query_params: {'api-version' => api_version,'OperationId' => operation_id,'timeout' => timeout},
           headers: request_headers.merge(custom_headers || {}),
@@ -22113,7 +22113,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -22126,7 +22126,7 @@ module Azure::ServiceFabric::V6_2_0_9
             result_mapper = Azure::ServiceFabric::V6_2_0_9::Models::NodeTransitionProgress.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -22254,7 +22254,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           query_params: {'api-version' => api_version,'TypeFilter' => type_filter,'StateFilter' => state_filter,'timeout' => timeout},
           headers: request_headers.merge(custom_headers || {}),
           base_url: request_url
@@ -22267,7 +22267,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -22296,7 +22296,7 @@ module Azure::ServiceFabric::V6_2_0_9
             }
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -22462,7 +22462,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           query_params: {'api-version' => api_version,'OperationId' => operation_id,'Force' => force,'timeout' => timeout},
           headers: request_headers.merge(custom_headers || {}),
           base_url: request_url
@@ -22475,7 +22475,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -22571,7 +22571,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           query_params: {'api-version' => api_version,'timeout' => timeout},
           body: request_content,
           headers: request_headers.merge(custom_headers || {}),
@@ -22585,7 +22585,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 201
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -22678,7 +22678,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'backupPolicyName' => backup_policy_name},
           query_params: {'api-version' => api_version,'timeout' => timeout},
           headers: request_headers.merge(custom_headers || {}),
@@ -22692,7 +22692,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -22816,7 +22816,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           query_params: {'api-version' => api_version,'MaxResults' => max_results,'timeout' => timeout},
           skip_encoding_query_params: {'ContinuationToken' => continuation_token},
           headers: request_headers.merge(custom_headers || {}),
@@ -22830,7 +22830,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -22843,7 +22843,7 @@ module Azure::ServiceFabric::V6_2_0_9
             result_mapper = Azure::ServiceFabric::V6_2_0_9::Models::PagedBackupPolicyDescriptionList.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -22925,7 +22925,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'backupPolicyName' => backup_policy_name},
           query_params: {'api-version' => api_version,'timeout' => timeout},
           headers: request_headers.merge(custom_headers || {}),
@@ -22939,7 +22939,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -22952,7 +22952,7 @@ module Azure::ServiceFabric::V6_2_0_9
             result_mapper = Azure::ServiceFabric::V6_2_0_9::Models::BackupPolicyDescription.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -23080,7 +23080,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'backupPolicyName' => backup_policy_name},
           query_params: {'api-version' => api_version,'MaxResults' => max_results,'timeout' => timeout},
           skip_encoding_query_params: {'ContinuationToken' => continuation_token},
@@ -23095,7 +23095,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -23108,7 +23108,7 @@ module Azure::ServiceFabric::V6_2_0_9
             result_mapper = Azure::ServiceFabric::V6_2_0_9::Models::PagedBackupEntityList.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -23202,7 +23202,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'backupPolicyName' => backup_policy_name},
           query_params: {'api-version' => api_version,'timeout' => timeout},
           body: request_content,
@@ -23217,7 +23217,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -23344,7 +23344,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           skip_encoding_path_params: {'applicationId' => application_id},
           query_params: {'api-version' => api_version,'timeout' => timeout},
           body: request_content,
@@ -23359,7 +23359,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 202
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -23461,7 +23461,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           skip_encoding_path_params: {'applicationId' => application_id},
           query_params: {'api-version' => api_version,'timeout' => timeout},
           headers: request_headers.merge(custom_headers || {}),
@@ -23475,7 +23475,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 202
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -23621,7 +23621,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           skip_encoding_path_params: {'applicationId' => application_id},
           query_params: {'api-version' => api_version,'MaxResults' => max_results,'timeout' => timeout},
           skip_encoding_query_params: {'ContinuationToken' => continuation_token},
@@ -23636,7 +23636,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -23649,7 +23649,7 @@ module Azure::ServiceFabric::V6_2_0_9
             result_mapper = Azure::ServiceFabric::V6_2_0_9::Models::PagedBackupConfigurationInfoList.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -23831,7 +23831,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           skip_encoding_path_params: {'applicationId' => application_id},
           query_params: {'api-version' => api_version,'timeout' => timeout,'Latest' => latest,'StartDateTimeFilter' => start_date_time_filter,'EndDateTimeFilter' => end_date_time_filter,'MaxResults' => max_results},
           skip_encoding_query_params: {'ContinuationToken' => continuation_token},
@@ -23846,7 +23846,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -23859,7 +23859,7 @@ module Azure::ServiceFabric::V6_2_0_9
             result_mapper = Azure::ServiceFabric::V6_2_0_9::Models::PagedBackupInfoList.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -23964,7 +23964,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           skip_encoding_path_params: {'applicationId' => application_id},
           query_params: {'api-version' => api_version,'timeout' => timeout},
           headers: request_headers.merge(custom_headers || {}),
@@ -23978,7 +23978,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 202
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -24083,7 +24083,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           skip_encoding_path_params: {'applicationId' => application_id},
           query_params: {'api-version' => api_version,'timeout' => timeout},
           headers: request_headers.merge(custom_headers || {}),
@@ -24097,7 +24097,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 202
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -24236,7 +24236,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           skip_encoding_path_params: {'serviceId' => service_id},
           query_params: {'api-version' => api_version,'timeout' => timeout},
           body: request_content,
@@ -24251,7 +24251,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 202
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -24368,7 +24368,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           skip_encoding_path_params: {'serviceId' => service_id},
           query_params: {'api-version' => api_version,'timeout' => timeout},
           headers: request_headers.merge(custom_headers || {}),
@@ -24382,7 +24382,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 202
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -24531,7 +24531,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           skip_encoding_path_params: {'serviceId' => service_id},
           query_params: {'api-version' => api_version,'MaxResults' => max_results,'timeout' => timeout},
           skip_encoding_query_params: {'ContinuationToken' => continuation_token},
@@ -24546,7 +24546,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -24559,7 +24559,7 @@ module Azure::ServiceFabric::V6_2_0_9
             result_mapper = Azure::ServiceFabric::V6_2_0_9::Models::PagedBackupConfigurationInfoList.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -24744,7 +24744,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           skip_encoding_path_params: {'serviceId' => service_id},
           query_params: {'api-version' => api_version,'timeout' => timeout,'Latest' => latest,'StartDateTimeFilter' => start_date_time_filter,'EndDateTimeFilter' => end_date_time_filter,'MaxResults' => max_results},
           skip_encoding_query_params: {'ContinuationToken' => continuation_token},
@@ -24759,7 +24759,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -24772,7 +24772,7 @@ module Azure::ServiceFabric::V6_2_0_9
             result_mapper = Azure::ServiceFabric::V6_2_0_9::Models::PagedBackupInfoList.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -24880,7 +24880,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           skip_encoding_path_params: {'serviceId' => service_id},
           query_params: {'api-version' => api_version,'timeout' => timeout},
           headers: request_headers.merge(custom_headers || {}),
@@ -24894,7 +24894,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 202
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -25002,7 +25002,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           skip_encoding_path_params: {'serviceId' => service_id},
           query_params: {'api-version' => api_version,'timeout' => timeout},
           headers: request_headers.merge(custom_headers || {}),
@@ -25016,7 +25016,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 202
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -25131,7 +25131,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           skip_encoding_path_params: {'partitionId' => partition_id},
           query_params: {'api-version' => api_version,'timeout' => timeout},
           body: request_content,
@@ -25146,7 +25146,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 202
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -25245,7 +25245,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           skip_encoding_path_params: {'partitionId' => partition_id},
           query_params: {'api-version' => api_version,'timeout' => timeout},
           headers: request_headers.merge(custom_headers || {}),
@@ -25259,7 +25259,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 202
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -25347,7 +25347,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           skip_encoding_path_params: {'partitionId' => partition_id},
           query_params: {'api-version' => api_version,'timeout' => timeout},
           headers: request_headers.merge(custom_headers || {}),
@@ -25361,7 +25361,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -25374,7 +25374,7 @@ module Azure::ServiceFabric::V6_2_0_9
             result_mapper = Azure::ServiceFabric::V6_2_0_9::Models::PartitionBackupConfigurationInfo.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -25495,7 +25495,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           skip_encoding_path_params: {'partitionId' => partition_id},
           query_params: {'api-version' => api_version,'timeout' => timeout,'Latest' => latest,'StartDateTimeFilter' => start_date_time_filter,'EndDateTimeFilter' => end_date_time_filter},
           headers: request_headers.merge(custom_headers || {}),
@@ -25509,7 +25509,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -25522,7 +25522,7 @@ module Azure::ServiceFabric::V6_2_0_9
             result_mapper = Azure::ServiceFabric::V6_2_0_9::Models::PagedBackupInfoList.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -25606,7 +25606,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           skip_encoding_path_params: {'partitionId' => partition_id},
           query_params: {'api-version' => api_version,'timeout' => timeout},
           headers: request_headers.merge(custom_headers || {}),
@@ -25620,7 +25620,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 202
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -25707,7 +25707,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           skip_encoding_path_params: {'partitionId' => partition_id},
           query_params: {'api-version' => api_version,'timeout' => timeout},
           headers: request_headers.merge(custom_headers || {}),
@@ -25721,7 +25721,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 202
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -25865,7 +25865,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           skip_encoding_path_params: {'partitionId' => partition_id},
           query_params: {'BackupTimeout' => backup_timeout,'api-version' => api_version,'timeout' => timeout},
           body: request_content,
@@ -25880,7 +25880,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 202
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -25968,7 +25968,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           skip_encoding_path_params: {'partitionId' => partition_id},
           query_params: {'api-version' => api_version,'timeout' => timeout},
           headers: request_headers.merge(custom_headers || {}),
@@ -25982,7 +25982,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -25995,7 +25995,7 @@ module Azure::ServiceFabric::V6_2_0_9
             result_mapper = Azure::ServiceFabric::V6_2_0_9::Models::BackupProgressInfo.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -26137,7 +26137,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           skip_encoding_path_params: {'partitionId' => partition_id},
           query_params: {'RestoreTimeout' => restore_timeout,'api-version' => api_version,'timeout' => timeout},
           body: request_content,
@@ -26152,7 +26152,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 202
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -26240,7 +26240,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           skip_encoding_path_params: {'partitionId' => partition_id},
           query_params: {'api-version' => api_version,'timeout' => timeout},
           headers: request_headers.merge(custom_headers || {}),
@@ -26254,7 +26254,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -26267,7 +26267,7 @@ module Azure::ServiceFabric::V6_2_0_9
             result_mapper = Azure::ServiceFabric::V6_2_0_9::Models::RestoreProgressInfo.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -26413,7 +26413,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           query_params: {'api-version' => api_version,'timeout' => timeout,'MaxResults' => max_results},
           skip_encoding_query_params: {'ContinuationToken' => continuation_token},
           body: request_content,
@@ -26428,7 +26428,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -26441,7 +26441,7 @@ module Azure::ServiceFabric::V6_2_0_9
             result_mapper = Azure::ServiceFabric::V6_2_0_9::Models::PagedBackupInfoList.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -26531,7 +26531,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           query_params: {'api-version' => api_version,'timeout' => timeout},
           body: request_content,
           headers: request_headers.merge(custom_headers || {}),
@@ -26545,7 +26545,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 201
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -26632,7 +26632,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           skip_encoding_path_params: {'nameId' => name_id},
           query_params: {'api-version' => api_version,'timeout' => timeout},
           headers: request_headers.merge(custom_headers || {}),
@@ -26646,7 +26646,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -26736,7 +26736,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           skip_encoding_path_params: {'nameId' => name_id},
           query_params: {'api-version' => api_version,'timeout' => timeout},
           headers: request_headers.merge(custom_headers || {}),
@@ -26750,7 +26750,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -26874,7 +26874,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           skip_encoding_path_params: {'nameId' => name_id},
           query_params: {'api-version' => api_version,'Recursive' => recursive,'timeout' => timeout},
           skip_encoding_query_params: {'ContinuationToken' => continuation_token},
@@ -26889,7 +26889,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -26902,7 +26902,7 @@ module Azure::ServiceFabric::V6_2_0_9
             result_mapper = Azure::ServiceFabric::V6_2_0_9::Models::PagedSubNameInfoList.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -27026,7 +27026,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           skip_encoding_path_params: {'nameId' => name_id},
           query_params: {'api-version' => api_version,'IncludeValues' => include_values,'timeout' => timeout},
           skip_encoding_query_params: {'ContinuationToken' => continuation_token},
@@ -27041,7 +27041,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -27054,7 +27054,7 @@ module Azure::ServiceFabric::V6_2_0_9
             result_mapper = Azure::ServiceFabric::V6_2_0_9::Models::PagedPropertyInfoList.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -27151,7 +27151,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           skip_encoding_path_params: {'nameId' => name_id},
           query_params: {'api-version' => api_version,'timeout' => timeout},
           body: request_content,
@@ -27166,7 +27166,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -27261,7 +27261,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           skip_encoding_path_params: {'nameId' => name_id},
           query_params: {'api-version' => api_version,'PropertyName' => property_name,'timeout' => timeout},
           headers: request_headers.merge(custom_headers || {}),
@@ -27275,7 +27275,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -27288,7 +27288,7 @@ module Azure::ServiceFabric::V6_2_0_9
             result_mapper = Azure::ServiceFabric::V6_2_0_9::Models::PropertyInfo.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -27379,7 +27379,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           skip_encoding_path_params: {'nameId' => name_id},
           query_params: {'api-version' => api_version,'PropertyName' => property_name,'timeout' => timeout},
           headers: request_headers.merge(custom_headers || {}),
@@ -27393,7 +27393,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -27497,7 +27497,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           skip_encoding_path_params: {'nameId' => name_id},
           query_params: {'api-version' => api_version,'timeout' => timeout},
           body: request_content,
@@ -27512,7 +27512,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 200 || status_code == 409
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -27525,7 +27525,7 @@ module Azure::ServiceFabric::V6_2_0_9
             result_mapper = Azure::ServiceFabric::V6_2_0_9::Models::SuccessfulPropertyBatchInfo.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
         # Deserialize Response
@@ -27535,7 +27535,7 @@ module Azure::ServiceFabric::V6_2_0_9
             result_mapper = Azure::ServiceFabric::V6_2_0_9::Models::FailedPropertyBatchInfo.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -27654,7 +27654,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           query_params: {'api-version' => api_version,'timeout' => timeout,'StartTimeUtc' => start_time_utc,'EndTimeUtc' => end_time_utc,'EventsTypesFilter' => events_types_filter,'ExcludeAnalysisEvents' => exclude_analysis_events,'SkipCorrelationLookup' => skip_correlation_lookup},
           headers: request_headers.merge(custom_headers || {}),
           base_url: request_url
@@ -27667,7 +27667,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -27696,7 +27696,7 @@ module Azure::ServiceFabric::V6_2_0_9
             }
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -27815,7 +27815,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           query_params: {'api-version' => api_version,'timeout' => timeout,'StartTimeUtc' => start_time_utc,'EndTimeUtc' => end_time_utc,'EventsTypesFilter' => events_types_filter,'ExcludeAnalysisEvents' => exclude_analysis_events,'SkipCorrelationLookup' => skip_correlation_lookup},
           headers: request_headers.merge(custom_headers || {}),
           base_url: request_url
@@ -27828,7 +27828,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -27857,7 +27857,7 @@ module Azure::ServiceFabric::V6_2_0_9
             }
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -27980,7 +27980,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'nodeName' => node_name},
           query_params: {'api-version' => api_version,'timeout' => timeout,'StartTimeUtc' => start_time_utc,'EndTimeUtc' => end_time_utc,'EventsTypesFilter' => events_types_filter,'ExcludeAnalysisEvents' => exclude_analysis_events,'SkipCorrelationLookup' => skip_correlation_lookup},
           headers: request_headers.merge(custom_headers || {}),
@@ -27994,7 +27994,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -28023,7 +28023,7 @@ module Azure::ServiceFabric::V6_2_0_9
             }
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -28142,7 +28142,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           query_params: {'api-version' => api_version,'timeout' => timeout,'StartTimeUtc' => start_time_utc,'EndTimeUtc' => end_time_utc,'EventsTypesFilter' => events_types_filter,'ExcludeAnalysisEvents' => exclude_analysis_events,'SkipCorrelationLookup' => skip_correlation_lookup},
           headers: request_headers.merge(custom_headers || {}),
           base_url: request_url
@@ -28155,7 +28155,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -28184,7 +28184,7 @@ module Azure::ServiceFabric::V6_2_0_9
             }
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -28322,7 +28322,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           skip_encoding_path_params: {'applicationId' => application_id},
           query_params: {'api-version' => api_version,'timeout' => timeout,'StartTimeUtc' => start_time_utc,'EndTimeUtc' => end_time_utc,'EventsTypesFilter' => events_types_filter,'ExcludeAnalysisEvents' => exclude_analysis_events,'SkipCorrelationLookup' => skip_correlation_lookup},
           headers: request_headers.merge(custom_headers || {}),
@@ -28336,7 +28336,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -28365,7 +28365,7 @@ module Azure::ServiceFabric::V6_2_0_9
             }
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -28484,7 +28484,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           query_params: {'api-version' => api_version,'timeout' => timeout,'StartTimeUtc' => start_time_utc,'EndTimeUtc' => end_time_utc,'EventsTypesFilter' => events_types_filter,'ExcludeAnalysisEvents' => exclude_analysis_events,'SkipCorrelationLookup' => skip_correlation_lookup},
           headers: request_headers.merge(custom_headers || {}),
           base_url: request_url
@@ -28497,7 +28497,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -28526,7 +28526,7 @@ module Azure::ServiceFabric::V6_2_0_9
             }
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -28667,7 +28667,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           skip_encoding_path_params: {'serviceId' => service_id},
           query_params: {'api-version' => api_version,'timeout' => timeout,'StartTimeUtc' => start_time_utc,'EndTimeUtc' => end_time_utc,'EventsTypesFilter' => events_types_filter,'ExcludeAnalysisEvents' => exclude_analysis_events,'SkipCorrelationLookup' => skip_correlation_lookup},
           headers: request_headers.merge(custom_headers || {}),
@@ -28681,7 +28681,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -28710,7 +28710,7 @@ module Azure::ServiceFabric::V6_2_0_9
             }
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -28829,7 +28829,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           query_params: {'api-version' => api_version,'timeout' => timeout,'StartTimeUtc' => start_time_utc,'EndTimeUtc' => end_time_utc,'EventsTypesFilter' => events_types_filter,'ExcludeAnalysisEvents' => exclude_analysis_events,'SkipCorrelationLookup' => skip_correlation_lookup},
           headers: request_headers.merge(custom_headers || {}),
           base_url: request_url
@@ -28842,7 +28842,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -28871,7 +28871,7 @@ module Azure::ServiceFabric::V6_2_0_9
             }
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -28994,7 +28994,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           skip_encoding_path_params: {'partitionId' => partition_id},
           query_params: {'api-version' => api_version,'timeout' => timeout,'StartTimeUtc' => start_time_utc,'EndTimeUtc' => end_time_utc,'EventsTypesFilter' => events_types_filter,'ExcludeAnalysisEvents' => exclude_analysis_events,'SkipCorrelationLookup' => skip_correlation_lookup},
           headers: request_headers.merge(custom_headers || {}),
@@ -29008,7 +29008,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -29037,7 +29037,7 @@ module Azure::ServiceFabric::V6_2_0_9
             }
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -29156,7 +29156,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           query_params: {'api-version' => api_version,'timeout' => timeout,'StartTimeUtc' => start_time_utc,'EndTimeUtc' => end_time_utc,'EventsTypesFilter' => events_types_filter,'ExcludeAnalysisEvents' => exclude_analysis_events,'SkipCorrelationLookup' => skip_correlation_lookup},
           headers: request_headers.merge(custom_headers || {}),
           base_url: request_url
@@ -29169,7 +29169,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -29198,7 +29198,7 @@ module Azure::ServiceFabric::V6_2_0_9
             }
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -29325,7 +29325,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           skip_encoding_path_params: {'partitionId' => partition_id,'replicaId' => replica_id},
           query_params: {'api-version' => api_version,'timeout' => timeout,'StartTimeUtc' => start_time_utc,'EndTimeUtc' => end_time_utc,'EventsTypesFilter' => events_types_filter,'ExcludeAnalysisEvents' => exclude_analysis_events,'SkipCorrelationLookup' => skip_correlation_lookup},
           headers: request_headers.merge(custom_headers || {}),
@@ -29339,7 +29339,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -29368,7 +29368,7 @@ module Azure::ServiceFabric::V6_2_0_9
             }
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -29491,7 +29491,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           skip_encoding_path_params: {'partitionId' => partition_id},
           query_params: {'api-version' => api_version,'timeout' => timeout,'StartTimeUtc' => start_time_utc,'EndTimeUtc' => end_time_utc,'EventsTypesFilter' => events_types_filter,'ExcludeAnalysisEvents' => exclude_analysis_events,'SkipCorrelationLookup' => skip_correlation_lookup},
           headers: request_headers.merge(custom_headers || {}),
@@ -29505,7 +29505,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -29534,7 +29534,7 @@ module Azure::ServiceFabric::V6_2_0_9
             }
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -29616,7 +29616,7 @@ module Azure::ServiceFabric::V6_2_0_9
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'eventInstanceId' => event_instance_id},
           query_params: {'api-version' => api_version,'timeout' => timeout},
           headers: request_headers.merge(custom_headers || {}),
@@ -29630,7 +29630,7 @@ module Azure::ServiceFabric::V6_2_0_9
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -29661,7 +29661,7 @@ module Azure::ServiceFabric::V6_2_0_9
             }
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 

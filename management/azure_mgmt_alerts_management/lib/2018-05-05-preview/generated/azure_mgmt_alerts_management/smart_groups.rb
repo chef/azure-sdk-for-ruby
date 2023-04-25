@@ -133,7 +133,7 @@ module Azure::AlertsManagement::Mgmt::V2018_05_05_preview
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'subscriptionId' => @client.subscription_id},
           query_params: {'targetResource' => target_resource,'targetResourceGroup' => target_resource_group,'targetResourceType' => target_resource_type,'monitorService' => @client.monitor_service,'monitorCondition' => monitor_condition,'severity' => severity,'smartGroupState' => smart_group_state,'timeRange' => time_range,'pageCount' => page_count,'sortBy' => sort_by,'sortOrder' => sort_order,'api-version' => @client.api_version},
           headers: request_headers.merge(custom_headers || {}),
@@ -147,7 +147,7 @@ module Azure::AlertsManagement::Mgmt::V2018_05_05_preview
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -160,7 +160,7 @@ module Azure::AlertsManagement::Mgmt::V2018_05_05_preview
             result_mapper = Azure::AlertsManagement::Mgmt::V2018_05_05_preview::Models::SmartGroupsList.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -229,7 +229,7 @@ module Azure::AlertsManagement::Mgmt::V2018_05_05_preview
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'subscriptionId' => @client.subscription_id,'smartGroupId' => smart_group_id},
           query_params: {'api-version' => @client.api_version},
           headers: request_headers.merge(custom_headers || {}),
@@ -243,7 +243,7 @@ module Azure::AlertsManagement::Mgmt::V2018_05_05_preview
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -256,7 +256,7 @@ module Azure::AlertsManagement::Mgmt::V2018_05_05_preview
             result_mapper = Azure::AlertsManagement::Mgmt::V2018_05_05_preview::Models::SmartGroup.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -329,7 +329,7 @@ module Azure::AlertsManagement::Mgmt::V2018_05_05_preview
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'subscriptionId' => @client.subscription_id,'smartGroupId' => smart_group_id},
           query_params: {'api-version' => @client.api_version,'newState' => new_state},
           headers: request_headers.merge(custom_headers || {}),
@@ -343,7 +343,7 @@ module Azure::AlertsManagement::Mgmt::V2018_05_05_preview
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -356,7 +356,7 @@ module Azure::AlertsManagement::Mgmt::V2018_05_05_preview
             result_mapper = Azure::AlertsManagement::Mgmt::V2018_05_05_preview::Models::SmartGroup.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -419,7 +419,7 @@ module Azure::AlertsManagement::Mgmt::V2018_05_05_preview
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'subscriptionId' => @client.subscription_id,'smartGroupId' => smart_group_id},
           query_params: {'api-version' => @client.api_version},
           headers: request_headers.merge(custom_headers || {}),
@@ -433,7 +433,7 @@ module Azure::AlertsManagement::Mgmt::V2018_05_05_preview
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -446,7 +446,7 @@ module Azure::AlertsManagement::Mgmt::V2018_05_05_preview
             result_mapper = Azure::AlertsManagement::Mgmt::V2018_05_05_preview::Models::SmartGroupModification.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 

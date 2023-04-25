@@ -3,14 +3,14 @@
 # Changes may cause incorrect behavior and will be lost if the code is
 # regenerated.
 
-module Azure::Network::Mgmt::V2015_05_01_preview
+module Azure::Network2::Mgmt::V2015_05_01_preview
   module Models
     #
     # A common class for general resource information
     #
     class VirtualNetworkGatewayConnection < Resource
 
-      include MsRestAzure
+      include MsRestAzure2
 
       # @return [VirtualNetworkGateway]
       attr_accessor :virtual_network_gateway1

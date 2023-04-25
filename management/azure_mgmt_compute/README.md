@@ -43,7 +43,7 @@ provider = MsRestAzure::ApplicationTokenProvider.new(
        'YOUR TENANT ID',
        'YOUR CLIENT ID',
        'YOUR CLIENT SECRET')
-credentials = MsRest::TokenCredentials.new(provider)
+credentials = MsRest2::TokenCredentials.new(provider)
 
 options = {
   tenant_id: 'YOUR TENANT ID',
@@ -71,7 +71,7 @@ provider = MsRestAzure::ApplicationTokenProvider.new(
        ENV['AZURE_TENANT_ID'],
        ENV['AZURE_CLIENT_ID'],
        ENV['AZURE_CLIENT_SECRET'])
-credentials = MsRest::TokenCredentials.new(provider)
+credentials = MsRest2::TokenCredentials.new(provider)
 
 client = ComputeManagementClient.new(credentials)
 client.subscription_id = ENV['AZURE_SUBSCRIPTION_ID']

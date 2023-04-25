@@ -5,13 +5,13 @@
 require 'profiles/v2017_03_09/network_module_definition'
 require 'profiles/v2017_03_09/modules/network_profile_module'
 
-module Azure::Network::Profiles::V2017_03_09
+module Azure::Network2::Profiles::V2017_03_09
   module Mgmt
     #
     # Client class for the V2017_03_09 profile SDK.
     #
     class Client < NetworkManagementClass
-      include MsRestAzure::Common::Configurable
+      include MsRestAzure2::Common::Configurable
 
       #
       # Initializes a new instance of the Client class.
@@ -27,7 +27,7 @@ module Azure::Network::Profiles::V2017_03_09
       #      options: options
       #    }
       #   'credentials' are optional and if not passed in the hash, will be obtained
-      #   from MsRest::TokenCredentials using MsRestAzure::ApplicationTokenProvider.
+      #   from MsRest2::TokenCredentials using MsRestAzure2::ApplicationTokenProvider.
       #
       #   Also, base_url, active_directory_settings & options are optional.
       #

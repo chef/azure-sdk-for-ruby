@@ -3,7 +3,7 @@
 # Changes may cause incorrect behavior and will be lost if the code is
 # regenerated.
 
-module Azure::Network::Mgmt::V2015_05_01_preview
+module Azure::Network2::Mgmt::V2015_05_01_preview
   module Models
     #
     # Response for ListRoutesTable associated with the Express Route Circuits
@@ -11,9 +11,9 @@ module Azure::Network::Mgmt::V2015_05_01_preview
     #
     class ExpressRouteCircuitsRoutesTableListResult
 
-      include MsRestAzure
+      include MsRestAzure2
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<ExpressRouteCircuitRoutesTable>] Gets List of
       # RoutesTable
       attr_accessor :value

@@ -3,9 +3,9 @@
 # Licensed under the MIT License. See License.txt in the project root for license information.
 
 require 'rspec'
-require 'ms_rest_azure'
+require 'ms_rest_azure2'
 
-module MsRestAzure
+module MsRestAzure2
 
   describe MSITokenProvider do
     it 'should throw error if nil data is passed into constructor' do
@@ -13,7 +13,7 @@ module MsRestAzure
     end
 
     it 'should set defaults for managed service identity' do
-      azure_cloud = MsRestAzure::AzureEnvironments::AzureCloud
+      azure_cloud = MsRestAzure2::AzureEnvironments::AzureCloud
 
       token_provider = MSITokenProvider.new
       token_expires_on = token_provider.token_expires_on

@@ -12,7 +12,7 @@ module Azure::DevTestLabs::Mgmt::V2016_05_15
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<LabVhd>] Results of the list operation.
       attr_accessor :value
 

@@ -12,7 +12,7 @@ module Azure::Compute::Mgmt::V2019_03_01
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<Snapshot>] A list of snapshots.
       attr_accessor :value
 

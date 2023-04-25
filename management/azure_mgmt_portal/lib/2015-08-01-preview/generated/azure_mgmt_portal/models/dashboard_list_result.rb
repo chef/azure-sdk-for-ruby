@@ -12,7 +12,7 @@ module Azure::Portal::Mgmt::V2015_08_01_preview
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<Dashboard>] The array of custom resource provider
       # manifests.
       attr_accessor :value

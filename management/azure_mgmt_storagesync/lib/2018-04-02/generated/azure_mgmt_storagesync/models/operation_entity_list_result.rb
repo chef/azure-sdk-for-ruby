@@ -12,7 +12,7 @@ module Azure::StorageSync::Mgmt::V2018_04_02
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [String] The link used to get the next page of operations.
       attr_accessor :next_link
 

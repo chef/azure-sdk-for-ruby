@@ -3,14 +3,14 @@
 # Changes may cause incorrect behavior and will be lost if the code is
 # regenerated.
 
-module Azure::Network::Mgmt::V2015_05_01_preview
+module Azure::Network2::Mgmt::V2015_05_01_preview
   module Models
     #
     # Outbound NAT pool of the loadbalancer
     #
     class OutboundNatRule < SubResource
 
-      include MsRestAzure
+      include MsRestAzure2
 
       # @return [Integer] Gets or sets the number of outbound ports to be used
       # for SNAT
