@@ -13,7 +13,7 @@ module Azure::Billing::Mgmt::V2018_03_01_preview
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<Operation>] List of billing operations supported by the
       # Microsoft.Billing resource provider.
       attr_accessor :value

@@ -12,7 +12,7 @@ module Azure::BatchAI::Mgmt::V2018_03_01
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<Cluster>] The collection of returned Clusters.
       attr_accessor :value
 

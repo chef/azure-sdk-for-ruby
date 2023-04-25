@@ -12,7 +12,7 @@ module Azure::ApiManagement::Mgmt::V2019_12_01
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<UserIdentityContract>] User Identity values.
       attr_accessor :value
 

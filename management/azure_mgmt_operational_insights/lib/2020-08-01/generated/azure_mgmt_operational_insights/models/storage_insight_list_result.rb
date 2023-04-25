@@ -12,7 +12,7 @@ module Azure::OperationalInsights::Mgmt::V2020_08_01
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<StorageInsight>] A list of storage insight items.
       attr_accessor :value
 

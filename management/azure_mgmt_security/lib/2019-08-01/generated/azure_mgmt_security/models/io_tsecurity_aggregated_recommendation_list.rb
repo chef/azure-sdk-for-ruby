@@ -12,7 +12,7 @@ module Azure::Security::Mgmt::V2019_08_01
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<IoTSecurityAggregatedRecommendation>] List of aggregated
       # recommendations data.
       attr_accessor :value

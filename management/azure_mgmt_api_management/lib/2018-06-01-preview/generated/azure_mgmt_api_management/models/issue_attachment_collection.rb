@@ -12,7 +12,7 @@ module Azure::ApiManagement::Mgmt::V2018_06_01_preview
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<IssueAttachmentContract>] Issue Attachment values.
       attr_accessor :value
 

@@ -12,7 +12,7 @@ module Azure::MediaServices::Mgmt::V2020_05_01
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<LiveOutput>] The result of the List LiveOutput
       # operation.
       attr_accessor :value

@@ -12,7 +12,7 @@ module Azure::Compute::Mgmt::V2020_06_01
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<VirtualMachineRunCommand>] The list of run commands
       attr_accessor :value
 

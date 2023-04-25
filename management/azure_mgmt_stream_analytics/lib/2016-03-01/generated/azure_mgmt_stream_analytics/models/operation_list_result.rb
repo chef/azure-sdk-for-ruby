@@ -13,7 +13,7 @@ module Azure::StreamAnalytics::Mgmt::V2016_03_01
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<Operation>] List of Stream Analytics operations
       # supported by the Microsoft.StreamAnalytics resource provider.
       attr_accessor :value

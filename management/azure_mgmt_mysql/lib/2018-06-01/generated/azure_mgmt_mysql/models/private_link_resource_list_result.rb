@@ -12,7 +12,7 @@ module Azure::Mysql::Mgmt::V2018_06_01
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<PrivateLinkResource>] Array of results.
       attr_accessor :value
 

@@ -13,7 +13,7 @@ module Azure::AnalysisServices::Mgmt::V2017_08_01
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<Operation>] List of analysis services operations
       # supported by the Microsoft.AnalysisServices resource provider.
       attr_accessor :value

@@ -12,7 +12,7 @@ module Azure::ServiceFabric::Mgmt::V2018_02_01
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<OperationResult>] List of Service Fabric operations
       # supported by the Microsoft.ServiceFabric resource provider.
       attr_accessor :value

@@ -12,7 +12,7 @@ module Azure::Security::Mgmt::V2020_08_06_preview
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<Device>] List of devices
       attr_accessor :value
 

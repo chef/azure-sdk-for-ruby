@@ -90,7 +90,7 @@ module Azure::ADHybridHealthService::Mgmt::V2014_01_01
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'serviceName' => service_name,'metricName' => metric_name,'groupName' => group_name},
           query_params: {'groupKey' => group_key,'fromDate' => from_date,'toDate' => to_date,'api-version' => @client.api_version},
           headers: request_headers.merge(custom_headers || {}),
@@ -117,7 +117,7 @@ module Azure::ADHybridHealthService::Mgmt::V2014_01_01
             result_mapper = Azure::ADHybridHealthService::Mgmt::V2014_01_01::Models::MetricSets.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 

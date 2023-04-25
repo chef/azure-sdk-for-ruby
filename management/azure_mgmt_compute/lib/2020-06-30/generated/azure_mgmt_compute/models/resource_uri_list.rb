@@ -12,7 +12,7 @@ module Azure::Compute::Mgmt::V2020_06_30
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<String>] A list of IDs or Owner IDs of resources which
       # are encrypted with the disk encryption set.
       attr_accessor :value

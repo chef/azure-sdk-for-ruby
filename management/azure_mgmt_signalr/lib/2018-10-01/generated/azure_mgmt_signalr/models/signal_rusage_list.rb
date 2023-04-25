@@ -13,7 +13,7 @@ module Azure::Signalr::Mgmt::V2018_10_01
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<SignalRUsage>] List of SignalR usages
       attr_accessor :value
 

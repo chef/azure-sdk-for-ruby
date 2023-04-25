@@ -12,7 +12,7 @@ module Azure::KeyVault::Mgmt::V2015_06_01
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<Resource>] Gets the list of vault resources.
       attr_accessor :value
 

@@ -12,7 +12,7 @@ module Azure::KeyVault::V7_1_preview
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<DeletedCertificateItem>] A response message containing a
       # list of deleted certificates in the vault along with a link to the next
       # page of deleted certificates

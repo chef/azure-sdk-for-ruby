@@ -12,7 +12,7 @@ module Azure::Relay::Mgmt::V2017_04_01
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<HybridConnection>] Result of the list hybrid
       # connections.
       attr_accessor :value

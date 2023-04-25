@@ -97,7 +97,7 @@ module Azure::RecoveryServicesBackup::Mgmt::V2019_05_13
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'vaultName' => vault_name,'resourceGroupName' => resource_group_name,'subscriptionId' => @client.subscription_id},
           query_params: {'api-version' => @client.api_version},
           body: request_content,
@@ -125,7 +125,7 @@ module Azure::RecoveryServicesBackup::Mgmt::V2019_05_13
             result_mapper = Azure::RecoveryServicesBackup::Mgmt::V2019_05_13::Models::ValidateOperationsResponse.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 

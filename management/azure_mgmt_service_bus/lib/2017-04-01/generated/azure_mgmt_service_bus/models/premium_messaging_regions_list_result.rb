@@ -12,7 +12,7 @@ module Azure::ServiceBus::Mgmt::V2017_04_01
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<PremiumMessagingRegions>] Result of the List
       # PremiumMessagingRegions type.
       attr_accessor :value

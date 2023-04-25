@@ -12,7 +12,7 @@ module Azure::IotCentral::Mgmt::V2017_07_01_privatepreview
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [String] The link used to get the next page of IoT Central
       # Applications.
       attr_accessor :next_link

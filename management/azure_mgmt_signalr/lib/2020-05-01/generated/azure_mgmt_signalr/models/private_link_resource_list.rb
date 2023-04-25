@@ -14,7 +14,7 @@ module Azure::Signalr::Mgmt::V2020_05_01
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<PrivateLinkResource>] List of PrivateLinkResource
       attr_accessor :value
 

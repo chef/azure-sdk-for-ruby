@@ -12,7 +12,7 @@ module Azure::CDN::Mgmt::V2020_04_15
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<ManagedRuleSetDefinition>] List of managed rule set
       # definitions.
       attr_accessor :value

@@ -12,7 +12,7 @@ module Azure::ContainerService::Mgmt::V2019_04_30
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<OpenShiftManagedCluster>] The list of OpenShift managed
       # clusters.
       attr_accessor :value

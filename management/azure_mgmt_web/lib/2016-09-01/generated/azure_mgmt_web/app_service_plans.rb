@@ -88,7 +88,7 @@ module Azure::Web::Mgmt::V2016_09_01
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'subscriptionId' => @client.subscription_id},
           query_params: {'detailed' => detailed,'api-version' => @client.api_version},
           headers: request_headers.merge(custom_headers || {}),
@@ -115,7 +115,7 @@ module Azure::Web::Mgmt::V2016_09_01
             result_mapper = Azure::Web::Mgmt::V2016_09_01::Models::AppServicePlanCollection.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -190,7 +190,7 @@ module Azure::Web::Mgmt::V2016_09_01
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'resourceGroupName' => resource_group_name,'subscriptionId' => @client.subscription_id},
           query_params: {'api-version' => @client.api_version},
           headers: request_headers.merge(custom_headers || {}),
@@ -217,7 +217,7 @@ module Azure::Web::Mgmt::V2016_09_01
             result_mapper = Azure::Web::Mgmt::V2016_09_01::Models::AppServicePlanCollection.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -296,7 +296,7 @@ module Azure::Web::Mgmt::V2016_09_01
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'resourceGroupName' => resource_group_name,'name' => name,'subscriptionId' => @client.subscription_id},
           query_params: {'api-version' => @client.api_version},
           headers: request_headers.merge(custom_headers || {}),
@@ -323,7 +323,7 @@ module Azure::Web::Mgmt::V2016_09_01
             result_mapper = Azure::Web::Mgmt::V2016_09_01::Models::AppServicePlan.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -449,7 +449,7 @@ module Azure::Web::Mgmt::V2016_09_01
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'resourceGroupName' => resource_group_name,'name' => name,'subscriptionId' => @client.subscription_id},
           query_params: {'api-version' => @client.api_version},
           headers: request_headers.merge(custom_headers || {}),
@@ -558,7 +558,7 @@ module Azure::Web::Mgmt::V2016_09_01
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'resourceGroupName' => resource_group_name,'name' => name,'subscriptionId' => @client.subscription_id},
           query_params: {'api-version' => @client.api_version},
           body: request_content,
@@ -586,7 +586,7 @@ module Azure::Web::Mgmt::V2016_09_01
             result_mapper = Azure::Web::Mgmt::V2016_09_01::Models::AppServicePlan.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
         # Deserialize Response
@@ -596,7 +596,7 @@ module Azure::Web::Mgmt::V2016_09_01
             result_mapper = Azure::Web::Mgmt::V2016_09_01::Models::AppServicePlan.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -675,7 +675,7 @@ module Azure::Web::Mgmt::V2016_09_01
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'resourceGroupName' => resource_group_name,'name' => name,'subscriptionId' => @client.subscription_id},
           query_params: {'api-version' => @client.api_version},
           headers: request_headers.merge(custom_headers || {}),
@@ -718,7 +718,7 @@ module Azure::Web::Mgmt::V2016_09_01
             }
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -805,7 +805,7 @@ module Azure::Web::Mgmt::V2016_09_01
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'resourceGroupName' => resource_group_name,'name' => name,'namespaceName' => namespace_name,'relayName' => relay_name,'subscriptionId' => @client.subscription_id},
           query_params: {'api-version' => @client.api_version},
           headers: request_headers.merge(custom_headers || {}),
@@ -832,7 +832,7 @@ module Azure::Web::Mgmt::V2016_09_01
             result_mapper = Azure::Web::Mgmt::V2016_09_01::Models::HybridConnection.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -918,7 +918,7 @@ module Azure::Web::Mgmt::V2016_09_01
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'resourceGroupName' => resource_group_name,'name' => name,'namespaceName' => namespace_name,'relayName' => relay_name,'subscriptionId' => @client.subscription_id},
           query_params: {'api-version' => @client.api_version},
           headers: request_headers.merge(custom_headers || {}),
@@ -1022,7 +1022,7 @@ module Azure::Web::Mgmt::V2016_09_01
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'resourceGroupName' => resource_group_name,'name' => name,'namespaceName' => namespace_name,'relayName' => relay_name,'subscriptionId' => @client.subscription_id},
           query_params: {'api-version' => @client.api_version},
           headers: request_headers.merge(custom_headers || {}),
@@ -1049,7 +1049,7 @@ module Azure::Web::Mgmt::V2016_09_01
             result_mapper = Azure::Web::Mgmt::V2016_09_01::Models::HybridConnectionKey.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -1136,7 +1136,7 @@ module Azure::Web::Mgmt::V2016_09_01
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'resourceGroupName' => resource_group_name,'name' => name,'namespaceName' => namespace_name,'relayName' => relay_name,'subscriptionId' => @client.subscription_id},
           query_params: {'api-version' => @client.api_version},
           headers: request_headers.merge(custom_headers || {}),
@@ -1163,7 +1163,7 @@ module Azure::Web::Mgmt::V2016_09_01
             result_mapper = Azure::Web::Mgmt::V2016_09_01::Models::ResourceCollection.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -1242,7 +1242,7 @@ module Azure::Web::Mgmt::V2016_09_01
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'resourceGroupName' => resource_group_name,'name' => name,'subscriptionId' => @client.subscription_id},
           query_params: {'api-version' => @client.api_version},
           headers: request_headers.merge(custom_headers || {}),
@@ -1269,7 +1269,7 @@ module Azure::Web::Mgmt::V2016_09_01
             result_mapper = Azure::Web::Mgmt::V2016_09_01::Models::HybridConnectionLimits.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -1348,7 +1348,7 @@ module Azure::Web::Mgmt::V2016_09_01
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'resourceGroupName' => resource_group_name,'name' => name,'subscriptionId' => @client.subscription_id},
           query_params: {'api-version' => @client.api_version},
           headers: request_headers.merge(custom_headers || {}),
@@ -1375,7 +1375,7 @@ module Azure::Web::Mgmt::V2016_09_01
             result_mapper = Azure::Web::Mgmt::V2016_09_01::Models::HybridConnectionCollection.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -1460,7 +1460,7 @@ module Azure::Web::Mgmt::V2016_09_01
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'resourceGroupName' => resource_group_name,'name' => name,'subscriptionId' => @client.subscription_id},
           query_params: {'api-version' => @client.api_version},
           headers: request_headers.merge(custom_headers || {}),
@@ -1487,7 +1487,7 @@ module Azure::Web::Mgmt::V2016_09_01
             result_mapper = Azure::Web::Mgmt::V2016_09_01::Models::ResourceMetricDefinitionCollection.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -1584,7 +1584,7 @@ module Azure::Web::Mgmt::V2016_09_01
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'resourceGroupName' => resource_group_name,'name' => name,'subscriptionId' => @client.subscription_id},
           query_params: {'details' => details,'api-version' => @client.api_version},
           skip_encoding_query_params: {'$filter' => filter},
@@ -1612,7 +1612,7 @@ module Azure::Web::Mgmt::V2016_09_01
             result_mapper = Azure::Web::Mgmt::V2016_09_01::Models::ResourceMetricCollection.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -1702,7 +1702,7 @@ module Azure::Web::Mgmt::V2016_09_01
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'resourceGroupName' => resource_group_name,'name' => name,'subscriptionId' => @client.subscription_id},
           query_params: {'softRestart' => soft_restart,'api-version' => @client.api_version},
           headers: request_headers.merge(custom_headers || {}),
@@ -1819,7 +1819,7 @@ module Azure::Web::Mgmt::V2016_09_01
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'resourceGroupName' => resource_group_name,'name' => name,'subscriptionId' => @client.subscription_id},
           query_params: {'$skipToken' => skip_token,'$top' => top,'api-version' => @client.api_version},
           skip_encoding_query_params: {'$filter' => filter},
@@ -1847,7 +1847,7 @@ module Azure::Web::Mgmt::V2016_09_01
             result_mapper = Azure::Web::Mgmt::V2016_09_01::Models::WebAppCollection.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -1926,7 +1926,7 @@ module Azure::Web::Mgmt::V2016_09_01
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'resourceGroupName' => resource_group_name,'name' => name,'subscriptionId' => @client.subscription_id},
           query_params: {'api-version' => @client.api_version},
           headers: request_headers.merge(custom_headers || {}),
@@ -2031,7 +2031,7 @@ module Azure::Web::Mgmt::V2016_09_01
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'resourceGroupName' => resource_group_name,'name' => name,'subscriptionId' => @client.subscription_id},
           query_params: {'api-version' => @client.api_version},
           skip_encoding_query_params: {'$filter' => filter},
@@ -2059,7 +2059,7 @@ module Azure::Web::Mgmt::V2016_09_01
             result_mapper = Azure::Web::Mgmt::V2016_09_01::Models::CsmUsageQuotaCollection.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -2138,7 +2138,7 @@ module Azure::Web::Mgmt::V2016_09_01
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'resourceGroupName' => resource_group_name,'name' => name,'subscriptionId' => @client.subscription_id},
           query_params: {'api-version' => @client.api_version},
           headers: request_headers.merge(custom_headers || {}),
@@ -2181,7 +2181,7 @@ module Azure::Web::Mgmt::V2016_09_01
             }
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -2264,7 +2264,7 @@ module Azure::Web::Mgmt::V2016_09_01
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'resourceGroupName' => resource_group_name,'name' => name,'vnetName' => vnet_name,'subscriptionId' => @client.subscription_id},
           query_params: {'api-version' => @client.api_version},
           headers: request_headers.merge(custom_headers || {}),
@@ -2291,7 +2291,7 @@ module Azure::Web::Mgmt::V2016_09_01
             result_mapper = Azure::Web::Mgmt::V2016_09_01::Models::VnetInfo.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -2381,7 +2381,7 @@ module Azure::Web::Mgmt::V2016_09_01
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'resourceGroupName' => resource_group_name,'name' => name,'vnetName' => vnet_name,'gatewayName' => gateway_name,'subscriptionId' => @client.subscription_id},
           query_params: {'api-version' => @client.api_version},
           headers: request_headers.merge(custom_headers || {}),
@@ -2408,7 +2408,7 @@ module Azure::Web::Mgmt::V2016_09_01
             result_mapper = Azure::Web::Mgmt::V2016_09_01::Models::VnetGateway.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -2508,7 +2508,7 @@ module Azure::Web::Mgmt::V2016_09_01
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'resourceGroupName' => resource_group_name,'name' => name,'vnetName' => vnet_name,'gatewayName' => gateway_name,'subscriptionId' => @client.subscription_id},
           query_params: {'api-version' => @client.api_version},
           body: request_content,
@@ -2536,7 +2536,7 @@ module Azure::Web::Mgmt::V2016_09_01
             result_mapper = Azure::Web::Mgmt::V2016_09_01::Models::VnetGateway.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -2625,7 +2625,7 @@ module Azure::Web::Mgmt::V2016_09_01
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'resourceGroupName' => resource_group_name,'name' => name,'vnetName' => vnet_name,'subscriptionId' => @client.subscription_id},
           query_params: {'api-version' => @client.api_version},
           headers: request_headers.merge(custom_headers || {}),
@@ -2668,7 +2668,7 @@ module Azure::Web::Mgmt::V2016_09_01
             }
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -2755,7 +2755,7 @@ module Azure::Web::Mgmt::V2016_09_01
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'resourceGroupName' => resource_group_name,'name' => name,'vnetName' => vnet_name,'routeName' => route_name,'subscriptionId' => @client.subscription_id},
           query_params: {'api-version' => @client.api_version},
           headers: request_headers.merge(custom_headers || {}),
@@ -2798,7 +2798,7 @@ module Azure::Web::Mgmt::V2016_09_01
             }
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -2895,7 +2895,7 @@ module Azure::Web::Mgmt::V2016_09_01
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'resourceGroupName' => resource_group_name,'name' => name,'vnetName' => vnet_name,'routeName' => route_name,'subscriptionId' => @client.subscription_id},
           query_params: {'api-version' => @client.api_version},
           body: request_content,
@@ -2923,7 +2923,7 @@ module Azure::Web::Mgmt::V2016_09_01
             result_mapper = Azure::Web::Mgmt::V2016_09_01::Models::VnetRoute.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -3009,7 +3009,7 @@ module Azure::Web::Mgmt::V2016_09_01
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'resourceGroupName' => resource_group_name,'name' => name,'vnetName' => vnet_name,'routeName' => route_name,'subscriptionId' => @client.subscription_id},
           query_params: {'api-version' => @client.api_version},
           headers: request_headers.merge(custom_headers || {}),
@@ -3123,7 +3123,7 @@ module Azure::Web::Mgmt::V2016_09_01
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'resourceGroupName' => resource_group_name,'name' => name,'vnetName' => vnet_name,'routeName' => route_name,'subscriptionId' => @client.subscription_id},
           query_params: {'api-version' => @client.api_version},
           body: request_content,
@@ -3151,7 +3151,7 @@ module Azure::Web::Mgmt::V2016_09_01
             result_mapper = Azure::Web::Mgmt::V2016_09_01::Models::VnetRoute.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -3236,7 +3236,7 @@ module Azure::Web::Mgmt::V2016_09_01
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'resourceGroupName' => resource_group_name,'name' => name,'workerName' => worker_name,'subscriptionId' => @client.subscription_id},
           query_params: {'api-version' => @client.api_version},
           headers: request_headers.merge(custom_headers || {}),
@@ -3342,7 +3342,7 @@ module Azure::Web::Mgmt::V2016_09_01
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'resourceGroupName' => resource_group_name,'name' => name,'subscriptionId' => @client.subscription_id},
           query_params: {'api-version' => @client.api_version},
           body: request_content,
@@ -3370,7 +3370,7 @@ module Azure::Web::Mgmt::V2016_09_01
             result_mapper = Azure::Web::Mgmt::V2016_09_01::Models::AppServicePlan.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
         # Deserialize Response
@@ -3380,7 +3380,7 @@ module Azure::Web::Mgmt::V2016_09_01
             result_mapper = Azure::Web::Mgmt::V2016_09_01::Models::AppServicePlan.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -3450,7 +3450,7 @@ module Azure::Web::Mgmt::V2016_09_01
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           skip_encoding_path_params: {'nextLink' => next_page_link},
           headers: request_headers.merge(custom_headers || {}),
           base_url: request_url
@@ -3476,7 +3476,7 @@ module Azure::Web::Mgmt::V2016_09_01
             result_mapper = Azure::Web::Mgmt::V2016_09_01::Models::AppServicePlanCollection.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -3546,7 +3546,7 @@ module Azure::Web::Mgmt::V2016_09_01
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           skip_encoding_path_params: {'nextLink' => next_page_link},
           headers: request_headers.merge(custom_headers || {}),
           base_url: request_url
@@ -3572,7 +3572,7 @@ module Azure::Web::Mgmt::V2016_09_01
             result_mapper = Azure::Web::Mgmt::V2016_09_01::Models::AppServicePlanCollection.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -3642,7 +3642,7 @@ module Azure::Web::Mgmt::V2016_09_01
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           skip_encoding_path_params: {'nextLink' => next_page_link},
           headers: request_headers.merge(custom_headers || {}),
           base_url: request_url
@@ -3668,7 +3668,7 @@ module Azure::Web::Mgmt::V2016_09_01
             result_mapper = Azure::Web::Mgmt::V2016_09_01::Models::ResourceCollection.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -3738,7 +3738,7 @@ module Azure::Web::Mgmt::V2016_09_01
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           skip_encoding_path_params: {'nextLink' => next_page_link},
           headers: request_headers.merge(custom_headers || {}),
           base_url: request_url
@@ -3764,7 +3764,7 @@ module Azure::Web::Mgmt::V2016_09_01
             result_mapper = Azure::Web::Mgmt::V2016_09_01::Models::HybridConnectionCollection.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -3840,7 +3840,7 @@ module Azure::Web::Mgmt::V2016_09_01
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           skip_encoding_path_params: {'nextLink' => next_page_link},
           headers: request_headers.merge(custom_headers || {}),
           base_url: request_url
@@ -3866,7 +3866,7 @@ module Azure::Web::Mgmt::V2016_09_01
             result_mapper = Azure::Web::Mgmt::V2016_09_01::Models::ResourceMetricDefinitionCollection.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -3936,7 +3936,7 @@ module Azure::Web::Mgmt::V2016_09_01
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           skip_encoding_path_params: {'nextLink' => next_page_link},
           headers: request_headers.merge(custom_headers || {}),
           base_url: request_url
@@ -3962,7 +3962,7 @@ module Azure::Web::Mgmt::V2016_09_01
             result_mapper = Azure::Web::Mgmt::V2016_09_01::Models::ResourceMetricCollection.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -4032,7 +4032,7 @@ module Azure::Web::Mgmt::V2016_09_01
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           skip_encoding_path_params: {'nextLink' => next_page_link},
           headers: request_headers.merge(custom_headers || {}),
           base_url: request_url
@@ -4058,7 +4058,7 @@ module Azure::Web::Mgmt::V2016_09_01
             result_mapper = Azure::Web::Mgmt::V2016_09_01::Models::WebAppCollection.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -4128,7 +4128,7 @@ module Azure::Web::Mgmt::V2016_09_01
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           skip_encoding_path_params: {'nextLink' => next_page_link},
           headers: request_headers.merge(custom_headers || {}),
           base_url: request_url
@@ -4154,7 +4154,7 @@ module Azure::Web::Mgmt::V2016_09_01
             result_mapper = Azure::Web::Mgmt::V2016_09_01::Models::CsmUsageQuotaCollection.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 

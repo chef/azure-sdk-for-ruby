@@ -13,7 +13,7 @@ module Azure::StorageCache::Mgmt::V2019_08_01_preview
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [String] URL to get the next set of cache list results if there
       # are any.
       attr_accessor :next_link

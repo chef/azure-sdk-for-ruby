@@ -100,7 +100,7 @@ module Azure::ApiManagement::Mgmt::V2018_01_01
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'resourceGroupName' => resource_group_name,'serviceName' => service_name,'notificationName' => notification_name,'subscriptionId' => @client.subscription_id},
           query_params: {'api-version' => @client.api_version},
           headers: request_headers.merge(custom_headers || {}),
@@ -114,7 +114,7 @@ module Azure::ApiManagement::Mgmt::V2018_01_01
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -127,7 +127,7 @@ module Azure::ApiManagement::Mgmt::V2018_01_01
             result_mapper = Azure::ApiManagement::Mgmt::V2018_01_01::Models::RecipientUserCollection.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -226,7 +226,7 @@ module Azure::ApiManagement::Mgmt::V2018_01_01
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'resourceGroupName' => resource_group_name,'serviceName' => service_name,'notificationName' => notification_name,'uid' => uid,'subscriptionId' => @client.subscription_id},
           query_params: {'api-version' => @client.api_version},
           headers: request_headers.merge(custom_headers || {}),
@@ -240,7 +240,7 @@ module Azure::ApiManagement::Mgmt::V2018_01_01
         response_content = http_response.body
         unless status_code == 204 || status_code == 404
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.body = (status_code == 204)
@@ -340,7 +340,7 @@ module Azure::ApiManagement::Mgmt::V2018_01_01
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'resourceGroupName' => resource_group_name,'serviceName' => service_name,'notificationName' => notification_name,'uid' => uid,'subscriptionId' => @client.subscription_id},
           query_params: {'api-version' => @client.api_version},
           headers: request_headers.merge(custom_headers || {}),
@@ -354,7 +354,7 @@ module Azure::ApiManagement::Mgmt::V2018_01_01
         response_content = http_response.body
         unless status_code == 201 || status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -367,7 +367,7 @@ module Azure::ApiManagement::Mgmt::V2018_01_01
             result_mapper = Azure::ApiManagement::Mgmt::V2018_01_01::Models::RecipientUserContract.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
         # Deserialize Response
@@ -377,7 +377,7 @@ module Azure::ApiManagement::Mgmt::V2018_01_01
             result_mapper = Azure::ApiManagement::Mgmt::V2018_01_01::Models::RecipientUserContract.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -472,7 +472,7 @@ module Azure::ApiManagement::Mgmt::V2018_01_01
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'resourceGroupName' => resource_group_name,'serviceName' => service_name,'notificationName' => notification_name,'uid' => uid,'subscriptionId' => @client.subscription_id},
           query_params: {'api-version' => @client.api_version},
           headers: request_headers.merge(custom_headers || {}),
@@ -486,7 +486,7 @@ module Azure::ApiManagement::Mgmt::V2018_01_01
         response_content = http_response.body
         unless status_code == 200 || status_code == 204
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?

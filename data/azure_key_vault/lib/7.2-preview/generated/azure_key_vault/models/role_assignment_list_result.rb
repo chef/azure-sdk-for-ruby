@@ -12,7 +12,7 @@ module Azure::KeyVault::V7_2_preview
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<RoleAssignment>] Role assignment list.
       attr_accessor :value
 

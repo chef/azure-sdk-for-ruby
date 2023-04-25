@@ -12,7 +12,7 @@ module Azure::IotHub::Mgmt::V2019_03_22_preview
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<IotHubDescription>] The array of IotHubDescription
       # objects.
       attr_accessor :value

@@ -12,7 +12,7 @@ module Azure::EventGrid::Mgmt::V2019_02_01_preview
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<EventSubscription>] A collection of EventSubscriptions
       attr_accessor :value
 

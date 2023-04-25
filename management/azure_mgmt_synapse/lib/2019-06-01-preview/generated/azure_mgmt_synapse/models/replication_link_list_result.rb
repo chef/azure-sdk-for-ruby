@@ -12,7 +12,7 @@ module Azure::Synapse::Mgmt::V2019_06_01_preview
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<ReplicationLink>] The list of Sql pool replication links
       # housed in the Sql pool.
       attr_accessor :value

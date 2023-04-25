@@ -13,7 +13,7 @@ module Azure::EventHub::Mgmt::V2015_08_01
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<Operation>] List of Event Hub operations supported by
       # the Microsoft.EventHub resource provider.
       attr_accessor :value

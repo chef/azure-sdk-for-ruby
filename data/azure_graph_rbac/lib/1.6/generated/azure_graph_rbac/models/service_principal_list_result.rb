@@ -12,7 +12,7 @@ module Azure::GraphRbac::V1_6
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<ServicePrincipal>] the list of service principals.
       attr_accessor :value
 

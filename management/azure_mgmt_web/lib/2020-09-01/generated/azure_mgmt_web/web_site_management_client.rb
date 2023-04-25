@@ -85,7 +85,7 @@ module Azure::Web::Mgmt::V2020_09_01
 
     #
     # Creates initializes a new instance of the WebSiteManagementClient class.
-    # @param credentials [MsRest::ServiceClientCredentials] credentials to authorize HTTP requests made by the service client.
+    # @param credentials [MsRest2::ServiceClientCredentials] credentials to authorize HTTP requests made by the service client.
     # @param base_url [String] the base URI of the service.
     # @param options [Array] filters to be applied to the HTTP requests.
     #
@@ -93,7 +93,7 @@ module Azure::Web::Mgmt::V2020_09_01
       super(credentials, options)
       @base_url = base_url || 'https://management.azure.com'
 
-      fail ArgumentError, 'invalid type of credentials input parameter' unless credentials.is_a?(MsRest::ServiceClientCredentials) unless credentials.nil?
+      fail ArgumentError, 'invalid type of credentials input parameter' unless credentials.is_a?(MsRest2::ServiceClientCredentials) unless credentials.nil?
       @credentials = credentials
 
       @app_service_certificate_orders = AppServiceCertificateOrders.new(self)
@@ -249,7 +249,7 @@ module Azure::Web::Mgmt::V2020_09_01
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           query_params: {'api-version' => api_version},
           body: request_content,
           headers: request_headers.merge(custom_headers || {}),
@@ -263,7 +263,7 @@ module Azure::Web::Mgmt::V2020_09_01
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -276,7 +276,7 @@ module Azure::Web::Mgmt::V2020_09_01
             result_mapper = Azure::Web::Mgmt::V2020_09_01::Models::AppserviceGithubToken.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -340,7 +340,7 @@ module Azure::Web::Mgmt::V2020_09_01
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           query_params: {'api-version' => api_version},
           headers: request_headers.merge(custom_headers || {}),
           base_url: request_url
@@ -353,7 +353,7 @@ module Azure::Web::Mgmt::V2020_09_01
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -366,7 +366,7 @@ module Azure::Web::Mgmt::V2020_09_01
             result_mapper = Azure::Web::Mgmt::V2020_09_01::Models::User.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -440,7 +440,7 @@ module Azure::Web::Mgmt::V2020_09_01
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           query_params: {'api-version' => api_version},
           body: request_content,
           headers: request_headers.merge(custom_headers || {}),
@@ -454,7 +454,7 @@ module Azure::Web::Mgmt::V2020_09_01
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -467,7 +467,7 @@ module Azure::Web::Mgmt::V2020_09_01
             result_mapper = Azure::Web::Mgmt::V2020_09_01::Models::User.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -531,7 +531,7 @@ module Azure::Web::Mgmt::V2020_09_01
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           query_params: {'api-version' => api_version},
           headers: request_headers.merge(custom_headers || {}),
           base_url: request_url
@@ -544,7 +544,7 @@ module Azure::Web::Mgmt::V2020_09_01
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -557,7 +557,7 @@ module Azure::Web::Mgmt::V2020_09_01
             result_mapper = Azure::Web::Mgmt::V2020_09_01::Models::SourceControlCollection.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -625,7 +625,7 @@ module Azure::Web::Mgmt::V2020_09_01
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'sourceControlType' => source_control_type},
           query_params: {'api-version' => api_version},
           headers: request_headers.merge(custom_headers || {}),
@@ -639,7 +639,7 @@ module Azure::Web::Mgmt::V2020_09_01
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -652,7 +652,7 @@ module Azure::Web::Mgmt::V2020_09_01
             result_mapper = Azure::Web::Mgmt::V2020_09_01::Models::SourceControl.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -730,7 +730,7 @@ module Azure::Web::Mgmt::V2020_09_01
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'sourceControlType' => source_control_type},
           query_params: {'api-version' => api_version},
           body: request_content,
@@ -745,7 +745,7 @@ module Azure::Web::Mgmt::V2020_09_01
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -758,7 +758,7 @@ module Azure::Web::Mgmt::V2020_09_01
             result_mapper = Azure::Web::Mgmt::V2020_09_01::Models::SourceControl.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -829,7 +829,7 @@ module Azure::Web::Mgmt::V2020_09_01
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'subscriptionId' => subscription_id},
           query_params: {'billingLocation' => billing_location,'osType' => os_type,'api-version' => api_version},
           headers: request_headers.merge(custom_headers || {}),
@@ -843,7 +843,7 @@ module Azure::Web::Mgmt::V2020_09_01
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -856,7 +856,7 @@ module Azure::Web::Mgmt::V2020_09_01
             result_mapper = Azure::Web::Mgmt::V2020_09_01::Models::BillingMeterCollection.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -953,7 +953,7 @@ module Azure::Web::Mgmt::V2020_09_01
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'subscriptionId' => subscription_id},
           query_params: {'api-version' => api_version},
           body: request_content,
@@ -968,7 +968,7 @@ module Azure::Web::Mgmt::V2020_09_01
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -981,7 +981,7 @@ module Azure::Web::Mgmt::V2020_09_01
             result_mapper = Azure::Web::Mgmt::V2020_09_01::Models::ResourceNameAvailability.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -1046,7 +1046,7 @@ module Azure::Web::Mgmt::V2020_09_01
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'subscriptionId' => subscription_id},
           query_params: {'api-version' => api_version},
           headers: request_headers.merge(custom_headers || {}),
@@ -1060,7 +1060,7 @@ module Azure::Web::Mgmt::V2020_09_01
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -1073,7 +1073,7 @@ module Azure::Web::Mgmt::V2020_09_01
             result_mapper = Azure::Web::Mgmt::V2020_09_01::Models::DeploymentLocations.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -1165,7 +1165,7 @@ module Azure::Web::Mgmt::V2020_09_01
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'subscriptionId' => subscription_id},
           query_params: {'sku' => sku,'linuxWorkersEnabled' => linux_workers_enabled,'xenonWorkersEnabled' => xenon_workers_enabled,'linuxDynamicWorkersEnabled' => linux_dynamic_workers_enabled,'api-version' => api_version},
           headers: request_headers.merge(custom_headers || {}),
@@ -1179,7 +1179,7 @@ module Azure::Web::Mgmt::V2020_09_01
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -1192,7 +1192,7 @@ module Azure::Web::Mgmt::V2020_09_01
             result_mapper = Azure::Web::Mgmt::V2020_09_01::Models::GeoRegionCollection.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -1267,7 +1267,7 @@ module Azure::Web::Mgmt::V2020_09_01
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'subscriptionId' => subscription_id},
           query_params: {'api-version' => api_version},
           body: request_content,
@@ -1282,7 +1282,7 @@ module Azure::Web::Mgmt::V2020_09_01
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -1295,7 +1295,7 @@ module Azure::Web::Mgmt::V2020_09_01
             result_mapper = Azure::Web::Mgmt::V2020_09_01::Models::IdentifierCollection.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -1360,7 +1360,7 @@ module Azure::Web::Mgmt::V2020_09_01
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'subscriptionId' => subscription_id},
           query_params: {'api-version' => api_version},
           headers: request_headers.merge(custom_headers || {}),
@@ -1374,7 +1374,7 @@ module Azure::Web::Mgmt::V2020_09_01
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -1387,7 +1387,7 @@ module Azure::Web::Mgmt::V2020_09_01
             result_mapper = Azure::Web::Mgmt::V2020_09_01::Models::PremierAddOnOfferCollection.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -1452,7 +1452,7 @@ module Azure::Web::Mgmt::V2020_09_01
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'subscriptionId' => subscription_id},
           query_params: {'api-version' => api_version},
           headers: request_headers.merge(custom_headers || {}),
@@ -1466,7 +1466,7 @@ module Azure::Web::Mgmt::V2020_09_01
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -1479,7 +1479,7 @@ module Azure::Web::Mgmt::V2020_09_01
             result_mapper = Azure::Web::Mgmt::V2020_09_01::Models::SkuInfos.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -1560,7 +1560,7 @@ module Azure::Web::Mgmt::V2020_09_01
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'subscriptionId' => subscription_id},
           query_params: {'api-version' => api_version},
           body: request_content,
@@ -1575,7 +1575,7 @@ module Azure::Web::Mgmt::V2020_09_01
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -1588,7 +1588,7 @@ module Azure::Web::Mgmt::V2020_09_01
             result_mapper = Azure::Web::Mgmt::V2020_09_01::Models::VnetValidationFailureDetails.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -1675,7 +1675,7 @@ module Azure::Web::Mgmt::V2020_09_01
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'resourceGroupName' => resource_group_name,'subscriptionId' => subscription_id},
           query_params: {'api-version' => api_version},
           body: request_content,
@@ -1690,7 +1690,7 @@ module Azure::Web::Mgmt::V2020_09_01
         response_content = http_response.body
         unless status_code == 204
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -1781,7 +1781,7 @@ module Azure::Web::Mgmt::V2020_09_01
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'resourceGroupName' => resource_group_name,'subscriptionId' => subscription_id},
           query_params: {'api-version' => api_version},
           body: request_content,
@@ -1796,7 +1796,7 @@ module Azure::Web::Mgmt::V2020_09_01
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -1809,7 +1809,7 @@ module Azure::Web::Mgmt::V2020_09_01
             result_mapper = Azure::Web::Mgmt::V2020_09_01::Models::ValidateResponse.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -1896,7 +1896,7 @@ module Azure::Web::Mgmt::V2020_09_01
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'resourceGroupName' => resource_group_name,'subscriptionId' => subscription_id},
           query_params: {'api-version' => api_version},
           body: request_content,
@@ -1911,7 +1911,7 @@ module Azure::Web::Mgmt::V2020_09_01
         response_content = http_response.body
         unless status_code == 204
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -1984,7 +1984,7 @@ module Azure::Web::Mgmt::V2020_09_01
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           skip_encoding_path_params: {'nextLink' => next_page_link},
           headers: request_headers.merge(custom_headers || {}),
           base_url: request_url
@@ -1997,7 +1997,7 @@ module Azure::Web::Mgmt::V2020_09_01
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -2010,7 +2010,7 @@ module Azure::Web::Mgmt::V2020_09_01
             result_mapper = Azure::Web::Mgmt::V2020_09_01::Models::SourceControlCollection.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -2080,7 +2080,7 @@ module Azure::Web::Mgmt::V2020_09_01
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           skip_encoding_path_params: {'nextLink' => next_page_link},
           headers: request_headers.merge(custom_headers || {}),
           base_url: request_url
@@ -2093,7 +2093,7 @@ module Azure::Web::Mgmt::V2020_09_01
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -2106,7 +2106,7 @@ module Azure::Web::Mgmt::V2020_09_01
             result_mapper = Azure::Web::Mgmt::V2020_09_01::Models::BillingMeterCollection.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -2176,7 +2176,7 @@ module Azure::Web::Mgmt::V2020_09_01
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           skip_encoding_path_params: {'nextLink' => next_page_link},
           headers: request_headers.merge(custom_headers || {}),
           base_url: request_url
@@ -2189,7 +2189,7 @@ module Azure::Web::Mgmt::V2020_09_01
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -2202,7 +2202,7 @@ module Azure::Web::Mgmt::V2020_09_01
             result_mapper = Azure::Web::Mgmt::V2020_09_01::Models::GeoRegionCollection.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -2272,7 +2272,7 @@ module Azure::Web::Mgmt::V2020_09_01
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           skip_encoding_path_params: {'nextLink' => next_page_link},
           headers: request_headers.merge(custom_headers || {}),
           base_url: request_url
@@ -2285,7 +2285,7 @@ module Azure::Web::Mgmt::V2020_09_01
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -2298,7 +2298,7 @@ module Azure::Web::Mgmt::V2020_09_01
             result_mapper = Azure::Web::Mgmt::V2020_09_01::Models::IdentifierCollection.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -2368,7 +2368,7 @@ module Azure::Web::Mgmt::V2020_09_01
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           skip_encoding_path_params: {'nextLink' => next_page_link},
           headers: request_headers.merge(custom_headers || {}),
           base_url: request_url
@@ -2381,7 +2381,7 @@ module Azure::Web::Mgmt::V2020_09_01
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -2394,7 +2394,7 @@ module Azure::Web::Mgmt::V2020_09_01
             result_mapper = Azure::Web::Mgmt::V2020_09_01::Models::PremierAddOnOfferCollection.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -2453,7 +2453,7 @@ module Azure::Web::Mgmt::V2020_09_01
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           headers: request_headers.merge(custom_headers || {}),
           base_url: request_url
       }
@@ -2465,7 +2465,7 @@ module Azure::Web::Mgmt::V2020_09_01
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -2478,7 +2478,7 @@ module Azure::Web::Mgmt::V2020_09_01
             result_mapper = Azure::Web::Mgmt::V2020_09_01::Models::SourceControlCollection.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -2543,7 +2543,7 @@ module Azure::Web::Mgmt::V2020_09_01
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           query_params: {'billingLocation' => billing_location,'osType' => os_type},
           headers: request_headers.merge(custom_headers || {}),
           base_url: request_url
@@ -2556,7 +2556,7 @@ module Azure::Web::Mgmt::V2020_09_01
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -2569,7 +2569,7 @@ module Azure::Web::Mgmt::V2020_09_01
             result_mapper = Azure::Web::Mgmt::V2020_09_01::Models::BillingMeterCollection.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -2655,7 +2655,7 @@ module Azure::Web::Mgmt::V2020_09_01
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           query_params: {'sku' => sku,'linuxWorkersEnabled' => linux_workers_enabled,'xenonWorkersEnabled' => xenon_workers_enabled,'linuxDynamicWorkersEnabled' => linux_dynamic_workers_enabled},
           headers: request_headers.merge(custom_headers || {}),
           base_url: request_url
@@ -2668,7 +2668,7 @@ module Azure::Web::Mgmt::V2020_09_01
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -2681,7 +2681,7 @@ module Azure::Web::Mgmt::V2020_09_01
             result_mapper = Azure::Web::Mgmt::V2020_09_01::Models::GeoRegionCollection.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -2750,7 +2750,7 @@ module Azure::Web::Mgmt::V2020_09_01
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           body: request_content,
           headers: request_headers.merge(custom_headers || {}),
           base_url: request_url
@@ -2763,7 +2763,7 @@ module Azure::Web::Mgmt::V2020_09_01
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -2776,7 +2776,7 @@ module Azure::Web::Mgmt::V2020_09_01
             result_mapper = Azure::Web::Mgmt::V2020_09_01::Models::IdentifierCollection.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -2835,7 +2835,7 @@ module Azure::Web::Mgmt::V2020_09_01
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           headers: request_headers.merge(custom_headers || {}),
           base_url: request_url
       }
@@ -2847,7 +2847,7 @@ module Azure::Web::Mgmt::V2020_09_01
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -2860,7 +2860,7 @@ module Azure::Web::Mgmt::V2020_09_01
             result_mapper = Azure::Web::Mgmt::V2020_09_01::Models::PremierAddOnOfferCollection.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 

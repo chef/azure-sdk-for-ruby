@@ -12,7 +12,7 @@ module Azure::DataFactory::Mgmt::V2017_09_01_preview
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<TriggerResource>] List of triggers.
       attr_accessor :value
 

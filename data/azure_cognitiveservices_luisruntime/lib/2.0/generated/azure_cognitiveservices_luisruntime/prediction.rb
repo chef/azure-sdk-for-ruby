@@ -121,7 +121,7 @@ module Azure::CognitiveServices::LuisRuntime::V2_0
     request_url = request_url.gsub('{Endpoint}', @client.endpoint)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'appId' => app_id},
           query_params: {'timezoneOffset' => timezone_offset,'verbose' => verbose,'staging' => staging,'spellCheck' => spell_check,'bing-spell-check-subscription-key' => bing_spell_check_subscription_key,'log' => log},
           body: request_content,
@@ -136,7 +136,7 @@ module Azure::CognitiveServices::LuisRuntime::V2_0
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -149,7 +149,7 @@ module Azure::CognitiveServices::LuisRuntime::V2_0
             result_mapper = Azure::CognitiveServices::LuisRuntime::V2_0::Models::LuisResult.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 

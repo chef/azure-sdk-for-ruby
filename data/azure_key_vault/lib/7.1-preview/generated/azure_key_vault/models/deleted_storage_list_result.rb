@@ -12,7 +12,7 @@ module Azure::KeyVault::V7_1_preview
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<DeletedStorageAccountItem>] A response message
       # containing a list of the deleted storage accounts in the vault along
       # with a link to the next page of deleted storage accounts

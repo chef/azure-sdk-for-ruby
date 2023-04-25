@@ -102,7 +102,7 @@ module Azure::ADHybridHealthService::Mgmt::V2014_01_01
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           query_params: {'$filter' => filter,'serviceType' => service_type,'skipCount' => skip_count,'takeCount' => take_count,'api-version' => @client.api_version},
           headers: request_headers.merge(custom_headers || {}),
           base_url: request_url
@@ -128,7 +128,7 @@ module Azure::ADHybridHealthService::Mgmt::V2014_01_01
             result_mapper = Azure::ADHybridHealthService::Mgmt::V2014_01_01::Models::Services.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -199,7 +199,7 @@ module Azure::ADHybridHealthService::Mgmt::V2014_01_01
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           query_params: {'api-version' => @client.api_version},
           body: request_content,
           headers: request_headers.merge(custom_headers || {}),
@@ -226,7 +226,7 @@ module Azure::ADHybridHealthService::Mgmt::V2014_01_01
             result_mapper = Azure::ADHybridHealthService::Mgmt::V2014_01_01::Models::ServiceProperties.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -294,7 +294,7 @@ module Azure::ADHybridHealthService::Mgmt::V2014_01_01
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'serviceName' => service_name},
           query_params: {'api-version' => @client.api_version},
           headers: request_headers.merge(custom_headers || {}),
@@ -321,7 +321,7 @@ module Azure::ADHybridHealthService::Mgmt::V2014_01_01
             result_mapper = Azure::ADHybridHealthService::Mgmt::V2014_01_01::Models::ServiceProperties.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -400,7 +400,7 @@ module Azure::ADHybridHealthService::Mgmt::V2014_01_01
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'serviceName' => service_name},
           query_params: {'confirm' => confirm,'api-version' => @client.api_version},
           headers: request_headers.merge(custom_headers || {}),
@@ -495,7 +495,7 @@ module Azure::ADHybridHealthService::Mgmt::V2014_01_01
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'serviceName' => service_name},
           query_params: {'api-version' => @client.api_version},
           body: request_content,
@@ -523,7 +523,7 @@ module Azure::ADHybridHealthService::Mgmt::V2014_01_01
             result_mapper = Azure::ADHybridHealthService::Mgmt::V2014_01_01::Models::ServiceProperties.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -588,7 +588,7 @@ module Azure::ADHybridHealthService::Mgmt::V2014_01_01
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'serviceName' => service_name},
           query_params: {'api-version' => @client.api_version},
           headers: request_headers.merge(custom_headers || {}),
@@ -615,7 +615,7 @@ module Azure::ADHybridHealthService::Mgmt::V2014_01_01
             result_mapper = Azure::ADHybridHealthService::Mgmt::V2014_01_01::Models::ForestSummary.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -688,7 +688,7 @@ module Azure::ADHybridHealthService::Mgmt::V2014_01_01
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'serviceName' => service_name,'metricName' => metric_name,'groupName' => group_name},
           query_params: {'api-version' => @client.api_version},
           headers: request_headers.merge(custom_headers || {}),
@@ -715,7 +715,7 @@ module Azure::ADHybridHealthService::Mgmt::V2014_01_01
             result_mapper = Azure::ADHybridHealthService::Mgmt::V2014_01_01::Models::Metrics.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -785,7 +785,7 @@ module Azure::ADHybridHealthService::Mgmt::V2014_01_01
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'serviceName' => service_name,'metricName' => metric_name,'groupName' => group_name},
           query_params: {'api-version' => @client.api_version},
           headers: request_headers.merge(custom_headers || {}),
@@ -812,7 +812,7 @@ module Azure::ADHybridHealthService::Mgmt::V2014_01_01
             result_mapper = Azure::ADHybridHealthService::Mgmt::V2014_01_01::Models::Metrics.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -883,7 +883,7 @@ module Azure::ADHybridHealthService::Mgmt::V2014_01_01
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'serviceName' => service_name},
           query_params: {'$filter' => filter,'perfCounter' => perf_counter,'api-version' => @client.api_version},
           headers: request_headers.merge(custom_headers || {}),
@@ -910,7 +910,7 @@ module Azure::ADHybridHealthService::Mgmt::V2014_01_01
             result_mapper = Azure::ADHybridHealthService::Mgmt::V2014_01_01::Models::MetricMetadataList.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -976,7 +976,7 @@ module Azure::ADHybridHealthService::Mgmt::V2014_01_01
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'serviceName' => service_name,'metricName' => metric_name},
           query_params: {'api-version' => @client.api_version},
           headers: request_headers.merge(custom_headers || {}),
@@ -1003,7 +1003,7 @@ module Azure::ADHybridHealthService::Mgmt::V2014_01_01
             result_mapper = Azure::ADHybridHealthService::Mgmt::V2014_01_01::Models::MetricMetadata.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -1082,7 +1082,7 @@ module Azure::ADHybridHealthService::Mgmt::V2014_01_01
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'serviceName' => service_name,'metricName' => metric_name,'groupName' => group_name},
           query_params: {'groupKey' => group_key,'fromDate' => from_date,'toDate' => to_date,'api-version' => @client.api_version},
           headers: request_headers.merge(custom_headers || {}),
@@ -1109,7 +1109,7 @@ module Azure::ADHybridHealthService::Mgmt::V2014_01_01
             result_mapper = Azure::ADHybridHealthService::Mgmt::V2014_01_01::Models::MetricSets.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -1186,7 +1186,7 @@ module Azure::ADHybridHealthService::Mgmt::V2014_01_01
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'serviceName' => service_name},
           query_params: {'$filter' => filter,'withDetails' => with_details,'api-version' => @client.api_version},
           headers: request_headers.merge(custom_headers || {}),
@@ -1213,7 +1213,7 @@ module Azure::ADHybridHealthService::Mgmt::V2014_01_01
             result_mapper = Azure::ADHybridHealthService::Mgmt::V2014_01_01::Models::ReplicationDetailsList.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -1303,7 +1303,7 @@ module Azure::ADHybridHealthService::Mgmt::V2014_01_01
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'serviceName' => service_name},
           query_params: {'$filter' => filter,'isGroupbySite' => is_groupby_site,'query' => query,'nextPartitionKey' => next_partition_key,'nextRowKey' => next_row_key,'takeCount' => take_count,'api-version' => @client.api_version},
           headers: request_headers.merge(custom_headers || {}),
@@ -1330,7 +1330,7 @@ module Azure::ADHybridHealthService::Mgmt::V2014_01_01
             result_mapper = Azure::ADHybridHealthService::Mgmt::V2014_01_01::Models::ReplicationSummaryList.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -1414,7 +1414,7 @@ module Azure::ADHybridHealthService::Mgmt::V2014_01_01
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'serviceMemberId' => service_member_id,'serviceName' => service_name},
           query_params: {'$filter' => filter,'state' => state,'from' => from,'to' => to,'api-version' => @client.api_version},
           headers: request_headers.merge(custom_headers || {}),
@@ -1441,7 +1441,7 @@ module Azure::ADHybridHealthService::Mgmt::V2014_01_01
             result_mapper = Azure::ADHybridHealthService::Mgmt::V2014_01_01::Models::Alerts.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -1535,7 +1535,7 @@ module Azure::ADHybridHealthService::Mgmt::V2014_01_01
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           query_params: {'$filter' => filter,'serviceType' => service_type,'skipCount' => skip_count,'takeCount' => take_count,'api-version' => @client.api_version},
           headers: request_headers.merge(custom_headers || {}),
           base_url: request_url
@@ -1561,7 +1561,7 @@ module Azure::ADHybridHealthService::Mgmt::V2014_01_01
             result_mapper = Azure::ADHybridHealthService::Mgmt::V2014_01_01::Models::Services.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -1628,7 +1628,7 @@ module Azure::ADHybridHealthService::Mgmt::V2014_01_01
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           skip_encoding_path_params: {'nextLink' => next_page_link},
           headers: request_headers.merge(custom_headers || {}),
           base_url: request_url
@@ -1654,7 +1654,7 @@ module Azure::ADHybridHealthService::Mgmt::V2014_01_01
             result_mapper = Azure::ADHybridHealthService::Mgmt::V2014_01_01::Models::Services.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -1721,7 +1721,7 @@ module Azure::ADHybridHealthService::Mgmt::V2014_01_01
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           skip_encoding_path_params: {'nextLink' => next_page_link},
           headers: request_headers.merge(custom_headers || {}),
           base_url: request_url
@@ -1747,7 +1747,7 @@ module Azure::ADHybridHealthService::Mgmt::V2014_01_01
             result_mapper = Azure::ADHybridHealthService::Mgmt::V2014_01_01::Models::Metrics.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -1811,7 +1811,7 @@ module Azure::ADHybridHealthService::Mgmt::V2014_01_01
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           skip_encoding_path_params: {'nextLink' => next_page_link},
           headers: request_headers.merge(custom_headers || {}),
           base_url: request_url
@@ -1837,7 +1837,7 @@ module Azure::ADHybridHealthService::Mgmt::V2014_01_01
             result_mapper = Azure::ADHybridHealthService::Mgmt::V2014_01_01::Models::Metrics.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -1901,7 +1901,7 @@ module Azure::ADHybridHealthService::Mgmt::V2014_01_01
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           skip_encoding_path_params: {'nextLink' => next_page_link},
           headers: request_headers.merge(custom_headers || {}),
           base_url: request_url
@@ -1927,7 +1927,7 @@ module Azure::ADHybridHealthService::Mgmt::V2014_01_01
             result_mapper = Azure::ADHybridHealthService::Mgmt::V2014_01_01::Models::MetricMetadataList.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -1994,7 +1994,7 @@ module Azure::ADHybridHealthService::Mgmt::V2014_01_01
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           skip_encoding_path_params: {'nextLink' => next_page_link},
           headers: request_headers.merge(custom_headers || {}),
           base_url: request_url
@@ -2020,7 +2020,7 @@ module Azure::ADHybridHealthService::Mgmt::V2014_01_01
             result_mapper = Azure::ADHybridHealthService::Mgmt::V2014_01_01::Models::Alerts.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -2090,7 +2090,7 @@ module Azure::ADHybridHealthService::Mgmt::V2014_01_01
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           skip_encoding_path_params: {'nextLink' => next_page_link},
           headers: request_headers.merge(custom_headers || {}),
           base_url: request_url
@@ -2116,7 +2116,7 @@ module Azure::ADHybridHealthService::Mgmt::V2014_01_01
             result_mapper = Azure::ADHybridHealthService::Mgmt::V2014_01_01::Models::Services.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 

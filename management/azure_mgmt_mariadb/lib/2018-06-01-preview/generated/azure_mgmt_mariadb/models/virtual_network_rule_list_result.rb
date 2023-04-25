@@ -12,7 +12,7 @@ module Azure::MariaDB::Mgmt::V2018_06_01_preview
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<VirtualNetworkRule>] Array of results.
       attr_accessor :value
 

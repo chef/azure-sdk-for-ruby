@@ -12,7 +12,7 @@ module Azure::KeyVault::V2016_10_01
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<StorageAccountItem>] A response message containing a
       # list of storage accounts in the key vault along with a link to the next
       # page of storage accounts.

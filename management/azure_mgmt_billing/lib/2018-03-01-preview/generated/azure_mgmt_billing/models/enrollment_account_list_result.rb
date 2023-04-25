@@ -12,7 +12,7 @@ module Azure::Billing::Mgmt::V2018_03_01_preview
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<EnrollmentAccount>] The list of enrollment accounts.
       attr_accessor :value
 

@@ -141,7 +141,7 @@ module Azure::KeyVault::Mgmt::V2018_02_14_preview
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'resourceGroupName' => resource_group_name,'vaultName' => vault_name,'subscriptionId' => @client.subscription_id},
           query_params: {'api-version' => @client.api_version},
           body: request_content,
@@ -169,7 +169,7 @@ module Azure::KeyVault::Mgmt::V2018_02_14_preview
             result_mapper = Azure::KeyVault::Mgmt::V2018_02_14_preview::Models::Vault.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
         # Deserialize Response
@@ -179,7 +179,7 @@ module Azure::KeyVault::Mgmt::V2018_02_14_preview
             result_mapper = Azure::KeyVault::Mgmt::V2018_02_14_preview::Models::Vault.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -248,7 +248,7 @@ module Azure::KeyVault::Mgmt::V2018_02_14_preview
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'resourceGroupName' => resource_group_name,'vaultName' => vault_name,'subscriptionId' => @client.subscription_id},
           query_params: {'api-version' => @client.api_version},
           headers: request_headers.merge(custom_headers || {}),
@@ -335,7 +335,7 @@ module Azure::KeyVault::Mgmt::V2018_02_14_preview
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'resourceGroupName' => resource_group_name,'vaultName' => vault_name,'subscriptionId' => @client.subscription_id},
           query_params: {'api-version' => @client.api_version},
           headers: request_headers.merge(custom_headers || {}),
@@ -362,7 +362,7 @@ module Azure::KeyVault::Mgmt::V2018_02_14_preview
             result_mapper = Azure::KeyVault::Mgmt::V2018_02_14_preview::Models::Vault.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -453,7 +453,7 @@ module Azure::KeyVault::Mgmt::V2018_02_14_preview
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'resourceGroupName' => resource_group_name,'vaultName' => vault_name,'operationKind' => operation_kind,'subscriptionId' => @client.subscription_id},
           query_params: {'api-version' => @client.api_version},
           body: request_content,
@@ -481,7 +481,7 @@ module Azure::KeyVault::Mgmt::V2018_02_14_preview
             result_mapper = Azure::KeyVault::Mgmt::V2018_02_14_preview::Models::VaultAccessPolicyParameters.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
         # Deserialize Response
@@ -491,7 +491,7 @@ module Azure::KeyVault::Mgmt::V2018_02_14_preview
             result_mapper = Azure::KeyVault::Mgmt::V2018_02_14_preview::Models::VaultAccessPolicyParameters.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -563,7 +563,7 @@ module Azure::KeyVault::Mgmt::V2018_02_14_preview
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'resourceGroupName' => resource_group_name,'subscriptionId' => @client.subscription_id},
           query_params: {'$top' => top,'api-version' => @client.api_version},
           headers: request_headers.merge(custom_headers || {}),
@@ -590,7 +590,7 @@ module Azure::KeyVault::Mgmt::V2018_02_14_preview
             result_mapper = Azure::KeyVault::Mgmt::V2018_02_14_preview::Models::VaultListResult.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -655,7 +655,7 @@ module Azure::KeyVault::Mgmt::V2018_02_14_preview
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'subscriptionId' => @client.subscription_id},
           query_params: {'$top' => top,'api-version' => @client.api_version},
           headers: request_headers.merge(custom_headers || {}),
@@ -682,7 +682,7 @@ module Azure::KeyVault::Mgmt::V2018_02_14_preview
             result_mapper = Azure::KeyVault::Mgmt::V2018_02_14_preview::Models::VaultListResult.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -741,7 +741,7 @@ module Azure::KeyVault::Mgmt::V2018_02_14_preview
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'subscriptionId' => @client.subscription_id},
           query_params: {'api-version' => @client.api_version},
           headers: request_headers.merge(custom_headers || {}),
@@ -768,7 +768,7 @@ module Azure::KeyVault::Mgmt::V2018_02_14_preview
             result_mapper = Azure::KeyVault::Mgmt::V2018_02_14_preview::Models::DeletedVaultListResult.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -835,7 +835,7 @@ module Azure::KeyVault::Mgmt::V2018_02_14_preview
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'vaultName' => vault_name,'location' => location,'subscriptionId' => @client.subscription_id},
           query_params: {'api-version' => @client.api_version},
           headers: request_headers.merge(custom_headers || {}),
@@ -862,7 +862,7 @@ module Azure::KeyVault::Mgmt::V2018_02_14_preview
             result_mapper = Azure::KeyVault::Mgmt::V2018_02_14_preview::Models::DeletedVault.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -967,7 +967,7 @@ module Azure::KeyVault::Mgmt::V2018_02_14_preview
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'subscriptionId' => @client.subscription_id},
           query_params: {'$filter' => filter,'$top' => top,'api-version' => api_version},
           headers: request_headers.merge(custom_headers || {}),
@@ -994,7 +994,7 @@ module Azure::KeyVault::Mgmt::V2018_02_14_preview
             result_mapper = Azure::KeyVault::Mgmt::V2018_02_14_preview::Models::ResourceListResult.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -1066,7 +1066,7 @@ module Azure::KeyVault::Mgmt::V2018_02_14_preview
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'subscriptionId' => @client.subscription_id},
           query_params: {'api-version' => @client.api_version},
           body: request_content,
@@ -1094,7 +1094,7 @@ module Azure::KeyVault::Mgmt::V2018_02_14_preview
             result_mapper = Azure::KeyVault::Mgmt::V2018_02_14_preview::Models::CheckNameAvailabilityResult.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -1178,7 +1178,7 @@ module Azure::KeyVault::Mgmt::V2018_02_14_preview
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'resourceGroupName' => resource_group_name,'vaultName' => vault_name,'subscriptionId' => @client.subscription_id},
           query_params: {'api-version' => @client.api_version},
           body: request_content,
@@ -1206,7 +1206,7 @@ module Azure::KeyVault::Mgmt::V2018_02_14_preview
             result_mapper = Azure::KeyVault::Mgmt::V2018_02_14_preview::Models::Vault.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
         # Deserialize Response
@@ -1216,7 +1216,7 @@ module Azure::KeyVault::Mgmt::V2018_02_14_preview
             result_mapper = Azure::KeyVault::Mgmt::V2018_02_14_preview::Models::Vault.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -1285,7 +1285,7 @@ module Azure::KeyVault::Mgmt::V2018_02_14_preview
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'vaultName' => vault_name,'location' => location,'subscriptionId' => @client.subscription_id},
           query_params: {'api-version' => @client.api_version},
           headers: request_headers.merge(custom_headers || {}),
@@ -1369,7 +1369,7 @@ module Azure::KeyVault::Mgmt::V2018_02_14_preview
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           skip_encoding_path_params: {'nextLink' => next_page_link},
           headers: request_headers.merge(custom_headers || {}),
           base_url: request_url
@@ -1395,7 +1395,7 @@ module Azure::KeyVault::Mgmt::V2018_02_14_preview
             result_mapper = Azure::KeyVault::Mgmt::V2018_02_14_preview::Models::VaultListResult.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -1462,7 +1462,7 @@ module Azure::KeyVault::Mgmt::V2018_02_14_preview
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           skip_encoding_path_params: {'nextLink' => next_page_link},
           headers: request_headers.merge(custom_headers || {}),
           base_url: request_url
@@ -1488,7 +1488,7 @@ module Azure::KeyVault::Mgmt::V2018_02_14_preview
             result_mapper = Azure::KeyVault::Mgmt::V2018_02_14_preview::Models::VaultListResult.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -1552,7 +1552,7 @@ module Azure::KeyVault::Mgmt::V2018_02_14_preview
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           skip_encoding_path_params: {'nextLink' => next_page_link},
           headers: request_headers.merge(custom_headers || {}),
           base_url: request_url
@@ -1578,7 +1578,7 @@ module Azure::KeyVault::Mgmt::V2018_02_14_preview
             result_mapper = Azure::KeyVault::Mgmt::V2018_02_14_preview::Models::DeletedVaultListResult.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -1645,7 +1645,7 @@ module Azure::KeyVault::Mgmt::V2018_02_14_preview
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           skip_encoding_path_params: {'nextLink' => next_page_link},
           headers: request_headers.merge(custom_headers || {}),
           base_url: request_url
@@ -1671,7 +1671,7 @@ module Azure::KeyVault::Mgmt::V2018_02_14_preview
             result_mapper = Azure::KeyVault::Mgmt::V2018_02_14_preview::Models::ResourceListResult.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 

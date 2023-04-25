@@ -16,7 +16,7 @@ module Azure::RecoveryServicesBackup::Mgmt::V2016_12_01
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<ProtectableContainerResource>] List of resources.
       attr_accessor :value
 

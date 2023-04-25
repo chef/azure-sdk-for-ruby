@@ -12,7 +12,7 @@ module Azure::PolicyInsights::Mgmt::V2019_10_01
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<SlimPolicyMetadata>] Array of policy metadata
       # definitions.
       attr_accessor :value

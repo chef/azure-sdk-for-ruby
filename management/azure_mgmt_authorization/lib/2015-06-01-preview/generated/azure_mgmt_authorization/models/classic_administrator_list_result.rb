@@ -12,7 +12,7 @@ module Azure::Authorization::Mgmt::V2015_06_01_preview
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<ClassicAdministrator>] An array of administrators.
       attr_accessor :value
 

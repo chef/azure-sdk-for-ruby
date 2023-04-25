@@ -12,7 +12,7 @@ module Azure::Hdinsight::Mgmt::V2015_03_01_preview
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<RuntimeScriptActionDetail>] The list of persisted script
       # action details for the cluster.
       attr_accessor :value

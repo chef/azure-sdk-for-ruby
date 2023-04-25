@@ -12,7 +12,7 @@ module Azure::DevSpaces::Mgmt::V2018_06_01_preview
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<Controller>] List of Azure Dev Spaces Controllers.
       attr_accessor :value
 

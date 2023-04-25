@@ -12,7 +12,7 @@ module Azure::CostManagement::Mgmt::V2019_04_01_preview
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<View>] The list of views.
       attr_accessor :value
 

@@ -12,7 +12,7 @@ module Azure::Confluent::Mgmt::V2020_03_01
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<ConfluentAgreementResource>] Results of a list
       # operation.
       attr_accessor :value

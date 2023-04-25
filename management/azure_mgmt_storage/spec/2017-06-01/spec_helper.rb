@@ -3,13 +3,13 @@
 # Licensed under the MIT License. See License.txt in the project root for license information.
 
 require File.join(File.dirname(__FILE__), '../../../../vcr_helper')
-require 'azure_mgmt_resources'
+require 'azure_mgmt_resources2'
 require 'azure_mgmt_storage'
 require 'ms_rest_azure'
 
-include MsRest
+include MsRest2
 include MsRestAzure
-include Azure::Resources::Mgmt::V2017_05_10
+include Azure::Resources2::Mgmt::V2017_05_10
 include Azure::Storage::Mgmt::V2017_06_01
 
 class ResourceHelper
@@ -40,7 +40,7 @@ class ResourceHelper
 
   def create_resource_group
     resource_group_name = 'RubySDKTest_azure_mgmt_storage'
-    params = Azure::Resources::Mgmt::V2017_05_10::Models::ResourceGroup.new
+    params = Azure::Resources2::Mgmt::V2017_05_10::Models::ResourceGroup.new
     params.location = 'westus'
 
     @resource_client.resource_groups.create_or_update(resource_group_name, params)

@@ -12,7 +12,7 @@ module Azure::HybridCompute::Mgmt::V2020_08_02
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<Machine>] The list of hybrid machines.
       attr_accessor :value
 

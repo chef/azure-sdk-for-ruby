@@ -13,7 +13,7 @@ module Azure::IotHub::Mgmt::V2019_07_01_preview
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<Operation>] List of IoT Hub operations supported by the
       # Microsoft.Devices resource provider.
       attr_accessor :value

@@ -12,7 +12,7 @@ module Azure::Security::Mgmt::V2017_08_01_preview
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<Setting>] The settings list.
       attr_accessor :value
 

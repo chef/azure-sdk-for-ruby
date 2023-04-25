@@ -12,7 +12,7 @@ module Azure::EventHub::Mgmt::V2017_04_01
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<MessagingRegions>] Result of the List MessagingRegions
       # type.
       attr_accessor :value

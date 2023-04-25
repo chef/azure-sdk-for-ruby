@@ -110,7 +110,7 @@ module Azure::EventGrid::Mgmt::V2019_02_01_preview
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'eventSubscriptionName' => event_subscription_name},
           skip_encoding_path_params: {'scope' => scope},
           query_params: {'api-version' => @client.api_version},
@@ -138,7 +138,7 @@ module Azure::EventGrid::Mgmt::V2019_02_01_preview
             result_mapper = Azure::EventGrid::Mgmt::V2019_02_01_preview::Models::EventSubscription.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -436,7 +436,7 @@ module Azure::EventGrid::Mgmt::V2019_02_01_preview
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'eventSubscriptionName' => event_subscription_name},
           skip_encoding_path_params: {'scope' => scope},
           query_params: {'api-version' => @client.api_version},
@@ -464,7 +464,7 @@ module Azure::EventGrid::Mgmt::V2019_02_01_preview
             result_mapper = Azure::EventGrid::Mgmt::V2019_02_01_preview::Models::EventSubscriptionFullUrl.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -547,7 +547,7 @@ module Azure::EventGrid::Mgmt::V2019_02_01_preview
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'subscriptionId' => @client.subscription_id},
           query_params: {'api-version' => @client.api_version,'$filter' => filter,'$top' => top,'label' => label},
           headers: request_headers.merge(custom_headers || {}),
@@ -574,7 +574,7 @@ module Azure::EventGrid::Mgmt::V2019_02_01_preview
             result_mapper = Azure::EventGrid::Mgmt::V2019_02_01_preview::Models::EventSubscriptionsListResult.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -658,7 +658,7 @@ module Azure::EventGrid::Mgmt::V2019_02_01_preview
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'subscriptionId' => @client.subscription_id,'topicTypeName' => topic_type_name},
           query_params: {'api-version' => @client.api_version,'$filter' => filter,'$top' => top,'label' => label},
           headers: request_headers.merge(custom_headers || {}),
@@ -685,7 +685,7 @@ module Azure::EventGrid::Mgmt::V2019_02_01_preview
             result_mapper = Azure::EventGrid::Mgmt::V2019_02_01_preview::Models::EventSubscriptionsListResult.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -775,7 +775,7 @@ module Azure::EventGrid::Mgmt::V2019_02_01_preview
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'subscriptionId' => @client.subscription_id,'resourceGroupName' => resource_group_name},
           query_params: {'api-version' => @client.api_version,'$filter' => filter,'$top' => top,'label' => label},
           headers: request_headers.merge(custom_headers || {}),
@@ -802,7 +802,7 @@ module Azure::EventGrid::Mgmt::V2019_02_01_preview
             result_mapper = Azure::EventGrid::Mgmt::V2019_02_01_preview::Models::EventSubscriptionsListResult.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -893,7 +893,7 @@ module Azure::EventGrid::Mgmt::V2019_02_01_preview
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'subscriptionId' => @client.subscription_id,'resourceGroupName' => resource_group_name,'topicTypeName' => topic_type_name},
           query_params: {'api-version' => @client.api_version,'$filter' => filter,'$top' => top,'label' => label},
           headers: request_headers.merge(custom_headers || {}),
@@ -920,7 +920,7 @@ module Azure::EventGrid::Mgmt::V2019_02_01_preview
             result_mapper = Azure::EventGrid::Mgmt::V2019_02_01_preview::Models::EventSubscriptionsListResult.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -1004,7 +1004,7 @@ module Azure::EventGrid::Mgmt::V2019_02_01_preview
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'subscriptionId' => @client.subscription_id,'location' => location},
           query_params: {'api-version' => @client.api_version,'$filter' => filter,'$top' => top,'label' => label},
           headers: request_headers.merge(custom_headers || {}),
@@ -1031,7 +1031,7 @@ module Azure::EventGrid::Mgmt::V2019_02_01_preview
             result_mapper = Azure::EventGrid::Mgmt::V2019_02_01_preview::Models::EventSubscriptionsListResult.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -1125,7 +1125,7 @@ module Azure::EventGrid::Mgmt::V2019_02_01_preview
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'subscriptionId' => @client.subscription_id,'resourceGroupName' => resource_group_name,'location' => location},
           query_params: {'api-version' => @client.api_version,'$filter' => filter,'$top' => top,'label' => label},
           headers: request_headers.merge(custom_headers || {}),
@@ -1152,7 +1152,7 @@ module Azure::EventGrid::Mgmt::V2019_02_01_preview
             result_mapper = Azure::EventGrid::Mgmt::V2019_02_01_preview::Models::EventSubscriptionsListResult.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -1243,7 +1243,7 @@ module Azure::EventGrid::Mgmt::V2019_02_01_preview
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'subscriptionId' => @client.subscription_id,'location' => location,'topicTypeName' => topic_type_name},
           query_params: {'api-version' => @client.api_version,'$filter' => filter,'$top' => top,'label' => label},
           headers: request_headers.merge(custom_headers || {}),
@@ -1270,7 +1270,7 @@ module Azure::EventGrid::Mgmt::V2019_02_01_preview
             result_mapper = Azure::EventGrid::Mgmt::V2019_02_01_preview::Models::EventSubscriptionsListResult.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -1368,7 +1368,7 @@ module Azure::EventGrid::Mgmt::V2019_02_01_preview
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'subscriptionId' => @client.subscription_id,'resourceGroupName' => resource_group_name,'location' => location,'topicTypeName' => topic_type_name},
           query_params: {'api-version' => @client.api_version,'$filter' => filter,'$top' => top,'label' => label},
           headers: request_headers.merge(custom_headers || {}),
@@ -1395,7 +1395,7 @@ module Azure::EventGrid::Mgmt::V2019_02_01_preview
             result_mapper = Azure::EventGrid::Mgmt::V2019_02_01_preview::Models::EventSubscriptionsListResult.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -1491,7 +1491,7 @@ module Azure::EventGrid::Mgmt::V2019_02_01_preview
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'subscriptionId' => @client.subscription_id,'resourceGroupName' => resource_group_name,'providerNamespace' => provider_namespace,'resourceTypeName' => resource_type_name,'resourceName' => resource_name},
           query_params: {'api-version' => @client.api_version,'$filter' => filter,'$top' => top,'label' => label},
           headers: request_headers.merge(custom_headers || {}),
@@ -1518,7 +1518,7 @@ module Azure::EventGrid::Mgmt::V2019_02_01_preview
             result_mapper = Azure::EventGrid::Mgmt::V2019_02_01_preview::Models::EventSubscriptionsListResult.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -1613,7 +1613,7 @@ module Azure::EventGrid::Mgmt::V2019_02_01_preview
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'subscriptionId' => @client.subscription_id,'resourceGroupName' => resource_group_name,'domainName' => domain_name,'topicName' => topic_name},
           query_params: {'api-version' => @client.api_version,'$filter' => filter,'$top' => top,'label' => label},
           headers: request_headers.merge(custom_headers || {}),
@@ -1640,7 +1640,7 @@ module Azure::EventGrid::Mgmt::V2019_02_01_preview
             result_mapper = Azure::EventGrid::Mgmt::V2019_02_01_preview::Models::EventSubscriptionsListResult.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -1764,7 +1764,7 @@ module Azure::EventGrid::Mgmt::V2019_02_01_preview
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'eventSubscriptionName' => event_subscription_name},
           skip_encoding_path_params: {'scope' => scope},
           query_params: {'api-version' => @client.api_version},
@@ -1793,7 +1793,7 @@ module Azure::EventGrid::Mgmt::V2019_02_01_preview
             result_mapper = Azure::EventGrid::Mgmt::V2019_02_01_preview::Models::EventSubscription.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -1891,7 +1891,7 @@ module Azure::EventGrid::Mgmt::V2019_02_01_preview
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'eventSubscriptionName' => event_subscription_name},
           skip_encoding_path_params: {'scope' => scope},
           query_params: {'api-version' => @client.api_version},
@@ -2024,7 +2024,7 @@ module Azure::EventGrid::Mgmt::V2019_02_01_preview
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'eventSubscriptionName' => event_subscription_name},
           skip_encoding_path_params: {'scope' => scope},
           query_params: {'api-version' => @client.api_version},
@@ -2053,7 +2053,7 @@ module Azure::EventGrid::Mgmt::V2019_02_01_preview
             result_mapper = Azure::EventGrid::Mgmt::V2019_02_01_preview::Models::EventSubscription.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -2129,7 +2129,7 @@ module Azure::EventGrid::Mgmt::V2019_02_01_preview
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           skip_encoding_path_params: {'nextLink' => next_page_link},
           headers: request_headers.merge(custom_headers || {}),
           base_url: request_url
@@ -2155,7 +2155,7 @@ module Azure::EventGrid::Mgmt::V2019_02_01_preview
             result_mapper = Azure::EventGrid::Mgmt::V2019_02_01_preview::Models::EventSubscriptionsListResult.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -2228,7 +2228,7 @@ module Azure::EventGrid::Mgmt::V2019_02_01_preview
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           skip_encoding_path_params: {'nextLink' => next_page_link},
           headers: request_headers.merge(custom_headers || {}),
           base_url: request_url
@@ -2254,7 +2254,7 @@ module Azure::EventGrid::Mgmt::V2019_02_01_preview
             result_mapper = Azure::EventGrid::Mgmt::V2019_02_01_preview::Models::EventSubscriptionsListResult.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -2330,7 +2330,7 @@ module Azure::EventGrid::Mgmt::V2019_02_01_preview
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           skip_encoding_path_params: {'nextLink' => next_page_link},
           headers: request_headers.merge(custom_headers || {}),
           base_url: request_url
@@ -2356,7 +2356,7 @@ module Azure::EventGrid::Mgmt::V2019_02_01_preview
             result_mapper = Azure::EventGrid::Mgmt::V2019_02_01_preview::Models::EventSubscriptionsListResult.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -2429,7 +2429,7 @@ module Azure::EventGrid::Mgmt::V2019_02_01_preview
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           skip_encoding_path_params: {'nextLink' => next_page_link},
           headers: request_headers.merge(custom_headers || {}),
           base_url: request_url
@@ -2455,7 +2455,7 @@ module Azure::EventGrid::Mgmt::V2019_02_01_preview
             result_mapper = Azure::EventGrid::Mgmt::V2019_02_01_preview::Models::EventSubscriptionsListResult.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -2528,7 +2528,7 @@ module Azure::EventGrid::Mgmt::V2019_02_01_preview
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           skip_encoding_path_params: {'nextLink' => next_page_link},
           headers: request_headers.merge(custom_headers || {}),
           base_url: request_url
@@ -2554,7 +2554,7 @@ module Azure::EventGrid::Mgmt::V2019_02_01_preview
             result_mapper = Azure::EventGrid::Mgmt::V2019_02_01_preview::Models::EventSubscriptionsListResult.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -2630,7 +2630,7 @@ module Azure::EventGrid::Mgmt::V2019_02_01_preview
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           skip_encoding_path_params: {'nextLink' => next_page_link},
           headers: request_headers.merge(custom_headers || {}),
           base_url: request_url
@@ -2656,7 +2656,7 @@ module Azure::EventGrid::Mgmt::V2019_02_01_preview
             result_mapper = Azure::EventGrid::Mgmt::V2019_02_01_preview::Models::EventSubscriptionsListResult.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -2732,7 +2732,7 @@ module Azure::EventGrid::Mgmt::V2019_02_01_preview
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           skip_encoding_path_params: {'nextLink' => next_page_link},
           headers: request_headers.merge(custom_headers || {}),
           base_url: request_url
@@ -2758,7 +2758,7 @@ module Azure::EventGrid::Mgmt::V2019_02_01_preview
             result_mapper = Azure::EventGrid::Mgmt::V2019_02_01_preview::Models::EventSubscriptionsListResult.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -2834,7 +2834,7 @@ module Azure::EventGrid::Mgmt::V2019_02_01_preview
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           skip_encoding_path_params: {'nextLink' => next_page_link},
           headers: request_headers.merge(custom_headers || {}),
           base_url: request_url
@@ -2860,7 +2860,7 @@ module Azure::EventGrid::Mgmt::V2019_02_01_preview
             result_mapper = Azure::EventGrid::Mgmt::V2019_02_01_preview::Models::EventSubscriptionsListResult.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -2930,7 +2930,7 @@ module Azure::EventGrid::Mgmt::V2019_02_01_preview
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           skip_encoding_path_params: {'nextLink' => next_page_link},
           headers: request_headers.merge(custom_headers || {}),
           base_url: request_url
@@ -2956,7 +2956,7 @@ module Azure::EventGrid::Mgmt::V2019_02_01_preview
             result_mapper = Azure::EventGrid::Mgmt::V2019_02_01_preview::Models::EventSubscriptionsListResult.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -3029,7 +3029,7 @@ module Azure::EventGrid::Mgmt::V2019_02_01_preview
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           skip_encoding_path_params: {'nextLink' => next_page_link},
           headers: request_headers.merge(custom_headers || {}),
           base_url: request_url
@@ -3055,7 +3055,7 @@ module Azure::EventGrid::Mgmt::V2019_02_01_preview
             result_mapper = Azure::EventGrid::Mgmt::V2019_02_01_preview::Models::EventSubscriptionsListResult.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 

@@ -12,7 +12,7 @@ module Azure::Security::Mgmt::V2017_08_01
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<ComplianceResult>] List of compliance results
       attr_accessor :value
 

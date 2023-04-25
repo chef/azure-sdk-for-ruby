@@ -12,7 +12,7 @@ module Azure::KeyVault::Mgmt::V2018_02_14
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<Vault>] The list of vaults.
       attr_accessor :value
 

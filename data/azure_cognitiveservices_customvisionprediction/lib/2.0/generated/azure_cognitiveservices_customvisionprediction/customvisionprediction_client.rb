@@ -37,14 +37,14 @@ module Azure::CognitiveServices::Customvisionprediction::V2_0
 
     #
     # Creates initializes a new instance of the CustomvisionpredictionClient class.
-    # @param credentials [MsRest::ServiceClientCredentials] credentials to authorize HTTP requests made by the service client.
+    # @param credentials [MsRest2::ServiceClientCredentials] credentials to authorize HTTP requests made by the service client.
     # @param options [Array] filters to be applied to the HTTP requests.
     #
     def initialize(credentials = nil, options = nil)
       super(credentials, options)
       @base_url = '{Endpoint}/customvision/v2.0/Prediction'
 
-      fail ArgumentError, 'invalid type of credentials input parameter' unless credentials.is_a?(MsRest::ServiceClientCredentials) unless credentials.nil?
+      fail ArgumentError, 'invalid type of credentials input parameter' unless credentials.is_a?(MsRest2::ServiceClientCredentials) unless credentials.nil?
       @credentials = credentials
 
       @accept_language = 'en-US'
@@ -194,7 +194,7 @@ module Azure::CognitiveServices::Customvisionprediction::V2_0
     request_url = request_url.gsub('{Endpoint}', endpoint)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'projectId' => project_id},
           query_params: {'iterationId' => iteration_id,'application' => application},
           body: request_content,
@@ -220,7 +220,7 @@ module Azure::CognitiveServices::Customvisionprediction::V2_0
             result_mapper = Azure::CognitiveServices::Customvisionprediction::V2_0::Models::ImagePrediction.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -309,7 +309,7 @@ module Azure::CognitiveServices::Customvisionprediction::V2_0
     request_url = request_url.gsub('{Endpoint}', endpoint)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'projectId' => project_id},
           query_params: {'iterationId' => iteration_id,'application' => application},
           headers: request_headers.merge(custom_headers || {}),
@@ -335,7 +335,7 @@ module Azure::CognitiveServices::Customvisionprediction::V2_0
             result_mapper = Azure::CognitiveServices::Customvisionprediction::V2_0::Models::ImagePrediction.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -428,7 +428,7 @@ module Azure::CognitiveServices::Customvisionprediction::V2_0
     request_url = request_url.gsub('{Endpoint}', endpoint)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'projectId' => project_id},
           query_params: {'iterationId' => iteration_id,'application' => application},
           body: request_content,
@@ -454,7 +454,7 @@ module Azure::CognitiveServices::Customvisionprediction::V2_0
             result_mapper = Azure::CognitiveServices::Customvisionprediction::V2_0::Models::ImagePrediction.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -543,7 +543,7 @@ module Azure::CognitiveServices::Customvisionprediction::V2_0
     request_url = request_url.gsub('{Endpoint}', endpoint)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'projectId' => project_id},
           query_params: {'iterationId' => iteration_id,'application' => application},
           headers: request_headers.merge(custom_headers || {}),
@@ -569,7 +569,7 @@ module Azure::CognitiveServices::Customvisionprediction::V2_0
             result_mapper = Azure::CognitiveServices::Customvisionprediction::V2_0::Models::ImagePrediction.mapper()
             result.body = self.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 

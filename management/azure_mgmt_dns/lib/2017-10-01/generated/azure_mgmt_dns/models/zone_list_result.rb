@@ -12,7 +12,7 @@ module Azure::Dns::Mgmt::V2017_10_01
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<Zone>] Information about the DNS zones.
       attr_accessor :value
 

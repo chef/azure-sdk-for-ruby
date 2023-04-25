@@ -129,7 +129,7 @@ module Azure::Monitor::Mgmt::V2015_05_01
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'subscriptionId' => @client.subscription_id,'resourceGroupName' => resource_group_name,'resourceName' => resource_name,'scopePath' => scope_path},
           query_params: {'api-version' => @client.api_version,'scope' => scope,'type' => type,'includeContent' => include_content},
           headers: request_headers.merge(custom_headers || {}),
@@ -172,7 +172,7 @@ module Azure::Monitor::Mgmt::V2015_05_01
             }
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -278,7 +278,7 @@ module Azure::Monitor::Mgmt::V2015_05_01
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'subscriptionId' => @client.subscription_id,'resourceGroupName' => resource_group_name,'resourceName' => resource_name,'scopePath' => scope_path},
           query_params: {'api-version' => @client.api_version,'id' => id,'name' => name},
           headers: request_headers.merge(custom_headers || {}),
@@ -305,7 +305,7 @@ module Azure::Monitor::Mgmt::V2015_05_01
             result_mapper = Azure::Monitor::Mgmt::V2015_05_01::Models::ApplicationInsightsComponentAnalyticsItem.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -421,7 +421,7 @@ module Azure::Monitor::Mgmt::V2015_05_01
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'subscriptionId' => @client.subscription_id,'resourceGroupName' => resource_group_name,'resourceName' => resource_name,'scopePath' => scope_path},
           query_params: {'api-version' => @client.api_version,'overrideItem' => override_item},
           body: request_content,
@@ -449,7 +449,7 @@ module Azure::Monitor::Mgmt::V2015_05_01
             result_mapper = Azure::Monitor::Mgmt::V2015_05_01::Models::ApplicationInsightsComponentAnalyticsItem.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -554,7 +554,7 @@ module Azure::Monitor::Mgmt::V2015_05_01
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'subscriptionId' => @client.subscription_id,'resourceGroupName' => resource_group_name,'resourceName' => resource_name,'scopePath' => scope_path},
           query_params: {'api-version' => @client.api_version,'id' => id,'name' => name},
           headers: request_headers.merge(custom_headers || {}),

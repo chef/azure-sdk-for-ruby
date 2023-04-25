@@ -12,7 +12,7 @@ module Azure::ServiceFabric::Mgmt::V2016_09_01
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<ClusterCodeVersionsResult>]
       attr_accessor :value
 

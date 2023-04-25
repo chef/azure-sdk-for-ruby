@@ -4,8 +4,8 @@ This is a forked repository originating from [Azure/azure-sdk-for-ruby](https://
 Microsoft no longer provides official support for the Azure Resource Management SDK for Ruby, as it has entered a retirement phase. 
 
 In order to maintain support for the [test-kitchen/kitchen-azurerm](https://github.com/test-kitchen/kitchen-azurerm) plugin, we have forked this project and released version 2 of the following gems:
-* azure_mgmt_network
-* azure_mgmt_resources
+* azure_mgmt_network2
+* azure_mgmt_resources2
 * ms_rest
 * ms_rest_azure
 
@@ -109,7 +109,7 @@ provider = MsRestAzure::ApplicationTokenProvider.new(
        'YOUR TENANT ID',
        'YOUR CLIENT ID',
        'YOUR CLIENT SECRET')
-credentials = MsRest::TokenCredentials.new(provider)
+credentials = MsRest2::TokenCredentials.new(provider)
 
 options = {
   tenant_id: 'YOUR TENANT ID',
@@ -265,7 +265,7 @@ provider = MsRestAzure::ApplicationTokenProvider.new(
        ENV['AZURE_TENANT_ID'],
        ENV['AZURE_CLIENT_ID'],
        ENV['AZURE_CLIENT_SECRET'])
-credentials = MsRest::TokenCredentials.new(provider)
+credentials = MsRest2::TokenCredentials.new(provider)
 
 # Target client for 2016_03_30 version of Compute
 compute_client = Azure::Compute::Mgmt::V2016_03_30::ComputeManagementClient.new(credentials)
@@ -298,7 +298,7 @@ The following samples could be used as a reference for Profiles usage::
 ### Getting Started Samples
 The tests for the libraries should provide a good example of how to get started with the clients. You can also see the
 readme for each of the libraries [Compute](management/azure_mgmt_compute),
-[Network](management/azure_mgmt_network), [Storage](management/azure_mgmt_storage), or [Resources](management/azure_mgmt_resources).
+[Network](management/azure_mgmt_network2), [Storage](management/azure_mgmt_storage), or [Resources](management/azure_mgmt_resources2).
 
 For more getting started samples go to [Azure-Samples](https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=ruby). Please make sure to look for the azure_mgmt_* gem versions for samples.
 

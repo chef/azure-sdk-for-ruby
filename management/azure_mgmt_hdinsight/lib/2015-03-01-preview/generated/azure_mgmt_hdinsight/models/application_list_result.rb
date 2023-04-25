@@ -13,7 +13,7 @@ module Azure::Hdinsight::Mgmt::V2015_03_01_preview
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<Application>] The list of HDInsight applications
       # installed on HDInsight cluster.
       attr_accessor :value

@@ -12,7 +12,7 @@ module Azure::Consumption::Mgmt::V2019_10_01
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<EventSummary>] The list of event summary.
       attr_accessor :value
 

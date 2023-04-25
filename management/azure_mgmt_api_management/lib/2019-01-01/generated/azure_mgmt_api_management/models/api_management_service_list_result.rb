@@ -12,7 +12,7 @@ module Azure::ApiManagement::Mgmt::V2019_01_01
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<ApiManagementServiceResource>] Result of the List API
       # Management services operation.
       attr_accessor :value

@@ -12,7 +12,7 @@ module Azure::StorageCache::Mgmt::V2019_08_01_preview
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [String] The uri to fetch the next page of storage targets.
       attr_accessor :next_link
 

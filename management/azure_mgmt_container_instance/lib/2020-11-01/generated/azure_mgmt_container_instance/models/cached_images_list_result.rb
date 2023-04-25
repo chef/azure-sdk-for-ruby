@@ -12,7 +12,7 @@ module Azure::ContainerInstance::Mgmt::V2020_11_01
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<CachedImages>] The list of cached images.
       attr_accessor :value
 

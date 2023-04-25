@@ -3,14 +3,14 @@
 # Licensed under the MIT License. See License.txt in the project root for license information.
 
 require File.join(File.dirname(__FILE__), '../../../../vcr_helper')
-require 'azure_mgmt_resources'
+require 'azure_mgmt_resources2'
 require 'azure_mgmt_datalake_store'
 require 'azure_mgmt_datalake_analytics'
 require 'ms_rest_azure'
 
-include MsRest
+include MsRest2
 include MsRestAzure
-include Azure::Resources::Mgmt::V2017_05_10
+include Azure::Resources2::Mgmt::V2017_05_10
 include Azure::DataLakeStore::Mgmt::V2016_11_01
 include Azure::DataLakeAnalytics::Mgmt::V2016_11_01
 
@@ -61,7 +61,7 @@ class ResourceHelper
   end
 
   def create_resource_group
-    params = Azure::Resources::Mgmt::V2017_05_10::Models::ResourceGroup.new()
+    params = Azure::Resources2::Mgmt::V2017_05_10::Models::ResourceGroup.new()
     params.location = 'East US 2'
 
     resource_client.resource_groups.create_or_update(@@resource_group_name, params)

@@ -12,7 +12,7 @@ module Azure::CognitiveServices::Mgmt::V2017_04_18
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<ResourceSku>] The list of skus available for the
       # subscription.
       attr_accessor :value

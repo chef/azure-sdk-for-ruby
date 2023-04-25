@@ -12,7 +12,7 @@ module Azure::Security::Mgmt::V2017_08_01_preview
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<IoTSecurityAggregatedAlert>] List of aggregated alerts
       # data
       attr_accessor :value

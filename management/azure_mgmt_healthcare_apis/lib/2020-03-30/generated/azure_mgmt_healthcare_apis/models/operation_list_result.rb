@@ -13,7 +13,7 @@ module Azure::HealthcareApis::Mgmt::V2020_03_30
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [String] The link used to get the next page of service
       # description objects.
       attr_accessor :next_link

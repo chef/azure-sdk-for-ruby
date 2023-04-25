@@ -12,7 +12,7 @@ module Azure::Security::Mgmt::V2019_01_01
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<Alert>]
       attr_accessor :value
 

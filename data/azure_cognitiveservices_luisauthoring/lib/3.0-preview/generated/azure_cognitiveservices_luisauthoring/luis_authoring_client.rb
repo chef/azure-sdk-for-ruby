@@ -69,14 +69,14 @@ module Azure::CognitiveServices::LuisAuthoring::V3_0_preview
 
     #
     # Creates initializes a new instance of the LuisAuthoringClient class.
-    # @param credentials [MsRest::ServiceClientCredentials] credentials to authorize HTTP requests made by the service client.
+    # @param credentials [MsRest2::ServiceClientCredentials] credentials to authorize HTTP requests made by the service client.
     # @param options [Array] filters to be applied to the HTTP requests.
     #
     def initialize(credentials = nil, options = nil)
       super(credentials, options)
       @base_url = '{Endpoint}/luis/authoring/v3.0-preview'
 
-      fail ArgumentError, 'invalid type of credentials input parameter' unless credentials.is_a?(MsRest::ServiceClientCredentials) unless credentials.nil?
+      fail ArgumentError, 'invalid type of credentials input parameter' unless credentials.is_a?(MsRest2::ServiceClientCredentials) unless credentials.nil?
       @credentials = credentials
 
       @features = Features.new(self)

@@ -12,7 +12,7 @@ module Azure::RecoveryServices::Mgmt::V2016_06_01
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<PrivateLinkResource>] A collection of private link
       # resources
       attr_accessor :value

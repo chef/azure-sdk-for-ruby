@@ -12,7 +12,7 @@ module Azure::Authorization::Mgmt::V2015_07_01
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<RoleAssignment>] Role assignment list.
       attr_accessor :value
 

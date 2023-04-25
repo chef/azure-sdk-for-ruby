@@ -12,7 +12,7 @@ module Azure::Features::Mgmt::V2015_12_01
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<FeatureResult>] The array of features.
       attr_accessor :value
 

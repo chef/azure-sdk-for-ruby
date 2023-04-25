@@ -12,7 +12,7 @@ module Azure::ServiceBus::Mgmt::V2017_04_01
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<SBQueue>] Result of the List Queues operation.
       attr_accessor :value
 

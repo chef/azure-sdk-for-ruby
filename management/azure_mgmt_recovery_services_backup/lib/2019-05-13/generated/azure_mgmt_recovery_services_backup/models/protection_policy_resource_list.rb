@@ -12,7 +12,7 @@ module Azure::RecoveryServicesBackup::Mgmt::V2019_05_13
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<ProtectionPolicyResource>] List of resources.
       attr_accessor :value
 

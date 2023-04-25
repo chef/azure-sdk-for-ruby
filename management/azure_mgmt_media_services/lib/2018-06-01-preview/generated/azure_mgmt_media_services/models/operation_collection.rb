@@ -12,7 +12,7 @@ module Azure::MediaServices::Mgmt::V2018_06_01_preview
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<Operation>] A collection of Operation items.
       attr_accessor :value
 

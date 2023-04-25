@@ -13,7 +13,7 @@ module Azure::ManagedServiceIdentity::Mgmt::V2015_08_31_preview
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<Operation>] A list of operations supported by
       # Microsoft.ManagedIdentity Resource Provider.
       attr_accessor :value

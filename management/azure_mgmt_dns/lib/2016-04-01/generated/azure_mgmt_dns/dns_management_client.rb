@@ -43,7 +43,7 @@ module Azure::Dns::Mgmt::V2016_04_01
 
     #
     # Creates initializes a new instance of the DnsManagementClient class.
-    # @param credentials [MsRest::ServiceClientCredentials] credentials to authorize HTTP requests made by the service client.
+    # @param credentials [MsRest2::ServiceClientCredentials] credentials to authorize HTTP requests made by the service client.
     # @param base_url [String] the base URI of the service.
     # @param options [Array] filters to be applied to the HTTP requests.
     #
@@ -51,7 +51,7 @@ module Azure::Dns::Mgmt::V2016_04_01
       super(credentials, options)
       @base_url = base_url || 'https://management.azure.com'
 
-      fail ArgumentError, 'invalid type of credentials input parameter' unless credentials.is_a?(MsRest::ServiceClientCredentials) unless credentials.nil?
+      fail ArgumentError, 'invalid type of credentials input parameter' unless credentials.is_a?(MsRest2::ServiceClientCredentials) unless credentials.nil?
       @credentials = credentials
 
       @record_sets = RecordSets.new(self)

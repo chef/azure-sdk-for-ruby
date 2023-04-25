@@ -12,7 +12,7 @@ module Azure::Synapse::Mgmt::V2019_06_01_preview
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [String] Link to next page of results
       attr_accessor :next_link
 

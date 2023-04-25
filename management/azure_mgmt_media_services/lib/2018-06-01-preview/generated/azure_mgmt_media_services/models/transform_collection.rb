@@ -12,7 +12,7 @@ module Azure::MediaServices::Mgmt::V2018_06_01_preview
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<Transform>] A collection of Transform items.
       attr_accessor :value
 

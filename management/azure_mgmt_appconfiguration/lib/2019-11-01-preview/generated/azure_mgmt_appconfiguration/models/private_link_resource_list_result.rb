@@ -12,7 +12,7 @@ module Azure::Appconfiguration::Mgmt::V2019_11_01_preview
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<PrivateLinkResource>] The collection value.
       attr_accessor :value
 

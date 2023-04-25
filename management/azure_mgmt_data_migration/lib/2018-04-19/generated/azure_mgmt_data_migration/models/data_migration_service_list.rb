@@ -12,7 +12,7 @@ module Azure::DataMigration::Mgmt::V2018_04_19
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<DataMigrationService>] List of services
       attr_accessor :value
 

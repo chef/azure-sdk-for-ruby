@@ -12,7 +12,7 @@ module Azure::GraphRbac::V1_6
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<ADGroup>] A collection of Active Directory groups.
       attr_accessor :value
 

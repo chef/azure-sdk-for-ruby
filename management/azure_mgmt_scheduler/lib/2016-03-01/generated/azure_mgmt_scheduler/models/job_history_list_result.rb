@@ -12,7 +12,7 @@ module Azure::Scheduler::Mgmt::V2016_03_01
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<JobHistoryDefinition>] Gets or sets the job histories
       # under job.
       attr_accessor :value

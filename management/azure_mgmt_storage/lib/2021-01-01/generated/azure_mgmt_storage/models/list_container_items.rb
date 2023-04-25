@@ -13,7 +13,7 @@ module Azure::Storage::Mgmt::V2021_01_01
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<ListContainerItem>] List of blobs containers returned.
       attr_accessor :value
 

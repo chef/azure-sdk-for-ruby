@@ -12,7 +12,7 @@ module Azure::Batch::Mgmt::V2019_08_01
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<Pool>] The collection of returned pools.
       attr_accessor :value
 

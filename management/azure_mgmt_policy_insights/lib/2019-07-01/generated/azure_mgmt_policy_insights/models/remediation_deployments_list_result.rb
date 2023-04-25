@@ -12,7 +12,7 @@ module Azure::PolicyInsights::Mgmt::V2019_07_01
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<RemediationDeployment>] Array of deployments for the
       # remediation.
       attr_accessor :value

@@ -12,7 +12,7 @@ module Azure::EventHub::Mgmt::V2018_01_01_preview
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<PrivateEndpointConnection>] A collection of private
       # endpoint connection resources.
       attr_accessor :value

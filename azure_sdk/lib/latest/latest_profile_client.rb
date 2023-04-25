@@ -163,7 +163,7 @@ module Azure::Profiles::Latest
     #      options: options
     #    }
     #   'credentials' are optional and if not passed in the hash, will be obtained
-    #   from MsRest::TokenCredentials using MsRestAzure::ApplicationTokenProvider.
+    #   from MsRest2::TokenCredentials using MsRestAzure::ApplicationTokenProvider.
     #
     #   Also, base_url, active_directory_settings & options are optional.
     #

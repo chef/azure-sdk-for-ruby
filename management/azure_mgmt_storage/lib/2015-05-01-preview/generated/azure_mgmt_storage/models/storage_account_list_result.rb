@@ -12,7 +12,7 @@ module Azure::Storage::Mgmt::V2015_05_01_preview
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<StorageAccount>] Gets the list of storage accounts and
       # their properties.
       attr_accessor :value

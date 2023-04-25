@@ -12,7 +12,7 @@ module Azure::Authorization::Mgmt::V2018_07_01_preview
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<DenyAssignment>] Deny assignment list.
       attr_accessor :value
 

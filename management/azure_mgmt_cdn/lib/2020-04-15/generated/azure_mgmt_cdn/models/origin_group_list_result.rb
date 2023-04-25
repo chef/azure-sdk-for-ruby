@@ -13,7 +13,7 @@ module Azure::CDN::Mgmt::V2020_04_15
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<OriginGroup>] List of CDN origin groups within an
       # endpoint
       attr_accessor :value

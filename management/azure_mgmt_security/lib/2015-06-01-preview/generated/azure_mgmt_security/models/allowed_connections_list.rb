@@ -12,7 +12,7 @@ module Azure::Security::Mgmt::V2015_06_01_preview
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<AllowedConnectionsResource>]
       attr_accessor :value
 

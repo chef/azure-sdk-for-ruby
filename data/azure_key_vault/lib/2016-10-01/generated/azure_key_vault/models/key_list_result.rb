@@ -12,7 +12,7 @@ module Azure::KeyVault::V2016_10_01
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<KeyItem>] A response message containing a list of keys
       # in the key vault along with a link to the next page of keys.
       attr_accessor :value

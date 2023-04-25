@@ -12,7 +12,7 @@ module Azure::AzureStackHCI::Mgmt::V2020_03_01_preview
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<Cluster>] List of clusters.
       attr_accessor :value
 

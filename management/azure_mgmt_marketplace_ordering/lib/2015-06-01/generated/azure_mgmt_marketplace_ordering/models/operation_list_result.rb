@@ -13,7 +13,7 @@ module Azure::MarketplaceOrdering::Mgmt::V2015_06_01
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<Operation>] List of Microsoft.MarketplaceOrdering
       # operations supported by the Microsoft.MarketplaceOrdering resource
       # provider.

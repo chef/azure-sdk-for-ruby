@@ -84,7 +84,7 @@ module Azure::Cosmosdb::Mgmt::V2019_12_12
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'subscriptionId' => @client.subscription_id,'resourceGroupName' => resource_group_name,'accountName' => account_name},
           query_params: {'api-version' => @client.api_version},
           headers: request_headers.merge(custom_headers || {}),
@@ -111,7 +111,7 @@ module Azure::Cosmosdb::Mgmt::V2019_12_12
             result_mapper = Azure::Cosmosdb::Mgmt::V2019_12_12::Models::SqlDatabaseListResult.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -191,7 +191,7 @@ module Azure::Cosmosdb::Mgmt::V2019_12_12
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'subscriptionId' => @client.subscription_id,'resourceGroupName' => resource_group_name,'accountName' => account_name,'databaseName' => database_name},
           query_params: {'api-version' => @client.api_version},
           headers: request_headers.merge(custom_headers || {}),
@@ -218,7 +218,7 @@ module Azure::Cosmosdb::Mgmt::V2019_12_12
             result_mapper = Azure::Cosmosdb::Mgmt::V2019_12_12::Models::SqlDatabaseGetResults.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -388,7 +388,7 @@ module Azure::Cosmosdb::Mgmt::V2019_12_12
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'subscriptionId' => @client.subscription_id,'resourceGroupName' => resource_group_name,'accountName' => account_name,'databaseName' => database_name},
           query_params: {'api-version' => @client.api_version},
           headers: request_headers.merge(custom_headers || {}),
@@ -415,7 +415,7 @@ module Azure::Cosmosdb::Mgmt::V2019_12_12
             result_mapper = Azure::Cosmosdb::Mgmt::V2019_12_12::Models::ThroughputSettingsGetResults.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -540,7 +540,7 @@ module Azure::Cosmosdb::Mgmt::V2019_12_12
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'subscriptionId' => @client.subscription_id,'resourceGroupName' => resource_group_name,'accountName' => account_name,'databaseName' => database_name},
           query_params: {'api-version' => @client.api_version},
           headers: request_headers.merge(custom_headers || {}),
@@ -567,7 +567,7 @@ module Azure::Cosmosdb::Mgmt::V2019_12_12
             result_mapper = Azure::Cosmosdb::Mgmt::V2019_12_12::Models::SqlContainerListResult.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -648,7 +648,7 @@ module Azure::Cosmosdb::Mgmt::V2019_12_12
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'subscriptionId' => @client.subscription_id,'resourceGroupName' => resource_group_name,'accountName' => account_name,'databaseName' => database_name,'containerName' => container_name},
           query_params: {'api-version' => @client.api_version},
           headers: request_headers.merge(custom_headers || {}),
@@ -675,7 +675,7 @@ module Azure::Cosmosdb::Mgmt::V2019_12_12
             result_mapper = Azure::Cosmosdb::Mgmt::V2019_12_12::Models::SqlContainerGetResults.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -853,7 +853,7 @@ module Azure::Cosmosdb::Mgmt::V2019_12_12
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'subscriptionId' => @client.subscription_id,'resourceGroupName' => resource_group_name,'accountName' => account_name,'databaseName' => database_name,'containerName' => container_name},
           query_params: {'api-version' => @client.api_version},
           headers: request_headers.merge(custom_headers || {}),
@@ -880,7 +880,7 @@ module Azure::Cosmosdb::Mgmt::V2019_12_12
             result_mapper = Azure::Cosmosdb::Mgmt::V2019_12_12::Models::ThroughputSettingsGetResults.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -1014,7 +1014,7 @@ module Azure::Cosmosdb::Mgmt::V2019_12_12
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'subscriptionId' => @client.subscription_id,'resourceGroupName' => resource_group_name,'accountName' => account_name,'databaseName' => database_name,'containerName' => container_name},
           query_params: {'api-version' => @client.api_version},
           headers: request_headers.merge(custom_headers || {}),
@@ -1041,7 +1041,7 @@ module Azure::Cosmosdb::Mgmt::V2019_12_12
             result_mapper = Azure::Cosmosdb::Mgmt::V2019_12_12::Models::SqlStoredProcedureListResult.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -1129,7 +1129,7 @@ module Azure::Cosmosdb::Mgmt::V2019_12_12
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'subscriptionId' => @client.subscription_id,'resourceGroupName' => resource_group_name,'accountName' => account_name,'databaseName' => database_name,'containerName' => container_name,'storedProcedureName' => stored_procedure_name},
           query_params: {'api-version' => @client.api_version},
           headers: request_headers.merge(custom_headers || {}),
@@ -1156,7 +1156,7 @@ module Azure::Cosmosdb::Mgmt::V2019_12_12
             result_mapper = Azure::Cosmosdb::Mgmt::V2019_12_12::Models::SqlStoredProcedureGetResults.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -1338,7 +1338,7 @@ module Azure::Cosmosdb::Mgmt::V2019_12_12
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'subscriptionId' => @client.subscription_id,'resourceGroupName' => resource_group_name,'accountName' => account_name,'databaseName' => database_name,'containerName' => container_name},
           query_params: {'api-version' => @client.api_version},
           headers: request_headers.merge(custom_headers || {}),
@@ -1365,7 +1365,7 @@ module Azure::Cosmosdb::Mgmt::V2019_12_12
             result_mapper = Azure::Cosmosdb::Mgmt::V2019_12_12::Models::SqlUserDefinedFunctionListResult.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -1456,7 +1456,7 @@ module Azure::Cosmosdb::Mgmt::V2019_12_12
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'subscriptionId' => @client.subscription_id,'resourceGroupName' => resource_group_name,'accountName' => account_name,'databaseName' => database_name,'containerName' => container_name,'userDefinedFunctionName' => user_defined_function_name},
           query_params: {'api-version' => @client.api_version},
           headers: request_headers.merge(custom_headers || {}),
@@ -1483,7 +1483,7 @@ module Azure::Cosmosdb::Mgmt::V2019_12_12
             result_mapper = Azure::Cosmosdb::Mgmt::V2019_12_12::Models::SqlUserDefinedFunctionGetResults.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -1666,7 +1666,7 @@ module Azure::Cosmosdb::Mgmt::V2019_12_12
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'subscriptionId' => @client.subscription_id,'resourceGroupName' => resource_group_name,'accountName' => account_name,'databaseName' => database_name,'containerName' => container_name},
           query_params: {'api-version' => @client.api_version},
           headers: request_headers.merge(custom_headers || {}),
@@ -1693,7 +1693,7 @@ module Azure::Cosmosdb::Mgmt::V2019_12_12
             result_mapper = Azure::Cosmosdb::Mgmt::V2019_12_12::Models::SqlTriggerListResult.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -1778,7 +1778,7 @@ module Azure::Cosmosdb::Mgmt::V2019_12_12
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'subscriptionId' => @client.subscription_id,'resourceGroupName' => resource_group_name,'accountName' => account_name,'databaseName' => database_name,'containerName' => container_name,'triggerName' => trigger_name},
           query_params: {'api-version' => @client.api_version},
           headers: request_headers.merge(custom_headers || {}),
@@ -1805,7 +1805,7 @@ module Azure::Cosmosdb::Mgmt::V2019_12_12
             result_mapper = Azure::Cosmosdb::Mgmt::V2019_12_12::Models::SqlTriggerGetResults.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -1996,7 +1996,7 @@ module Azure::Cosmosdb::Mgmt::V2019_12_12
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'subscriptionId' => @client.subscription_id,'resourceGroupName' => resource_group_name,'accountName' => account_name,'databaseName' => database_name},
           query_params: {'api-version' => @client.api_version},
           body: request_content,
@@ -2024,7 +2024,7 @@ module Azure::Cosmosdb::Mgmt::V2019_12_12
             result_mapper = Azure::Cosmosdb::Mgmt::V2019_12_12::Models::SqlDatabaseGetResults.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -2100,7 +2100,7 @@ module Azure::Cosmosdb::Mgmt::V2019_12_12
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'subscriptionId' => @client.subscription_id,'resourceGroupName' => resource_group_name,'accountName' => account_name,'databaseName' => database_name},
           query_params: {'api-version' => @client.api_version},
           headers: request_headers.merge(custom_headers || {}),
@@ -2207,7 +2207,7 @@ module Azure::Cosmosdb::Mgmt::V2019_12_12
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'subscriptionId' => @client.subscription_id,'resourceGroupName' => resource_group_name,'accountName' => account_name,'databaseName' => database_name},
           query_params: {'api-version' => @client.api_version},
           body: request_content,
@@ -2235,7 +2235,7 @@ module Azure::Cosmosdb::Mgmt::V2019_12_12
             result_mapper = Azure::Cosmosdb::Mgmt::V2019_12_12::Models::ThroughputSettingsGetResults.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -2332,7 +2332,7 @@ module Azure::Cosmosdb::Mgmt::V2019_12_12
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'subscriptionId' => @client.subscription_id,'resourceGroupName' => resource_group_name,'accountName' => account_name,'databaseName' => database_name,'containerName' => container_name},
           query_params: {'api-version' => @client.api_version},
           body: request_content,
@@ -2360,7 +2360,7 @@ module Azure::Cosmosdb::Mgmt::V2019_12_12
             result_mapper = Azure::Cosmosdb::Mgmt::V2019_12_12::Models::SqlContainerGetResults.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -2440,7 +2440,7 @@ module Azure::Cosmosdb::Mgmt::V2019_12_12
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'subscriptionId' => @client.subscription_id,'resourceGroupName' => resource_group_name,'accountName' => account_name,'databaseName' => database_name,'containerName' => container_name},
           query_params: {'api-version' => @client.api_version},
           headers: request_headers.merge(custom_headers || {}),
@@ -2551,7 +2551,7 @@ module Azure::Cosmosdb::Mgmt::V2019_12_12
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'subscriptionId' => @client.subscription_id,'resourceGroupName' => resource_group_name,'accountName' => account_name,'databaseName' => database_name,'containerName' => container_name},
           query_params: {'api-version' => @client.api_version},
           body: request_content,
@@ -2579,7 +2579,7 @@ module Azure::Cosmosdb::Mgmt::V2019_12_12
             result_mapper = Azure::Cosmosdb::Mgmt::V2019_12_12::Models::ThroughputSettingsGetResults.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -2680,7 +2680,7 @@ module Azure::Cosmosdb::Mgmt::V2019_12_12
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'subscriptionId' => @client.subscription_id,'resourceGroupName' => resource_group_name,'accountName' => account_name,'databaseName' => database_name,'containerName' => container_name,'storedProcedureName' => stored_procedure_name},
           query_params: {'api-version' => @client.api_version},
           body: request_content,
@@ -2708,7 +2708,7 @@ module Azure::Cosmosdb::Mgmt::V2019_12_12
             result_mapper = Azure::Cosmosdb::Mgmt::V2019_12_12::Models::SqlStoredProcedureGetResults.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -2792,7 +2792,7 @@ module Azure::Cosmosdb::Mgmt::V2019_12_12
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'subscriptionId' => @client.subscription_id,'resourceGroupName' => resource_group_name,'accountName' => account_name,'databaseName' => database_name,'containerName' => container_name,'storedProcedureName' => stored_procedure_name},
           query_params: {'api-version' => @client.api_version},
           headers: request_headers.merge(custom_headers || {}),
@@ -2913,7 +2913,7 @@ module Azure::Cosmosdb::Mgmt::V2019_12_12
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'subscriptionId' => @client.subscription_id,'resourceGroupName' => resource_group_name,'accountName' => account_name,'databaseName' => database_name,'containerName' => container_name,'userDefinedFunctionName' => user_defined_function_name},
           query_params: {'api-version' => @client.api_version},
           body: request_content,
@@ -2941,7 +2941,7 @@ module Azure::Cosmosdb::Mgmt::V2019_12_12
             result_mapper = Azure::Cosmosdb::Mgmt::V2019_12_12::Models::SqlUserDefinedFunctionGetResults.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -3028,7 +3028,7 @@ module Azure::Cosmosdb::Mgmt::V2019_12_12
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'subscriptionId' => @client.subscription_id,'resourceGroupName' => resource_group_name,'accountName' => account_name,'databaseName' => database_name,'containerName' => container_name,'userDefinedFunctionName' => user_defined_function_name},
           query_params: {'api-version' => @client.api_version},
           headers: request_headers.merge(custom_headers || {}),
@@ -3146,7 +3146,7 @@ module Azure::Cosmosdb::Mgmt::V2019_12_12
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'subscriptionId' => @client.subscription_id,'resourceGroupName' => resource_group_name,'accountName' => account_name,'databaseName' => database_name,'containerName' => container_name,'triggerName' => trigger_name},
           query_params: {'api-version' => @client.api_version},
           body: request_content,
@@ -3174,7 +3174,7 @@ module Azure::Cosmosdb::Mgmt::V2019_12_12
             result_mapper = Azure::Cosmosdb::Mgmt::V2019_12_12::Models::SqlTriggerGetResults.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -3258,7 +3258,7 @@ module Azure::Cosmosdb::Mgmt::V2019_12_12
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'subscriptionId' => @client.subscription_id,'resourceGroupName' => resource_group_name,'accountName' => account_name,'databaseName' => database_name,'containerName' => container_name,'triggerName' => trigger_name},
           query_params: {'api-version' => @client.api_version},
           headers: request_headers.merge(custom_headers || {}),

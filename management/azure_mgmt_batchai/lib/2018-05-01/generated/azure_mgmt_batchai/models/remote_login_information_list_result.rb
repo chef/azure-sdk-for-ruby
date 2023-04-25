@@ -12,7 +12,7 @@ module Azure::BatchAI::Mgmt::V2018_05_01
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<RemoteLoginInformation>] The collection of returned
       # remote login details.
       attr_accessor :value

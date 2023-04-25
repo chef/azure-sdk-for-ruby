@@ -12,7 +12,7 @@ module Azure::Policy::Mgmt::V2017_06_01_preview
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<PolicySetDefinition>] An array of policy set
       # definitions.
       attr_accessor :value

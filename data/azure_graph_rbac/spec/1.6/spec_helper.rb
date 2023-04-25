@@ -24,7 +24,7 @@ class ResourceHelper
     settings.token_audience = MsRestAzure::AzureEnvironments::AzureCloud.active_directory_graph_resource_id
 
     token_provider = MsRestAzure::ApplicationTokenProvider.new(tenant_id, client_id, secret, settings)
-    @credentials = MsRest::TokenCredentials.new(token_provider)
+    @credentials = MsRest2::TokenCredentials.new(token_provider)
 
     VCR.configure do |config|
       config.cassette_library_dir = "spec/1.6/vcr_cassettes"

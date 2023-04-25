@@ -223,7 +223,7 @@ module Azure::AlertsManagement::Mgmt::V2019_03_01
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           skip_encoding_path_params: {'scope' => @client.scope},
           query_params: {'targetResource' => target_resource,'targetResourceType' => target_resource_type,'targetResourceGroup' => target_resource_group,'monitorService' => monitor_service,'monitorCondition' => monitor_condition,'severity' => severity,'alertState' => alert_state,'alertRule' => alert_rule,'smartGroupId' => smart_group_id,'includeContext' => include_context,'includeEgressConfig' => include_egress_config,'pageCount' => page_count,'sortBy' => sort_by,'sortOrder' => sort_order,'select' => select,'timeRange' => time_range,'customTimeRange' => custom_time_range,'api-version' => @client.api_version},
           headers: request_headers.merge(custom_headers || {}),
@@ -237,7 +237,7 @@ module Azure::AlertsManagement::Mgmt::V2019_03_01
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -250,7 +250,7 @@ module Azure::AlertsManagement::Mgmt::V2019_03_01
             result_mapper = Azure::AlertsManagement::Mgmt::V2019_03_01::Models::AlertsList.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -340,7 +340,7 @@ module Azure::AlertsManagement::Mgmt::V2019_03_01
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'alertId' => alert_id},
           skip_encoding_path_params: {'scope' => @client.scope},
           query_params: {'api-version' => @client.api_version},
@@ -355,7 +355,7 @@ module Azure::AlertsManagement::Mgmt::V2019_03_01
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -368,7 +368,7 @@ module Azure::AlertsManagement::Mgmt::V2019_03_01
             result_mapper = Azure::AlertsManagement::Mgmt::V2019_03_01::Models::Alert.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -459,7 +459,7 @@ module Azure::AlertsManagement::Mgmt::V2019_03_01
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'alertId' => alert_id},
           skip_encoding_path_params: {'scope' => @client.scope},
           query_params: {'api-version' => @client.api_version,'newState' => new_state},
@@ -474,7 +474,7 @@ module Azure::AlertsManagement::Mgmt::V2019_03_01
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -487,7 +487,7 @@ module Azure::AlertsManagement::Mgmt::V2019_03_01
             result_mapper = Azure::AlertsManagement::Mgmt::V2019_03_01::Models::Alert.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -577,7 +577,7 @@ module Azure::AlertsManagement::Mgmt::V2019_03_01
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'alertId' => alert_id},
           skip_encoding_path_params: {'scope' => @client.scope},
           query_params: {'api-version' => @client.api_version},
@@ -592,7 +592,7 @@ module Azure::AlertsManagement::Mgmt::V2019_03_01
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -605,7 +605,7 @@ module Azure::AlertsManagement::Mgmt::V2019_03_01
             result_mapper = Azure::AlertsManagement::Mgmt::V2019_03_01::Models::AlertModification.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -770,7 +770,7 @@ module Azure::AlertsManagement::Mgmt::V2019_03_01
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           skip_encoding_path_params: {'scope' => @client.scope},
           query_params: {'groupby' => groupby,'includeSmartGroupsCount' => include_smart_groups_count,'targetResource' => target_resource,'targetResourceType' => target_resource_type,'targetResourceGroup' => target_resource_group,'monitorService' => monitor_service,'monitorCondition' => monitor_condition,'severity' => severity,'alertState' => alert_state,'alertRule' => alert_rule,'timeRange' => time_range,'customTimeRange' => custom_time_range,'api-version' => @client.api_version},
           headers: request_headers.merge(custom_headers || {}),
@@ -784,7 +784,7 @@ module Azure::AlertsManagement::Mgmt::V2019_03_01
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -797,7 +797,7 @@ module Azure::AlertsManagement::Mgmt::V2019_03_01
             result_mapper = Azure::AlertsManagement::Mgmt::V2019_03_01::Models::AlertsSummary.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -867,7 +867,7 @@ module Azure::AlertsManagement::Mgmt::V2019_03_01
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           skip_encoding_path_params: {'nextLink' => next_page_link},
           headers: request_headers.merge(custom_headers || {}),
           base_url: request_url
@@ -880,7 +880,7 @@ module Azure::AlertsManagement::Mgmt::V2019_03_01
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -893,7 +893,7 @@ module Azure::AlertsManagement::Mgmt::V2019_03_01
             result_mapper = Azure::AlertsManagement::Mgmt::V2019_03_01::Models::AlertsList.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 

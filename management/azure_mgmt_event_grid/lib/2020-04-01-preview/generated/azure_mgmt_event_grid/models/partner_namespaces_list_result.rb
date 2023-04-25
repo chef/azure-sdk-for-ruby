@@ -12,7 +12,7 @@ module Azure::EventGrid::Mgmt::V2020_04_01_preview
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<PartnerNamespace>] A collection of partner namespaces.
       attr_accessor :value
 

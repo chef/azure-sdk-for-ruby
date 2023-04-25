@@ -12,7 +12,7 @@ module Azure::CustomerInsights::Mgmt::V2017_01_01
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<ConnectorMappingResourceFormat>] Results of the list
       # operation.
       attr_accessor :value

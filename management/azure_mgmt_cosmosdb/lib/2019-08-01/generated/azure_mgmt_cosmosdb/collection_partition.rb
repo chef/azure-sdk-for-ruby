@@ -108,7 +108,7 @@ module Azure::Cosmosdb::Mgmt::V2019_08_01
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'subscriptionId' => @client.subscription_id,'resourceGroupName' => resource_group_name,'accountName' => account_name,'databaseRid' => database_rid,'collectionRid' => collection_rid},
           query_params: {'api-version' => @client.api_version,'$filter' => filter},
           headers: request_headers.merge(custom_headers || {}),
@@ -135,7 +135,7 @@ module Azure::Cosmosdb::Mgmt::V2019_08_01
             result_mapper = Azure::Cosmosdb::Mgmt::V2019_08_01::Models::PartitionMetricListResult.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -228,7 +228,7 @@ module Azure::Cosmosdb::Mgmt::V2019_08_01
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'subscriptionId' => @client.subscription_id,'resourceGroupName' => resource_group_name,'accountName' => account_name,'databaseRid' => database_rid,'collectionRid' => collection_rid},
           query_params: {'api-version' => @client.api_version,'$filter' => filter},
           headers: request_headers.merge(custom_headers || {}),
@@ -255,7 +255,7 @@ module Azure::Cosmosdb::Mgmt::V2019_08_01
             result_mapper = Azure::Cosmosdb::Mgmt::V2019_08_01::Models::PartitionUsagesResult.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 

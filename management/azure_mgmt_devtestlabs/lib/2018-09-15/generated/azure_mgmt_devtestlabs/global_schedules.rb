@@ -94,7 +94,7 @@ module Azure::DevTestLabs::Mgmt::V2018_09_15
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'subscriptionId' => @client.subscription_id},
           query_params: {'$expand' => expand,'$filter' => filter,'$top' => top,'$orderby' => orderby,'api-version' => @client.api_version},
           headers: request_headers.merge(custom_headers || {}),
@@ -121,7 +121,7 @@ module Azure::DevTestLabs::Mgmt::V2018_09_15
             result_mapper = Azure::DevTestLabs::Mgmt::V2018_09_15::Models::ScheduleList.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -208,7 +208,7 @@ module Azure::DevTestLabs::Mgmt::V2018_09_15
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'subscriptionId' => @client.subscription_id,'resourceGroupName' => resource_group_name},
           query_params: {'$expand' => expand,'$filter' => filter,'$top' => top,'$orderby' => orderby,'api-version' => @client.api_version},
           headers: request_headers.merge(custom_headers || {}),
@@ -235,7 +235,7 @@ module Azure::DevTestLabs::Mgmt::V2018_09_15
             result_mapper = Azure::DevTestLabs::Mgmt::V2018_09_15::Models::ScheduleList.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -308,7 +308,7 @@ module Azure::DevTestLabs::Mgmt::V2018_09_15
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'subscriptionId' => @client.subscription_id,'resourceGroupName' => resource_group_name,'name' => name},
           query_params: {'$expand' => expand,'api-version' => @client.api_version},
           headers: request_headers.merge(custom_headers || {}),
@@ -335,7 +335,7 @@ module Azure::DevTestLabs::Mgmt::V2018_09_15
             result_mapper = Azure::DevTestLabs::Mgmt::V2018_09_15::Models::Schedule.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -412,7 +412,7 @@ module Azure::DevTestLabs::Mgmt::V2018_09_15
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'subscriptionId' => @client.subscription_id,'resourceGroupName' => resource_group_name,'name' => name},
           query_params: {'api-version' => @client.api_version},
           body: request_content,
@@ -440,7 +440,7 @@ module Azure::DevTestLabs::Mgmt::V2018_09_15
             result_mapper = Azure::DevTestLabs::Mgmt::V2018_09_15::Models::Schedule.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
         # Deserialize Response
@@ -450,7 +450,7 @@ module Azure::DevTestLabs::Mgmt::V2018_09_15
             result_mapper = Azure::DevTestLabs::Mgmt::V2018_09_15::Models::Schedule.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -516,7 +516,7 @@ module Azure::DevTestLabs::Mgmt::V2018_09_15
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'subscriptionId' => @client.subscription_id,'resourceGroupName' => resource_group_name,'name' => name},
           query_params: {'api-version' => @client.api_version},
           headers: request_headers.merge(custom_headers || {}),
@@ -610,7 +610,7 @@ module Azure::DevTestLabs::Mgmt::V2018_09_15
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'subscriptionId' => @client.subscription_id,'resourceGroupName' => resource_group_name,'name' => name},
           query_params: {'api-version' => @client.api_version},
           body: request_content,
@@ -638,7 +638,7 @@ module Azure::DevTestLabs::Mgmt::V2018_09_15
             result_mapper = Azure::DevTestLabs::Mgmt::V2018_09_15::Models::Schedule.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -785,7 +785,7 @@ module Azure::DevTestLabs::Mgmt::V2018_09_15
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'subscriptionId' => @client.subscription_id,'resourceGroupName' => resource_group_name,'name' => name},
           query_params: {'api-version' => @client.api_version},
           headers: request_headers.merge(custom_headers || {}),
@@ -884,7 +884,7 @@ module Azure::DevTestLabs::Mgmt::V2018_09_15
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'subscriptionId' => @client.subscription_id,'resourceGroupName' => resource_group_name,'name' => name},
           query_params: {'api-version' => @client.api_version},
           body: request_content,
@@ -966,7 +966,7 @@ module Azure::DevTestLabs::Mgmt::V2018_09_15
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           skip_encoding_path_params: {'nextLink' => next_page_link},
           headers: request_headers.merge(custom_headers || {}),
           base_url: request_url
@@ -992,7 +992,7 @@ module Azure::DevTestLabs::Mgmt::V2018_09_15
             result_mapper = Azure::DevTestLabs::Mgmt::V2018_09_15::Models::ScheduleList.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -1056,7 +1056,7 @@ module Azure::DevTestLabs::Mgmt::V2018_09_15
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           skip_encoding_path_params: {'nextLink' => next_page_link},
           headers: request_headers.merge(custom_headers || {}),
           base_url: request_url
@@ -1082,7 +1082,7 @@ module Azure::DevTestLabs::Mgmt::V2018_09_15
             result_mapper = Azure::DevTestLabs::Mgmt::V2018_09_15::Models::ScheduleList.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 

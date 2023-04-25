@@ -12,7 +12,7 @@ module Azure::ContainerRegistry::Mgmt::V2019_06_01_preview
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<Run>] The collection value.
       attr_accessor :value
 

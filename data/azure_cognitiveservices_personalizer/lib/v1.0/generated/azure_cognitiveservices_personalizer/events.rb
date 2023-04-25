@@ -90,7 +90,7 @@ module Azure::CognitiveServices::Personalizer::V1_0
     request_url = request_url.gsub('{Endpoint}', endpoint)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'eventId' => event_id},
           body: request_content,
           headers: request_headers.merge(custom_headers || {}),
@@ -174,7 +174,7 @@ module Azure::CognitiveServices::Personalizer::V1_0
     request_url = request_url.gsub('{Endpoint}', endpoint)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'eventId' => event_id},
           headers: request_headers.merge(custom_headers || {}),
           base_url: request_url

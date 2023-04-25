@@ -12,7 +12,7 @@ module Azure::Batch::Mgmt::V2018_12_01
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<ApplicationPackage>] The list of application packages.
       attr_accessor :value
 

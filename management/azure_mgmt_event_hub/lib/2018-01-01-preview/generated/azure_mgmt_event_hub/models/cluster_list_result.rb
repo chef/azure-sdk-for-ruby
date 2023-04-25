@@ -12,7 +12,7 @@ module Azure::EventHub::Mgmt::V2018_01_01_preview
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<Cluster>] The Event Hubs Clusters present in the List
       # Event Hubs operation results.
       attr_accessor :value

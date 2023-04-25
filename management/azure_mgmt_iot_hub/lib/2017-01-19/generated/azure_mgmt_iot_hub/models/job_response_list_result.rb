@@ -12,7 +12,7 @@ module Azure::IotHub::Mgmt::V2017_01_19
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<JobResponse>] The array of JobResponse objects.
       attr_accessor :value
 

@@ -90,7 +90,7 @@ module Azure::CustomerInsights::Mgmt::V2017_04_26
 
     #
     # Creates initializes a new instance of the CustomerInsightsManagementClient class.
-    # @param credentials [MsRest::ServiceClientCredentials] credentials to authorize HTTP requests made by the service client.
+    # @param credentials [MsRest2::ServiceClientCredentials] credentials to authorize HTTP requests made by the service client.
     # @param base_url [String] the base URI of the service.
     # @param options [Array] filters to be applied to the HTTP requests.
     #
@@ -98,7 +98,7 @@ module Azure::CustomerInsights::Mgmt::V2017_04_26
       super(credentials, options)
       @base_url = base_url || 'https://management.azure.com'
 
-      fail ArgumentError, 'invalid type of credentials input parameter' unless credentials.is_a?(MsRest::ServiceClientCredentials) unless credentials.nil?
+      fail ArgumentError, 'invalid type of credentials input parameter' unless credentials.is_a?(MsRest2::ServiceClientCredentials) unless credentials.nil?
       @credentials = credentials
 
       @operations = Operations.new(self)

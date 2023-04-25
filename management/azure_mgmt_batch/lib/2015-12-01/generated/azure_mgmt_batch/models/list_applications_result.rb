@@ -12,7 +12,7 @@ module Azure::Batch::Mgmt::V2015_12_01
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<Application>] The list of applications.
       attr_accessor :value
 

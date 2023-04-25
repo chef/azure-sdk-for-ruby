@@ -94,7 +94,7 @@ module Azure::DataLakeAnalytics::Mgmt::V2015_10_01_preview
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'resourceGroupName' => resource_group_name,'accountName' => account_name,'storageAccountName' => storage_account_name,'subscriptionId' => @client.subscription_id},
           query_params: {'api-version' => @client.api_version},
           headers: request_headers.merge(custom_headers || {}),
@@ -119,7 +119,7 @@ module Azure::DataLakeAnalytics::Mgmt::V2015_10_01_preview
             result_mapper = Azure::DataLakeAnalytics::Mgmt::V2015_10_01_preview::Models::StorageAccountInfo.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -201,7 +201,7 @@ module Azure::DataLakeAnalytics::Mgmt::V2015_10_01_preview
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'resourceGroupName' => resource_group_name,'accountName' => account_name,'storageAccountName' => storage_account_name,'subscriptionId' => @client.subscription_id},
           query_params: {'api-version' => @client.api_version},
           headers: request_headers.merge(custom_headers || {}),
@@ -308,7 +308,7 @@ module Azure::DataLakeAnalytics::Mgmt::V2015_10_01_preview
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'resourceGroupName' => resource_group_name,'accountName' => account_name,'storageAccountName' => storage_account_name,'subscriptionId' => @client.subscription_id},
           query_params: {'api-version' => @client.api_version},
           body: request_content,
@@ -419,7 +419,7 @@ module Azure::DataLakeAnalytics::Mgmt::V2015_10_01_preview
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'resourceGroupName' => resource_group_name,'accountName' => account_name,'storageAccountName' => storage_account_name,'subscriptionId' => @client.subscription_id},
           query_params: {'api-version' => @client.api_version},
           body: request_content,
@@ -525,7 +525,7 @@ module Azure::DataLakeAnalytics::Mgmt::V2015_10_01_preview
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'resourceGroupName' => resource_group_name,'accountName' => account_name,'storageAccountName' => storage_account_name,'containerName' => container_name,'subscriptionId' => @client.subscription_id},
           query_params: {'api-version' => @client.api_version},
           headers: request_headers.merge(custom_headers || {}),
@@ -550,7 +550,7 @@ module Azure::DataLakeAnalytics::Mgmt::V2015_10_01_preview
             result_mapper = Azure::DataLakeAnalytics::Mgmt::V2015_10_01_preview::Models::BlobContainer.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -636,7 +636,7 @@ module Azure::DataLakeAnalytics::Mgmt::V2015_10_01_preview
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'resourceGroupName' => resource_group_name,'accountName' => account_name,'storageAccountName' => storage_account_name,'subscriptionId' => @client.subscription_id},
           query_params: {'api-version' => @client.api_version},
           headers: request_headers.merge(custom_headers || {}),
@@ -661,7 +661,7 @@ module Azure::DataLakeAnalytics::Mgmt::V2015_10_01_preview
             result_mapper = Azure::DataLakeAnalytics::Mgmt::V2015_10_01_preview::Models::ListBlobContainersResult.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -751,7 +751,7 @@ module Azure::DataLakeAnalytics::Mgmt::V2015_10_01_preview
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'resourceGroupName' => resource_group_name,'accountName' => account_name,'storageAccountName' => storage_account_name,'containerName' => container_name,'subscriptionId' => @client.subscription_id},
           query_params: {'api-version' => @client.api_version},
           headers: request_headers.merge(custom_headers || {}),
@@ -776,7 +776,7 @@ module Azure::DataLakeAnalytics::Mgmt::V2015_10_01_preview
             result_mapper = Azure::DataLakeAnalytics::Mgmt::V2015_10_01_preview::Models::ListSasTokensResult.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -859,7 +859,7 @@ module Azure::DataLakeAnalytics::Mgmt::V2015_10_01_preview
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'resourceGroupName' => resource_group_name,'accountName' => account_name,'dataLakeStoreAccountName' => data_lake_store_account_name,'subscriptionId' => @client.subscription_id},
           query_params: {'api-version' => @client.api_version},
           headers: request_headers.merge(custom_headers || {}),
@@ -884,7 +884,7 @@ module Azure::DataLakeAnalytics::Mgmt::V2015_10_01_preview
             result_mapper = Azure::DataLakeAnalytics::Mgmt::V2015_10_01_preview::Models::DataLakeStoreAccountInfo.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -966,7 +966,7 @@ module Azure::DataLakeAnalytics::Mgmt::V2015_10_01_preview
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'resourceGroupName' => resource_group_name,'accountName' => account_name,'dataLakeStoreAccountName' => data_lake_store_account_name,'subscriptionId' => @client.subscription_id},
           query_params: {'api-version' => @client.api_version},
           headers: request_headers.merge(custom_headers || {}),
@@ -1076,7 +1076,7 @@ module Azure::DataLakeAnalytics::Mgmt::V2015_10_01_preview
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'resourceGroupName' => resource_group_name,'accountName' => account_name,'dataLakeStoreAccountName' => data_lake_store_account_name,'subscriptionId' => @client.subscription_id},
           query_params: {'api-version' => @client.api_version},
           body: request_content,
@@ -1240,7 +1240,7 @@ module Azure::DataLakeAnalytics::Mgmt::V2015_10_01_preview
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'resourceGroupName' => resource_group_name,'accountName' => account_name,'subscriptionId' => @client.subscription_id},
           query_params: {'$filter' => filter,'$top' => top,'$skip' => skip,'$expand' => expand,'$select' => select,'$orderby' => orderby,'$count' => count,'$search' => search,'$format' => format,'api-version' => @client.api_version},
           headers: request_headers.merge(custom_headers || {}),
@@ -1265,7 +1265,7 @@ module Azure::DataLakeAnalytics::Mgmt::V2015_10_01_preview
             result_mapper = Azure::DataLakeAnalytics::Mgmt::V2015_10_01_preview::Models::DataLakeAnalyticsAccountListStorageAccountsResult.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -1413,7 +1413,7 @@ module Azure::DataLakeAnalytics::Mgmt::V2015_10_01_preview
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'resourceGroupName' => resource_group_name,'accountName' => account_name,'subscriptionId' => @client.subscription_id},
           query_params: {'$filter' => filter,'$top' => top,'$skip' => skip,'$expand' => expand,'$select' => select,'$orderby' => orderby,'$count' => count,'$search' => search,'$format' => format,'api-version' => @client.api_version},
           headers: request_headers.merge(custom_headers || {}),
@@ -1438,7 +1438,7 @@ module Azure::DataLakeAnalytics::Mgmt::V2015_10_01_preview
             result_mapper = Azure::DataLakeAnalytics::Mgmt::V2015_10_01_preview::Models::DataLakeAnalyticsAccountListDataLakeStoreResult.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -1576,7 +1576,7 @@ module Azure::DataLakeAnalytics::Mgmt::V2015_10_01_preview
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'resourceGroupName' => resource_group_name,'subscriptionId' => @client.subscription_id},
           query_params: {'$filter' => filter,'$top' => top,'$skip' => skip,'$expand' => expand,'$select' => select,'$orderby' => orderby,'$count' => count,'$search' => search,'$format' => format,'api-version' => @client.api_version},
           headers: request_headers.merge(custom_headers || {}),
@@ -1601,7 +1601,7 @@ module Azure::DataLakeAnalytics::Mgmt::V2015_10_01_preview
             result_mapper = Azure::DataLakeAnalytics::Mgmt::V2015_10_01_preview::Models::DataLakeAnalyticsAccountListResult.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -1732,7 +1732,7 @@ module Azure::DataLakeAnalytics::Mgmt::V2015_10_01_preview
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'subscriptionId' => @client.subscription_id},
           query_params: {'$filter' => filter,'$top' => top,'$skip' => skip,'$expand' => expand,'$select' => select,'$orderby' => orderby,'$count' => count,'$search' => search,'$format' => format,'api-version' => @client.api_version},
           headers: request_headers.merge(custom_headers || {}),
@@ -1757,7 +1757,7 @@ module Azure::DataLakeAnalytics::Mgmt::V2015_10_01_preview
             result_mapper = Azure::DataLakeAnalytics::Mgmt::V2015_10_01_preview::Models::DataLakeAnalyticsAccountListResult.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -1830,7 +1830,7 @@ module Azure::DataLakeAnalytics::Mgmt::V2015_10_01_preview
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'resourceGroupName' => resource_group_name,'accountName' => account_name,'subscriptionId' => @client.subscription_id},
           query_params: {'api-version' => @client.api_version},
           headers: request_headers.merge(custom_headers || {}),
@@ -1855,7 +1855,7 @@ module Azure::DataLakeAnalytics::Mgmt::V2015_10_01_preview
             result_mapper = Azure::DataLakeAnalytics::Mgmt::V2015_10_01_preview::Models::DataLakeAnalyticsAccount.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -2071,7 +2071,7 @@ module Azure::DataLakeAnalytics::Mgmt::V2015_10_01_preview
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'resourceGroupName' => resource_group_name,'accountName' => account_name,'subscriptionId' => @client.subscription_id},
           query_params: {'api-version' => @client.api_version},
           headers: request_headers.merge(custom_headers || {}),
@@ -2172,7 +2172,7 @@ module Azure::DataLakeAnalytics::Mgmt::V2015_10_01_preview
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'resourceGroupName' => resource_group_name,'name' => name,'subscriptionId' => @client.subscription_id},
           query_params: {'api-version' => @client.api_version},
           body: request_content,
@@ -2198,7 +2198,7 @@ module Azure::DataLakeAnalytics::Mgmt::V2015_10_01_preview
             result_mapper = Azure::DataLakeAnalytics::Mgmt::V2015_10_01_preview::Models::DataLakeAnalyticsAccount.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
         # Deserialize Response
@@ -2208,7 +2208,7 @@ module Azure::DataLakeAnalytics::Mgmt::V2015_10_01_preview
             result_mapper = Azure::DataLakeAnalytics::Mgmt::V2015_10_01_preview::Models::DataLakeAnalyticsAccount.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -2294,7 +2294,7 @@ module Azure::DataLakeAnalytics::Mgmt::V2015_10_01_preview
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'resourceGroupName' => resource_group_name,'name' => name,'subscriptionId' => @client.subscription_id},
           query_params: {'api-version' => @client.api_version},
           body: request_content,
@@ -2320,7 +2320,7 @@ module Azure::DataLakeAnalytics::Mgmt::V2015_10_01_preview
             result_mapper = Azure::DataLakeAnalytics::Mgmt::V2015_10_01_preview::Models::DataLakeAnalyticsAccount.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
         # Deserialize Response
@@ -2330,7 +2330,7 @@ module Azure::DataLakeAnalytics::Mgmt::V2015_10_01_preview
             result_mapper = Azure::DataLakeAnalytics::Mgmt::V2015_10_01_preview::Models::DataLakeAnalyticsAccount.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -2400,7 +2400,7 @@ module Azure::DataLakeAnalytics::Mgmt::V2015_10_01_preview
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           skip_encoding_path_params: {'nextLink' => next_page_link},
           headers: request_headers.merge(custom_headers || {}),
           base_url: request_url
@@ -2424,7 +2424,7 @@ module Azure::DataLakeAnalytics::Mgmt::V2015_10_01_preview
             result_mapper = Azure::DataLakeAnalytics::Mgmt::V2015_10_01_preview::Models::ListBlobContainersResult.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -2491,7 +2491,7 @@ module Azure::DataLakeAnalytics::Mgmt::V2015_10_01_preview
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           skip_encoding_path_params: {'nextLink' => next_page_link},
           headers: request_headers.merge(custom_headers || {}),
           base_url: request_url
@@ -2515,7 +2515,7 @@ module Azure::DataLakeAnalytics::Mgmt::V2015_10_01_preview
             result_mapper = Azure::DataLakeAnalytics::Mgmt::V2015_10_01_preview::Models::ListSasTokensResult.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -2586,7 +2586,7 @@ module Azure::DataLakeAnalytics::Mgmt::V2015_10_01_preview
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           skip_encoding_path_params: {'nextLink' => next_page_link},
           headers: request_headers.merge(custom_headers || {}),
           base_url: request_url
@@ -2610,7 +2610,7 @@ module Azure::DataLakeAnalytics::Mgmt::V2015_10_01_preview
             result_mapper = Azure::DataLakeAnalytics::Mgmt::V2015_10_01_preview::Models::DataLakeAnalyticsAccountListStorageAccountsResult.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -2680,7 +2680,7 @@ module Azure::DataLakeAnalytics::Mgmt::V2015_10_01_preview
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           skip_encoding_path_params: {'nextLink' => next_page_link},
           headers: request_headers.merge(custom_headers || {}),
           base_url: request_url
@@ -2704,7 +2704,7 @@ module Azure::DataLakeAnalytics::Mgmt::V2015_10_01_preview
             result_mapper = Azure::DataLakeAnalytics::Mgmt::V2015_10_01_preview::Models::DataLakeAnalyticsAccountListDataLakeStoreResult.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -2771,7 +2771,7 @@ module Azure::DataLakeAnalytics::Mgmt::V2015_10_01_preview
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           skip_encoding_path_params: {'nextLink' => next_page_link},
           headers: request_headers.merge(custom_headers || {}),
           base_url: request_url
@@ -2795,7 +2795,7 @@ module Azure::DataLakeAnalytics::Mgmt::V2015_10_01_preview
             result_mapper = Azure::DataLakeAnalytics::Mgmt::V2015_10_01_preview::Models::DataLakeAnalyticsAccountListResult.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -2862,7 +2862,7 @@ module Azure::DataLakeAnalytics::Mgmt::V2015_10_01_preview
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           skip_encoding_path_params: {'nextLink' => next_page_link},
           headers: request_headers.merge(custom_headers || {}),
           base_url: request_url
@@ -2886,7 +2886,7 @@ module Azure::DataLakeAnalytics::Mgmt::V2015_10_01_preview
             result_mapper = Azure::DataLakeAnalytics::Mgmt::V2015_10_01_preview::Models::DataLakeAnalyticsAccountListResult.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 

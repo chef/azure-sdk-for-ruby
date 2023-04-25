@@ -13,7 +13,7 @@ module Azure::ResourcesManagement::Mgmt::V2017_08_31_preview
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<Operation>] List of management operations supported by
       # the Microsoft.Management resource provider.
       attr_accessor :value

@@ -977,7 +977,7 @@ module Azure::CognitiveServices::Customimagesearch::V1_0
     request_url = request_url.gsub('{Endpoint}', @client.endpoint)
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           query_params: {'customConfig' => custom_config,'aspect' => aspect,'color' => color,'cc' => country_code,'count' => count,'freshness' => freshness,'height' => height,'id' => id,'imageContent' => image_content,'imageType' => image_type,'license' => license,'mkt' => market,'maxFileSize' => max_file_size,'maxHeight' => max_height,'maxWidth' => max_width,'minFileSize' => min_file_size,'minHeight' => min_height,'minWidth' => min_width,'offset' => offset,'q' => query,'safeSearch' => safe_search,'size' => size,'setLang' => set_lang,'width' => width},
           headers: request_headers.merge(custom_headers || {}),
           base_url: request_url
@@ -990,7 +990,7 @@ module Azure::CognitiveServices::Customimagesearch::V1_0
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRest::HttpOperationError.new(result.request, http_response, error_model)
+          fail MsRest2::HttpOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -1001,7 +1001,7 @@ module Azure::CognitiveServices::Customimagesearch::V1_0
             result_mapper = Azure::CognitiveServices::Customimagesearch::V1_0::Models::Images.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 

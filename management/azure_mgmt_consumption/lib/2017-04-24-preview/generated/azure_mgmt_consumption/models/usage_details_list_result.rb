@@ -13,7 +13,7 @@ module Azure::Consumption::Mgmt::V2017_04_24_preview
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<UsageDetail>] The list of usage details.
       attr_accessor :value
 

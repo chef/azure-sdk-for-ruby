@@ -12,7 +12,7 @@ module Azure::RecoveryServicesSiteRecovery::Mgmt::V2016_08_10
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<LogicalNetwork>] The Logical Networks list details.
       attr_accessor :value
 

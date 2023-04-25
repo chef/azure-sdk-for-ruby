@@ -13,7 +13,7 @@ module Azure::CostManagement::Mgmt::V2019_01_01
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<Operation>] List of cost management operations supported
       # by the Microsoft.CostManagement resource provider.
       attr_accessor :value

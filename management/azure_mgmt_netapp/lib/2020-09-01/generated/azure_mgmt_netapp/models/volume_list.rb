@@ -12,7 +12,7 @@ module Azure::NetApp::Mgmt::V2020_09_01
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<Volume>] List of volumes
       attr_accessor :value
 

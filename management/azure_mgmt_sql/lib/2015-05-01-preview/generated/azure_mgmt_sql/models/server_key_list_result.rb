@@ -12,7 +12,7 @@ module Azure::SQL::Mgmt::V2015_05_01_preview
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<ServerKey>] Array of results.
       attr_accessor :value
 

@@ -12,7 +12,7 @@ module Azure::Reservations::Mgmt::V2019_04_01_preview
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<OperationResponse>]
       attr_accessor :value
 

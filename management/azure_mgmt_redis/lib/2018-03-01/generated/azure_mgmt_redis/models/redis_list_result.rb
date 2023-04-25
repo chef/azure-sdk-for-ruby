@@ -12,7 +12,7 @@ module Azure::Redis::Mgmt::V2018_03_01
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<RedisResource>] List of Redis cache instances.
       attr_accessor :value
 

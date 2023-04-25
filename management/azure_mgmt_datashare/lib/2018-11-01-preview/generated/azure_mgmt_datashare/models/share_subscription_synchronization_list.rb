@@ -12,7 +12,7 @@ module Azure::DataShare::Mgmt::V2018_11_01_preview
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [String] The Url of next result page.
       attr_accessor :next_link
 

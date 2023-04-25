@@ -12,7 +12,7 @@ module Azure::Automation::Mgmt::V2015_10_31
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<DscNodeConfiguration>] Gets or sets a list of Dsc node
       # configurations.
       attr_accessor :value

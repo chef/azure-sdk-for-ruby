@@ -12,7 +12,7 @@ module Azure::ContainerRegistry::Mgmt::V2019_05_01
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<Event>] The list of events. Since this list may be
       # incomplete, the nextLink field should be used to request the next list
       # of events.

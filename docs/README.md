@@ -123,7 +123,7 @@ settings = MsRestAzure::ActiveDirectoryServiceSettings.get_azure_china_settings
 
 There are 4 kinds of token providers in library:
 
-* MsRest::StringTokenProvider
+* MsRest2::StringTokenProvider
 * MsRestAzure::ApplicationTokenProvider
 * MsRestAzure::AzureCliTokenProvider
 * MsRestAzure::MSITokenProvider
@@ -154,7 +154,7 @@ provider = MsRestAzure::AzureCliTokenProvider.new()
 
 ### Step 4 Create Token Credentials
 ```ruby
-credentials = MsRest::TokenCredentials.new(provider)
+credentials = MsRest2::TokenCredentials.new(provider)
 ```
 
 ## Make an request 
@@ -191,7 +191,7 @@ provider = MsRestAzure::ApplicationTokenProvider.new(
        options[:tenant_id],
        options[:client_id],
        options[:client_secret])
-credentials = MsRest::TokenCredentials.new(provider)
+credentials = MsRest2::TokenCredentials.new(provider)
 client = MsRestAzure::AzureServiceClient.new(credentials, options)
 
 # Set Headers
@@ -215,7 +215,7 @@ request_content = JSON.generate(request_content, quirks_mode: true)
 # Set operations
 request_options = {
     middlewares: [
-        [MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], # Add retry policy middleware
+        [MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], # Add retry policy middleware
         [:cookie_jar] # Add faraday cookie jar middleware
     ],
     path_params: {
@@ -251,7 +251,7 @@ promise = promise.then do |result|
     begin
       result.body = response_content.to_s.empty? ? nil : JSON.load(response_content)
     rescue Exception => e
-      fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+      fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
     end
   end
 

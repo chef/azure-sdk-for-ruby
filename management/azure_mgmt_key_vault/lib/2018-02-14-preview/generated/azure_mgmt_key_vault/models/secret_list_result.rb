@@ -12,7 +12,7 @@ module Azure::KeyVault::Mgmt::V2018_02_14_preview
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<Secret>] The list of secrets.
       attr_accessor :value
 

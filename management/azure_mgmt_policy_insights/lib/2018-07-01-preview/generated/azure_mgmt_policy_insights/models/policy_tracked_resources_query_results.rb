@@ -12,7 +12,7 @@ module Azure::PolicyInsights::Mgmt::V2018_07_01_preview
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<PolicyTrackedResource>] Query results.
       attr_accessor :value
 

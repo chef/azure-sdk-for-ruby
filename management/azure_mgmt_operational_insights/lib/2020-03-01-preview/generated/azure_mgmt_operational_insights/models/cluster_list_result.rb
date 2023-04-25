@@ -12,7 +12,7 @@ module Azure::OperationalInsights::Mgmt::V2020_03_01_preview
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [String] The link used to get the next page of recommendations.
       attr_accessor :next_link
 

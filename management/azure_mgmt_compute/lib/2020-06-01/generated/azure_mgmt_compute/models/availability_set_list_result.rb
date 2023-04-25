@@ -12,7 +12,7 @@ module Azure::Compute::Mgmt::V2020_06_01
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<AvailabilitySet>] The list of availability sets
       attr_accessor :value
 

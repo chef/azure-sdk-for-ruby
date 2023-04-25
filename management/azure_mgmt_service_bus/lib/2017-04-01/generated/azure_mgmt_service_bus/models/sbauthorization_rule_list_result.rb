@@ -12,7 +12,7 @@ module Azure::ServiceBus::Mgmt::V2017_04_01
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<SBAuthorizationRule>] Result of the List Authorization
       # Rules operation.
       attr_accessor :value

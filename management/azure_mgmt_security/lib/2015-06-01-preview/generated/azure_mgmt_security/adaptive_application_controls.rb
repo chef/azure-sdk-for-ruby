@@ -77,7 +77,7 @@ module Azure::Security::Mgmt::V2015_06_01_preview
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'subscriptionId' => @client.subscription_id},
           query_params: {'api-version' => @client.api_version,'includePathRecommendations' => include_path_recommendations,'summary' => summary},
           headers: request_headers.merge(custom_headers || {}),
@@ -104,7 +104,7 @@ module Azure::Security::Mgmt::V2015_06_01_preview
             result_mapper = Azure::Security::Mgmt::V2015_06_01_preview::Models::AppWhitelistingGroups.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -169,7 +169,7 @@ module Azure::Security::Mgmt::V2015_06_01_preview
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'subscriptionId' => @client.subscription_id,'ascLocation' => @client.asc_location,'groupName' => group_name},
           query_params: {'api-version' => @client.api_version},
           headers: request_headers.merge(custom_headers || {}),
@@ -196,7 +196,7 @@ module Azure::Security::Mgmt::V2015_06_01_preview
             result_mapper = Azure::Security::Mgmt::V2015_06_01_preview::Models::AppWhitelistingGroup.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -271,7 +271,7 @@ module Azure::Security::Mgmt::V2015_06_01_preview
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'subscriptionId' => @client.subscription_id,'ascLocation' => @client.asc_location,'groupName' => group_name},
           query_params: {'api-version' => @client.api_version},
           body: request_content,
@@ -299,7 +299,7 @@ module Azure::Security::Mgmt::V2015_06_01_preview
             result_mapper = Azure::Security::Mgmt::V2015_06_01_preview::Models::AppWhitelistingGroup.mapper()
             result.body = @client.deserialize(result_mapper, parsed_response)
           rescue Exception => e
-            fail MsRest::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
+            fail MsRest2::DeserializationError.new('Error occurred in deserializing the response', e.message, e.backtrace, result)
           end
         end
 
@@ -363,7 +363,7 @@ module Azure::Security::Mgmt::V2015_06_01_preview
       request_url = @base_url || @client.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'subscriptionId' => @client.subscription_id,'ascLocation' => @client.asc_location,'groupName' => group_name},
           query_params: {'api-version' => @client.api_version},
           headers: request_headers.merge(custom_headers || {}),

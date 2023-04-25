@@ -12,7 +12,7 @@ module Azure::Logic::Mgmt::V2018_07_01_preview
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<IntegrationAccountMap>] The list of integration account
       # maps.
       attr_accessor :value

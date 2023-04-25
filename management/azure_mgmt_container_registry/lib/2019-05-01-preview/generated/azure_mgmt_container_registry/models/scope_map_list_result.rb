@@ -12,7 +12,7 @@ module Azure::ContainerRegistry::Mgmt::V2019_05_01_preview
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<ScopeMap>] The list of scope maps. Since this list may
       # be incomplete, the nextLink field should be used to request the next
       # list of scope maps.

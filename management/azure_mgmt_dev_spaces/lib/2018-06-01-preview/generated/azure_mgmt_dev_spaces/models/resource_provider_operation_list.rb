@@ -12,7 +12,7 @@ module Azure::DevSpaces::Mgmt::V2018_06_01_preview
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<ResourceProviderOperationDefinition>] Resource provider
       # operations list.
       attr_accessor :value

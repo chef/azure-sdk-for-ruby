@@ -12,7 +12,7 @@ module Azure::Security::Mgmt::V2020_01_01_preview
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<SecureScoreControlDefinitionItem>] Collection of
       # security controls definition in this page
       attr_accessor :value

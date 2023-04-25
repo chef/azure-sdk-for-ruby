@@ -12,7 +12,7 @@ module Azure::OperationalInsights::Mgmt::V2020_08_01
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<Operation>] List of solution operations supported by the
       # OperationsManagement resource provider.
       attr_accessor :value

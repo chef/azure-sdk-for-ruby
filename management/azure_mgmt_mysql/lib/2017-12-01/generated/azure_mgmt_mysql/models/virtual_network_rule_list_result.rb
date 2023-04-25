@@ -12,7 +12,7 @@ module Azure::Mysql::Mgmt::V2017_12_01
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<VirtualNetworkRule>] Array of results.
       attr_accessor :value
 

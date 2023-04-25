@@ -13,7 +13,7 @@ module Azure::DataLakeAnalytics::Mgmt::V2015_10_01_preview
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<SasTokenInfo>]
       attr_accessor :value
 

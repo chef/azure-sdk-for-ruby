@@ -12,7 +12,7 @@ module Azure::Advisor::Mgmt::V2020_01_01
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [String] The link used to get the next page of suppressions.
       attr_accessor :next_link
 

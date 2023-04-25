@@ -14,7 +14,7 @@ module Azure::TimeSeriesInsights::Mgmt::V2018_08_15_preview
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<Operation>] List of Time Series Insights operations
       # supported by the Microsoft.TimeSeriesInsights resource provider.
       attr_accessor :value

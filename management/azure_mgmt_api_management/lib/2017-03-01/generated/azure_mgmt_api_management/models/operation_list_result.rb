@@ -13,7 +13,7 @@ module Azure::ApiManagement::Mgmt::V2017_03_01
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<Operation>] List of operations supported by the resource
       # provider.
       attr_accessor :value

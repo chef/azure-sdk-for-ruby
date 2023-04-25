@@ -12,7 +12,7 @@ module Azure::Web::Mgmt::V2018_02_01
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<TriggeredJobHistory>] Collection of resources.
       attr_accessor :value
 

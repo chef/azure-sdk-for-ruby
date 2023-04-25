@@ -12,7 +12,7 @@ module Azure::IotHub::Mgmt::V2018_12_01_preview
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<SharedAccessSignatureAuthorizationRule>] The list of
       # shared access policies.
       attr_accessor :value

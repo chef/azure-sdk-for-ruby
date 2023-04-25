@@ -12,7 +12,7 @@ module Azure::ContainerService::Mgmt::V2017_01_31
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<ContainerService>] the list of container services.
       attr_accessor :value
 

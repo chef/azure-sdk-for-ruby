@@ -13,7 +13,7 @@ module Azure::Billing::Mgmt::V2017_04_24_preview
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<Invoice>] The list of invoices.
       attr_accessor :value
 

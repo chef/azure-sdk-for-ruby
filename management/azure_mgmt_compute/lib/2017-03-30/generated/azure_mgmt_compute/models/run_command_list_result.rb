@@ -12,7 +12,7 @@ module Azure::Compute::Mgmt::V2017_03_30
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<RunCommandDocumentBase>] The list of virtual machine run
       # commands.
       attr_accessor :value

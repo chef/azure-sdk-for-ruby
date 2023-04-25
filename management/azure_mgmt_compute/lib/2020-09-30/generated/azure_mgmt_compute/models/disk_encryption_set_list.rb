@@ -12,7 +12,7 @@ module Azure::Compute::Mgmt::V2020_09_30
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<DiskEncryptionSet>] A list of disk encryption sets.
       attr_accessor :value
 

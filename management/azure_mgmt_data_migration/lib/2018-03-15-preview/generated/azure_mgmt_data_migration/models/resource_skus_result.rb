@@ -12,7 +12,7 @@ module Azure::DataMigration::Mgmt::V2018_03_15_preview
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<ResourceSku>] The list of SKUs available for the
       # subscription.
       attr_accessor :value

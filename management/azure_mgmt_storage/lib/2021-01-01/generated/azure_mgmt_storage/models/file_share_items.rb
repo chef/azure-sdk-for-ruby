@@ -13,7 +13,7 @@ module Azure::Storage::Mgmt::V2021_01_01
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<FileShareItem>] List of file shares returned.
       attr_accessor :value
 

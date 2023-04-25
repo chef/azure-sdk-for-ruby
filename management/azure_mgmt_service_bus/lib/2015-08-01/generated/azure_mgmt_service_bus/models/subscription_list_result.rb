@@ -12,7 +12,7 @@ module Azure::ServiceBus::Mgmt::V2015_08_01
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<SubscriptionResource>] Result of the List Subscriptions
       # operation.
       attr_accessor :value

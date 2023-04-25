@@ -12,7 +12,7 @@ module Azure::BotService::Mgmt::V2018_07_12_preview
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [String] The link used to get the next page of bot service
       # connection setting resources.
       attr_accessor :next_link

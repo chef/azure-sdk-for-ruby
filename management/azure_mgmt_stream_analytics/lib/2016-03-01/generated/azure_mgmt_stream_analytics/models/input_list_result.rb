@@ -12,7 +12,7 @@ module Azure::StreamAnalytics::Mgmt::V2016_03_01
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<Input>] A list of inputs under a streaming job.
       # Populated by a 'List' operation.
       attr_accessor :value

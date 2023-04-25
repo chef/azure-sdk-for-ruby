@@ -12,7 +12,7 @@ module Azure::Labservices::Mgmt::V2018_10_15
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<GalleryImage>] Results of the list operation.
       attr_accessor :value
 

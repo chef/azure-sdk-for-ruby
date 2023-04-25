@@ -12,7 +12,7 @@ module Azure::Authorization::Mgmt::V2015_07_01_preview
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<Permission>] An array of permissions.
       attr_accessor :value
 

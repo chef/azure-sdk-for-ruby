@@ -12,7 +12,7 @@ module Azure::Security::Mgmt::V2019_01_01_preview
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<SecurityAssessment>] Collection of security assessments
       # in this page
       attr_accessor :value

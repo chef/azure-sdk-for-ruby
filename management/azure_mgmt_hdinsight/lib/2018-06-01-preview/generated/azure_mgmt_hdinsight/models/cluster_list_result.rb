@@ -12,7 +12,7 @@ module Azure::Hdinsight::Mgmt::V2018_06_01_preview
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<Cluster>] The list of Clusters.
       attr_accessor :value
 

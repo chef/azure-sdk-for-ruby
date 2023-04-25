@@ -13,7 +13,7 @@ module Azure::MixedReality::Mgmt::V2020_05_01
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<SpatialAnchorsAccount>] List of resources supported by
       # the Resource Provider.
       attr_accessor :value

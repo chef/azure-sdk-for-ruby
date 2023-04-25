@@ -57,7 +57,7 @@ module Azure::Mysql::Mgmt::V2018_06_01
 
     #
     # Creates initializes a new instance of the MySQLManagementClient class.
-    # @param credentials [MsRest::ServiceClientCredentials] credentials to authorize HTTP requests made by the service client.
+    # @param credentials [MsRest2::ServiceClientCredentials] credentials to authorize HTTP requests made by the service client.
     # @param base_url [String] the base URI of the service.
     # @param options [Array] filters to be applied to the HTTP requests.
     #
@@ -65,7 +65,7 @@ module Azure::Mysql::Mgmt::V2018_06_01
       super(credentials, options)
       @base_url = base_url || 'https://management.azure.com'
 
-      fail ArgumentError, 'invalid type of credentials input parameter' unless credentials.is_a?(MsRest::ServiceClientCredentials) unless credentials.nil?
+      fail ArgumentError, 'invalid type of credentials input parameter' unless credentials.is_a?(MsRest2::ServiceClientCredentials) unless credentials.nil?
       @credentials = credentials
 
       @advisors = Advisors.new(self)
@@ -211,7 +211,7 @@ module Azure::Mysql::Mgmt::V2018_06_01
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'subscriptionId' => subscription_id,'resourceGroupName' => resource_group_name,'serverName' => server_name,'advisorName' => advisor_name},
           query_params: {'api-version' => api_version,'databaseName' => database_name},
           headers: request_headers.merge(custom_headers || {}),
@@ -310,7 +310,7 @@ module Azure::Mysql::Mgmt::V2018_06_01
       request_url = @base_url || self.base_url
 
       options = {
-          middlewares: [[MsRest::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
+          middlewares: [[MsRest2::RetryPolicyMiddleware, times: 3, retry: 0.02], [:cookie_jar]],
           path_params: {'subscriptionId' => subscription_id,'resourceGroupName' => resource_group_name,'serverName' => server_name,'advisorName' => advisor_name},
           query_params: {'api-version' => api_version,'databaseName' => database_name},
           headers: request_headers.merge(custom_headers || {}),

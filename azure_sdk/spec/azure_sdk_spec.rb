@@ -19,7 +19,7 @@ describe 'Azure Sdk' do
           :subscription_id => @subscription_id,
           :active_directory_settings => @active_directory_settings
       }
-      @credentials = MsRest::TokenCredentials.new(
+      @credentials = MsRest2::TokenCredentials.new(
         MsRestAzure::ApplicationTokenProvider.new(
           @tenant_id, @client_id, @client_secret, @active_directory_settings))
       @options = {
@@ -38,14 +38,14 @@ describe 'Azure Sdk' do
       arm_client = Azure::Profiles::Latest::Client.new
       expect(arm_client).not_to be_nil
       expect(arm_client).to be_instance_of(Azure::Profiles::Latest::Client)
-      expect(arm_client.credentials).to  be_kind_of(MsRest::ServiceClientCredentials)
+      expect(arm_client.credentials).to  be_kind_of(MsRest2::ServiceClientCredentials)
       verify_management_clients(arm_client)
     end
 
     def verify_client_defaults(arm_client)
       expect(arm_client).not_to be_nil
       expect(arm_client).to be_instance_of(Azure::Profiles::Latest::Client)
-      expect(arm_client.credentials).to  be_kind_of(MsRest::ServiceClientCredentials)
+      expect(arm_client.credentials).to  be_kind_of(MsRest2::ServiceClientCredentials)
     end
 
     def verify_management_clients(arm_client)

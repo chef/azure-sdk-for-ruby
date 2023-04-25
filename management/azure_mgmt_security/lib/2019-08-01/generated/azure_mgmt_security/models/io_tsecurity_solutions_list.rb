@@ -12,7 +12,7 @@ module Azure::Security::Mgmt::V2019_08_01
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<IoTSecuritySolutionModel>] List of IoT Security
       # solutions
       attr_accessor :value

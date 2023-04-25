@@ -12,7 +12,7 @@ module Azure::DataMigration::Mgmt::V2018_07_15_preview
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<ProjectFile>] List of files
       attr_accessor :value
 

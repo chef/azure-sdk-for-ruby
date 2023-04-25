@@ -12,7 +12,7 @@ module Azure::Monitor::Mgmt::V2015_04_01
 
       include MsRestAzure
 
-      include MsRest::JSONable
+      include MsRest2::JSONable
       # @return [Array<AutoscaleSettingResource>] the values for the autoscale
       # setting resources.
       attr_accessor :value
