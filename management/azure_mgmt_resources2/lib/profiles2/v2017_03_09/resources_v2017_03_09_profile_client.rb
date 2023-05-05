@@ -2,13 +2,13 @@
 # Copyright (c) Microsoft Corporation. All rights reserved.
 # Licensed under the MIT License. See License.txt in the project root for license information.
 
-require 'profiles/latest/resources_module_definition'
-require 'profiles/latest/modules/resources_profile_module'
+require 'profiles2/v2017_03_09/resources_module_definition'
+require 'profiles2/v2017_03_09/modules/resources_profile_module'
 
-module Azure::Resources2::Profiles::Latest
+module Azure::Resources2::Profiles::V2017_03_09
   module Mgmt
     #
-    # Client class for the Latest profile SDK.
+    # Client class for the V2017_03_09 profile SDK.
     #
     class Client < ResourcesManagementClass
       include MsRestAzure2::Common::Configurable
