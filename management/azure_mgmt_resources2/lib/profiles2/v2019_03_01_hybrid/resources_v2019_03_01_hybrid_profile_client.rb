@@ -2,13 +2,13 @@
 # Copyright (c) Microsoft Corporation. All rights reserved.
 # Licensed under the MIT License. See License.txt in the project root for license information.
 
-require 'profiles/v2018_03_01/resources_module_definition'
-require 'profiles/v2018_03_01/modules/resources_profile_module'
+require 'profiles2/v2019_03_01_hybrid/resources_module_definition'
+require 'profiles2/v2019_03_01_hybrid/modules/resources_profile_module'
 
-module Azure::Resources2::Profiles::V2018_03_01
+module Azure::Resources2::Profiles::V2019_03_01_Hybrid
   module Mgmt
     #
-    # Client class for the V2018_03_01 profile SDK.
+    # Client class for the V2019_03_01_Hybrid profile SDK.
     #
     class Client < ResourcesManagementClass
       include MsRestAzure2::Common::Configurable
