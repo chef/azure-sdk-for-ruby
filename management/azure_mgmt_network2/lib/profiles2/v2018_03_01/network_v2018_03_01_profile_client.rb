@@ -2,8 +2,8 @@
 # Copyright (c) Microsoft Corporation. All rights reserved.
 # Licensed under the MIT License. See License.txt in the project root for license information.
 
-require 'profiles/v2018_03_01/network_module_definition'
-require 'profiles/v2018_03_01/modules/network_profile_module'
+require 'profiles2/v2018_03_01/network_module_definition'
+require 'profiles2/v2018_03_01/modules/network_profile_module'
 
 module Azure::Network2::Profiles::V2018_03_01
   module Mgmt
