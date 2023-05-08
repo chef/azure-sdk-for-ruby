@@ -2,13 +2,13 @@
 # Copyright (c) Microsoft Corporation. All rights reserved.
 # Licensed under the MIT License. See License.txt in the project root for license information.
 
-require 'profiles/v2017_03_09/network_module_definition'
-require 'profiles/v2017_03_09/modules/network_profile_module'
+require 'profiles2/v2019_03_01_hybrid/network_module_definition'
+require 'profiles2/v2019_03_01_hybrid/modules/network_profile_module'
 
-module Azure::Network2::Profiles::V2017_03_09
+module Azure::Network2::Profiles::V2019_03_01_Hybrid
   module Mgmt
     #
-    # Client class for the V2017_03_09 profile SDK.
+    # Client class for the V2019_03_01_Hybrid profile SDK.
     #
     class Client < NetworkManagementClass
       include MsRestAzure2::Common::Configurable
