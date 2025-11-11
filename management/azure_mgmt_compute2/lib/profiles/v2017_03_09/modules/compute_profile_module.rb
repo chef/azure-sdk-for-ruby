@@ -2,7 +2,7 @@
 # Copyright (c) Microsoft Corporation. All rights reserved.
 # Licensed under the MIT License. See License.txt in the project root for license information.
 
-require 'azure_mgmt_compute'
+require 'azure_mgmt_compute2'
 
 module Azure::Compute2::Profiles::V2017_03_09
   module Mgmt
