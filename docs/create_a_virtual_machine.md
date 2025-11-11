@@ -21,7 +21,7 @@ require 'securerandom'
 require 'time'
 require 'timeliness'
 require 'faraday'
-require 'faraday-cookie_jar'
+require 'faraday-cookie_jar2'
 require 'concurrent'
 require 'ms_rest'
 require 'ms_rest_azure'
@@ -105,7 +105,7 @@ promise = promise.then do |result|
   result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
   result.correlation_request_id = http_response['x-ms-correlation-request-id'] unless http_response['x-ms-correlation-request-id'].nil?
   result.client_request_id = http_response['x-ms-client-request-id'] unless http_response['x-ms-client-request-id'].nil?
-  
+
   # Deserialize Response
   if status_code == 200 || status_code == 201
     begin
@@ -180,7 +180,7 @@ promise = promise.then do |result|
   result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
   result.correlation_request_id = http_response['x-ms-correlation-request-id'] unless http_response['x-ms-correlation-request-id'].nil?
   result.client_request_id = http_response['x-ms-client-request-id'] unless http_response['x-ms-client-request-id'].nil?
-  
+
   # Deserialize Response
   if status_code == 200 || status_code == 201
     begin
@@ -261,7 +261,7 @@ promise = promise.then do |result|
   result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
   result.correlation_request_id = http_response['x-ms-correlation-request-id'] unless http_response['x-ms-correlation-request-id'].nil?
   result.client_request_id = http_response['x-ms-client-request-id'] unless http_response['x-ms-client-request-id'].nil?
-  
+
   # Deserialize Response
   if status_code == 200 || status_code == 201
     begin
@@ -344,7 +344,7 @@ promise = promise.then do |result|
   result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
   result.correlation_request_id = http_response['x-ms-correlation-request-id'] unless http_response['x-ms-correlation-request-id'].nil?
   result.client_request_id = http_response['x-ms-client-request-id'] unless http_response['x-ms-client-request-id'].nil?
-  
+
   # Deserialize Response
   if status_code == 200 || status_code == 201
     begin
@@ -429,7 +429,7 @@ promise = promise.then do |result|
   result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
   result.correlation_request_id = http_response['x-ms-correlation-request-id'] unless http_response['x-ms-correlation-request-id'].nil?
   result.client_request_id = http_response['x-ms-client-request-id'] unless http_response['x-ms-client-request-id'].nil?
-  
+
   # Deserialize Response
   if status_code == 200 || status_code == 201
     begin
@@ -461,7 +461,7 @@ path_template = 'subscriptions/{subscriptionId}/resourceGroups/{resourceGroupNam
 api_version = '2020-06-01'
 # Set Content
 request_content = {
-    "location": "eastus",  
+    "location": "eastus",
     "properties": {
         "hardwareProfile": {
             "vmSize": "Standard_D1_v2"
@@ -531,7 +531,7 @@ promise = promise.then do |result|
   result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
   result.correlation_request_id = http_response['x-ms-correlation-request-id'] unless http_response['x-ms-correlation-request-id'].nil?
   result.client_request_id = http_response['x-ms-client-request-id'] unless http_response['x-ms-client-request-id'].nil?
-  
+
   # Deserialize Response
   if status_code == 200 || status_code == 201
     begin

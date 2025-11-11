@@ -1,6 +1,6 @@
 # Microsoft Azure SDK for Ruby
 
-As of Februrary 2021, Azure SDK for Ruby - Resource Management Libraries are officially retired. The libraries will be in maintenance mode until December 31, 2021. However, there will be no further releases based on feature requests. 
+As of Februrary 2021, Azure SDK for Ruby - Resource Management Libraries are officially retired. The libraries will be in maintenance mode until December 31, 2021. However, there will be no further releases based on feature requests.
 
 In the future, we recommend that you interface with the Azure REST APIs directly from Ruby; instructions are provided in this doc.
 
@@ -15,7 +15,7 @@ You can find the references of all available REST API endpoints on this doc loca
 
 ## Authentication
 
-The first step to using the SDK is authentication and permissions. For people unfamilar with Azure this may be one of the more difficult concepts. 
+The first step to using the SDK is authentication and permissions. For people unfamilar with Azure this may be one of the more difficult concepts.
 
 To authenticate, we will need to set up a Service Principal. For reference on how to set up a Service Principal from command line, please see
 [Authenticating a service principal with Azure Resource Manager](http://aka.ms/cli-service-principal) or
@@ -146,7 +146,7 @@ MSITokenProvider supports 2 ways to get MSI(Managed Service Identity) Token
 provider = MsRestAzure::MSITokenProvider.new()
 ```
 
-AzureCliTokenProvider use [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/) to acquire token. Azure CLI should be installed in PATH. 
+AzureCliTokenProvider use [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/) to acquire token. Azure CLI should be installed in PATH.
 
 ```ruby
 provider = MsRestAzure::AzureCliTokenProvider.new()
@@ -157,7 +157,7 @@ provider = MsRestAzure::AzureCliTokenProvider.new()
 credentials = MsRest2::TokenCredentials.new(provider)
 ```
 
-## Make an request 
+## Make an request
 
 ### Example
 
@@ -174,7 +174,7 @@ require 'securerandom'
 require 'time'
 require 'timeliness'
 require 'faraday'
-require 'faraday-cookie_jar'
+require 'faraday-cookie_jar2'
 require 'concurrent'
 require 'ms_rest'
 require 'ms_rest_azure'
@@ -245,7 +245,7 @@ promise = promise.then do |result|
   result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
   result.correlation_request_id = http_response['x-ms-correlation-request-id'] unless http_response['x-ms-correlation-request-id'].nil?
   result.client_request_id = http_response['x-ms-client-request-id'] unless http_response['x-ms-client-request-id'].nil?
-  
+
   # Deserialize Response
   if status_code == 200
     begin

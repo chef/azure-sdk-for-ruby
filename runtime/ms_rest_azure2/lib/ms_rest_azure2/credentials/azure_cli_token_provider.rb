@@ -19,13 +19,13 @@ module MsRestAzure2
 
     # @return [String] auth token.
     attr_accessor :token
-    
+
     # @return [Time] the date when the current token expires.
     attr_accessor :token_expires_on
-    
+
     # @return [Integer] the amount of time we refresh token before it expires.
     attr_reader :expiration_threshold
-    
+
     # @return [String] the type of token.
     attr_reader :token_type
 
@@ -42,7 +42,7 @@ module MsRestAzure2
 
       @expiration_threshold = 5 * 60
     end
-    
+
     #
     # Gets an authentication header string using an access token from the Azure cli
     # @param settings [ActiveDirectoryServiceSettings] active directory settings.
@@ -52,9 +52,9 @@ module MsRestAzure2
       acquire_token if token_expired?
       "#{token_type} #{token}"
     end
-    
+
     private
-    
+
     #
     # Checks whether token is about to expire.
     #
@@ -78,14 +78,14 @@ module MsRestAzure2
 
       return nil
     end
-    
+
     #
     # Acquires a new access token from teh azure CLI
     #
     # @return [String] The access token to the desired resource
     def acquire_token()
-      response_body = JSON.load(`'#{cli_path}' account get-access-token -o json --resource #{@settings.token_audience}`)
-      
+      response_body = JSON.load(`#{cli_path} account get-access-token -o json --resource #{@settings.token_audience}`)
+
       @token_expires_on = Time.parse(response_body['expiresOn'])
       @token_type = response_body['tokenType']
       @token = response_body['accessToken']
