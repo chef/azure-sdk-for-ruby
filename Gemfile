@@ -5,7 +5,9 @@
 source 'https://rubygems.org'
 
 group :development, :test do
+  gem 'base64'
   gem 'dotenv'
+  gem 'faraday-cookie_jar2', '~> 0.1.0'
   gem 'os'
   gem 'rake'
   gem 'rspec'
@@ -32,7 +34,7 @@ gem 'azure_mgmt_bot_service',               path: 'management/azure_mgmt_bot_ser
 gem 'azure_mgmt_cdn',                       path: 'management/azure_mgmt_cdn'
 gem 'azure_mgmt_cognitive_services',        path: 'management/azure_mgmt_cognitive_services'
 gem 'azure_mgmt_commerce',                  path: 'management/azure_mgmt_commerce'
-gem 'azure_mgmt_compute',                   path: 'management/azure_mgmt_compute'
+gem 'azure_mgmt_compute2',                  path: 'management/azure_mgmt_compute2'
 gem 'azure_mgmt_confluent',                 path: 'management/azure_mgmt_confluent'
 gem 'azure_mgmt_consumption',               path: 'management/azure_mgmt_consumption'
 gem 'azure_mgmt_container_instance',        path: 'management/azure_mgmt_container_instance'
@@ -117,7 +119,7 @@ gem 'azure_mgmt_signalr',                   path: 'management/azure_mgmt_signalr
 gem 'azure_mgmt_sql',                       path: 'management/azure_mgmt_sql'
 gem 'azure_mgmt_sqlvirtualmachine',         path: 'management/azure_mgmt_sqlvirtualmachine'
 gem 'azure_mgmt_stor_simple8000_series',    path: 'management/azure_mgmt_stor_simple8000_series'
-gem 'azure_mgmt_storage',                   path: 'management/azure_mgmt_storage'
+gem 'azure_mgmt_storage2',                  path: 'management/azure_mgmt_storage2'
 gem 'azure_mgmt_storagesync',               path: 'management/azure_mgmt_storagesync'
 gem 'azure_mgmt_storagecache',              path: 'management/azure_mgmt_storagecache'
 gem 'azure_mgmt_stream_analytics',          path: 'management/azure_mgmt_stream_analytics'
