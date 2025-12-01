@@ -455,7 +455,7 @@ The changes include V2019_03_01 version of Azure Stack Profile.
   - [azure_cognitiveservices_computervision](https://rubygems.org/gems/azure_cognitiveservices_computervision)
   - [azure_cognitiveservices_face](https://rubygems.org/gems/azure_cognitiveservices_face)
   - [azure_cognitiveservices_textanalytics](https://rubygems.org/gems/azure_cognitiveservices_textanalytics)
-  - [azure_graph_rbac](https://rubygems.org/gems/azure_graph_rbac)
+  - [azure_graph_rbac2](https://rubygems.org/gems/azure_graph_rbac2)
   - [azure_cognitiveservices_contentmoderator](https://rubygems.org/gems/azure_cognitiveservices_contentmoderator)
   - [azure_cognitiveservices_imagesearch](https://rubygems.org/gems/azure_cognitiveservices_imagesearch)
   - [azure_cognitiveservices_videosearch](https://rubygems.org/gems/azure_cognitiveservices_videosearch)
@@ -465,7 +465,7 @@ The changes include V2019_03_01 version of Azure Stack Profile.
   - [azure_cognitiveservices_entitysearch](https://rubygems.org/gems/azure_cognitiveservices_entitysearch)
   - [azure_cognitiveservices_spellcheck](https://rubygems.org/gems/azure_cognitiveservices_spellcheck)
   - [azure_event_grid](https://rubygems.org/gems/azure_event_grid)
-* Moved [azure_mgmt_graph](https://rubygems.org/gems/azure_mgmt_graph) to data plane SDK [azure_graph_rbac](https://rubygems.org/gems/azure_graph_rbac)
+* Moved [azure_mgmt_graph](https://rubygems.org/gems/azure_mgmt_graph) to data plane SDK [azure_graph_rbac2](https://rubygems.org/gems/azure_graph_rbac2)
 * In the rollup gem, changed namespace from Azure::Profiles::Latest::Mgmt to Azure::Profiles::Latest, since the rollup profiles will include management and data plane SDKs.
 * Introduced named parameters in azure_sdk_for_ruby. If there are optional parameters in an API, then such parameters must be called using the named parameters.
 * Updated Latest profiles to point to the Latest versions of the services. 
