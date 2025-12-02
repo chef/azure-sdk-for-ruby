@@ -2,7 +2,7 @@
 # Copyright (c) Microsoft Corporation. All rights reserved.
 # Licensed under the MIT License. See License.txt in the project root for license information.
 
-require 'azure_mgmt_key_vault'
+require 'azure_mgmt_key_vault2'
 require 'azure_key_vault'
 
 module Azure::Profiles::V2019_03_01_Hybrid
