@@ -66,7 +66,7 @@ gem 'azure_mgmt_hybrid_compute',            path: 'management/azure_mgmt_hybrid_
 gem 'azure_mgmt_import_export',             path: 'management/azure_mgmt_import_export'
 gem 'azure_mgmt_iot_central',               path: 'management/azure_mgmt_iot_central'
 gem 'azure_mgmt_iot_hub',                   path: 'management/azure_mgmt_iot_hub'
-gem 'azure_mgmt_key_vault',                 path: 'management/azure_mgmt_key_vault'
+gem 'azure_mgmt_key_vault2',                path: 'management/azure_mgmt_key_vault2'
 gem 'azure_mgmt_kubernetes_configuration',  path: 'management/azure_mgmt_kubernetes_configuration'
 gem 'azure_mgmt_kusto',                     path: 'management/azure_mgmt_kusto'
 gem 'azure_mgmt_labservices',               path: 'management/azure_mgmt_labservices'
