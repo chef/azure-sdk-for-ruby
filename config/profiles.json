@@ -1908,7 +1908,7 @@
             "individual_gem_profile": true
         }
         ],
-        "azure_mgmt_key_vault": [
+        "azure_mgmt_key_vault2": [
         {
             "name": "V2019_03_01_Hybrid",
             "resourceTypes": {
@@ -1918,7 +1918,7 @@
                     }
                 }
             },
-            "output_dir": "management/azure_mgmt_key_vault/lib/profiles",
+            "output_dir": "management/azure_mgmt_key_vault2/lib/profiles",
             "individual_gem_profile": true
         },
         {
@@ -1930,7 +1930,7 @@
                     }
                 }
             },
-            "output_dir": "management/azure_mgmt_key_vault/lib/profiles",
+            "output_dir": "management/azure_mgmt_key_vault2/lib/profiles",
             "individual_gem_profile": true
         },
         {
@@ -1942,7 +1942,7 @@
                     }
                 }
             },
-            "output_dir": "management/azure_mgmt_key_vault/lib/profiles",
+            "output_dir": "management/azure_mgmt_key_vault2/lib/profiles",
             "individual_gem_profile": true
         },
         {
@@ -1954,7 +1954,7 @@
                     }
                 }
             },
-            "output_dir": "management/azure_mgmt_key_vault/lib/profiles",
+            "output_dir": "management/azure_mgmt_key_vault2/lib/profiles",
             "individual_gem_profile": true
         }
         ],

@@ -2,7 +2,7 @@
 # Copyright (c) Microsoft Corporation. All rights reserved.
 # Licensed under the MIT License. See License.txt in the project root for license information.
 
-require 'azure_mgmt_key_vault'
+require 'azure_mgmt_key_vault2'
 require 'azure_key_vault'
 
 module Azure::Profiles::V2020_09_01_Hybrid
@@ -391,67 +391,67 @@ module Azure::Profiles::V2020_09_01_Hybrid
       end
     end
     module Mgmt
-      Vaults = Azure::KeyVault::Mgmt::V2019_09_01::Vaults
-      PrivateEndpointConnections = Azure::KeyVault::Mgmt::V2019_09_01::PrivateEndpointConnections
-      PrivateLinkResources = Azure::KeyVault::Mgmt::V2019_09_01::PrivateLinkResources
-      Operations = Azure::KeyVault::Mgmt::V2019_09_01::Operations
-      Keys = Azure::KeyVault::Mgmt::V2019_09_01::Keys
+      Vaults = Azure::KeyVault2::Mgmt::V2019_09_01::Vaults
+      PrivateEndpointConnections = Azure::KeyVault2::Mgmt::V2019_09_01::PrivateEndpointConnections
+      PrivateLinkResources = Azure::KeyVault2::Mgmt::V2019_09_01::PrivateLinkResources
+      Operations = Azure::KeyVault2::Mgmt::V2019_09_01::Operations
+      Keys = Azure::KeyVault2::Mgmt::V2019_09_01::Keys
 
       module Models
-        DeletedVault = Azure::KeyVault::Mgmt::V2019_09_01::Models::DeletedVault
-        VaultListResult = Azure::KeyVault::Mgmt::V2019_09_01::Models::VaultListResult
-        DeletedVaultListResult = Azure::KeyVault::Mgmt::V2019_09_01::Models::DeletedVaultListResult
-        Permissions = Azure::KeyVault::Mgmt::V2019_09_01::Models::Permissions
-        Resource = Azure::KeyVault::Mgmt::V2019_09_01::Models::Resource
-        IPRule = Azure::KeyVault::Mgmt::V2019_09_01::Models::IPRule
-        ResourceListResult = Azure::KeyVault::Mgmt::V2019_09_01::Models::ResourceListResult
-        NetworkRuleSet = Azure::KeyVault::Mgmt::V2019_09_01::Models::NetworkRuleSet
-        VaultCheckNameAvailabilityParameters = Azure::KeyVault::Mgmt::V2019_09_01::Models::VaultCheckNameAvailabilityParameters
-        PrivateLinkServiceConnectionState = Azure::KeyVault::Mgmt::V2019_09_01::Models::PrivateLinkServiceConnectionState
-        CheckNameAvailabilityResult = Azure::KeyVault::Mgmt::V2019_09_01::Models::CheckNameAvailabilityResult
-        VaultProperties = Azure::KeyVault::Mgmt::V2019_09_01::Models::VaultProperties
-        PrivateEndpointConnectionItem = Azure::KeyVault::Mgmt::V2019_09_01::Models::PrivateEndpointConnectionItem
-        VaultAccessPolicyProperties = Azure::KeyVault::Mgmt::V2019_09_01::Models::VaultAccessPolicyProperties
-        VaultPatchProperties = Azure::KeyVault::Mgmt::V2019_09_01::Models::VaultPatchProperties
-        VaultCreateOrUpdateParameters = Azure::KeyVault::Mgmt::V2019_09_01::Models::VaultCreateOrUpdateParameters
-        KeyListResult = Azure::KeyVault::Mgmt::V2019_09_01::Models::KeyListResult
-        VaultAccessPolicyParameters = Azure::KeyVault::Mgmt::V2019_09_01::Models::VaultAccessPolicyParameters
-        KeyCreateParameters = Azure::KeyVault::Mgmt::V2019_09_01::Models::KeyCreateParameters
-        PrivateLinkResourceListResult = Azure::KeyVault::Mgmt::V2019_09_01::Models::PrivateLinkResourceListResult
-        AccessPolicyEntry = Azure::KeyVault::Mgmt::V2019_09_01::Models::AccessPolicyEntry
-        OperationDisplay = Azure::KeyVault::Mgmt::V2019_09_01::Models::OperationDisplay
-        PrivateEndpoint = Azure::KeyVault::Mgmt::V2019_09_01::Models::PrivateEndpoint
-        LogSpecification = Azure::KeyVault::Mgmt::V2019_09_01::Models::LogSpecification
-        VaultPatchParameters = Azure::KeyVault::Mgmt::V2019_09_01::Models::VaultPatchParameters
-        ServiceSpecification = Azure::KeyVault::Mgmt::V2019_09_01::Models::ServiceSpecification
-        Sku = Azure::KeyVault::Mgmt::V2019_09_01::Models::Sku
-        Operation = Azure::KeyVault::Mgmt::V2019_09_01::Models::Operation
-        DeletedVaultProperties = Azure::KeyVault::Mgmt::V2019_09_01::Models::DeletedVaultProperties
-        OperationListResult = Azure::KeyVault::Mgmt::V2019_09_01::Models::OperationListResult
-        VirtualNetworkRule = Azure::KeyVault::Mgmt::V2019_09_01::Models::VirtualNetworkRule
-        Attributes = Azure::KeyVault::Mgmt::V2019_09_01::Models::Attributes
-        Vault = Azure::KeyVault::Mgmt::V2019_09_01::Models::Vault
-        KeyProperties = Azure::KeyVault::Mgmt::V2019_09_01::Models::KeyProperties
-        PrivateEndpointConnection = Azure::KeyVault::Mgmt::V2019_09_01::Models::PrivateEndpointConnection
-        PrivateLinkResource = Azure::KeyVault::Mgmt::V2019_09_01::Models::PrivateLinkResource
-        KeyAttributes = Azure::KeyVault::Mgmt::V2019_09_01::Models::KeyAttributes
-        Key = Azure::KeyVault::Mgmt::V2019_09_01::Models::Key
-        SkuName = Azure::KeyVault::Mgmt::V2019_09_01::Models::SkuName
-        KeyPermissions = Azure::KeyVault::Mgmt::V2019_09_01::Models::KeyPermissions
-        SecretPermissions = Azure::KeyVault::Mgmt::V2019_09_01::Models::SecretPermissions
-        CertificatePermissions = Azure::KeyVault::Mgmt::V2019_09_01::Models::CertificatePermissions
-        StoragePermissions = Azure::KeyVault::Mgmt::V2019_09_01::Models::StoragePermissions
-        CreateMode = Azure::KeyVault::Mgmt::V2019_09_01::Models::CreateMode
-        NetworkRuleBypassOptions = Azure::KeyVault::Mgmt::V2019_09_01::Models::NetworkRuleBypassOptions
-        NetworkRuleAction = Azure::KeyVault::Mgmt::V2019_09_01::Models::NetworkRuleAction
-        PrivateEndpointServiceConnectionStatus = Azure::KeyVault::Mgmt::V2019_09_01::Models::PrivateEndpointServiceConnectionStatus
-        PrivateEndpointConnectionProvisioningState = Azure::KeyVault::Mgmt::V2019_09_01::Models::PrivateEndpointConnectionProvisioningState
-        Reason = Azure::KeyVault::Mgmt::V2019_09_01::Models::Reason
-        DeletionRecoveryLevel = Azure::KeyVault::Mgmt::V2019_09_01::Models::DeletionRecoveryLevel
-        JsonWebKeyType = Azure::KeyVault::Mgmt::V2019_09_01::Models::JsonWebKeyType
-        JsonWebKeyOperation = Azure::KeyVault::Mgmt::V2019_09_01::Models::JsonWebKeyOperation
-        JsonWebKeyCurveName = Azure::KeyVault::Mgmt::V2019_09_01::Models::JsonWebKeyCurveName
-        AccessPolicyUpdateKind = Azure::KeyVault::Mgmt::V2019_09_01::Models::AccessPolicyUpdateKind
+        DeletedVault = Azure::KeyVault2::Mgmt::V2019_09_01::Models::DeletedVault
+        VaultListResult = Azure::KeyVault2::Mgmt::V2019_09_01::Models::VaultListResult
+        DeletedVaultListResult = Azure::KeyVault2::Mgmt::V2019_09_01::Models::DeletedVaultListResult
+        Permissions = Azure::KeyVault2::Mgmt::V2019_09_01::Models::Permissions
+        Resource = Azure::KeyVault2::Mgmt::V2019_09_01::Models::Resource
+        IPRule = Azure::KeyVault2::Mgmt::V2019_09_01::Models::IPRule
+        ResourceListResult = Azure::KeyVault2::Mgmt::V2019_09_01::Models::ResourceListResult
+        NetworkRuleSet = Azure::KeyVault2::Mgmt::V2019_09_01::Models::NetworkRuleSet
+        VaultCheckNameAvailabilityParameters = Azure::KeyVault2::Mgmt::V2019_09_01::Models::VaultCheckNameAvailabilityParameters
+        PrivateLinkServiceConnectionState = Azure::KeyVault2::Mgmt::V2019_09_01::Models::PrivateLinkServiceConnectionState
+        CheckNameAvailabilityResult = Azure::KeyVault2::Mgmt::V2019_09_01::Models::CheckNameAvailabilityResult
+        VaultProperties = Azure::KeyVault2::Mgmt::V2019_09_01::Models::VaultProperties
+        PrivateEndpointConnectionItem = Azure::KeyVault2::Mgmt::V2019_09_01::Models::PrivateEndpointConnectionItem
+        VaultAccessPolicyProperties = Azure::KeyVault2::Mgmt::V2019_09_01::Models::VaultAccessPolicyProperties
+        VaultPatchProperties = Azure::KeyVault2::Mgmt::V2019_09_01::Models::VaultPatchProperties
+        VaultCreateOrUpdateParameters = Azure::KeyVault2::Mgmt::V2019_09_01::Models::VaultCreateOrUpdateParameters
+        KeyListResult = Azure::KeyVault2::Mgmt::V2019_09_01::Models::KeyListResult
+        VaultAccessPolicyParameters = Azure::KeyVault2::Mgmt::V2019_09_01::Models::VaultAccessPolicyParameters
+        KeyCreateParameters = Azure::KeyVault2::Mgmt::V2019_09_01::Models::KeyCreateParameters
+        PrivateLinkResourceListResult = Azure::KeyVault2::Mgmt::V2019_09_01::Models::PrivateLinkResourceListResult
+        AccessPolicyEntry = Azure::KeyVault2::Mgmt::V2019_09_01::Models::AccessPolicyEntry
+        OperationDisplay = Azure::KeyVault2::Mgmt::V2019_09_01::Models::OperationDisplay
+        PrivateEndpoint = Azure::KeyVault2::Mgmt::V2019_09_01::Models::PrivateEndpoint
+        LogSpecification = Azure::KeyVault2::Mgmt::V2019_09_01::Models::LogSpecification
+        VaultPatchParameters = Azure::KeyVault2::Mgmt::V2019_09_01::Models::VaultPatchParameters
+        ServiceSpecification = Azure::KeyVault2::Mgmt::V2019_09_01::Models::ServiceSpecification
+        Sku = Azure::KeyVault2::Mgmt::V2019_09_01::Models::Sku
+        Operation = Azure::KeyVault2::Mgmt::V2019_09_01::Models::Operation
+        DeletedVaultProperties = Azure::KeyVault2::Mgmt::V2019_09_01::Models::DeletedVaultProperties
+        OperationListResult = Azure::KeyVault2::Mgmt::V2019_09_01::Models::OperationListResult
+        VirtualNetworkRule = Azure::KeyVault2::Mgmt::V2019_09_01::Models::VirtualNetworkRule
+        Attributes = Azure::KeyVault2::Mgmt::V2019_09_01::Models::Attributes
+        Vault = Azure::KeyVault2::Mgmt::V2019_09_01::Models::Vault
+        KeyProperties = Azure::KeyVault2::Mgmt::V2019_09_01::Models::KeyProperties
+        PrivateEndpointConnection = Azure::KeyVault2::Mgmt::V2019_09_01::Models::PrivateEndpointConnection
+        PrivateLinkResource = Azure::KeyVault2::Mgmt::V2019_09_01::Models::PrivateLinkResource
+        KeyAttributes = Azure::KeyVault2::Mgmt::V2019_09_01::Models::KeyAttributes
+        Key = Azure::KeyVault2::Mgmt::V2019_09_01::Models::Key
+        SkuName = Azure::KeyVault2::Mgmt::V2019_09_01::Models::SkuName
+        KeyPermissions = Azure::KeyVault2::Mgmt::V2019_09_01::Models::KeyPermissions
+        SecretPermissions = Azure::KeyVault2::Mgmt::V2019_09_01::Models::SecretPermissions
+        CertificatePermissions = Azure::KeyVault2::Mgmt::V2019_09_01::Models::CertificatePermissions
+        StoragePermissions = Azure::KeyVault2::Mgmt::V2019_09_01::Models::StoragePermissions
+        CreateMode = Azure::KeyVault2::Mgmt::V2019_09_01::Models::CreateMode
+        NetworkRuleBypassOptions = Azure::KeyVault2::Mgmt::V2019_09_01::Models::NetworkRuleBypassOptions
+        NetworkRuleAction = Azure::KeyVault2::Mgmt::V2019_09_01::Models::NetworkRuleAction
+        PrivateEndpointServiceConnectionStatus = Azure::KeyVault2::Mgmt::V2019_09_01::Models::PrivateEndpointServiceConnectionStatus
+        PrivateEndpointConnectionProvisioningState = Azure::KeyVault2::Mgmt::V2019_09_01::Models::PrivateEndpointConnectionProvisioningState
+        Reason = Azure::KeyVault2::Mgmt::V2019_09_01::Models::Reason
+        DeletionRecoveryLevel = Azure::KeyVault2::Mgmt::V2019_09_01::Models::DeletionRecoveryLevel
+        JsonWebKeyType = Azure::KeyVault2::Mgmt::V2019_09_01::Models::JsonWebKeyType
+        JsonWebKeyOperation = Azure::KeyVault2::Mgmt::V2019_09_01::Models::JsonWebKeyOperation
+        JsonWebKeyCurveName = Azure::KeyVault2::Mgmt::V2019_09_01::Models::JsonWebKeyCurveName
+        AccessPolicyUpdateKind = Azure::KeyVault2::Mgmt::V2019_09_01::Models::AccessPolicyUpdateKind
       end
 
       class KeyVaultManagementClass
@@ -460,7 +460,7 @@ module Azure::Profiles::V2020_09_01_Hybrid
         def initialize(configurable, base_url=nil, options=nil)
           @configurable, @base_url, @options = configurable, base_url, options
 
-          @client_0 = Azure::KeyVault::Mgmt::V2019_09_01::KeyVaultManagementClient.new(configurable.credentials, base_url, options)
+          @client_0 = Azure::KeyVault2::Mgmt::V2019_09_01::KeyVaultManagementClient.new(configurable.credentials, base_url, options)
           if(@client_0.respond_to?(:subscription_id))
             @client_0.subscription_id = configurable.subscription_id
           end
@@ -489,166 +489,166 @@ module Azure::Profiles::V2020_09_01_Hybrid
 
         class ModelClasses
           def deleted_vault
-            Azure::KeyVault::Mgmt::V2019_09_01::Models::DeletedVault
+            Azure::KeyVault2::Mgmt::V2019_09_01::Models::DeletedVault
           end
           def vault_list_result
-            Azure::KeyVault::Mgmt::V2019_09_01::Models::VaultListResult
+            Azure::KeyVault2::Mgmt::V2019_09_01::Models::VaultListResult
           end
           def deleted_vault_list_result
-            Azure::KeyVault::Mgmt::V2019_09_01::Models::DeletedVaultListResult
+            Azure::KeyVault2::Mgmt::V2019_09_01::Models::DeletedVaultListResult
           end
           def permissions
-            Azure::KeyVault::Mgmt::V2019_09_01::Models::Permissions
+            Azure::KeyVault2::Mgmt::V2019_09_01::Models::Permissions
           end
           def resource
-            Azure::KeyVault::Mgmt::V2019_09_01::Models::Resource
+            Azure::KeyVault2::Mgmt::V2019_09_01::Models::Resource
           end
           def iprule
-            Azure::KeyVault::Mgmt::V2019_09_01::Models::IPRule
+            Azure::KeyVault2::Mgmt::V2019_09_01::Models::IPRule
           end
           def resource_list_result
-            Azure::KeyVault::Mgmt::V2019_09_01::Models::ResourceListResult
+            Azure::KeyVault2::Mgmt::V2019_09_01::Models::ResourceListResult
           end
           def network_rule_set
-            Azure::KeyVault::Mgmt::V2019_09_01::Models::NetworkRuleSet
+            Azure::KeyVault2::Mgmt::V2019_09_01::Models::NetworkRuleSet
           end
           def vault_check_name_availability_parameters
-            Azure::KeyVault::Mgmt::V2019_09_01::Models::VaultCheckNameAvailabilityParameters
+            Azure::KeyVault2::Mgmt::V2019_09_01::Models::VaultCheckNameAvailabilityParameters
           end
           def private_link_service_connection_state
-            Azure::KeyVault::Mgmt::V2019_09_01::Models::PrivateLinkServiceConnectionState
+            Azure::KeyVault2::Mgmt::V2019_09_01::Models::PrivateLinkServiceConnectionState
           end
           def check_name_availability_result
-            Azure::KeyVault::Mgmt::V2019_09_01::Models::CheckNameAvailabilityResult
+            Azure::KeyVault2::Mgmt::V2019_09_01::Models::CheckNameAvailabilityResult
           end
           def vault_properties
-            Azure::KeyVault::Mgmt::V2019_09_01::Models::VaultProperties
+            Azure::KeyVault2::Mgmt::V2019_09_01::Models::VaultProperties
           end
           def private_endpoint_connection_item
-            Azure::KeyVault::Mgmt::V2019_09_01::Models::PrivateEndpointConnectionItem
+            Azure::KeyVault2::Mgmt::V2019_09_01::Models::PrivateEndpointConnectionItem
           end
           def vault_access_policy_properties
-            Azure::KeyVault::Mgmt::V2019_09_01::Models::VaultAccessPolicyProperties
+            Azure::KeyVault2::Mgmt::V2019_09_01::Models::VaultAccessPolicyProperties
           end
           def vault_patch_properties
-            Azure::KeyVault::Mgmt::V2019_09_01::Models::VaultPatchProperties
+            Azure::KeyVault2::Mgmt::V2019_09_01::Models::VaultPatchProperties
           end
           def vault_create_or_update_parameters
-            Azure::KeyVault::Mgmt::V2019_09_01::Models::VaultCreateOrUpdateParameters
+            Azure::KeyVault2::Mgmt::V2019_09_01::Models::VaultCreateOrUpdateParameters
           end
           def key_list_result
-            Azure::KeyVault::Mgmt::V2019_09_01::Models::KeyListResult
+            Azure::KeyVault2::Mgmt::V2019_09_01::Models::KeyListResult
           end
           def vault_access_policy_parameters
-            Azure::KeyVault::Mgmt::V2019_09_01::Models::VaultAccessPolicyParameters
+            Azure::KeyVault2::Mgmt::V2019_09_01::Models::VaultAccessPolicyParameters
           end
           def key_create_parameters
-            Azure::KeyVault::Mgmt::V2019_09_01::Models::KeyCreateParameters
+            Azure::KeyVault2::Mgmt::V2019_09_01::Models::KeyCreateParameters
           end
           def private_link_resource_list_result
-            Azure::KeyVault::Mgmt::V2019_09_01::Models::PrivateLinkResourceListResult
+            Azure::KeyVault2::Mgmt::V2019_09_01::Models::PrivateLinkResourceListResult
           end
           def access_policy_entry
-            Azure::KeyVault::Mgmt::V2019_09_01::Models::AccessPolicyEntry
+            Azure::KeyVault2::Mgmt::V2019_09_01::Models::AccessPolicyEntry
           end
           def operation_display
-            Azure::KeyVault::Mgmt::V2019_09_01::Models::OperationDisplay
+            Azure::KeyVault2::Mgmt::V2019_09_01::Models::OperationDisplay
           end
           def private_endpoint
-            Azure::KeyVault::Mgmt::V2019_09_01::Models::PrivateEndpoint
+            Azure::KeyVault2::Mgmt::V2019_09_01::Models::PrivateEndpoint
           end
           def log_specification
-            Azure::KeyVault::Mgmt::V2019_09_01::Models::LogSpecification
+            Azure::KeyVault2::Mgmt::V2019_09_01::Models::LogSpecification
           end
           def vault_patch_parameters
-            Azure::KeyVault::Mgmt::V2019_09_01::Models::VaultPatchParameters
+            Azure::KeyVault2::Mgmt::V2019_09_01::Models::VaultPatchParameters
           end
           def service_specification
-            Azure::KeyVault::Mgmt::V2019_09_01::Models::ServiceSpecification
+            Azure::KeyVault2::Mgmt::V2019_09_01::Models::ServiceSpecification
           end
           def sku
-            Azure::KeyVault::Mgmt::V2019_09_01::Models::Sku
+            Azure::KeyVault2::Mgmt::V2019_09_01::Models::Sku
           end
           def operation
-            Azure::KeyVault::Mgmt::V2019_09_01::Models::Operation
+            Azure::KeyVault2::Mgmt::V2019_09_01::Models::Operation
           end
           def deleted_vault_properties
-            Azure::KeyVault::Mgmt::V2019_09_01::Models::DeletedVaultProperties
+            Azure::KeyVault2::Mgmt::V2019_09_01::Models::DeletedVaultProperties
           end
           def operation_list_result
-            Azure::KeyVault::Mgmt::V2019_09_01::Models::OperationListResult
+            Azure::KeyVault2::Mgmt::V2019_09_01::Models::OperationListResult
           end
           def virtual_network_rule
-            Azure::KeyVault::Mgmt::V2019_09_01::Models::VirtualNetworkRule
+            Azure::KeyVault2::Mgmt::V2019_09_01::Models::VirtualNetworkRule
           end
           def attributes
-            Azure::KeyVault::Mgmt::V2019_09_01::Models::Attributes
+            Azure::KeyVault2::Mgmt::V2019_09_01::Models::Attributes
           end
           def vault
-            Azure::KeyVault::Mgmt::V2019_09_01::Models::Vault
+            Azure::KeyVault2::Mgmt::V2019_09_01::Models::Vault
           end
           def key_properties
-            Azure::KeyVault::Mgmt::V2019_09_01::Models::KeyProperties
+            Azure::KeyVault2::Mgmt::V2019_09_01::Models::KeyProperties
           end
           def private_endpoint_connection
-            Azure::KeyVault::Mgmt::V2019_09_01::Models::PrivateEndpointConnection
+            Azure::KeyVault2::Mgmt::V2019_09_01::Models::PrivateEndpointConnection
           end
           def private_link_resource
-            Azure::KeyVault::Mgmt::V2019_09_01::Models::PrivateLinkResource
+            Azure::KeyVault2::Mgmt::V2019_09_01::Models::PrivateLinkResource
           end
           def key_attributes
-            Azure::KeyVault::Mgmt::V2019_09_01::Models::KeyAttributes
+            Azure::KeyVault2::Mgmt::V2019_09_01::Models::KeyAttributes
           end
           def key
-            Azure::KeyVault::Mgmt::V2019_09_01::Models::Key
+            Azure::KeyVault2::Mgmt::V2019_09_01::Models::Key
           end
           def sku_name
-            Azure::KeyVault::Mgmt::V2019_09_01::Models::SkuName
+            Azure::KeyVault2::Mgmt::V2019_09_01::Models::SkuName
           end
           def key_permissions
-            Azure::KeyVault::Mgmt::V2019_09_01::Models::KeyPermissions
+            Azure::KeyVault2::Mgmt::V2019_09_01::Models::KeyPermissions
           end
           def secret_permissions
-            Azure::KeyVault::Mgmt::V2019_09_01::Models::SecretPermissions
+            Azure::KeyVault2::Mgmt::V2019_09_01::Models::SecretPermissions
           end
           def certificate_permissions
-            Azure::KeyVault::Mgmt::V2019_09_01::Models::CertificatePermissions
+            Azure::KeyVault2::Mgmt::V2019_09_01::Models::CertificatePermissions
           end
           def storage_permissions
-            Azure::KeyVault::Mgmt::V2019_09_01::Models::StoragePermissions
+            Azure::KeyVault2::Mgmt::V2019_09_01::Models::StoragePermissions
           end
           def create_mode
-            Azure::KeyVault::Mgmt::V2019_09_01::Models::CreateMode
+            Azure::KeyVault2::Mgmt::V2019_09_01::Models::CreateMode
           end
           def network_rule_bypass_options
-            Azure::KeyVault::Mgmt::V2019_09_01::Models::NetworkRuleBypassOptions
+            Azure::KeyVault2::Mgmt::V2019_09_01::Models::NetworkRuleBypassOptions
           end
           def network_rule_action
-            Azure::KeyVault::Mgmt::V2019_09_01::Models::NetworkRuleAction
+            Azure::KeyVault2::Mgmt::V2019_09_01::Models::NetworkRuleAction
           end
           def private_endpoint_service_connection_status
-            Azure::KeyVault::Mgmt::V2019_09_01::Models::PrivateEndpointServiceConnectionStatus
+            Azure::KeyVault2::Mgmt::V2019_09_01::Models::PrivateEndpointServiceConnectionStatus
           end
           def private_endpoint_connection_provisioning_state
-            Azure::KeyVault::Mgmt::V2019_09_01::Models::PrivateEndpointConnectionProvisioningState
+            Azure::KeyVault2::Mgmt::V2019_09_01::Models::PrivateEndpointConnectionProvisioningState
           end
           def reason
-            Azure::KeyVault::Mgmt::V2019_09_01::Models::Reason
+            Azure::KeyVault2::Mgmt::V2019_09_01::Models::Reason
           end
           def deletion_recovery_level
-            Azure::KeyVault::Mgmt::V2019_09_01::Models::DeletionRecoveryLevel
+            Azure::KeyVault2::Mgmt::V2019_09_01::Models::DeletionRecoveryLevel
           end
           def json_web_key_type
-            Azure::KeyVault::Mgmt::V2019_09_01::Models::JsonWebKeyType
+            Azure::KeyVault2::Mgmt::V2019_09_01::Models::JsonWebKeyType
           end
           def json_web_key_operation
-            Azure::KeyVault::Mgmt::V2019_09_01::Models::JsonWebKeyOperation
+            Azure::KeyVault2::Mgmt::V2019_09_01::Models::JsonWebKeyOperation
           end
           def json_web_key_curve_name
-            Azure::KeyVault::Mgmt::V2019_09_01::Models::JsonWebKeyCurveName
+            Azure::KeyVault2::Mgmt::V2019_09_01::Models::JsonWebKeyCurveName
           end
           def access_policy_update_kind
-            Azure::KeyVault::Mgmt::V2019_09_01::Models::AccessPolicyUpdateKind
+            Azure::KeyVault2::Mgmt::V2019_09_01::Models::AccessPolicyUpdateKind
           end
         end
       end

@@ -89,7 +89,7 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency 'azure_mgmt_import_export', "~>#{gem_versions['management']['azure_mgmt_import_export']}"
   spec.add_runtime_dependency 'azure_mgmt_iot_central', "~>#{gem_versions['management']['azure_mgmt_iot_central']}"
   spec.add_runtime_dependency 'azure_mgmt_iot_hub', "~>#{gem_versions['management']['azure_mgmt_iot_hub']}"
-  spec.add_runtime_dependency 'azure_mgmt_key_vault', "~>#{gem_versions['management']['azure_mgmt_key_vault']}"
+  spec.add_runtime_dependency 'azure_mgmt_key_vault2', "~>#{gem_versions['management']['azure_mgmt_key_vault2']}"
   spec.add_runtime_dependency 'azure_mgmt_kubernetes_configuration', "~>#{gem_versions['management']['azure_mgmt_kubernetes_configuration']}"
   spec.add_runtime_dependency 'azure_mgmt_kusto', "~>#{gem_versions['management']['azure_mgmt_kusto']}"
   spec.add_runtime_dependency 'azure_mgmt_labservices', "~>#{gem_versions['management']['azure_mgmt_labservices']}"

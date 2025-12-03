@@ -377,9 +377,9 @@
   },
   "Microsoft.KeyVault": {
     "management": {
-      "path": "management/azure_mgmt_key_vault",
-      "namespace": "Azure::KeyVault::Mgmt",
-      "module_require": "azure_mgmt_key_vault"
+      "path": "management/azure_mgmt_key_vault2",
+      "namespace": "Azure::KeyVault2::Mgmt",
+      "module_require": "azure_mgmt_key_vault2"
     },
     "data": {
       "path": "data/azure_key_vault",
