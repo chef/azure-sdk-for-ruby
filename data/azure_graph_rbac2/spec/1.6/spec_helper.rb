@@ -19,11 +19,11 @@ class ResourceHelper
     @subscription_id = ENV['AZURE_SUBSCRIPTION_ID']
 
     # Create ActiveDirectoryServiceSettings for graphs token audience
-    settings = MsRestAzure::ActiveDirectoryServiceSettings.new
-    settings.authentication_endpoint = MsRestAzure::AzureEnvironments::AzureCloud.active_directory_endpoint_url
-    settings.token_audience = MsRestAzure::AzureEnvironments::AzureCloud.active_directory_graph_resource_id
+    settings = MsRestAzure2::ActiveDirectoryServiceSettings.new
+    settings.authentication_endpoint = MsRestAzure2::AzureEnvironments::AzureCloud.active_directory_endpoint_url
+    settings.token_audience = MsRestAzure2::AzureEnvironments::AzureCloud.active_directory_graph_resource_id
 
-    token_provider = MsRestAzure::ApplicationTokenProvider.new(tenant_id, client_id, secret, settings)
+    token_provider = MsRestAzure2::ApplicationTokenProvider.new(tenant_id, client_id, secret, settings)
     @credentials = MsRest2::TokenCredentials.new(token_provider)
 
     VCR.configure do |config|

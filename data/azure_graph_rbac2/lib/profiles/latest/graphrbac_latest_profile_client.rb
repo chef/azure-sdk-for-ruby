@@ -10,7 +10,7 @@ module Azure::GraphRbac2::Profiles::Latest
   # Client class for the Latest profile SDK.
   #
   class Client < GraphRbacDataClass
-    include MsRestAzure::Common::Configurable
+    include MsRestAzure2::Common::Configurable
 
     #
     # Initializes a new instance of the Client class.
@@ -26,7 +26,7 @@ module Azure::GraphRbac2::Profiles::Latest
     #      options: options
     #    }
     #   'credentials' are optional and if not passed in the hash, will be obtained
-    #   from MsRest2::TokenCredentials using MsRestAzure::ApplicationTokenProvider.
+    #   from MsRest2::TokenCredentials using MsRestAzure2::ApplicationTokenProvider.
     #
     #   Also, base_url, active_directory_settings & options are optional.
     #

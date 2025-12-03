@@ -10,7 +10,7 @@ module Azure::GraphRbac2::V1_6
     #
     class UserGetMemberGroupsResult
 
-      include MsRestAzure
+      include MsRestAzure2
 
       # @return [Array<String>] A collection of group IDs of which the user is
       # a member.

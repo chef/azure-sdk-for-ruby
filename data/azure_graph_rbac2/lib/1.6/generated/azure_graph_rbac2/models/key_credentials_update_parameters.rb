@@ -10,7 +10,7 @@ module Azure::GraphRbac2::V1_6
     #
     class KeyCredentialsUpdateParameters
 
-      include MsRestAzure
+      include MsRestAzure2
 
       # @return [Array<KeyCredential>] A collection of KeyCredentials.
       attr_accessor :value

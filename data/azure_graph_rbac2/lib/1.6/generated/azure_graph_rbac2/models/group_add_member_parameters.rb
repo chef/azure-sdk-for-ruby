@@ -10,7 +10,7 @@ module Azure::GraphRbac2::V1_6
     #
     class GroupAddMemberParameters
 
-      include MsRestAzure
+      include MsRestAzure2
 
       # @return Unmatched properties from the message are deserialized this
       # collection

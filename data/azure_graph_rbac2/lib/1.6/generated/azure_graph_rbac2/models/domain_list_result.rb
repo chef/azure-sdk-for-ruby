@@ -10,7 +10,7 @@ module Azure::GraphRbac2::V1_6
     #
     class DomainListResult
 
-      include MsRestAzure
+      include MsRestAzure2
 
       # @return [Array<Domain>] the list of domains.
       attr_accessor :value

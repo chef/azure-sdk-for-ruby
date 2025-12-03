@@ -8,7 +8,7 @@ module Azure::GraphRbac2::V1_6
   # The Graph RBAC Management Client
   #
   class Groups
-    include MsRestAzure
+    include MsRestAzure2
 
     #
     # Creates and initializes a new instance of the Groups class.
@@ -46,7 +46,7 @@ module Azure::GraphRbac2::V1_6
     # @param custom_headers [Hash{String => String}] A hash of custom headers that
     # will be added to the HTTP request.
     #
-    # @return [MsRestAzure::AzureOperationResponse] HTTP response information.
+    # @return [MsRestAzure2::AzureOperationResponse] HTTP response information.
     #
     def is_member_of_with_http_info(parameters, custom_headers:nil)
       is_member_of_async(parameters, custom_headers:custom_headers).value!
@@ -146,7 +146,7 @@ module Azure::GraphRbac2::V1_6
     # @param custom_headers [Hash{String => String}] A hash of custom headers that
     # will be added to the HTTP request.
     #
-    # @return [MsRestAzure::AzureOperationResponse] HTTP response information.
+    # @return [MsRestAzure2::AzureOperationResponse] HTTP response information.
     #
     def remove_member_with_http_info(group_object_id, member_object_id, custom_headers:nil)
       remove_member_async(group_object_id, member_object_id, custom_headers:custom_headers).value!
@@ -234,7 +234,7 @@ module Azure::GraphRbac2::V1_6
     # @param custom_headers [Hash{String => String}] A hash of custom headers that
     # will be added to the HTTP request.
     #
-    # @return [MsRestAzure::AzureOperationResponse] HTTP response information.
+    # @return [MsRestAzure2::AzureOperationResponse] HTTP response information.
     #
     def add_member_with_http_info(group_object_id, parameters, custom_headers:nil)
       add_member_async(group_object_id, parameters, custom_headers:custom_headers).value!
@@ -326,7 +326,7 @@ module Azure::GraphRbac2::V1_6
     # @param custom_headers [Hash{String => String}] A hash of custom headers that
     # will be added to the HTTP request.
     #
-    # @return [MsRestAzure::AzureOperationResponse] HTTP response information.
+    # @return [MsRestAzure2::AzureOperationResponse] HTTP response information.
     #
     def create_with_http_info(parameters, custom_headers:nil)
       create_async(parameters, custom_headers:custom_headers).value!
@@ -422,7 +422,7 @@ module Azure::GraphRbac2::V1_6
     # @param custom_headers [Hash{String => String}] A hash of custom headers that
     # will be added to the HTTP request.
     #
-    # @return [MsRestAzure::AzureOperationResponse] HTTP response information.
+    # @return [MsRestAzure2::AzureOperationResponse] HTTP response information.
     #
     def list_with_http_info(filter:nil, custom_headers:nil)
       list_async(filter:filter, custom_headers:custom_headers).value!
@@ -511,7 +511,7 @@ module Azure::GraphRbac2::V1_6
     # @param custom_headers [Hash{String => String}] A hash of custom headers that
     # will be added to the HTTP request.
     #
-    # @return [MsRestAzure::AzureOperationResponse] HTTP response information.
+    # @return [MsRestAzure2::AzureOperationResponse] HTTP response information.
     #
     def get_group_members_with_http_info(object_id, custom_headers:nil)
       get_group_members_async(object_id, custom_headers:custom_headers).value!
@@ -602,7 +602,7 @@ module Azure::GraphRbac2::V1_6
     # @param custom_headers [Hash{String => String}] A hash of custom headers that
     # will be added to the HTTP request.
     #
-    # @return [MsRestAzure::AzureOperationResponse] HTTP response information.
+    # @return [MsRestAzure2::AzureOperationResponse] HTTP response information.
     #
     def get_with_http_info(object_id, custom_headers:nil)
       get_async(object_id, custom_headers:custom_headers).value!
@@ -690,7 +690,7 @@ module Azure::GraphRbac2::V1_6
     # @param custom_headers [Hash{String => String}] A hash of custom headers that
     # will be added to the HTTP request.
     #
-    # @return [MsRestAzure::AzureOperationResponse] HTTP response information.
+    # @return [MsRestAzure2::AzureOperationResponse] HTTP response information.
     #
     def delete_with_http_info(object_id, custom_headers:nil)
       delete_async(object_id, custom_headers:custom_headers).value!
@@ -776,7 +776,7 @@ module Azure::GraphRbac2::V1_6
     # @param custom_headers [Hash{String => String}] A hash of custom headers that
     # will be added to the HTTP request.
     #
-    # @return [MsRestAzure::AzureOperationResponse] HTTP response information.
+    # @return [MsRestAzure2::AzureOperationResponse] HTTP response information.
     #
     def get_member_groups_with_http_info(object_id, parameters, custom_headers:nil)
       get_member_groups_async(object_id, parameters, custom_headers:custom_headers).value!
@@ -876,7 +876,7 @@ module Azure::GraphRbac2::V1_6
     # @param custom_headers [Hash{String => String}] A hash of custom headers that
     # will be added to the HTTP request.
     #
-    # @return [MsRestAzure::AzureOperationResponse] HTTP response information.
+    # @return [MsRestAzure2::AzureOperationResponse] HTTP response information.
     #
     def list_next_with_http_info(next_link, custom_headers:nil)
       list_next_async(next_link, custom_headers:custom_headers).value!
@@ -965,7 +965,7 @@ module Azure::GraphRbac2::V1_6
     # @param custom_headers [Hash{String => String}] A hash of custom headers that
     # will be added to the HTTP request.
     #
-    # @return [MsRestAzure::AzureOperationResponse] HTTP response information.
+    # @return [MsRestAzure2::AzureOperationResponse] HTTP response information.
     #
     def get_group_members_next_with_http_info(next_link, custom_headers:nil)
       get_group_members_next_async(next_link, custom_headers:custom_headers).value!
