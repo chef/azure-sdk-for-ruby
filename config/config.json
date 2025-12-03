@@ -3250,7 +3250,7 @@
       "tag": "package-2015-08"
     }
   },
-  "azure_mgmt_security": {
+  "azure_mgmt_security2": {
     "azure_mgmt_security_2015_06_01_preview": {
       "markdown": "https://raw.githubusercontent.com/Azure/azure-rest-api-specs/c0999c2814c88b647da9f1e149e79d0bbab0768d/specification/security/resource-manager/readme.md",
       "namespace": "Azure::Security::Mgmt::V2015_06_01_preview",

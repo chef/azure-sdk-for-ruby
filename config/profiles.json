@@ -2759,7 +2759,7 @@
             "individual_gem_profile": true
         }
         ],
-        "azure_mgmt_security": [
+        "azure_mgmt_security2": [
         {
             "name": "Latest",
             "resourceTypes": {
@@ -2779,7 +2779,7 @@
                     }
                 }
             },
-            "output_dir": "management/azure_mgmt_security/lib/profiles",
+            "output_dir": "management/azure_mgmt_security2/lib/profiles",
             "individual_gem_profile": true
         }
         ],
@@ -2793,7 +2793,7 @@
                         }
                     }
                 },
-                "output_dir": "management/azure_mgmt_security_insights/lib/profiles",
+                "output_dir": "management/azure_mgmt_security2_insights/lib/profiles",
                 "individual_gem_profile": true
             }
         ],
