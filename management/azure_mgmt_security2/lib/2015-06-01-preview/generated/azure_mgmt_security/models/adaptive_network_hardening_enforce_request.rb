@@ -11,7 +11,7 @@ module Azure::Security2::Mgmt::V2015_06_01_preview
     #
     class AdaptiveNetworkHardeningEnforceRequest
 
-      include MsRestAzure
+      include MsRestAzure2
 
       # @return [Array<Rule>] The rules to enforce
       attr_accessor :rules

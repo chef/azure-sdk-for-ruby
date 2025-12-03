@@ -10,7 +10,7 @@ module Azure::Security2::Mgmt::V2020_01_01
     #
     class ConnectedResource
 
-      include MsRestAzure
+      include MsRestAzure2
 
       # @return [String] The Azure resource id of the connected resource
       attr_accessor :connected_resource_id

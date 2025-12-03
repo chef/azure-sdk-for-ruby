@@ -10,7 +10,7 @@ module Azure::Security2::Mgmt::V2017_08_01_preview
     #
     class IoTSeverityMetrics
 
-      include MsRestAzure
+      include MsRestAzure2
 
       # @return [Integer] count of high severity items
       attr_accessor :high

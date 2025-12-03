@@ -11,7 +11,7 @@ module Azure::Security2::Mgmt::V2015_06_01_preview
     #
     class AtaSolutionProperties < ExternalSecuritySolutionProperties
 
-      include MsRestAzure
+      include MsRestAzure2
 
       # @return [String]
       attr_accessor :last_event_received

@@ -13,7 +13,7 @@ module Azure::Security2::Mgmt::V2020_01_01_preview
     #
     class AwsCredsAuthenticationDetailsProperties < AuthenticationDetailsProperties
 
-      include MsRestAzure
+      include MsRestAzure2
 
 
       def initialize

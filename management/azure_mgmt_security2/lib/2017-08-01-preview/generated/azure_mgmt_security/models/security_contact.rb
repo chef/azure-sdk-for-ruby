@@ -10,7 +10,7 @@ module Azure::Security2::Mgmt::V2017_08_01_preview
     #
     class SecurityContact < Resource
 
-      include MsRestAzure
+      include MsRestAzure2
 
       # @return [String] The email of this security contact
       attr_accessor :email

@@ -10,7 +10,7 @@ module Azure::Security2::Mgmt::V2020_01_01_preview
     #
     class ConnectorSetting < Resource
 
-      include MsRestAzure
+      include MsRestAzure2
 
       # @return [HybridComputeSettingsProperties] Settings for hybrid compute
       # management. These settings are relevant only for Arc autoProvision

@@ -10,7 +10,7 @@ module Azure::Security2::Mgmt::V2020_07_01_preview
     #
     class ScanProperties
 
-      include MsRestAzure
+      include MsRestAzure2
 
       # @return [ScanTriggerType] Possible values include: 'OnDemand',
       # 'Recurring'

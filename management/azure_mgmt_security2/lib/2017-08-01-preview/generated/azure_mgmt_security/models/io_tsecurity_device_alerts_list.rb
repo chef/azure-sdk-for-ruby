@@ -10,7 +10,7 @@ module Azure::Security2::Mgmt::V2017_08_01_preview
     #
     class IoTSecurityDeviceAlertsList
 
-      include MsRestAzure
+      include MsRestAzure2
 
       # @return [Array<IoTSecurityDeviceAlert>] List of top alerts data
       attr_accessor :value

@@ -11,7 +11,7 @@ module Azure::Security2::Mgmt::V2020_01_01
     #
     class JitNetworkAccessRequest
 
-      include MsRestAzure
+      include MsRestAzure2
 
       # @return [Array<JitNetworkAccessRequestVirtualMachine>]
       attr_accessor :virtual_machines

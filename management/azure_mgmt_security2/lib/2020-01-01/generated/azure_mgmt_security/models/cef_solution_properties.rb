@@ -11,7 +11,7 @@ module Azure::Security2::Mgmt::V2020_01_01
     #
     class CefSolutionProperties < ExternalSecuritySolutionProperties
 
-      include MsRestAzure
+      include MsRestAzure2
 
       # @return [String]
       attr_accessor :hostname

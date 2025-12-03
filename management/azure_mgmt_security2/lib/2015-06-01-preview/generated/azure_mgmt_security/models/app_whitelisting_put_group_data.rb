@@ -10,7 +10,7 @@ module Azure::Security2::Mgmt::V2015_06_01_preview
     #
     class AppWhitelistingPutGroupData
 
-      include MsRestAzure
+      include MsRestAzure2
 
       # @return [Enum] The enforcement mode of the group. Can also be defined
       # per collection type by using ProtectionMode. Possible values include:

@@ -11,7 +11,7 @@ module Azure::Security2::Mgmt::V2020_01_01_preview
     #
     class ProxyServerProperties
 
-      include MsRestAzure
+      include MsRestAzure2
 
       # @return [String] Proxy server IP
       attr_accessor :ip

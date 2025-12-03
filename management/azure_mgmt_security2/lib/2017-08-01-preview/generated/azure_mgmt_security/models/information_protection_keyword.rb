@@ -10,7 +10,7 @@ module Azure::Security2::Mgmt::V2017_08_01_preview
     #
     class InformationProtectionKeyword
 
-      include MsRestAzure
+      include MsRestAzure2
 
       # @return [String] The keyword pattern.
       attr_accessor :pattern

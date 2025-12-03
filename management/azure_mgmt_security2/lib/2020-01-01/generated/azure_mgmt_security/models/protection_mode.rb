@@ -11,7 +11,7 @@ module Azure::Security2::Mgmt::V2020_01_01
     #
     class ProtectionMode
 
-      include MsRestAzure
+      include MsRestAzure2
 
       # @return [Enum] Possible values include: 'Audit', 'Enforce', 'None'
       attr_accessor :exe

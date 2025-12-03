@@ -11,7 +11,7 @@ module Azure::Security2::Mgmt::V2017_08_01_preview
     #
     class IoTSecurityDeviceAlert
 
-      include MsRestAzure
+      include MsRestAzure2
 
       # @return [String] Display name of the alert
       attr_accessor :alert_display_name

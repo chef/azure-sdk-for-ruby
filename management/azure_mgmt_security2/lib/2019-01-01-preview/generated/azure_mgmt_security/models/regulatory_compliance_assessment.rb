@@ -10,7 +10,7 @@ module Azure::Security2::Mgmt::V2019_01_01_preview
     #
     class RegulatoryComplianceAssessment < Resource
 
-      include MsRestAzure
+      include MsRestAzure2
 
       # @return [String] The description of the regulatory compliance
       # assessment

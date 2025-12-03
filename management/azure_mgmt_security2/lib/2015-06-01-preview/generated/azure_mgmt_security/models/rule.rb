@@ -12,7 +12,7 @@ module Azure::Security2::Mgmt::V2015_06_01_preview
     #
     class Rule
 
-      include MsRestAzure
+      include MsRestAzure2
 
       # @return [String] The name of the rule
       attr_accessor :name

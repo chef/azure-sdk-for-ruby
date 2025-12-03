@@ -13,7 +13,7 @@ module Azure::Security2::Mgmt::V2018_06_01
     #
     class Pricing < Resource
 
-      include MsRestAzure
+      include MsRestAzure2
 
       # @return [PricingTier] The pricing tier value. Azure Security Center is
       # provided in two pricing tiers: free and standard, with the standard

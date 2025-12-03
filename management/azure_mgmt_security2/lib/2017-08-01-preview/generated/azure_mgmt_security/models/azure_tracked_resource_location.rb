@@ -10,7 +10,7 @@ module Azure::Security2::Mgmt::V2017_08_01_preview
     #
     class AzureTrackedResourceLocation
 
-      include MsRestAzure
+      include MsRestAzure2
 
       # @return [String] Location where the resource is stored
       attr_accessor :location

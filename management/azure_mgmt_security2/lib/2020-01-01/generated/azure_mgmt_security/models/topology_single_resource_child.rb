@@ -11,7 +11,7 @@ module Azure::Security2::Mgmt::V2020_01_01
     #
     class TopologySingleResourceChild
 
-      include MsRestAzure
+      include MsRestAzure2
 
       # @return [String] Azure resource id which serves as child resource in
       # topology view

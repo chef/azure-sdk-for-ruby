@@ -10,7 +10,7 @@ module Azure::Security2::Mgmt::V2020_08_06_preview
     #
     class PackageDownloadsSensorFull
 
-      include MsRestAzure
+      include MsRestAzure2
 
       # @return [Array<PackageDownloadInfo>] Contains all ISO full versions for
       # the sensor

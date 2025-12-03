@@ -10,7 +10,7 @@ module Azure::Security2::Mgmt::V2017_08_01_preview
     #
     class InformationType
 
-      include MsRestAzure
+      include MsRestAzure2
 
       # @return [String] The name of the information type.
       attr_accessor :display_name

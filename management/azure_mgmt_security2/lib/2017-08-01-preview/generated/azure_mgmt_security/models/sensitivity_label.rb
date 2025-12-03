@@ -10,7 +10,7 @@ module Azure::Security2::Mgmt::V2017_08_01_preview
     #
     class SensitivityLabel
 
-      include MsRestAzure
+      include MsRestAzure2
 
       # @return [String] The name of the sensitivity label.
       attr_accessor :display_name

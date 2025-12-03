@@ -10,7 +10,7 @@ module Azure::Security2::Mgmt::V2017_08_01_preview
     #
     class IoTSecuritySolutionAnalyticsModel < Resource
 
-      include MsRestAzure
+      include MsRestAzure2
 
       # @return [IoTSeverityMetrics] Security Analytics of a security solution
       attr_accessor :metrics

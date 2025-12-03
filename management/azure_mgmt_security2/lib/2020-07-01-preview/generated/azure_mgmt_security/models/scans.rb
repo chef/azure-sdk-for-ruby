@@ -10,7 +10,7 @@ module Azure::Security2::Mgmt::V2020_07_01_preview
     #
     class Scans
 
-      include MsRestAzure
+      include MsRestAzure2
 
       # @return [Array<Scan>] List of vulnerability assessment scan records.
       attr_accessor :value

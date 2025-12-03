@@ -10,7 +10,7 @@ module Azure::Security2::Mgmt::V2017_08_01_preview
     #
     class RecommendationConfigurationProperties
 
-      include MsRestAzure
+      include MsRestAzure2
 
       # @return [RecommendationType] The recommendation type. Possible values
       # include: 'IoT_ACRAuthentication', 'IoT_AgentSendsUnutilizedMessages',

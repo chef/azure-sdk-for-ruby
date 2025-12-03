@@ -10,7 +10,7 @@ module Azure::Security2::Mgmt::V2017_08_01_preview
     #
     class Compliance < Resource
 
-      include MsRestAzure
+      include MsRestAzure2
 
       # @return [DateTime] The timestamp when the Compliance calculation was
       # conducted.

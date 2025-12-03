@@ -11,7 +11,7 @@ module Azure::Security2::Mgmt::V2020_08_06_preview
     #
     class ETag
 
-      include MsRestAzure
+      include MsRestAzure2
 
       # @return [String] Entity tag is used for comparing two or more entities
       # from the same requested resource.

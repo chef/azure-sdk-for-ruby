@@ -10,7 +10,7 @@ module Azure::Security2::Mgmt::V2020_08_06_preview
     #
     class IotRecommendationModel < Resource
 
-      include MsRestAzure
+      include MsRestAzure2
 
       # @return [String] Identifier of the device being reported on
       attr_accessor :device_id

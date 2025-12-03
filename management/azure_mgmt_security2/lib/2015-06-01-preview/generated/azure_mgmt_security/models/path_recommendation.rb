@@ -10,7 +10,7 @@ module Azure::Security2::Mgmt::V2015_06_01_preview
     #
     class PathRecommendation
 
-      include MsRestAzure
+      include MsRestAzure2
 
       # @return [String] The full path to whitelist
       attr_accessor :path

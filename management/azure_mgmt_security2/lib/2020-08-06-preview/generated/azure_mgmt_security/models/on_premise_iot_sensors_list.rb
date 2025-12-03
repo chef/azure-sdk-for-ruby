@@ -10,7 +10,7 @@ module Azure::Security2::Mgmt::V2020_08_06_preview
     #
     class OnPremiseIotSensorsList
 
-      include MsRestAzure
+      include MsRestAzure2
 
       # @return [Array<OnPremiseIotSensor>] List data
       attr_accessor :value

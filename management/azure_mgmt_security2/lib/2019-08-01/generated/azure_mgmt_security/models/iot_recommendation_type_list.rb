@@ -10,7 +10,7 @@ module Azure::Security2::Mgmt::V2019_08_01
     #
     class IotRecommendationTypeList
 
-      include MsRestAzure
+      include MsRestAzure2
 
       # @return [Array<IotRecommendationType>] List data
       attr_accessor :value

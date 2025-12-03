@@ -11,7 +11,7 @@ module Azure::Security2::Mgmt::V2015_06_01_preview
     #
     class AadExternalSecuritySolution < ExternalSecuritySolution
 
-      include MsRestAzure
+      include MsRestAzure2
 
 
       def initialize

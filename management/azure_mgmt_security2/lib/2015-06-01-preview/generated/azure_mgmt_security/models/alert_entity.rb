@@ -10,7 +10,7 @@ module Azure::Security2::Mgmt::V2015_06_01_preview
     #
     class AlertEntity
 
-      include MsRestAzure
+      include MsRestAzure2
 
       # @return Unmatched properties from the message are deserialized this
       # collection

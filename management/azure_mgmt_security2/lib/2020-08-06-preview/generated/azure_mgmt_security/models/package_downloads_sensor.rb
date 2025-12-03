@@ -10,7 +10,7 @@ module Azure::Security2::Mgmt::V2020_08_06_preview
     #
     class PackageDownloadsSensor
 
-      include MsRestAzure
+      include MsRestAzure2
 
       # @return [PackageDownloadsSensorFull] Contains full package downloads
       attr_accessor :full

@@ -11,7 +11,7 @@ module Azure::Security2::Mgmt::V2020_01_01_preview
     #
     class ConnectorSettingList
 
-      include MsRestAzure
+      include MsRestAzure2
 
       include MsRest2::JSONable
       # @return [Array<ConnectorSetting>] List of all the cloud account

@@ -10,7 +10,7 @@ module Azure::Security2::Mgmt::V2018_06_01
     #
     class PricingList
 
-      include MsRestAzure
+      include MsRestAzure2
 
       # @return [Array<Pricing>] List of pricing configurations
       attr_accessor :value

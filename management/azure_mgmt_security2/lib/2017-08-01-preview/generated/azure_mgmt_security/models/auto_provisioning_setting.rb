@@ -10,7 +10,7 @@ module Azure::Security2::Mgmt::V2017_08_01_preview
     #
     class AutoProvisioningSetting < Resource
 
-      include MsRestAzure
+      include MsRestAzure2
 
       # @return [AutoProvision] Describes what kind of security agent
       # provisioning action to take. Possible values include: 'On', 'Off'

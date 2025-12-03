@@ -10,7 +10,7 @@ module Azure::Security2::Mgmt::V2020_08_06_preview
     #
     class Protocol
 
-      include MsRestAzure
+      include MsRestAzure2
 
       # @return [String] Protocol name
       attr_accessor :name

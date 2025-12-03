@@ -10,7 +10,7 @@ module Azure::Security2::Mgmt::V2017_08_01_preview
     #
     class Pricing < Resource
 
-      include MsRestAzure
+      include MsRestAzure2
 
       # @return [PricingTier] Pricing tier type. Possible values include:
       # 'Free', 'Standard'

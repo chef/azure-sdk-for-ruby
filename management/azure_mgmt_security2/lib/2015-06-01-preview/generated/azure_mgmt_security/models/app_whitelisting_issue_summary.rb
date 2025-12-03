@@ -10,7 +10,7 @@ module Azure::Security2::Mgmt::V2015_06_01_preview
     #
     class AppWhitelistingIssueSummary
 
-      include MsRestAzure
+      include MsRestAzure2
 
       # @return [Enum] Possible values include: 'ViolationsAudited',
       # 'ViolationsBlocked', 'MsiAndScriptViolationsAudited',

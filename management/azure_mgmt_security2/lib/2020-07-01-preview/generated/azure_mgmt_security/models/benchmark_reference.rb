@@ -10,7 +10,7 @@ module Azure::Security2::Mgmt::V2020_07_01_preview
     #
     class BenchmarkReference
 
-      include MsRestAzure
+      include MsRestAzure2
 
       # @return [String] The benchmark name.
       attr_accessor :benchmark

@@ -8,7 +8,7 @@ module Azure::Security2::Mgmt::V2020_01_01
   # API spec for Microsoft.Security (Azure Security Center) resource provider
   #
   class Assessments
-    include MsRestAzure
+    include MsRestAzure2
 
     #
     # Creates and initializes a new instance of the Assessments class.
@@ -46,7 +46,7 @@ module Azure::Security2::Mgmt::V2020_01_01
     # @param custom_headers [Hash{String => String}] A hash of custom headers that
     # will be added to the HTTP request.
     #
-    # @return [MsRestAzure::AzureOperationResponse] HTTP response information.
+    # @return [MsRestAzure2::AzureOperationResponse] HTTP response information.
     #
     def list_with_http_info(scope, custom_headers:nil)
       list_async(scope, custom_headers:custom_headers).value!
@@ -93,7 +93,7 @@ module Azure::Security2::Mgmt::V2020_01_01
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRestAzure::AzureOperationError.new(result.request, http_response, error_model)
+          fail MsRestAzure2::AzureOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -145,7 +145,7 @@ module Azure::Security2::Mgmt::V2020_01_01
     # @param custom_headers [Hash{String => String}] A hash of custom headers that
     # will be added to the HTTP request.
     #
-    # @return [MsRestAzure::AzureOperationResponse] HTTP response information.
+    # @return [MsRestAzure2::AzureOperationResponse] HTTP response information.
     #
     def get_with_http_info(resource_id, assessment_name, expand:nil, custom_headers:nil)
       get_async(resource_id, assessment_name, expand:expand, custom_headers:custom_headers).value!
@@ -196,7 +196,7 @@ module Azure::Security2::Mgmt::V2020_01_01
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRestAzure::AzureOperationError.new(result.request, http_response, error_model)
+          fail MsRestAzure2::AzureOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -252,7 +252,7 @@ module Azure::Security2::Mgmt::V2020_01_01
     # @param custom_headers [Hash{String => String}] A hash of custom headers that
     # will be added to the HTTP request.
     #
-    # @return [MsRestAzure::AzureOperationResponse] HTTP response information.
+    # @return [MsRestAzure2::AzureOperationResponse] HTTP response information.
     #
     def create_or_update_with_http_info(resource_id, assessment_name, assessment, custom_headers:nil)
       create_or_update_async(resource_id, assessment_name, assessment, custom_headers:custom_headers).value!
@@ -313,7 +313,7 @@ module Azure::Security2::Mgmt::V2020_01_01
         response_content = http_response.body
         unless status_code == 201 || status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRestAzure::AzureOperationError.new(result.request, http_response, error_model)
+          fail MsRestAzure2::AzureOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -374,7 +374,7 @@ module Azure::Security2::Mgmt::V2020_01_01
     # @param custom_headers [Hash{String => String}] A hash of custom headers that
     # will be added to the HTTP request.
     #
-    # @return [MsRestAzure::AzureOperationResponse] HTTP response information.
+    # @return [MsRestAzure2::AzureOperationResponse] HTTP response information.
     #
     def delete_with_http_info(resource_id, assessment_name, custom_headers:nil)
       delete_async(resource_id, assessment_name, custom_headers:custom_headers).value!
@@ -425,7 +425,7 @@ module Azure::Security2::Mgmt::V2020_01_01
         response_content = http_response.body
         unless status_code == 200 || status_code == 204
           error_model = JSON.load(response_content)
-          fail MsRestAzure::AzureOperationError.new(result.request, http_response, error_model)
+          fail MsRestAzure2::AzureOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -461,7 +461,7 @@ module Azure::Security2::Mgmt::V2020_01_01
     # @param custom_headers [Hash{String => String}] A hash of custom headers that
     # will be added to the HTTP request.
     #
-    # @return [MsRestAzure::AzureOperationResponse] HTTP response information.
+    # @return [MsRestAzure2::AzureOperationResponse] HTTP response information.
     #
     def list_next_with_http_info(next_page_link, custom_headers:nil)
       list_next_async(next_page_link, custom_headers:custom_headers).value!
@@ -505,7 +505,7 @@ module Azure::Security2::Mgmt::V2020_01_01
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRestAzure::AzureOperationError.new(result.request, http_response, error_model)
+          fail MsRestAzure2::AzureOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?

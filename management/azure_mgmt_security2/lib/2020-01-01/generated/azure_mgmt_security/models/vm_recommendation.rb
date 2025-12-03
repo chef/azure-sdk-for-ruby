@@ -10,7 +10,7 @@ module Azure::Security2::Mgmt::V2020_01_01
     #
     class VmRecommendation
 
-      include MsRestAzure
+      include MsRestAzure2
 
       # @return [Enum] Possible values include: 'Configured', 'NotConfigured',
       # 'InProgress', 'Failed', 'NoStatus'

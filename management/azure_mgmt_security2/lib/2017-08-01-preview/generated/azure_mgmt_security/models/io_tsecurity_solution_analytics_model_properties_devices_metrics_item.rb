@@ -11,7 +11,7 @@ module Azure::Security2::Mgmt::V2017_08_01_preview
     #
     class IoTSecuritySolutionAnalyticsModelPropertiesDevicesMetricsItem
 
-      include MsRestAzure
+      include MsRestAzure2
 
       # @return [DateTime] the date of the metrics
       attr_accessor :date

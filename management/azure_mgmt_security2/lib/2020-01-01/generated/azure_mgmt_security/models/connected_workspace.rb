@@ -11,7 +11,7 @@ module Azure::Security2::Mgmt::V2020_01_01
     #
     class ConnectedWorkspace
 
-      include MsRestAzure
+      include MsRestAzure2
 
       # @return [String] Azure resource ID of the connected OMS workspace
       attr_accessor :id

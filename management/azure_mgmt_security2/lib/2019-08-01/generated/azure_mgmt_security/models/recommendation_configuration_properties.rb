@@ -10,7 +10,7 @@ module Azure::Security2::Mgmt::V2019_08_01
     #
     class RecommendationConfigurationProperties
 
-      include MsRestAzure
+      include MsRestAzure2
 
       # @return [RecommendationType] The type of IoT Security recommendation.
       # Possible values include: 'IoT_ACRAuthentication',

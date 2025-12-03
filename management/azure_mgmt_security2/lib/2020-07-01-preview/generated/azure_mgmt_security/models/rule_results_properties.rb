@@ -10,7 +10,7 @@ module Azure::Security2::Mgmt::V2020_07_01_preview
     #
     class RuleResultsProperties
 
-      include MsRestAzure
+      include MsRestAzure2
 
       # @return [Array<Array<String>>] Expected results in the baseline.
       attr_accessor :results

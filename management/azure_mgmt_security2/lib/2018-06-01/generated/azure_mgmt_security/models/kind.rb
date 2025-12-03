@@ -10,7 +10,7 @@ module Azure::Security2::Mgmt::V2018_06_01
     #
     class Kind
 
-      include MsRestAzure
+      include MsRestAzure2
 
       # @return [String] Kind of the resource
       attr_accessor :kind
