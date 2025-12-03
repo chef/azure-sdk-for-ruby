@@ -10,7 +10,7 @@ module Azure::KeyVault2::Mgmt::V2019_09_01
     #
     class Key < Resource
 
-      include MsRestAzure
+      include MsRestAzure2
 
       # @return [KeyAttributes] The attributes of the key.
       attr_accessor :attributes

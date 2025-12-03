@@ -10,7 +10,7 @@ module Azure::KeyVault2::Mgmt::V2016_10_01
     #
     class VaultListResult
 
-      include MsRestAzure
+      include MsRestAzure2
 
       include MsRest2::JSONable
       # @return [Array<Vault>] The list of vaults.

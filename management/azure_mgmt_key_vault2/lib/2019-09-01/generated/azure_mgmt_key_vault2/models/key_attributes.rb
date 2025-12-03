@@ -10,7 +10,7 @@ module Azure::KeyVault2::Mgmt::V2019_09_01
     #
     class KeyAttributes < Attributes
 
-      include MsRestAzure
+      include MsRestAzure2
 
 
       #

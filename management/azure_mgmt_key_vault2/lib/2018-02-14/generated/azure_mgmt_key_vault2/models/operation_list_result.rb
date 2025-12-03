@@ -11,7 +11,7 @@ module Azure::KeyVault2::Mgmt::V2018_02_14
     #
     class OperationListResult
 
-      include MsRestAzure
+      include MsRestAzure2
 
       include MsRest2::JSONable
       # @return [Array<Operation>] List of Storage operations supported by the

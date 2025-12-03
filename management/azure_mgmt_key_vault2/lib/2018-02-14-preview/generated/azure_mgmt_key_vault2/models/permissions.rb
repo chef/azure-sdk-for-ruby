@@ -10,7 +10,7 @@ module Azure::KeyVault2::Mgmt::V2018_02_14_preview
     #
     class Permissions
 
-      include MsRestAzure
+      include MsRestAzure2
 
       # @return [Array<KeyPermissions>] Permissions to keys
       attr_accessor :keys

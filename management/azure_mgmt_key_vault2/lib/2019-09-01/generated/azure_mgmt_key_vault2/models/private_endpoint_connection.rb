@@ -10,7 +10,7 @@ module Azure::KeyVault2::Mgmt::V2019_09_01
     #
     class PrivateEndpointConnection < Resource
 
-      include MsRestAzure
+      include MsRestAzure2
 
       # @return [PrivateEndpoint] Properties of the private endpoint object.
       attr_accessor :private_endpoint

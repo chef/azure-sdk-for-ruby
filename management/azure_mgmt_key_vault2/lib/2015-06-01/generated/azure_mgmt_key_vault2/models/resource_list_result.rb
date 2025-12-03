@@ -10,7 +10,7 @@ module Azure::KeyVault2::Mgmt::V2015_06_01
     #
     class ResourceListResult
 
-      include MsRestAzure
+      include MsRestAzure2
 
       include MsRest2::JSONable
       # @return [Array<Resource>] Gets the list of vault resources.

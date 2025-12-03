@@ -10,7 +10,7 @@ module Azure::KeyVault2::Mgmt::V2019_09_01
     #
     class PrivateLinkResourceListResult
 
-      include MsRestAzure
+      include MsRestAzure2
 
       # @return [Array<PrivateLinkResource>] Array of private link resources
       attr_accessor :value

@@ -10,7 +10,7 @@ module Azure::KeyVault2::Mgmt::V2019_09_01
     #
     class Vault
 
-      include MsRestAzure
+      include MsRestAzure2
 
       # @return [String] Fully qualified identifier of the key vault resource.
       attr_accessor :id

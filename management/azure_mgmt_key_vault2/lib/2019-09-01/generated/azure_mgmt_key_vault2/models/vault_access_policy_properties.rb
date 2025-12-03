@@ -10,7 +10,7 @@ module Azure::KeyVault2::Mgmt::V2019_09_01
     #
     class VaultAccessPolicyProperties
 
-      include MsRestAzure
+      include MsRestAzure2
 
       # @return [Array<AccessPolicyEntry>] An array of 0 to 16 identities that
       # have access to the key vault. All identities in the array must use the

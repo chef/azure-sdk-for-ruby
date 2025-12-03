@@ -15,9 +15,9 @@ require 'timeliness'
 require 'faraday'
 require 'faraday-cookie_jar2'
 require 'concurrent'
-require 'ms_rest'
+require 'ms_rest2'
 require '2015-06-01/generated/azure_mgmt_key_vault2/module_definition'
-require 'ms_rest_azure'
+require 'ms_rest_azure2'
 
 module Azure::KeyVault2::Mgmt::V2015_06_01
   autoload :Vaults,                                             '2015-06-01/generated/azure_mgmt_key_vault2/vaults.rb'

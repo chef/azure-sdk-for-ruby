@@ -10,7 +10,7 @@ module Azure::KeyVault2::Mgmt::V2019_09_01
     #
     class VaultProperties
 
-      include MsRestAzure
+      include MsRestAzure2
 
       # @return The Azure Active Directory tenant ID that should be used for
       # authenticating requests to the key vault.

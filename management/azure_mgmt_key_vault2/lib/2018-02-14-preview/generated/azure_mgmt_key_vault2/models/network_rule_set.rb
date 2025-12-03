@@ -10,7 +10,7 @@ module Azure::KeyVault2::Mgmt::V2018_02_14_preview
     #
     class NetworkRuleSet
 
-      include MsRestAzure
+      include MsRestAzure2
 
       # @return [NetworkRuleBypassOptions] Tells what traffic can bypass
       # network rules. This can be 'AzureServices' or 'None'.  If not specified

@@ -7,9 +7,9 @@ module Azure::KeyVault2::Mgmt::V2016_10_01
   #
   # A service client - single point of access to the REST API.
   #
-  class KeyVaultManagementClient < MsRestAzure::AzureServiceClient
-    include MsRestAzure
-    include MsRestAzure::Serialization
+  class KeyVaultManagementClient < MsRestAzure2::AzureServiceClient
+    include MsRestAzure2
+    include MsRestAzure2::Serialization
 
     # @return [String] the base URI of the service.
     attr_accessor :base_url
@@ -91,7 +91,7 @@ module Azure::KeyVault2::Mgmt::V2016_10_01
     # @param method [Symbol] with any of the following values :get, :put, :post, :patch, :delete.
     # @param path [String] the path, relative to {base_url}.
     # @param options [Hash{String=>String}] specifying any request options like :body.
-    # @return [MsRestAzure::AzureOperationResponse] Operation response containing the request, response and status.
+    # @return [MsRestAzure2::AzureOperationResponse] Operation response containing the request, response and status.
     #
     def make_request_with_http_info(method, path, options = {})
       result = make_request_async(method, path, options).value!

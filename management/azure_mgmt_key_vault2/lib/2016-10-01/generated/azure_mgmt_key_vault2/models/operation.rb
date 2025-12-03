@@ -10,7 +10,7 @@ module Azure::KeyVault2::Mgmt::V2016_10_01
     #
     class Operation
 
-      include MsRestAzure
+      include MsRestAzure2
 
       # @return [String] Operation name: {provider}/{resource}/{operation}
       attr_accessor :name
