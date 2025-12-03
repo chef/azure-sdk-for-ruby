@@ -10,7 +10,7 @@ module Azure::Security2::Mgmt::V2019_01_01_preview
     #
     class AssessmentStatus
 
-      include MsRestAzure
+      include MsRestAzure2
 
       # @return [AssessmentStatusCode] Programmatic code for the status of the
       # assessment. Possible values include: 'Healthy', 'Unhealthy',

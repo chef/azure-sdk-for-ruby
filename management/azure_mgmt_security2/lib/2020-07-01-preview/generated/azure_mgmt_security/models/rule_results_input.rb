@@ -10,7 +10,7 @@ module Azure::Security2::Mgmt::V2020_07_01_preview
     #
     class RuleResultsInput
 
-      include MsRestAzure
+      include MsRestAzure2
 
       # @return [Boolean] Take results from latest scan.
       attr_accessor :latest_scan

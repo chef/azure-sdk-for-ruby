@@ -10,7 +10,7 @@ module Azure::Security2::Mgmt::V2020_08_06_preview
     #
     class NetworkInterface
 
-      include MsRestAzure
+      include MsRestAzure2
 
       # @return [IpAddress]
       attr_accessor :ip_address

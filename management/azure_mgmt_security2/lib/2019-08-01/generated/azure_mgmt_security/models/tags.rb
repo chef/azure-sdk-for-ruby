@@ -10,7 +10,7 @@ module Azure::Security2::Mgmt::V2019_08_01
     #
     class Tags
 
-      include MsRestAzure
+      include MsRestAzure2
 
       # @return [Hash{String => String}] A list of key value pairs that
       # describe the resource.

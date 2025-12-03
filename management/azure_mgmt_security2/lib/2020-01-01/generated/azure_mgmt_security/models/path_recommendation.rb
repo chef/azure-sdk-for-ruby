@@ -10,7 +10,7 @@ module Azure::Security2::Mgmt::V2020_01_01
     #
     class PathRecommendation
 
-      include MsRestAzure
+      include MsRestAzure2
 
       # @return [String] The full path of the file, or an identifier of the
       # application

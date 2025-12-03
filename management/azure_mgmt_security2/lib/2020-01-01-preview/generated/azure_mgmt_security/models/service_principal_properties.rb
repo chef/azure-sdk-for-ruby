@@ -10,7 +10,7 @@ module Azure::Security2::Mgmt::V2020_01_01_preview
     #
     class ServicePrincipalProperties
 
-      include MsRestAzure
+      include MsRestAzure2
 
       # @return [String] Application ID of service principal.
       attr_accessor :application_id

@@ -10,7 +10,7 @@ module Azure::Security2::Mgmt::V2017_08_01_preview
     #
     class ComplianceSegment
 
-      include MsRestAzure
+      include MsRestAzure2
 
       # @return [String] The segment type, e.g. compliant, non-compliance,
       # insufficient coverage, N/A, etc.

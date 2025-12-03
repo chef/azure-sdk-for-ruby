@@ -10,7 +10,7 @@ module Azure::Security2::Mgmt::V2020_01_01
     #
     class SecurityAssessmentMetadataPartnerData
 
-      include MsRestAzure
+      include MsRestAzure2
 
       # @return [String] Name of the company of the partner
       attr_accessor :partner_name

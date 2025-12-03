@@ -11,7 +11,7 @@ module Azure::Security2::Mgmt::V2019_08_01
     #
     class IoTSecuritySolutionAnalyticsModelPropertiesDevicesMetricsItem
 
-      include MsRestAzure
+      include MsRestAzure2
 
       # @return [DateTime] Aggregation of IoT Security solution device alert
       # metrics by date.

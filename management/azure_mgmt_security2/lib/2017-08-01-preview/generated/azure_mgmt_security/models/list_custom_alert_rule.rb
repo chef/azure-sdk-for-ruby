@@ -10,7 +10,7 @@ module Azure::Security2::Mgmt::V2017_08_01_preview
     #
     class ListCustomAlertRule < CustomAlertRule
 
-      include MsRestAzure
+      include MsRestAzure2
 
 
       def initialize

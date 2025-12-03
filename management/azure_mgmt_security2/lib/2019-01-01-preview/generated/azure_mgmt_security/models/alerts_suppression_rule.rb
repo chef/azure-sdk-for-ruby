@@ -10,7 +10,7 @@ module Azure::Security2::Mgmt::V2019_01_01_preview
     #
     class AlertsSuppressionRule < Resource
 
-      include MsRestAzure
+      include MsRestAzure2
 
       # @return [String] Type of the alert to automatically suppress. For all
       # alert types, use '*'

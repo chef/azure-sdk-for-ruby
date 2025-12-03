@@ -10,7 +10,7 @@ module Azure::Security2::Mgmt::V2019_08_01
     #
     class IoTSecurityAggregatedAlertList
 
-      include MsRestAzure
+      include MsRestAzure2
 
       include MsRest2::JSONable
       # @return [Array<IoTSecurityAggregatedAlert>] List of aggregated alerts

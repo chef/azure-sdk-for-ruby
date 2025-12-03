@@ -10,7 +10,7 @@ module Azure::Security2::Mgmt::V2019_01_01_preview
     #
     class AssessmentLinks
 
-      include MsRestAzure
+      include MsRestAzure2
 
       # @return [String] Link to assessment in Azure Portal
       attr_accessor :azure_portal_uri

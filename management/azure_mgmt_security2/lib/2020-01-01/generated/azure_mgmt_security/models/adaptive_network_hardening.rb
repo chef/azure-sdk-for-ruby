@@ -11,7 +11,7 @@ module Azure::Security2::Mgmt::V2020_01_01
     #
     class AdaptiveNetworkHardening < Resource
 
-      include MsRestAzure
+      include MsRestAzure2
 
       # @return [Array<Rule>] The security rules which are recommended to be
       # effective on the VM

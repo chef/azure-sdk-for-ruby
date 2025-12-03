@@ -10,7 +10,7 @@ module Azure::Security2::Mgmt::V2015_06_01_preview
     #
     class UserRecommendation
 
-      include MsRestAzure
+      include MsRestAzure2
 
       # @return [String] Represents a user that is recommended to be allowed
       # for a certain rule

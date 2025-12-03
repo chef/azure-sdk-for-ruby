@@ -10,7 +10,7 @@ module Azure::Security2::Mgmt::V2019_08_01
     #
     class IotAlertType < Resource
 
-      include MsRestAzure
+      include MsRestAzure2
 
       # @return [String] The display name of the alert
       attr_accessor :alert_display_name

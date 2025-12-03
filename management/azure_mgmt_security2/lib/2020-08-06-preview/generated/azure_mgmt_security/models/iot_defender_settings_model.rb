@@ -10,7 +10,7 @@ module Azure::Security2::Mgmt::V2020_08_06_preview
     #
     class IotDefenderSettingsModel < Resource
 
-      include MsRestAzure
+      include MsRestAzure2
 
       # @return [Integer] Size of the device quota (as a opposed to a Pay as
       # You Go billing model). Value is required to be in multiples of 1000.

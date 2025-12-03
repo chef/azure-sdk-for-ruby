@@ -10,7 +10,7 @@ module Azure::Security2::Mgmt::V2020_08_06_preview
     #
     class IotRecommendationType < Resource
 
-      include MsRestAzure
+      include MsRestAzure2
 
       # @return [String] The display name of the recommendation
       attr_accessor :recommendation_display_name

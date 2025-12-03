@@ -10,7 +10,7 @@ module Azure::Security2::Mgmt::V2020_01_01
     #
     class SecurityAssessmentMetadataProperties
 
-      include MsRestAzure
+      include MsRestAzure2
 
       # @return [String] User friendly display name of the assessment
       attr_accessor :display_name

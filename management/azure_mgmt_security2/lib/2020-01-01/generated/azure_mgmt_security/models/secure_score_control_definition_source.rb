@@ -10,7 +10,7 @@ module Azure::Security2::Mgmt::V2020_01_01
     #
     class SecureScoreControlDefinitionSource
 
-      include MsRestAzure
+      include MsRestAzure2
 
       # @return [ControlType] The type of security control (for example,
       # BuiltIn). Possible values include: 'BuiltIn', 'Custom'

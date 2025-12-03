@@ -10,7 +10,7 @@ module Azure::Security2::Mgmt::V2020_01_01_preview
     #
     class SecureScoreControlDefinitionList
 
-      include MsRestAzure
+      include MsRestAzure2
 
       include MsRest2::JSONable
       # @return [Array<SecureScoreControlDefinitionItem>] Collection of

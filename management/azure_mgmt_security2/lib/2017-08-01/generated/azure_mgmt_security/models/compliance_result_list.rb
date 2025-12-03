@@ -10,7 +10,7 @@ module Azure::Security2::Mgmt::V2017_08_01
     #
     class ComplianceResultList
 
-      include MsRestAzure
+      include MsRestAzure2
 
       include MsRest2::JSONable
       # @return [Array<ComplianceResult>] List of compliance results

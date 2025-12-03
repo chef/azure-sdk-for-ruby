@@ -10,7 +10,7 @@ module Azure::Security2::Mgmt::V2015_06_01_preview
     #
     class Alert < Resource
 
-      include MsRestAzure
+      include MsRestAzure2
 
       # @return [String] State of the alert (Active, Dismissed etc.)
       attr_accessor :state

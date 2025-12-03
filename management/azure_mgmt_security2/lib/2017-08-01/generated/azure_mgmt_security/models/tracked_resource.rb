@@ -10,7 +10,7 @@ module Azure::Security2::Mgmt::V2017_08_01
     #
     class TrackedResource
 
-      include MsRestAzure
+      include MsRestAzure2
 
       # @return [String] Resource Id
       attr_accessor :id

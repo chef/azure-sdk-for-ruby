@@ -11,7 +11,7 @@ module Azure::Security2::Mgmt::V2015_06_01_preview
     #
     class AppWhitelistingGroups
 
-      include MsRestAzure
+      include MsRestAzure2
 
       # @return [Array<AppWhitelistingGroup>]
       attr_accessor :value

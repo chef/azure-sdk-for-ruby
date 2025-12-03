@@ -10,7 +10,7 @@ module Azure::Security2::Mgmt::V2020_08_06_preview
     #
     class Site
 
-      include MsRestAzure
+      include MsRestAzure2
 
       # @return [String] Site display name
       attr_accessor :display_name

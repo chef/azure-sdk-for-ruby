@@ -11,7 +11,7 @@ module Azure::Security2::Mgmt::V2015_06_01_preview
     #
     class TopologyResource
 
-      include MsRestAzure
+      include MsRestAzure2
 
       # @return [String] Resource Id
       attr_accessor :id

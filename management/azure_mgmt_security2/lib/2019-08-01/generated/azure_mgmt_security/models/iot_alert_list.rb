@@ -10,7 +10,7 @@ module Azure::Security2::Mgmt::V2019_08_01
     #
     class IotAlertList
 
-      include MsRestAzure
+      include MsRestAzure2
 
       include MsRest2::JSONable
       # @return [Array<IotAlert>] List data

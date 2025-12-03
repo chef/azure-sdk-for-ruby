@@ -11,7 +11,7 @@ module Azure::Security2::Mgmt::V2020_01_01
     #
     class TopologySingleResource
 
-      include MsRestAzure
+      include MsRestAzure2
 
       # @return [String] Azure resource id
       attr_accessor :resource_id

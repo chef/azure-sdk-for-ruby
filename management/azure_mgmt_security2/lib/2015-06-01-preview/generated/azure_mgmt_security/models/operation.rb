@@ -10,7 +10,7 @@ module Azure::Security2::Mgmt::V2015_06_01_preview
     #
     class Operation
 
-      include MsRestAzure
+      include MsRestAzure2
 
       # @return [String] Name of the operation
       attr_accessor :name

@@ -10,7 +10,7 @@ module Azure::Security2::Mgmt::V2015_06_01_preview
     #
     class PublisherInfo
 
-      include MsRestAzure
+      include MsRestAzure2
 
       # @return [String] The Subject field of the x.509 certificate used to
       # sign the code, using the following fields -  O = Organization, L =

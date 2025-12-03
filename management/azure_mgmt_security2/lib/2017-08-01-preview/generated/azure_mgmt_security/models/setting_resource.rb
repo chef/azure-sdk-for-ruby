@@ -10,7 +10,7 @@ module Azure::Security2::Mgmt::V2017_08_01_preview
     #
     class SettingResource < Resource
 
-      include MsRestAzure
+      include MsRestAzure2
 
       # @return [SettingKind] the kind of the settings string
       # (DataExportSetting). Possible values include: 'DataExportSetting',

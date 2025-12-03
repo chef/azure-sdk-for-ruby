@@ -10,7 +10,7 @@ module Azure::Security2::Mgmt::V2020_01_01
     #
     class ConnectableResource
 
-      include MsRestAzure
+      include MsRestAzure2
 
       # @return [String] The Azure resource id
       attr_accessor :id

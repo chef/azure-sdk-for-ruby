@@ -10,7 +10,7 @@ module Azure::Security2::Mgmt::V2017_08_01_preview
     #
     class UserDefinedResourcesProperties
 
-      include MsRestAzure
+      include MsRestAzure2
 
       # @return [String] Azure Resource Graph query which represents the
       # security solution's user defined resources. Required to start with

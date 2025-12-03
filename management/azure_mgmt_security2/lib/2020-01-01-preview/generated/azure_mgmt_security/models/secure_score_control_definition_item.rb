@@ -10,7 +10,7 @@ module Azure::Security2::Mgmt::V2020_01_01_preview
     #
     class SecureScoreControlDefinitionItem < Resource
 
-      include MsRestAzure
+      include MsRestAzure2
 
       # @return [String] User friendly display name of the control
       attr_accessor :display_name

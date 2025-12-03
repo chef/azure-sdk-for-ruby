@@ -10,7 +10,7 @@ module Azure::Security2::Mgmt::V2020_01_01
     #
     class SecurityAssessment < Resource
 
-      include MsRestAzure
+      include MsRestAzure2
 
       # @return [ResourceDetails]
       attr_accessor :resource_details

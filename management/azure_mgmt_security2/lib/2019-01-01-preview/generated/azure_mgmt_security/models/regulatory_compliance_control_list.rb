@@ -10,7 +10,7 @@ module Azure::Security2::Mgmt::V2019_01_01_preview
     #
     class RegulatoryComplianceControlList
 
-      include MsRestAzure
+      include MsRestAzure2
 
       include MsRest2::JSONable
       # @return [Array<RegulatoryComplianceControl>] List of regulatory

@@ -10,7 +10,7 @@ module Azure::Security2::Mgmt::V2020_07_01_preview
     #
     class ScanResults
 
-      include MsRestAzure
+      include MsRestAzure2
 
       # @return [Array<ScanResult>] List of vulnerability assessment scan
       # results.

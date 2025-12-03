@@ -10,7 +10,7 @@ module Azure::Security2::Mgmt::V2015_06_01_preview
     #
     class ExternalSecuritySolutionKind1
 
-      include MsRestAzure
+      include MsRestAzure2
 
       # @return [ExternalSecuritySolutionKind] The kind of the external
       # solution. Possible values include: 'CEF', 'ATA', 'AAD'

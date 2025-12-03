@@ -10,7 +10,7 @@ module Azure::Security2::Mgmt::V2015_06_01_preview
     #
     class AadConnectivityState1
 
-      include MsRestAzure
+      include MsRestAzure2
 
       # @return [AadConnectivityState] The connectivity state of the external
       # AAD solution . Possible values include: 'Discovered', 'NotLicensed',

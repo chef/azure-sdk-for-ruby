@@ -11,7 +11,7 @@ module Azure::Security2::Mgmt::V2020_01_01
     #
     class JitNetworkAccessPolicyInitiateRequest
 
-      include MsRestAzure
+      include MsRestAzure2
 
       # @return [Array<JitNetworkAccessPolicyInitiateVirtualMachine>] A list of
       # virtual machines & ports to open access for

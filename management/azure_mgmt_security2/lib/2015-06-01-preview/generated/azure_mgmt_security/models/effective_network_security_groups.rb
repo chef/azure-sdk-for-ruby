@@ -10,7 +10,7 @@ module Azure::Security2::Mgmt::V2015_06_01_preview
     #
     class EffectiveNetworkSecurityGroups
 
-      include MsRestAzure
+      include MsRestAzure2
 
       # @return [String] The Azure resource ID of the network interface
       attr_accessor :network_interface

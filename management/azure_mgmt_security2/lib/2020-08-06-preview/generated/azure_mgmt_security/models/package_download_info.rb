@@ -10,7 +10,7 @@ module Azure::Security2::Mgmt::V2020_08_06_preview
     #
     class PackageDownloadInfo
 
-      include MsRestAzure
+      include MsRestAzure2
 
       # @return [String] Version number
       attr_accessor :version

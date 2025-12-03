@@ -10,7 +10,7 @@ module Azure::Security2::Mgmt::V2019_08_01
     #
     class IoTSecuritySolutionAnalyticsModel < Resource
 
-      include MsRestAzure
+      include MsRestAzure2
 
       # @return [IoTSeverityMetrics] Security analytics of your IoT Security
       # solution.

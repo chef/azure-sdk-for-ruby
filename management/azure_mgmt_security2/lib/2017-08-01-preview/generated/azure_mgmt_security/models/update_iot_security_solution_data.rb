@@ -11,7 +11,7 @@ module Azure::Security2::Mgmt::V2017_08_01_preview
     #
     class UpdateIotSecuritySolutionData < TagsResource
 
-      include MsRestAzure
+      include MsRestAzure2
 
       # @return [UserDefinedResourcesProperties]
       attr_accessor :user_defined_resources

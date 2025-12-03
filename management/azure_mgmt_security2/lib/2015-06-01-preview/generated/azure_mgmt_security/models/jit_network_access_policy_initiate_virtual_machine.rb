@@ -11,7 +11,7 @@ module Azure::Security2::Mgmt::V2015_06_01_preview
     #
     class JitNetworkAccessPolicyInitiateVirtualMachine
 
-      include MsRestAzure
+      include MsRestAzure2
 
       # @return [String] Resource ID of the virtual machine that is linked to
       # this policy

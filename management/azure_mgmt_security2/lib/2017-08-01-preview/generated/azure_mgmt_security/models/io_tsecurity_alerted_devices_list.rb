@@ -10,7 +10,7 @@ module Azure::Security2::Mgmt::V2017_08_01_preview
     #
     class IoTSecurityAlertedDevicesList
 
-      include MsRestAzure
+      include MsRestAzure2
 
       # @return [Array<IoTSecurityAlertedDevice>] List of aggregated alerts
       # data

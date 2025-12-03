@@ -10,7 +10,7 @@ module Azure::Security2::Mgmt::V2017_08_01
     #
     class ComplianceResult < Resource
 
-      include MsRestAzure
+      include MsRestAzure2
 
       # @return [ResourceStatus] The status of the resource regarding a single
       # assessment. Possible values include: 'Healthy', 'NotApplicable',

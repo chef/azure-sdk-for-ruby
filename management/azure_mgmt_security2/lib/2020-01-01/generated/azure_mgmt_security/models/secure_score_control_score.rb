@@ -10,7 +10,7 @@ module Azure::Security2::Mgmt::V2020_01_01
     #
     class SecureScoreControlScore
 
-      include MsRestAzure
+      include MsRestAzure2
 
       # @return [Integer] Maximum control score (0..10)
       attr_accessor :max

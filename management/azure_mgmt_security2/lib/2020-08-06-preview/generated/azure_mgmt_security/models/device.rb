@@ -10,7 +10,7 @@ module Azure::Security2::Mgmt::V2020_08_06_preview
     #
     class Device < Resource
 
-      include MsRestAzure
+      include MsRestAzure2
 
       # @return [String] Device display name given by the collector
       attr_accessor :display_name

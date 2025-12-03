@@ -15,9 +15,9 @@ require 'timeliness'
 require 'faraday'
 require 'faraday-cookie_jar2'
 require 'concurrent'
-require 'ms_rest'
+require 'ms_rest2'
 require '2020-07-01-preview/generated/azure_mgmt_security2/module_definition'
-require 'ms_rest_azure'
+require 'ms_rest_azure2'
 
 module Azure::Security2::Mgmt::V2020_07_01_preview
   autoload :SqlVulnerabilityAssessmentScans,                    '2020-07-01-preview/generated/azure_mgmt_security2/sql_vulnerability_assessment_scans.rb'

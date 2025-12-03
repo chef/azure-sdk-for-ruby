@@ -10,7 +10,7 @@ module Azure::Security2::Mgmt::V2017_08_01_preview
     #
     class InformationProtectionPolicy < Resource
 
-      include MsRestAzure
+      include MsRestAzure2
 
       # @return [DateTime] Describes the last UTC time the policy was modified.
       attr_accessor :last_modified_utc

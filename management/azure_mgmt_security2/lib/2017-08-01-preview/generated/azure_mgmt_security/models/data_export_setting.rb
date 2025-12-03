@@ -10,7 +10,7 @@ module Azure::Security2::Mgmt::V2017_08_01_preview
     #
     class DataExportSetting < Setting
 
-      include MsRestAzure
+      include MsRestAzure2
 
       # @return [Boolean] Is the data export setting is enabled
       attr_accessor :enabled

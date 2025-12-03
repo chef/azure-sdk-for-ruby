@@ -10,7 +10,7 @@ module Azure::Security2::Mgmt::V2020_07_01_preview
     #
     class ScanResult < Resource
 
-      include MsRestAzure
+      include MsRestAzure2
 
       # @return [ScanResultProperties]
       attr_accessor :properties

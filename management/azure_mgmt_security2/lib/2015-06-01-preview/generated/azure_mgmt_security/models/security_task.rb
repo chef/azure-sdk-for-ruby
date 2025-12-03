@@ -10,7 +10,7 @@ module Azure::Security2::Mgmt::V2015_06_01_preview
     #
     class SecurityTask < Resource
 
-      include MsRestAzure
+      include MsRestAzure2
 
       # @return [String] State of the task (Active, Resolved etc.)
       attr_accessor :state

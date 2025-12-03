@@ -10,7 +10,7 @@ module Azure::Security2::Mgmt::V2019_08_01
     #
     class IotAlert
 
-      include MsRestAzure
+      include MsRestAzure2
 
       # @return [String] Holds the product canonical identifier of the alert
       # within the scope of a product

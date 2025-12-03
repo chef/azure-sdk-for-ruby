@@ -10,7 +10,7 @@ module Azure::Security2::Mgmt::V2020_01_01_preview
     #
     class SecureScoreItem < Resource
 
-      include MsRestAzure
+      include MsRestAzure2
 
       # @return [String] The initiative’s name
       attr_accessor :display_name

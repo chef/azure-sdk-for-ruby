@@ -10,7 +10,7 @@ module Azure::Security2::Mgmt::V2019_01_01_preview
     #
     class OnPremiseResourceDetails < ResourceDetails
 
-      include MsRestAzure
+      include MsRestAzure2
 
 
       def initialize

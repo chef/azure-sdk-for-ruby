@@ -10,7 +10,7 @@ module Azure::Security2::Mgmt::V2020_01_01
     #
     class AzureResourceLink
 
-      include MsRestAzure
+      include MsRestAzure2
 
       # @return [String] Azure resource Id
       attr_accessor :id

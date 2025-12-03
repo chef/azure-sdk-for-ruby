@@ -10,7 +10,7 @@ module Azure::Security2::Mgmt::V2020_08_06_preview
     #
     class Firmware
 
-      include MsRestAzure
+      include MsRestAzure2
 
       # @return [String] Address of the specific module a firmware is related
       # to

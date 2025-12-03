@@ -11,7 +11,7 @@ module Azure::Security2::Mgmt::V2017_08_01_preview
     #
     class DenylistCustomAlertRule < ListCustomAlertRule
 
-      include MsRestAzure
+      include MsRestAzure2
 
 
       def initialize

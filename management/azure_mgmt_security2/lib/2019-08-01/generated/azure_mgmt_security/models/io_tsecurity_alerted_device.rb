@@ -11,7 +11,7 @@ module Azure::Security2::Mgmt::V2019_08_01
     #
     class IoTSecurityAlertedDevice
 
-      include MsRestAzure
+      include MsRestAzure2
 
       # @return [String] Device identifier.
       attr_accessor :device_id

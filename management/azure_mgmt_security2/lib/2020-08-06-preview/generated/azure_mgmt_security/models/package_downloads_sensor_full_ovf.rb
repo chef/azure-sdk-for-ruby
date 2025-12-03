@@ -10,7 +10,7 @@ module Azure::Security2::Mgmt::V2020_08_06_preview
     #
     class PackageDownloadsSensorFullOvf
 
-      include MsRestAzure
+      include MsRestAzure2
 
       # @return [Array<PackageDownloadInfo>] Enterprise package type
       attr_accessor :enterprise

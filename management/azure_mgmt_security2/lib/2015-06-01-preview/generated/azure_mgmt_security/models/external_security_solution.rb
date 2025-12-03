@@ -12,7 +12,7 @@ module Azure::Security2::Mgmt::V2015_06_01_preview
     #
     class ExternalSecuritySolution
 
-      include MsRestAzure
+      include MsRestAzure2
 
       @@discriminatorMap = Hash.new
       @@discriminatorMap["CEF"] = "CefExternalSecuritySolution"

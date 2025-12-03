@@ -10,7 +10,7 @@ module Azure::Security2::Mgmt::V2017_08_01_preview
     #
     class DeviceSecurityGroup < Resource
 
-      include MsRestAzure
+      include MsRestAzure2
 
       # @return [Array<ThresholdCustomAlertRule>] The list of custom alert
       # threshold rules.

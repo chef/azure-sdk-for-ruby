@@ -10,7 +10,7 @@ module Azure::Security2::Mgmt::V2018_06_01
     #
     class AscLocation < Resource
 
-      include MsRestAzure
+      include MsRestAzure2
 
       # @return
       attr_accessor :properties

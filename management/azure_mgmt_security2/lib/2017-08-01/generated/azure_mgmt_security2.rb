@@ -15,9 +15,9 @@ require 'timeliness'
 require 'faraday'
 require 'faraday-cookie_jar2'
 require 'concurrent'
-require 'ms_rest'
+require 'ms_rest2'
 require '2017-08-01/generated/azure_mgmt_security2/module_definition'
-require 'ms_rest_azure'
+require 'ms_rest_azure2'
 
 module Azure::Security2::Mgmt::V2017_08_01
   autoload :ComplianceResults,                                  '2017-08-01/generated/azure_mgmt_security2/compliance_results.rb'
