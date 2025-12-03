@@ -10,7 +10,7 @@ module Azure::GraphRbac2::V1_6
     #
     class DirectoryObject
 
-      include MsRestAzure
+      include MsRestAzure2
 
       @@discriminatorMap = Hash.new
       @@discriminatorMap["Application"] = "Application"

@@ -10,7 +10,7 @@ module Azure::GraphRbac2::V1_6
     #
     class ApplicationListResult
 
-      include MsRestAzure
+      include MsRestAzure2
 
       include MsRest2::JSONable
       # @return [Array<Application>] A collection of applications.

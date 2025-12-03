@@ -10,7 +10,7 @@ module Azure::GraphRbac2::V1_6
     #
     class PasswordCredentialListResult
 
-      include MsRestAzure
+      include MsRestAzure2
 
       # @return [Array<PasswordCredential>] A collection of
       # PasswordCredentials.

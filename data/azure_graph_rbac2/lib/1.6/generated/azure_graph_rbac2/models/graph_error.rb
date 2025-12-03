@@ -10,7 +10,7 @@ module Azure::GraphRbac2::V1_6
     #
     class GraphError
 
-      include MsRestAzure
+      include MsRestAzure2
 
       # @return [String] Error code.
       attr_accessor :code

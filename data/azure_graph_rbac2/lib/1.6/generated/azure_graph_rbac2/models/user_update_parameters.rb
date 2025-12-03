@@ -10,7 +10,7 @@ module Azure::GraphRbac2::V1_6
     #
     class UserUpdateParameters < UserBase
 
-      include MsRestAzure
+      include MsRestAzure2
 
       # @return [Boolean] Whether the account is enabled.
       attr_accessor :account_enabled

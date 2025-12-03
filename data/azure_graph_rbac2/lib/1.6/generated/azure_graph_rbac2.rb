@@ -15,9 +15,9 @@ require 'timeliness'
 require 'faraday'
 require 'faraday-cookie_jar2'
 require 'concurrent'
-require 'ms_rest'
+require 'ms_rest2'
 require '1.6/generated/azure_graph_rbac2/module_definition'
-require 'ms_rest_azure'
+require 'ms_rest_azure2'
 
 module Azure::GraphRbac2::V1_6
   autoload :Objects,                                            '1.6/generated/azure_graph_rbac2/objects.rb'

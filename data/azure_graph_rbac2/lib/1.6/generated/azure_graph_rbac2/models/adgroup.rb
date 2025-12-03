@@ -10,7 +10,7 @@ module Azure::GraphRbac2::V1_6
     #
     class ADGroup < DirectoryObject
 
-      include MsRestAzure
+      include MsRestAzure2
 
 
       def initialize

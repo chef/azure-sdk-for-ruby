@@ -10,7 +10,7 @@ module Azure::GraphRbac2::V1_6
     #
     class GroupListResult
 
-      include MsRestAzure
+      include MsRestAzure2
 
       include MsRest2::JSONable
       # @return [Array<ADGroup>] A collection of Active Directory groups.
