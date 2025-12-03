@@ -10,7 +10,7 @@ module Azure::KeyVault2::Mgmt::V2018_02_14_preview
     #
     class SecretAttributes < Attributes
 
-      include MsRestAzure
+      include MsRestAzure2
 
 
       #

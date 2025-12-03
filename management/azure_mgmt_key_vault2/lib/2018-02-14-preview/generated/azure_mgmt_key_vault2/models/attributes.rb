@@ -10,7 +10,7 @@ module Azure::KeyVault2::Mgmt::V2018_02_14_preview
     #
     class Attributes
 
-      include MsRestAzure
+      include MsRestAzure2
 
       # @return [Boolean] Determines whether the object is enabled.
       attr_accessor :enabled

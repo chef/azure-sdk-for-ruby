@@ -10,7 +10,7 @@ module Azure::KeyVault2::Mgmt::V2016_10_01
     #
     class VaultAccessPolicyParameters
 
-      include MsRestAzure
+      include MsRestAzure2
 
       # @return [String] The resource id of the access policy.
       attr_accessor :id

@@ -10,7 +10,7 @@ module Azure::KeyVault2::Mgmt::V2018_02_14_preview
     #
     class CheckNameAvailabilityResult
 
-      include MsRestAzure
+      include MsRestAzure2
 
       # @return [Boolean] A boolean value that indicates whether the name is
       # available for you to use. If true, the name is available. If false, the

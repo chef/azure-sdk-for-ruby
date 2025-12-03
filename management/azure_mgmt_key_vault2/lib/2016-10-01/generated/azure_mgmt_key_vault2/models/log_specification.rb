@@ -10,7 +10,7 @@ module Azure::KeyVault2::Mgmt::V2016_10_01
     #
     class LogSpecification
 
-      include MsRestAzure
+      include MsRestAzure2
 
       # @return [String] Name of log specification.
       attr_accessor :name

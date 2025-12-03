@@ -10,7 +10,7 @@ module Azure::KeyVault2::Mgmt::V2016_10_01
     #
     class ServiceSpecification
 
-      include MsRestAzure
+      include MsRestAzure2
 
       # @return [Array<LogSpecification>] Log specifications of operation.
       attr_accessor :log_specifications

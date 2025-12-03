@@ -9,7 +9,7 @@ module Azure::KeyVault2::Mgmt::V2019_09_01
   # interact with Azure Key Vault.
   #
   class PrivateEndpointConnections
-    include MsRestAzure
+    include MsRestAzure2
 
     #
     # Creates and initializes a new instance of the PrivateEndpointConnections class.
@@ -51,7 +51,7 @@ module Azure::KeyVault2::Mgmt::V2019_09_01
     # @param custom_headers [Hash{String => String}] A hash of custom headers that
     # will be added to the HTTP request.
     #
-    # @return [MsRestAzure::AzureOperationResponse] HTTP response information.
+    # @return [MsRestAzure2::AzureOperationResponse] HTTP response information.
     #
     def get_with_http_info(resource_group_name, vault_name, private_endpoint_connection_name, custom_headers:nil)
       get_async(resource_group_name, vault_name, private_endpoint_connection_name, custom_headers:custom_headers).value!
@@ -104,7 +104,7 @@ module Azure::KeyVault2::Mgmt::V2019_09_01
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRestAzure::AzureOperationError.new(result.request, http_response, error_model)
+          fail MsRestAzure2::AzureOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -162,7 +162,7 @@ module Azure::KeyVault2::Mgmt::V2019_09_01
     # @param custom_headers [Hash{String => String}] A hash of custom headers that
     # will be added to the HTTP request.
     #
-    # @return [MsRestAzure::AzureOperationResponse] HTTP response information.
+    # @return [MsRestAzure2::AzureOperationResponse] HTTP response information.
     #
     def put_with_http_info(resource_group_name, vault_name, private_endpoint_connection_name, properties, custom_headers:nil)
       put_async(resource_group_name, vault_name, private_endpoint_connection_name, properties, custom_headers:custom_headers).value!
@@ -226,7 +226,7 @@ module Azure::KeyVault2::Mgmt::V2019_09_01
         response_content = http_response.body
         unless status_code == 200
           error_model = JSON.load(response_content)
-          fail MsRestAzure::AzureOperationError.new(result.request, http_response, error_model)
+          fail MsRestAzure2::AzureOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?
@@ -329,7 +329,7 @@ module Azure::KeyVault2::Mgmt::V2019_09_01
     # @param custom_headers [Hash{String => String}] A hash of custom headers that
     # will be added to the HTTP request.
     #
-    # @return [MsRestAzure::AzureOperationResponse] HTTP response information.
+    # @return [MsRestAzure2::AzureOperationResponse] HTTP response information.
     #
     def begin_delete_with_http_info(resource_group_name, vault_name, private_endpoint_connection_name, custom_headers:nil)
       begin_delete_async(resource_group_name, vault_name, private_endpoint_connection_name, custom_headers:custom_headers).value!
@@ -383,7 +383,7 @@ module Azure::KeyVault2::Mgmt::V2019_09_01
         response_content = http_response.body
         unless status_code == 200 || status_code == 202 || status_code == 204
           error_model = JSON.load(response_content)
-          fail MsRestAzure::AzureOperationError.new(result.request, http_response, error_model)
+          fail MsRestAzure2::AzureOperationError.new(result.request, http_response, error_model)
         end
 
         result.request_id = http_response['x-ms-request-id'] unless http_response['x-ms-request-id'].nil?

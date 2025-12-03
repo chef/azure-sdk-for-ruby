@@ -10,7 +10,7 @@ module Azure::KeyVault2::Mgmt::V2018_02_14_preview
     #
     class SecretProperties
 
-      include MsRestAzure
+      include MsRestAzure2
 
       # @return [String] The value of the secret. NOTE: 'value' will never be
       # returned from the service, as APIs using this model are is intended for

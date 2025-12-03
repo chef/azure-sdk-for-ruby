@@ -10,7 +10,7 @@ module Azure::KeyVault2::Mgmt::V2019_09_01
     #
     class VaultCreateOrUpdateParameters
 
-      include MsRestAzure
+      include MsRestAzure2
 
       # @return [String] The supported Azure location where the key vault
       # should be created.

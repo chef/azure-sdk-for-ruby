@@ -10,7 +10,7 @@ module Azure::KeyVault2::Mgmt::V2019_09_01
     #
     class KeyCreateParameters
 
-      include MsRestAzure
+      include MsRestAzure2
 
       # @return [Hash{String => String}] The tags that will be assigned to the
       # key.

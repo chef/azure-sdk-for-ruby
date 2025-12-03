@@ -10,7 +10,7 @@ module Azure::KeyVault2::Mgmt::V2018_02_14_preview
     #
     class OperationDisplay
 
-      include MsRestAzure
+      include MsRestAzure2
 
       # @return [String] Service provider: Microsoft Key Vault.
       attr_accessor :provider

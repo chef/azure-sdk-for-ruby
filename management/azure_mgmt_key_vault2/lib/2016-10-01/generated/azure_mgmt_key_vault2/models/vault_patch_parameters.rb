@@ -10,7 +10,7 @@ module Azure::KeyVault2::Mgmt::V2016_10_01
     #
     class VaultPatchParameters
 
-      include MsRestAzure
+      include MsRestAzure2
 
       # @return [Hash{String => String}] The tags that will be assigned to the
       # key vault.

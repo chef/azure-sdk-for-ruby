@@ -10,7 +10,7 @@ module Azure::KeyVault2::Mgmt::V2018_02_14_preview
     #
     class Vault < Resource
 
-      include MsRestAzure
+      include MsRestAzure2
 
       # @return [VaultProperties] Properties of the vault
       attr_accessor :properties

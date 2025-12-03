@@ -10,7 +10,7 @@ module Azure::KeyVault2::Mgmt::V2019_09_01
     #
     class PrivateEndpoint
 
-      include MsRestAzure
+      include MsRestAzure2
 
       # @return [String] Full identifier of the private endpoint resource.
       attr_accessor :id

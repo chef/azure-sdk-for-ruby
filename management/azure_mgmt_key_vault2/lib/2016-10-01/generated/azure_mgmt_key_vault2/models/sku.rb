@@ -10,7 +10,7 @@ module Azure::KeyVault2::Mgmt::V2016_10_01
     #
     class Sku
 
-      include MsRestAzure
+      include MsRestAzure2
 
       # @return [String] SKU family name. Default value: 'A' .
       attr_accessor :family

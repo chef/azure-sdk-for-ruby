@@ -10,7 +10,7 @@ module Azure::KeyVault2::Mgmt::V2016_10_01
     #
     class Resource
 
-      include MsRestAzure
+      include MsRestAzure2
 
       # @return [String] The Azure Resource Manager resource ID for the key
       # vault.

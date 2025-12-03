@@ -10,7 +10,7 @@ module Azure::KeyVault2::Mgmt::V2018_02_14_preview
     #
     class Secret < Resource
 
-      include MsRestAzure
+      include MsRestAzure2
 
       # @return [SecretProperties] Properties of the secret
       attr_accessor :properties

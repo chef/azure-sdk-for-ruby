@@ -11,7 +11,7 @@ module Azure::KeyVault::Profiles::V2019_03_01_Hybrid
     # Client class for the V2019_03_01_Hybrid profile SDK.
     #
     class Client < KeyVaultManagementClass
-      include MsRestAzure::Common::Configurable
+      include MsRestAzure2::Common::Configurable
 
       #
       # Initializes a new instance of the Client class.
@@ -27,7 +27,7 @@ module Azure::KeyVault::Profiles::V2019_03_01_Hybrid
       #      options: options
       #    }
       #   'credentials' are optional and if not passed in the hash, will be obtained
-      #   from MsRest2::TokenCredentials using MsRestAzure::ApplicationTokenProvider.
+      #   from MsRest2::TokenCredentials using MsRestAzure2::ApplicationTokenProvider.
       #
       #   Also, base_url, active_directory_settings & options are optional.
       #

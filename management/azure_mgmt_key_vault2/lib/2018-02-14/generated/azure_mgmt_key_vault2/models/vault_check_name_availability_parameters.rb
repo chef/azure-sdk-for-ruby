@@ -10,7 +10,7 @@ module Azure::KeyVault2::Mgmt::V2018_02_14
     #
     class VaultCheckNameAvailabilityParameters
 
-      include MsRestAzure
+      include MsRestAzure2
 
       # @return [String] The vault name.
       attr_accessor :name

@@ -11,7 +11,7 @@ module Azure::KeyVault2::Mgmt::V2019_09_01
     #
     class PrivateLinkServiceConnectionState
 
-      include MsRestAzure
+      include MsRestAzure2
 
       # @return [PrivateEndpointServiceConnectionStatus] Indicates whether the
       # connection has been approved, rejected or removed by the key vault

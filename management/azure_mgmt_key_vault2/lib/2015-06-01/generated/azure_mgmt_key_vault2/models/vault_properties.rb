@@ -10,7 +10,7 @@ module Azure::KeyVault2::Mgmt::V2015_06_01
     #
     class VaultProperties
 
-      include MsRestAzure
+      include MsRestAzure2
 
       # @return [String] The URI of the vault for performing operations on keys
       # and secrets.

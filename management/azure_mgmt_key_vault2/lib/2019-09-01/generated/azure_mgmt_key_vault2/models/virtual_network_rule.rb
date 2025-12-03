@@ -11,7 +11,7 @@ module Azure::KeyVault2::Mgmt::V2019_09_01
     #
     class VirtualNetworkRule
 
-      include MsRestAzure
+      include MsRestAzure2
 
       # @return [String] Full resource id of a vnet subnet, such as
       # '/subscriptions/subid/resourceGroups/rg1/providers/Microsoft.Network/virtualNetworks/test-vnet/subnets/subnet1'.

@@ -10,7 +10,7 @@ module Azure::KeyVault2::Mgmt::V2019_09_01
     #
     class PrivateLinkResource < Resource
 
-      include MsRestAzure
+      include MsRestAzure2
 
       # @return [String] Group identifier of private link resource.
       attr_accessor :group_id

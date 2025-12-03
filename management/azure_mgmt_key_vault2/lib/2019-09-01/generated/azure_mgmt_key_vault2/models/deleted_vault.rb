@@ -10,7 +10,7 @@ module Azure::KeyVault2::Mgmt::V2019_09_01
     #
     class DeletedVault
 
-      include MsRestAzure
+      include MsRestAzure2
 
       # @return [String] The resource ID for the deleted key vault.
       attr_accessor :id
