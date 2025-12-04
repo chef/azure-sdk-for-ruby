@@ -51,7 +51,7 @@ module MsRestAzure2
     it 'should set msi_id for user assigned identity - using object_id' do
       id = '1234'
       token_provider = MSITokenProvider.new(50342, ActiveDirectoryServiceSettings.get_azure_settings, {:object_id => id})
-      expect(token_provider.send('object_id')).to eq(id)
+      expect(token_provider.send('identity_object_id')).to eq(id)
     end
 
     it 'should set msi_id for user assigned identity - using msi_res_id' do

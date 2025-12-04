@@ -26,7 +26,7 @@ module MsRestAzure2
     attr_accessor :client_id
 
     # @return [String] object id for user assigned managed identity
-    attr_accessor :object_id
+    attr_accessor :identity_object_id
 
     # @return [String] ms_res id for user assigned managed identity
     attr_accessor :msi_res_id
@@ -71,7 +71,7 @@ module MsRestAzure2
       @settings = settings
       if !msi_id.nil?
         @client_id = msi_id[:client_id] unless msi_id[:client_id].nil?
-        @object_id = msi_id[:object_id] unless msi_id[:object_id].nil?
+        @identity_object_id = msi_id[:object_id] unless msi_id[:object_id].nil?
         @msi_res_id = msi_id[:msi_res_id] unless msi_id[:msi_res_id].nil?
       end
 
@@ -101,7 +101,7 @@ module MsRestAzure2
     def acquire_token_from_imds_with_retry
       token_acquire_url = IMDS_TOKEN_ACQUIRE_URL.dup + "?" + append_header('resource', ERB::Util.url_encode(@settings.token_audience)) + '&' + append_header('api-version', '2018-02-01')
       token_acquire_url = (token_acquire_url + '&' + append_header('client_id', ERB::Util.url_encode(@client_id))) unless @client_id.nil?
-      token_acquire_url = (token_acquire_url + '&' + append_header('object_id', ERB::Util.url_encode(@object_id))) unless @object_id.nil?
+      token_acquire_url = (token_acquire_url + '&' + append_header('object_id', ERB::Util.url_encode(@identity_object_id))) unless @identity_object_id.nil?
       token_acquire_url = (token_acquire_url + '&' + append_header('msi_res_id', ERB::Util.url_encode(@msi_res_id))) unless @msi_res_id.nil?
       url = URI.parse(token_acquire_url)
 
@@ -180,7 +180,7 @@ module MsRestAzure2
       request_body = REQUEST_BODY_PATTERN.dup
       request_body['{resource_uri}'] = ERB::Util.url_encode(@settings.token_audience)
       request_body = set_msi_id(request_body, 'client_id', @client_id) unless @client_id.nil?
-      request_body = set_msi_id(request_body, 'object_id', @object_id) unless @object_id.nil?
+      request_body = set_msi_id(request_body, 'object_id', @identity_object_id) unless @identity_object_id.nil?
       request_body = set_msi_id(request_body, 'msi_res_id', @msi_res_id) unless @msi_res_id.nil?
 
       response = connection.post do |request|
