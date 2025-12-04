@@ -7,6 +7,7 @@ require_relative 'spec_helper'
 describe 'GraphRbacClient' do
   before(:each) do
     @resource_helper = ResourceHelper.new
+    skip 'Azure credentials not set' if @resource_helper.instance_variable_get(:@skip_tests)
     @graph_client = @resource_helper.graph_client
   end
 
@@ -42,7 +43,7 @@ describe 'GraphRbacClient' do
     user = @graph_client.users.create(user_param)
     expect(user).not_to be_nil
     expect(user).to be_a(Azure::GraphRbac2::V1_6::Models::User)
-    expect(user.object_id).not_to be_nil
+    expect(user.object_id_value).not_to be_nil
     expect(user.user_principal_name).to eq('sampleuser@student7.onmicrosoft.com')
     expect(user.display_name).to eq('Sample User')
   end

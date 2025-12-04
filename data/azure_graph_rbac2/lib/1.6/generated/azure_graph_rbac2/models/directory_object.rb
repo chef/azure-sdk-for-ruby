@@ -29,7 +29,7 @@ module Azure::GraphRbac2::V1_6
       attr_accessor :additional_properties
 
       # @return [String] The object ID.
-      attr_accessor :object_id
+      attr_accessor :object_id_value
 
       # @return [DateTime] The time at which the directory object was deleted.
       attr_accessor :deletion_timestamp
@@ -65,7 +65,7 @@ module Azure::GraphRbac2::V1_6
                   }
                 }
               },
-              object_id: {
+              object_id_value: {
                 client_side_validation: true,
                 required: false,
                 read_only: true,

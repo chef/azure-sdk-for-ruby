@@ -17,7 +17,7 @@ module Azure::GraphRbac2::V1_6
       attr_accessor :additional_properties
 
       # @return [String] The ID of the object.
-      attr_accessor :object_id
+      attr_accessor :object_id_value
 
       # @return [String] The type of AAD object.
       attr_accessor :object_type
@@ -104,7 +104,7 @@ module Azure::GraphRbac2::V1_6
                   }
                 }
               },
-              object_id: {
+              object_id_value: {
                 client_side_validation: true,
                 required: false,
                 serialized_name: 'objectId',
