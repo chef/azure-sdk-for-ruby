@@ -3,6 +3,6 @@
 # Licensed under the MIT License. See License.txt in the project root for license information.
 
 module Azure end
-module Azure::KeyVault end
-module Azure::KeyVault::Profiles end
-module Azure::KeyVault::Profiles::V2018_03_01 end
+module Azure::KeyVault2 end
+module Azure::KeyVault2::Profiles end
+module Azure::KeyVault2::Profiles::V2018_03_01 end

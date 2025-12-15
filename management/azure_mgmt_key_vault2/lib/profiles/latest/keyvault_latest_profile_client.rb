@@ -5,7 +5,7 @@
 require 'profiles/latest/keyvault_module_definition'
 require 'profiles/latest/modules/keyvault_profile_module'
 
-module Azure::KeyVault::Profiles::Latest
+module Azure::KeyVault2::Profiles::Latest
   module Mgmt
     #
     # Client class for the Latest profile SDK.

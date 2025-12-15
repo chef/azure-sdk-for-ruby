@@ -5,7 +5,7 @@
 require 'profiles/v2019_03_01_hybrid/keyvault_module_definition'
 require 'profiles/v2019_03_01_hybrid/modules/keyvault_profile_module'
 
-module Azure::KeyVault::Profiles::V2019_03_01_Hybrid
+module Azure::KeyVault2::Profiles::V2019_03_01_Hybrid
   module Mgmt
     #
     # Client class for the V2019_03_01_Hybrid profile SDK.

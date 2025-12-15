@@ -5,7 +5,7 @@
 require 'profiles/v2017_03_09/keyvault_module_definition'
 require 'profiles/v2017_03_09/modules/keyvault_profile_module'
 
-module Azure::KeyVault::Profiles::V2017_03_09
+module Azure::KeyVault2::Profiles::V2017_03_09
   module Mgmt
     #
     # Client class for the V2017_03_09 profile SDK.

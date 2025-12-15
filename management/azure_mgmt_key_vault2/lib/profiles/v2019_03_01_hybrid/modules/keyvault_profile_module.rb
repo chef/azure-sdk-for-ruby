@@ -4,7 +4,7 @@
 
 require 'azure_mgmt_key_vault2'
 
-module Azure::KeyVault::Profiles::V2019_03_01_Hybrid
+module Azure::KeyVault2::Profiles::V2019_03_01_Hybrid
   module Mgmt
     Vaults = Azure::KeyVault2::Mgmt::V2016_10_01::Vaults
     Operations = Azure::KeyVault2::Mgmt::V2016_10_01::Operations
