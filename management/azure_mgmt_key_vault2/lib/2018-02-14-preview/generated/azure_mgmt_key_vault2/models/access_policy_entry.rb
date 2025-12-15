@@ -20,7 +20,7 @@ module Azure::KeyVault2::Mgmt::V2018_02_14_preview
       # @return [String] The object ID of a user, service principal or security
       # group in the Azure Active Directory tenant for the vault. The object ID
       # must be unique for the list of access policies.
-      attr_accessor :object_id
+      attr_accessor :identity_object_id
 
       # @return  Application ID of the client making request on behalf of a
       # principal
@@ -52,7 +52,7 @@ module Azure::KeyVault2::Mgmt::V2018_02_14_preview
                   name: 'String'
                 }
               },
-              object_id: {
+              identity_object_id: {
                 client_side_validation: true,
                 required: true,
                 serialized_name: 'objectId',
