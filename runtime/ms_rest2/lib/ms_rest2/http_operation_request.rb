@@ -73,7 +73,7 @@ module MsRest2
           faraday.adapter Faraday.default_adapter
           logging = ENV['AZURE_HTTP_LOGGING'] || log
           if logging
-            faraday.response :logger, nil, { :bodies => logging == 'full' }
+            faraday.response :logger, { :bodies => logging == 'full' }
           end
         end
 
