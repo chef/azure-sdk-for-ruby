@@ -3163,17 +3163,17 @@
         ]
     },
     "data": {
-        "azure_graph_rbac": [
+        "azure_graph_rbac2": [
             {
                 "name": "Latest",
                 "resourceTypes": {
-                    "Microsoft.GraphRbac" : {
+                    "Microsoft.GraphRbac2" : {
                         "data": {
                             "1.6": ["*"]
                         }
                     }
                 },
-                "output_dir": "data/azure_graph_rbac/lib/profiles",
+                "output_dir": "data/azure_graph_rbac2/lib/profiles",
                 "individual_gem_profile": true
             }
         ],

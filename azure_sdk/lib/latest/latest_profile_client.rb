@@ -678,7 +678,7 @@ module Azure::Profiles::Latest
       end
     end
 
-    class GraphRbacAdapter < Azure::Profiles::Latest::GraphRbac::GraphRbacDataClass
+    class GraphRbacAdapter < Azure::Profiles::Latest::GraphRbac2::GraphRbacDataClass
 
       def initialize(context, base_url, options)
         super(context)

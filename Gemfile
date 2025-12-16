@@ -131,7 +131,7 @@ gem 'azure_mgmt_traffic_manager',           path: 'management/azure_mgmt_traffic
 gem 'azure_mgmt_web',                       path: 'management/azure_mgmt_web'
 gem 'azure_mgmt_vmware_cloudsimple',        path: 'management/azure_mgmt_vmware_cloudsimple'
 gem 'azure_cognitiveservices_anomalydetector',  path: 'data/azure_cognitiveservices_anomalydetector'
-gem 'azure_graph_rbac',                     path: 'data/azure_graph_rbac'
+gem 'azure_graph_rbac2',                     path: 'data/azure_graph_rbac2'
 gem 'azure_cognitiveservices_autosuggest',  path: 'data/azure_cognitiveservices_autosuggest'
 gem 'azure_cognitiveservices_customimagesearch',  path: 'data/azure_cognitiveservices_customimagesearch'
 gem 'azure_cognitiveservices_computervision',   path: 'data/azure_cognitiveservices_computervision'

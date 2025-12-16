@@ -340,11 +340,11 @@
       "module_require": "azure_mgmt_hybrid_compute"
     }
   },
-  "Microsoft.GraphRbac": {
+  "Microsoft.GraphRbac2": {
     "data": {
-      "path": "data/azure_graph_rbac",
-      "namespace": "Azure::GraphRbac",
-      "module_require": "azure_graph_rbac"
+      "path": "data/azure_graph_rbac2",
+      "namespace": "Azure::GraphRbac2",
+      "module_require": "azure_graph_rbac2"
     }
   },
   "Microsoft.ImportExport": {

@@ -177,7 +177,7 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency 'azure_cognitiveservices_websearch', "~>#{gem_versions['data']['azure_cognitiveservices_websearch']}"
   spec.add_runtime_dependency 'azure_cognitiveservices_visualsearch', "~>#{gem_versions['data']['azure_cognitiveservices_visualsearch']}"
   spec.add_runtime_dependency 'azure_event_grid', "~>#{gem_versions['data']['azure_event_grid']}"
-  spec.add_runtime_dependency 'azure_graph_rbac', "~>#{gem_versions['data']['azure_graph_rbac']}"
+  spec.add_runtime_dependency 'azure_graph_rbac2', "~>#{gem_versions['data']['azure_graph_rbac2']}"
   spec.add_runtime_dependency 'azure_key_vault', "~>#{gem_versions['data']['azure_key_vault']}"
   spec.add_runtime_dependency 'azure_service_fabric', "~>#{gem_versions['data']['azure_service_fabric']}"
   spec.add_runtime_dependency 'azure-storage', '~>0.14.0.preview'
